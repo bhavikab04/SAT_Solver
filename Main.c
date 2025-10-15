@@ -8,7 +8,7 @@
 
 #include "Task7.h" 
 int main() {
-    const char *test_expression = "!*p>qr";
+    const char *test_expression = "~*p>qr";
 
     printf("--- Main Test Function ---\n");
     printf("Testing with expression: %s\n", test_expression);
@@ -40,7 +40,7 @@ int main() {
     infix[pos] = '\0'; 
 
     free(infix);
-
+    // TreeNode *root_new = prefixToTree(test_expression);
     //Task 4:
     int height = calculateHeight(root);
     printf("\nThe calculated height of the tree is: %d\n", height);
@@ -55,7 +55,9 @@ int main() {
     int num_assignments = sizeof(assignments) / sizeof(assignments[0]);
 
     printf("With p=true, q=false, r=true...\n");
-
+    if (root == NULL){
+        printf("NULL node");
+    }
     bool result = evaluateTree(root, assignments, num_assignments);
     printf("The formula evaluates to: %s\n", result ? "true" : "false");
 

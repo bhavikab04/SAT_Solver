@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "Task5.h"
+#include "Task2.h" // For TreeNode and isAtom
+
 
 // This is the core recursive evaluation function.
 bool evaluateTree(TreeNode *root, const TruthAssignment assignments[], int num_assignments) {
@@ -22,25 +25,33 @@ bool evaluateTree(TreeNode *root, const TruthAssignment assignments[], int num_a
         exit(EXIT_FAILURE);
     }
 
-    // Recursive Step: Evaluate the children first.
-    bool leftValue = evaluateTree(root->left, assignments, num_assignments);
-    bool rightValue; // Only needed for binary operators
-
-    // Apply the operator at the current node to the results from the children.
+    // Recursive Step: Evaluate children based on the operator.
     switch (root->data) {
-        case '!': // NOT
-            return !leftValue;
-        case '*': // AND
-            rightValue = evaluateTree(root->right, assignments, num_assignments);
+        case '~': { // NOT
+            // A unary operator should have its child in a consistent location.
+            // We assume it's in root->right as requested.
+            // Your prefixToTree function MUST also place the child in root->right.
+            bool childValue = evaluateTree(root->right, assignments, num_assignments);
+            return !childValue;
+        }
+        case '*': { // AND
+            bool leftValue = evaluateTree(root->left, assignments, num_assignments);
+            bool rightValue = evaluateTree(root->right, assignments, num_assignments);
             return leftValue && rightValue;
-        case '+': // OR
-            rightValue = evaluateTree(root->right, assignments, num_assignments);
+        }
+        case '+': { // OR
+            bool leftValue = evaluateTree(root->left, assignments, num_assignments);
+            bool rightValue = evaluateTree(root->right, assignments, num_assignments);
             return leftValue || rightValue;
-        case '>': // IMPLIES (P -> Q is equivalent to !P or Q)
-            rightValue = evaluateTree(root->right, assignments, num_assignments);
+        }
+        case '>': { // IMPLIES (P -> Q is equivalent to !P or Q)
+            bool leftValue = evaluateTree(root->left, assignments, num_assignments);
+            bool rightValue = evaluateTree(root->right, assignments, num_assignments);
             return !leftValue || rightValue;
+        }
         default:
             fprintf(stderr, "Error: Unrecognized operator '%c' in the tree.\n", root->data);
             exit(EXIT_FAILURE);
     }
 }
+

@@ -34,7 +34,7 @@ void printTreeVertical(TreeNode *root) {
     printf("\nParse Tree Structure:\n");
     printf("%c\n", root->data);
     if (isUnary(root->data)) {
-        printTreeRecursiveHelper(root->left, "", true);
+        printTreeRecursiveHelper(root->right, "", true);
     } else if (isBinary(root->data)) {
         printTreeRecursiveHelper(root->left, "", false);
         printTreeRecursiveHelper(root->right, "", true);
