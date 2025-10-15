@@ -5,7 +5,7 @@
 #include "Task2.h" // We need the definition of TreeNode
 
 /**
- * @brief A structure to map a propositional atom (like 'p') to its truth value.
+ * @brief A structure to map a propositional atom to its truth value.
  */
 typedef struct TruthAssignment {
     char atom;
@@ -15,10 +15,8 @@ typedef struct TruthAssignment {
 /**
  * @brief Evaluates the truth value of a parse tree given truth values for its atoms.
  *
- * This function traverses the tree in a bottom-up (post-order) fashion.
- * It recursively evaluates the children of a node before applying the
- * operator at the node itself.
- *
+ * This function traverses the tree via post-order
+ * 
  * @param root A pointer to the root node of the parse tree.
  * @param assignments An array of TruthAssignment structs that provide the boolean
  * values for each atom in the formula.
@@ -27,4 +25,4 @@ typedef struct TruthAssignment {
  */
 bool evaluateTree(TreeNode *root, const TruthAssignment assignments[], int num_assignments);
 
-#endif // TASK5_H
+#endif 
