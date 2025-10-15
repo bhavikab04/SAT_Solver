@@ -2,329 +2,260 @@
 #include <stdlib.h>
 #include <string.h>
 
-// -----------------------------
-// Type Definitions
-// -----------------------------
-typedef enum {
-    ATOM,
-    NOT,
-    AND,
-    OR,
-    IMP
-} FormulaType;
+#include "Task2.h"
 
-typedef struct Formula {
-    FormulaType type;
-    char *symbol;   // For ATOMs only
-    struct Formula *left;
-    struct Formula *right;
-} Formula;
-
-// Function declarations (for the algorithm steps)
-Formula* IMPL_FREE(Formula *phi);
-Formula* NNF(Formula *phi);
-Formula* DISTR(Formula *eta1, Formula *eta2);
-Formula* CNF(Formula *phi);
-Formula* CNF_FORMULA(Formula *phi);
-
-// -----------------------------
-// Helper Functions (Memory Management and Utilities)
-// -----------------------------
-
-/**
- * @brief Creates a new formula node.
- * Arguments must be: Type, Symbol, Left Child, Right Child.
- */
-Formula* create_formula(FormulaType type, const char *sym, Formula *l, Formula *r) {
-    Formula f = (Formula) malloc(sizeof(Formula));
-    if (!f) {
-        perror("Memory allocation failed");
-        exit(EXIT_FAILURE);
-    }
-    f->type = type;
-    // strdup allocates memory for the string, or NULL if s is NULL
-    f->symbol = (sym != NULL) ? strdup(sym) : NULL;
-    f->left = l;
-    f->right = r;
-    return f;
+// Take a deep copy of a TreeNode structure
+TreeNode *copyTree(const TreeNode *root)
+{
+    if (!root)
+        return NULL;
+    TreeNode *new_node = create_tree_node(root->data);
+    new_node->left = copyTree(root->left);
+    new_node->right = copyTree(root->right);
+    return new_node;
 }
 
-/**
- * @brief Frees the memory for a formula and its subformulas recursively.
- */
-void free_formula(Formula *f) {
-    if (!f) return;
-    free_formula(f->left);
-    free_formula(f->right);
-    if (f->symbol) free(f->symbol);
-    free(f);
+/* Negation function: returns a new NOT node (~), with the copy of phi as its right child
+Convention: assume the right child is filled (consistent with lectures) */
+TreeNode *negate_tree(TreeNode *phi)
+{
+    TreeNode *negated = create_tree_node('~');
+    negated->right = copyTree(phi);
+    return negated;
 }
 
-/**
- * @brief Creates a deep copy of a formula (essential for generating new sub-trees).
- */
-Formula* copy_formula(const Formula *f) {
-    if (!f) return NULL;
-    // Pass four arguments to create_formula
-    return create_formula(f->type, f->symbol, copy_formula(f->left), copy_formula(f->right));
-}
-
-/**
- * @brief Creates a NOT formula for the given phi by copying the content.
- */
-Formula* negate_formula(Formula *phi) {
-    if (!phi) return NULL;
-    // Creates a new NOT node, using a deep copy of phi as the left child.
-    return create_formula(NOT, NULL, copy_formula(phi), NULL);
-}
-
-/**
- * @brief Check if a formula is a literal (atom or negated atom).
- */
-int is_literal(const Formula *phi) {
-    if (!phi) return 0;
-    if (phi->type == ATOM) return 1;
+// Check if a formula is a literal (atom or negated atom)
+bool isLiteral(const TreeNode *phi)
+{
+    if (!phi)
+        return false;
+    if (isAtom(phi->data))
+        return true;
     // Check if it's NOT applied directly to an ATOM
-    if (phi->type == NOT && phi->left && phi->left->type == ATOM) return 1;
-    return 0;
+    if (phi->data == '~' && phi->right && isAtom(phi->right->data))
+        return true;
+    return false;
 }
 
-/**
- * @brief Prints the formula using the requested symbols: ~, +, *, >.
- */
-void print_formula(const Formula *f) {
-    if (!f) return;
+// For a CNF output: print the output by recursive in order traversal
+void print_formula(const TreeNode *f)
+{
+    if (!f)
+        return;
 
-    switch (f->type) {
-        case ATOM:
-            printf("%s", f->symbol);
-            break;
-        case NOT:
-            printf("~");
-            print_formula(f->left);
-            break;
-        case AND:
-        case OR:
-        case IMP:
-            printf("(");
-            print_formula(f->left);
-            // MODIFICATION HERE: Use +, *, >
-            if (f->type == AND) printf(" * ");
-            else if (f->type == OR) printf(" + ");
-            else printf(" > ");
-            print_formula(f->right);
-            printf(")");
-            break;
+    if (isAtom(f->data))
+    {
+        printf("%c", f->data);
+    }
+    else if (f->data == '~')
+    {
+        printf("~");
+        print_formula(f->right);
+    }
+    else
+    { // Binary operators: AND ('*'), OR ('+'), IMP ('>')
+        printf("(");
+        print_formula(f->left);
+        printf(" %c ", f->data);
+        print_formula(f->right);
+        printf(")");
     }
 }
 
-// -----------------------------
-// 1. IMPL_FREE (Eliminate Implication: psi -> eta becomes ~psi + eta)
-// -----------------------------
-Formula* IMPL_FREE(Formula *phi) {
-    if (!phi) return NULL;
+// Core Algorithms:
 
-    switch (phi->type) {
-        case ATOM:
-            return copy_formula(phi);
+// Implication free/elimination function:
+// Like: psi -> eta becomes NOT(psi) OR eta (as in: ~psi + eta)
+//--------------1. IMPL_FREE()--------------------
 
-        case NOT:
-            return create_formula(NOT, NULL, IMPL_FREE(phi->left), NULL);
+TreeNode *IMPL_FREE(TreeNode *phi)
+{
+    if (!phi)
+        return NULL;
 
-        case AND:
-            return create_formula(AND, NULL, IMPL_FREE(phi->left), IMPL_FREE(phi->right));
+    // Base Case: Atom
+    if (isAtom(phi->data))
+    {
+        return copyTree(phi);
+    }
 
-        case OR:
-            return create_formula(OR, NULL, IMPL_FREE(phi->left), IMPL_FREE(phi->right));
+    switch (phi->data)
+    {
+    case '~':
+        // Unary operator: Recurse on the right child
+        return create_tree_node('~', NULL, IMPL_FREE(phi->right));
 
-        case IMP: {
-            // psi -> eta becomes (~psi + eta)
-            Formula *psi_free = IMPL_FREE(phi->left);
-            Formula *eta_free = IMPL_FREE(phi->right);
-            
-            // Create the ~psi part
-            Formula *not_psi = negate_formula(psi_free); 
-            
-            // Create the final OR node
-            Formula *result = create_formula(OR, NULL, not_psi, eta_free);
+    case '*': // AND
+    case '+': // OR
+        // Binary operator: Recurse on both children
+        return create_tree_node(phi->data, IMPL_FREE(phi->left), IMPL_FREE(phi->right));
 
-            // Free the copy created by IMPL_FREE which was copied again in negate_formula
-            free_formula(psi_free);
-            
+    case '>': // IMPLICATION: A > B -> (~A + B)
+    {
+        TreeNode *a_free = IMPL_FREE(phi->left);
+        TreeNode *b_free = IMPL_FREE(phi->right);
+
+        TreeNode *not_a = negate_tree(a_free); // Creates ~A
+
+        // Result: OR node (+)
+        TreeNode *result = create_tree_node('+', not_a, b_free);
+
+        freeTree(a_free); // Free the copy that was used by negate_tree
+
+        return result;
+    }
+    }
+    return NULL;
+}
+
+//------------------2. NNF()-------------------------
+// Convert to Negation Normal form:
+
+TreeNode *NNF(TreeNode *phi)
+{
+    if (!phi)
+        return NULL;
+    if (isLiteral(phi))
+        return copyTree(phi);
+
+    switch (phi->data)
+    {
+    case '*': // AND
+    case '+': // OR
+        // Recurse down for non-negated binary operators
+        return create_tree_node(phi->data, NNF(phi->left), NNF(phi->right));
+
+    case '~':
+    {
+        TreeNode *inner = phi->right;
+        if (!inner)
+            return NULL;
+
+        if (inner->data == '~')
+        {
+            // Rule: ~~A -> A (Double Negation)
+            return NNF(inner->right);
+        }
+
+        if (inner->data == '*')
+        {
+            // Rule: ~(A * B) -> ~A + ~B (De Morgan's Law 1)
+            TreeNode *l = negate_tree(inner->left);
+            TreeNode *r = negate_tree(inner->right);
+            TreeNode *temp_or = create_tree_node('+', l, r);
+            TreeNode *result = NNF(temp_or);
+            freeTree(temp_or);
             return result;
         }
-    }
-    return NULL;
-}
 
-// -----------------------------
-// 2. NNF (Convert to Negation Normal Form)
-// -----------------------------
-Formula* NNF(Formula *phi) {
-    if (!phi) return NULL;
-    if (is_literal(phi)) return copy_formula(phi);
-
-    switch (phi->type) {
-        case AND:
-            return create_formula(AND, NULL, NNF(phi->left), NNF(phi->right));
-
-        case OR:
-            return create_formula(OR, NULL, NNF(phi->left), NNF(phi->right));
-
-        case NOT: {
-            Formula *inner = phi->left;
-            if (!inner) return NULL;
-
-            if (inner->type == NOT) {
-                // ~ (~A) -> A
-                return NNF(inner->left);
-            }
-
-            if (inner->type == AND) {
-                // ~ (A * B) -> ~A + ~B (De Morgan's 1)
-                Formula *l = negate_formula(inner->left);
-                Formula *r = negate_formula(inner->right);
-                Formula *temp_or = create_formula(OR, NULL, l, r);
-                Formula *result = NNF(temp_or);
-                free_formula(temp_or);
-                return result;
-            }
-
-            if (inner->type == OR) {
-                // ~ (A + B) -> ~A * ~B (De Morgan's 2)
-                Formula *l = negate_formula(inner->left);
-                Formula *r = negate_formula(inner->right);
-                Formula *temp_and = create_formula(AND, NULL, l, r);
-                Formula *result = NNF(temp_and);
-                free_formula(temp_and);
-                return result;
-            }
-            break; 
+        if (inner->data == '+')
+        {
+            // Rule: ~(A + B) -> ~A * ~B (De Morgan's Law 2)
+            TreeNode *l = negate_tree(inner->left);
+            TreeNode *r = negate_tree(inner->right);
+            TreeNode *temp_and = create_tree_node('*', l, r);
+            TreeNode *result = NNF(temp_and);
+            freeTree(temp_and);
+            return result;
         }
-        case ATOM: 
-        case IMP: 
-            return copy_formula(phi); 
+        break;
+    }
     }
     return NULL;
 }
 
-// -----------------------------
-// 3. DISTR (Distribute OR over AND: eta1 + (eta21 * eta22) -> (eta1 + eta21) * (eta1 + eta22))
-// -----------------------------
-Formula* DISTR(Formula *eta1, Formula *eta2) {
-    if (!eta1 || !eta2) return NULL;
+//-------------------3. DISTR()----------------------
+// Distribute Or over AND
+// Like: eta1 + (eta21 * eta22) -> (eta1 + eta21) * (eta1 + eta22))
+TreeNode *DISTR(TreeNode *eta1, TreeNode *eta2)
+{
+    if (!eta1 || !eta2)
+        return NULL;
 
     // Case 1: (eta11 * eta12) + eta2
-    if (eta1->type == AND) {
-        Formula *a = DISTR(eta1->left, eta2);
-        Formula *b = DISTR(eta1->right, eta2);
-        return create_formula(AND, NULL, a, b);
+    if (eta1->data == '*')
+    {
+        // (A * B) + C -> (A + C) * (B + C)
+        TreeNode *a = DISTR(eta1->left, eta2);
+        TreeNode *b = DISTR(eta1->right, eta2);
+        return create_tree_node('*', a, b);
     }
 
     // Case 2: eta1 + (eta21 * eta22)
-    if (eta2->type == AND) {
-        Formula *a = DISTR(eta1, eta2->left);
-        Formula *b = DISTR(eta1, eta2->right);
-        return create_formula(AND, NULL, a, b);
+    if (eta2->data == '*')
+    {
+        // A + (B * C) -> (A + B) * (A + C)
+        TreeNode *a = DISTR(eta1, eta2->left);
+        TreeNode *b = DISTR(eta1, eta2->right);
+        return create_tree_node('*', a, b);
     }
 
-    // Case 3: Otherwise (eta1 + eta2 is a single clause)
-    return create_formula(OR, NULL, eta1, eta2);
+    // Case 3: Otherwise (eta1 + eta2 is a simple OR clause/literal)
+    return create_tree_node('+', copyTree(eta1), copyTree(eta2));
 }
 
-// -----------------------------
-// 4. CNF (Main Conversion Routine)
-// -----------------------------
-Formula* CNF(Formula *phi) {
-    if (!phi) return NULL;
-    if (is_literal(phi)) return copy_formula(phi);
+// CNF Main function: applies distribution recursively
+TreeNode *CNF(TreeNode *phi)
+{
+    if (!phi)
+        return NULL;
 
-    switch (phi->type) {
-        case AND:
-            // Conjunction of CNF formulas is CNF
-            return create_formula(AND, NULL, CNF(phi->left), CNF(phi->right));
+    if (isLiteral(phi))
+        return copyTree(phi);
 
-        case OR: {
-            // Apply distribution after converting sub-formulas to CNF
-            Formula *l = CNF(phi->left);
-            Formula *r = CNF(phi->right);
-            return DISTR(l, r);
-        }
+    switch (phi->data)
+    {
+    case '*': // AND
+        // A conjunction of CNF formulas is CNF
+        return create_tree_node('*', CNF(phi->left), CNF(phi->right));
 
-        case ATOM: 
-        case NOT: 
-        case IMP: 
-            return copy_formula(phi); 
+    case '+': // OR
+    {
+        // Apply distribution after ensuring sub-formulas are CNF
+        TreeNode *l = CNF(phi->left);
+        TreeNode *r = CNF(phi->right);
+        TreeNode *result = DISTR(l, r);
+
+        // DISTR returns a new tree structure, so we must free the CNF sub-results
+        // (l and r are not needed anymore after DISTR consumes their structure).
+        freeTree(l);
+        freeTree(r);
+
+        return result;
+    }
+
+        // All other cases (atoms, NOT) are handled by isLiteral check at the start.
     }
     return NULL;
 }
 
-// -----------------------------
-// 5. CNF_FORMULA (Driver Function)
-// -----------------------------
-Formula* CNF_FORMULA(Formula *phi) {
-    if (!phi) return NULL;
+// CNF Driver function: contains all steps to get a CNF expression
+TreeNode *CNF_FORMULA(TreeNode *phi)
+{
+    if (!phi)
+        return NULL;
 
     // 1. IMPL_FREE
-    Formula *no_imp = IMPL_FREE(phi);
-    printf("1. IMPL_FREE: "); 
+    TreeNode *no_imp = IMPL_FREE(phi);
+    printf("1. IMPL_FREE: ");
     print_formula(no_imp);
     printf("\n");
 
     // 2. NNF
-    Formula *nnf = NNF(no_imp);
-    printf("2. NNF: "); 
+    TreeNode *nnf = NNF(no_imp);
+    printf("2. NNF: ");
     print_formula(nnf);
     printf("\n");
 
     // 3. CNF
-    Formula *cnf = CNF(nnf);
-    printf("3. CNF: "); 
+    TreeNode *cnf = CNF(nnf);
+    printf("3. CNF: ");
     print_formula(cnf);
     printf("\n");
 
     // Free intermediate results
-    free_formula(no_imp);
-    free_formula(nnf);
+    freeTree(no_imp);
+    freeTree(nnf);
 
     return cnf;
-}
-
-
-// -----------------------------
-// Main Example (Exercise: r > (s > (t * s > r)))
-// -----------------------------
-int main() {
-    // Build the formula: r > (s > ((t * s) > r))
-
-    // 1. t * s
-    Formula *t_and_s = create_formula(AND, NULL, 
-                                     create_formula(ATOM, "t", NULL, NULL), 
-                                     create_formula(ATOM, "s", NULL, NULL));
-    
-    // 2. (t * s) > r
-    Formula *part1 = create_formula(IMP, NULL, t_and_s, 
-                                    create_formula(ATOM, "r", NULL, NULL));
-    
-    // 3. s > ((t * s) > r)
-    Formula *part2 = create_formula(IMP, NULL, 
-                                    create_formula(ATOM, "s", NULL, NULL), 
-                                    part1);
-
-    // 4. r > (s > ((t * s) > r))
-    Formula *phi = create_formula(IMP, NULL, 
-                                  create_formula(ATOM, "r", NULL, NULL), 
-                                  part2);
-
-    printf("Original Formula: ");
-    print_formula(phi);
-    printf("\n\n");
-    
-    Formula *cnf_result = CNF_FORMULA(phi);
-    
-    // Clean up all memory
-    free_formula(phi);          // Free the original input
-    free_formula(cnf_result);   // Free the final CNF result
-
-    return 0;
 }

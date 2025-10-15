@@ -41,7 +41,7 @@ Formula *CNF_FORMULA(Formula *phi);
 
 // Helper functions:
 // Create formula node by allocating memory and initializing fields:
-Formula *create_formula(FormulaType type, const char *sym, Formula *l, Formula *r);
+Formula *create_formula(FormulaType type, const char *sym, Formula *lhs, Formula *rhs);
 
 // Free formula using post-order traversal:
 void free_formula(Formula *f);
