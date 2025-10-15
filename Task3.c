@@ -3,12 +3,12 @@
 #include <string.h>
 #include <ctype.h>
 
-typedef struct Node
+/* typedef struct Node
 {
     char data;
     struct Node *left;  // Points to Binary ops
     struct Node *right; // Points to all all ops
-} Node;
+} Node; */
 
 // Operators:
 int isBinaryOp(char c)
@@ -19,59 +19,6 @@ int isBinaryOp(char c)
 int isUnaryOp(char c)
 {
     return (c == '~');
-}
-
-/* Create a new tree node:
-    -> Allocate memory to node
-    -> Initialize data and child pointers to null
- */
-
-Node *createNode(char data)
-{
-    // Allocate memory to the size of the node
-    Node *newNode = (Node *)malloc(sizeof(Node));
-    if (newNode == NULL)
-    {
-        perror("Memory allocation failed");
-        exit(EXIT_FAILURE);
-    }
-
-    newNode->data = data;
-    newNode->left = NULL;
-    newNode->right = NULL;
-    return newNode;
-}
-
-Node *buildParseTree(const char *prefix, int *index)
-{
-    // skip (so increase index) whitespaces while ensuring that it isn't the end of the string '\0'
-    // isspace return type:
-    // 0 for non-whitespace chars
-    // non-zero for whitespace chars
-    while (prefix[*index] != '\0' && isspace(prefix[*index]))
-        *index++;
-
-    // If end of the string has been reached: return null
-    if (prefix[*index] == '\0')
-        return NULL;
-
-    char value = prefix[(*index)++];
-    Node *root = createNode(value);
-
-    // Recursive building function:
-    if (isBinaryOp(value))
-    {
-        // That means it has 2 operands: so it has a left and a right child
-        root->left = buildParseTree(prefix, index);
-        root->right = buildParseTree(prefix, index);
-    }
-    else if (isUnaryOp(value))
-    {
-        // Only 1 operand so by convention we take it to be the right child
-        root->right = buildParseTree(prefix, index);
-    }
-
-    return root;
 }
 
 // Inorder traversal:
@@ -127,3 +74,31 @@ void inOrderTraversal(Node *root, char *bufferStr, int *position)
         bufferStr[(*position)++] = root->data;
     }
 }
+
+int getExpLength(Node* root) {
+    //Stop recursion condition:
+    if (root == NULL) {
+        return 0;
+    }
+
+    // Leaf node (Operand): 1 char
+    if (root->left == NULL && root->right == NULL) {
+        return 1; 
+    }
+
+    //Recursive functions to calculate length:
+    // Unary Operator (!A): 2 chars ('(', '!', ')') + Length(A)
+    if (isUnaryOp(root->data)) {
+        // Unary operator uses the right child for its single operand
+        return 2 + getExpLength(root->right); 
+    }
+
+    // Binary Operator ((A + B)): 4 chars ('(', ' ', OP, ' ', ')') + Length(A) + Length(B)
+    if (isBinaryOp(root->data)) {
+        return 4 + getExpLength(root->left) + getExpnLength(root->right);
+    }
+    
+    return 0;
+}
+
+//If code has to be optimised further: free the allocated memory for tree
