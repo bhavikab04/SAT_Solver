@@ -4,6 +4,7 @@
 // Include the headers for all modules
 #include "Task2.h"
 #include "Task4.h"
+#include "Task3.h"
 #include "Task5.h" // <-- Added this include
 
 int main() {
@@ -13,6 +14,7 @@ int main() {
     printf("--- Main Test Function ---\n");
     printf("Testing with expression: %s\n", test_expression);
 
+    //Task 2:
     // 1. Build the tree using the function from Task2.c
     TreeNode *root = prefixToTree(test_expression);
 
@@ -24,7 +26,22 @@ int main() {
     // 2. Print the tree structure using the function from Task2.c
     printTreeVertical(root);
 
-    // 3. Calculate the height using the function from Task4.c
+    //Task 3:
+    //3. Find buffer length to allocate memory and traverse the tree using function from Task3.c
+    printf("\n--- Infix Expression Reconstruction (In-order Traversal) ---\n");
+
+    int bufferLength = getExpLength(root);
+    char* infix = (char*)malloc(bufferLength+1);
+
+    if (!infix){
+        printf("Memory allocation failed for infix buffer string\n");
+    }
+    int pos = 0;
+    inOrderTraversal(root, infix, &pos); //position pointer
+    infix[pos] = '\0'; //Terminate the string
+
+    //Task 4:
+    // 4. Calculate the height using the function from Task4.c
     int height = calculateHeight(root);
     printf("\nThe calculated height of the tree is: %d\n", height);
 
@@ -42,10 +59,11 @@ int main() {
 
     printf("With p=true, q=false, r=true...\n");
 
-    // 4. Call the evaluation function from Task5.c
+    //Task 5:
+    // 5. Call the evaluation function from Task5.c
     bool result = evaluateTree(root, assignments, num_assignments);
 
-    // 5. Print the final boolean result
+    // 6. Print the final boolean result
     printf("The formula evaluates to: %s\n", result ? "true" : "false");
 
     // Note: A complete program should also include a function to free
