@@ -5,57 +5,36 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Type definitions:
-typedef enum
-{
-    ATOM,
-    NOT,
-    AND,
-    OR,
-    IMP
-} FormulaType;
-
-typedef struct Formula
-{
-    FormulaType type;
-    char *symbol; // For ATOMs only (e.g., "p", "q")
-    struct Formula *left;
-    struct Formula *right;
-} Formula;
+#include "Task2.h" //need it for struct and isAtom() function
+#include "Task3.h" //need it for freeTree() function
+#include "Task5.h" //need it for create_tree_node() function
 
 // Core Algorithms:
 // Implication free algorithm:
-Formula *IMPL_FREE(Formula *phi);
+TreeNode *IMPL_FREE(TreeNode *phi);
 
 // Negation normal form function:
-Formula *NNF(Formula *phi);
+TreeNode *NNF(TreeNode *phi);
 
 // Distibutive function:
-Formula *DISTR(Formula *eta1, Formula *eta2);
+TreeNode *DISTR(TreeNode *eta1, TreeNode *eta2);
 
 // Main function to convert NNF to CNF and recursively applies distributuion function
-Formula *CNF(Formula *phi);
+TreeNode *CNF(TreeNode *phi);
 
 // Driver function that executes 3 steps: IMPL_FREE, NNF and CNF
-Formula *CNF_FORMULA(Formula *phi);
+TreeNode *CNF_FORMULA(TreeNode *phi);
 
-// Helper functions:
-// Create formula node by allocating memory and initializing fields:
-Formula *create_formula(FormulaType type, const char *sym, Formula *lhs, Formula *rhs);
-
-// Free formula using post-order traversal:
-void free_formula(Formula *f);
-
-// Function to copy formula:
-Formula *copy_formula(const Formula *f);
+// Function to take a deep copy of the TreeNode structure:
+TreeNode *copyTree(const TreeNode *root);
 
 // Function to negate formula:
-Formula *negate_formula(Formula *phi);
+TreeNode *negate_tree(TreeNode *phi);
 
-// Function to check if it's a literal:
-int is_literal(const Formula *phi);
+// Function to check if it's a literal (atom or negated atom):
+bool isLiteral(const TreeNode *phi);
 
-// Function to print the formula:
-void print_formula(const Formula *f);
+// Function to print the output by recursive in order traversal
+void print_formula(const TreeNode *f);
 
 #endif
