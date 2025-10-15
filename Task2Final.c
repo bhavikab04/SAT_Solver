@@ -61,7 +61,7 @@ TreeNode* prefixToTree(const char *expr) {
 }
 
 // -------------------------------
-//   Print Tree (Rooted View)
+//   Print Tree (Rooted Vertical View)
 // -------------------------------
 void printTreeVertical(TreeNode *root, const char *prefix, bool isLeftChild) {
     if (root == NULL)
@@ -82,14 +82,15 @@ void printTreeVertical(TreeNode *root, const char *prefix, bool isLeftChild) {
 }
 
 // -------------------------------
-//   Demonstration
+//   Main Function (Takes Input)
 // -------------------------------
 int main() {
-    const char *prefix_expr = "!*p>qr";
-    indexPos = 0;
+    char prefix_expr[100];
 
-    printf("--- Task 2: Prefix to Parse Tree ---\n");
-    printf("Input Prefix: %s\n", prefix_expr);
+    printf("Enter a prefix expression: ");
+    scanf("%s", prefix_expr);
+
+    indexPos = 0;
 
     TreeNode *root = prefixToTree(prefix_expr);
     if (!root) {
@@ -97,8 +98,10 @@ int main() {
         return 0;
     }
 
-    printf("Root node: %c\n", root->data);
-    printf("\nParse Tree Structure:\n");
+    printf("\n--- Prefix to Rooted Binary Parse Tree ---\n");
+    printf("Input Prefix: %s\n", prefix_expr);
+    printf("Root Node: %c\n", root->data);
+    printf("\nParse Tree Structure (Rooted View):\n");
 
     printf("%c\n", root->data);
     char prefix[] = "";
@@ -109,5 +112,6 @@ int main() {
         printTreeVertical(root->left, prefix, false);
         printTreeVertical(root->right, prefix, true);
     }
+
     return 0;
 }
