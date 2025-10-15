@@ -56,7 +56,7 @@ static TreeNode* buildTreeRecursive(const char *expr) {
         node->left = buildTreeRecursive(expr);
         node->right = buildTreeRecursive(expr);
     } else if (isUnary(ch)) {
-        node->left = buildTreeRecursive(expr);
+        node->right = buildTreeRecursive(expr);
     }
     return node;
 }
