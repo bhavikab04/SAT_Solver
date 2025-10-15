@@ -3,12 +3,13 @@
 #include <string.h>
 #include <ctype.h>
 
-/* typedef struct Node
-{
+/* 
+from task2.h:
+typedef struct TreeNode {
     char data;
-    struct Node *left;  // Points to Binary ops
-    struct Node *right; // Points to all all ops
-} Node; */
+    struct TreeNode *left;
+    struct TreeNode *right;
+} TreeNode; */
 
 // Operators:
 int isBinaryOp(char c)
@@ -32,7 +33,7 @@ int isUnaryOp(char c)
 -> bufferStr: a string buffer that updates the expression recursively. Will contain final infix expression
 -> position: gives current position in the buffer string.
  */
-void inOrderTraversal(Node *root, char *bufferStr, int *position)
+void inOrderTraversal(TreeNode *root, char *bufferStr, int *position)
 {
     if (root == NULL)
     {
@@ -75,7 +76,7 @@ void inOrderTraversal(Node *root, char *bufferStr, int *position)
     }
 }
 
-int getExpLength(Node* root) {
+int getExpLength(TreeNode* root) {
     //Stop recursion condition:
     if (root == NULL) {
         return 0;
@@ -102,7 +103,7 @@ int getExpLength(Node* root) {
 }
 
 //To optimize the code further: free the allocated memory for tree (using post order traversal)
-void freeTree(Node *root)
+void freeTree(TreeNode *root)
 {
     if (root == NULL)
     {
