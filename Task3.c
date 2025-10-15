@@ -96,7 +96,7 @@ int getExpLength(TreeNode* root) {
 
     // Binary Operator ((A + B)): 4 chars ('(', ' ', OP, ' ', ')') + Length(A) + Length(B)
     if (isBinaryOp(root->data)) {
-        return 4 + getExpLength(root->left) + getExpnLength(root->right);
+        return 4 + getExpLength(root->left) + getExpLength(root->right);
     }
     
     return 0;
