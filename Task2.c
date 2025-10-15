@@ -79,7 +79,7 @@ static bool isBinary(char c) {
 }
 
 static bool isUnary(char c) {
-    return (c == '!');
+    return (c == '~');
 }
 
 static void printTreeRecursiveHelper(TreeNode *root, const char *prefix, bool isLeftChild) {
