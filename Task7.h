@@ -2,7 +2,6 @@
 #define CNF_VALIDATOR_H
 
 #include <stdbool.h> // For the bool type
-#include "Task7.h"
 /**
  * @brief Checks if a given CNF formula string is valid.
  *

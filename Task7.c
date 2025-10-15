@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <ctype.h>
-
+#include "Task7.h"
 // --- Forward Declarations ---
 bool checkClause(char* clause);
 char* trimWhitespace(char* str);

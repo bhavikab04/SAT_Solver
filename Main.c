@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h> 
+#include <stdlib.h>
 #include "Task2.h"
 #include "Task4.h"
 #include "Task3.h"
 #include "Task5.h" 
 
+#include "Task7.h" 
 int main() {
     const char *test_expression = "!*p>qr";
 
@@ -56,6 +58,22 @@ int main() {
 
     bool result = evaluateTree(root, assignments, num_assignments);
     printf("The formula evaluates to: %s\n", result ? "true" : "false");
+
+    //Task 7:
+    printf("\n--- Testing CNF Validity (Task 7) ---\n");
+    
+    const char* cnf_formula_valid = "p|q|~p & ~q|r|q";
+    const char* cnf_formula_invalid = "a | b & c | ~b";
+
+    printf("Checking formula: \"%s\"\n", cnf_formula_valid);
+    bool cnf_result_1 = isValidCNF(cnf_formula_valid);
+    printf("Is the formula valid? %s\n\n", cnf_result_1 ? "Yes" : "No");
+
+    printf("Checking formula: \"%s\"\n", cnf_formula_invalid);
+    bool cnf_result_2 = isValidCNF(cnf_formula_invalid);
+    printf("Is the formula valid? %s\n", cnf_result_2 ? "Yes" : "No");
+    
+    freeTree(root);
 
     return 0; 
 }
