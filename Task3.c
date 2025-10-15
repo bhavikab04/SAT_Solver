@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
+#include "Task2.h"
 /* 
 from task2.h:
 typedef struct TreeNode {
