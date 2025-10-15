@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Task2.h"
-
 // Take a deep copy of a TreeNode structure
 TreeNode *copyTree(const TreeNode *root)
 {
