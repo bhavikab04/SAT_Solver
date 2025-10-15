@@ -30,10 +30,14 @@ int main() {
 
     if (!infix){
         printf("Memory allocation failed for infix buffer string\n");
+        freeTree(root);
+        return 1;
     }
     int pos = 0;
     inOrderTraversal(root, infix, &pos); 
     infix[pos] = '\0'; 
+
+    free(infix);
 
     //Task 4:
     int height = calculateHeight(root);
