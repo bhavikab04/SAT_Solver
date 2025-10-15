@@ -101,4 +101,15 @@ int getExpLength(Node* root) {
     return 0;
 }
 
-//If code has to be optimised further: free the allocated memory for tree
+//To optimize the code further: free the allocated memory for tree (using post order traversal)
+void freeTree(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    freeTree(root->left);
+    freeTree(root->right);
+    free(root);
+}
+
