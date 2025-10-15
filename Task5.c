@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "Task5.h"
-#include "Task2.h" // For TreeNode and isAtom
+#include "Task2.h" 
 
 
-// This is the core recursive evaluation function.
+// recursive evaluation function.
 bool evaluateTree(TreeNode *root, const TruthAssignment assignments[], int num_assignments) {
     // Base Case: If the node is null, we can't evaluate it. This is an error condition.
     if (root == NULL) {
@@ -13,14 +13,14 @@ bool evaluateTree(TreeNode *root, const TruthAssignment assignments[], int num_a
         exit(EXIT_FAILURE);
     }
 
-    // Base Case: If the node is an atom (a leaf), find its truth value.
+    // Base Case: If the node is a leaf, find its truth value.
     if (isAtom(root->data)) {
         for (int i = 0; i < num_assignments; i++) {
             if (assignments[i].atom == root->data) {
                 return assignments[i].value;
             }
         }
-        // If we get here, the atom's value wasn't provided.
+        // If we get here, the leaf's value wasn't provided.
         fprintf(stderr, "Error: Truth value for atom '%c' not found.\n", root->data);
         exit(EXIT_FAILURE);
     }
