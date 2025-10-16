@@ -61,6 +61,31 @@ int main() {
     bool result = evaluateTree(root, assignments, num_assignments);
     printf("The formula evaluates to: %s\n", result ? "true" : "false");
 
+// Task 6: Convert the formula to CNF form
+//-------------------------------------------------------------
+printf("\n--- Testing CNF Conversion (Task 6) ---\n");
+
+// Pass the root of the existing parse tree to the CNF conversion function.
+// The CNF_FORMULA() function will create and return a new tree 
+// that represents the formula in CNF (Conjunctive Normal Form).
+TreeNode *cnf_root = CNF_FORMULA(root);
+
+if (cnf_root) {
+    printf("\nCNF Conversion Complete.\n");
+    printf("Here’s the final CNF formula (conversion steps were shown above):\n");
+    
+    // Print the converted CNF formula neatly
+    print_formula(cnf_root);
+    printf("\n");
+    
+    // Free up the memory used by the new CNF tree to avoid memory leaks
+    freeTree(cnf_root); 
+} else {
+    printf("CNF conversion failed. Something went wrong during processing.\n");
+}
+//-------------------------------------------------------------
+
+
     //Task 7:
     printf("\n--- Testing CNF Validity (Task 7) ---\n");
     
