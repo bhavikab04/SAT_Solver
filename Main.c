@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h> 
 #include <stdlib.h>
+#include "Task1.c"
 #include "Task2.h"
 #include "Task4.h"
 #include "Task3.h"
@@ -15,14 +16,38 @@ int main() {
 
     //Task 2:
 
-    TreeNode *root = prefixToTree(test_expression);
+// ... input reading logic ...
 
-    if (!root) {
-        printf("Tree construction failed. Exiting.\n");
-        return 1; 
+    Stack* prefix_stack = task1_infixToPrefix(buffer);
+
+    if (prefix_stack) {
+        printf("\n--- Task 1 Result ---\n");
+        // NOTE: The stack is printed by popping, which consumes it.
+        // We must *replicate* the stack if we want to print AND use it for Task 2.
+        // For simplicity, let's assume Task 1's main prints it first.
+        
+        // ... (Code to print prefix and free/re-create the stack, OR a simpler approach) ...
+
+        printf("\n--- Task 2 Execution ---\n");
+        // ** The prefixToTree function will consume (pop) the stack.**
+        TreeNode* root = prefixToTree(prefix_stack); 
+
+        if (root) {
+            printTreeVertical(root);
+            // TODO: Add function to free the tree memory (not shown here)
+        } else {
+            printf("Failed to build the parse tree.\n");
+        }
+        
+        // Since prefixToTree consumed the stack, freeStack only frees the remaining structure/memory.
+        // If the stack was completely consumed (which it should be), this is safe.
+        freeStack(prefix_stack); 
+    } else {
+        printf("Failed to convert the expression.\n");
     }
 
-    printTreeVertical(root);
+    return 0;
+}
 
     //Task 3:
     printf("\n--- Infix Expression Reconstruction (In-order Traversal) ---\n");
