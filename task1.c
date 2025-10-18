@@ -2,9 +2,77 @@
 #include <stdlib.h>
 #include <string.h>
 
+// --- Stack Structure Definition ---
+typedef struct {
+    char* data;    // Array to hold stack data
+    int top;       // Index of the top element
+    int capacity;  // Max size of the stack
+} Stack;
+
+/**
+ * @brief Creates a new stack with a given capacity.
+ */
+Stack* createStack(int capacity) {
+    Stack* stack = (Stack*)malloc(sizeof(Stack));
+    if (!stack) {
+        fprintf(stderr, "Memory allocation failed for stack struct\n");
+        return NULL;
+    }
+    stack->data = (char*)malloc(sizeof(char) * capacity);
+    if (!stack->data) {
+        fprintf(stderr, "Memory allocation failed for stack data\n");
+        free(stack);
+        return NULL;
+    }
+    stack->capacity = capacity;
+    stack->top = -1; // Stack is initially empty
+    return stack;
+}
+
+/**
+ * @brief Checks if the stack is empty.
+ */
+int isEmpty(Stack* stack) {
+    return stack->top == -1;
+}
+
+/**
+ * @brief Pushes a character onto the stack.
+ */
+void push(Stack* stack, char item) {
+    if (stack->top >= stack->capacity - 1) {
+        // This should not happen given our pre-allocation
+        fprintf(stderr, "Stack overflow error\n");
+        return;
+    }
+    stack->data[++stack->top] = item;
+}
+
+/**
+ * @brief Pops a character from the stack.
+ */
+char pop(Stack* stack) {
+    if (isEmpty(stack)) {
+        fprintf(stderr, "Stack underflow error\n");
+        return '\0'; // Return null char on error
+    }
+    return stack->data[stack->top--];
+}
+
+/**
+ * @brief Frees all memory associated with the stack.
+ */
+void freeStack(Stack* stack) {
+    if (stack) {
+        free(stack->data);
+        free(stack);
+    }
+}
+// --- End of Stack Structure ---
+
+
 /**
  * @brief Checks if a character is an operand (variable).
- * We assume variables are single letters.
  */
 int isOperand(char ch) {
     return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
@@ -14,38 +82,30 @@ int isOperand(char ch) {
  * @brief Task 1: Converts a fully parenthesized infix propositional
  * logic expression to a prefix expression.
  *
- * This function implements the reverse-postfix-reverse algorithm
- * and uses an internal array-based stack for efficiency and to
- * adhere to the "one function" constraint.
- *
  * @param infix The input infix expression string (e.g., "((a*b)+c)")
- * @return A new string (char*) containing the prefix expression.
- * The caller is responsible for freeing this memory.
+ * @return A Stack* containing the prefix expression.
+ * The top of the stack is the first character.
  */
-char* task1_infixToPrefix(const char* infix) {
+Stack* task1_infixToPrefix(const char* infix) {
     int n = strlen(infix);
     if (n == 0) {
         return NULL;
     }
 
-    // --- Stack Structure (Internal Implementation) ---
-    // We create the stack with the maximum possible size (n)
-    // to avoid dynamic resizing or complex checks.
-    char* stack = (char*)malloc(sizeof(char) * n);
-    if (!stack) {
-        fprintf(stderr, "Memory allocation failed for stack\n");
+    // --- Internal Stack for the Algorithm ---
+    // This stack is temporary and used *only* for the conversion.
+    Stack* op_stack = createStack(n);
+    if (!op_stack) {
         return NULL;
     }
-    int top = -1; // Stack pointer
-    // --- End of Stack Structure ---
 
     // Buffers for intermediate strings
     char* reversed_infix = (char*)malloc(sizeof(char) * (n + 1));
     char* temp_postfix = (char*)malloc(sizeof(char) * (n + 1));
     if (!reversed_infix || !temp_postfix) {
         fprintf(stderr, "Memory allocation failed for buffers\n");
-        free(stack);
-        free(reversed_infix); // free(NULL) is safe
+        freeStack(op_stack);
+        free(reversed_infix);
         free(temp_postfix);
         return NULL;
     }
@@ -69,63 +129,69 @@ char* task1_infixToPrefix(const char* infix) {
     for (int i = 0; i < n; i++) {
         char c = reversed_infix[i];
 
-        // If operand, add to output
         if (isOperand(c)) {
             temp_postfix[postfix_index++] = c;
-        }
-        // If '(', push to stack
-        else if (c == '(') {
-            stack[++top] = c; // Push
-        }
-        // If ')', pop from stack to output until '(' is found
-        else if (c == ')') {
-            while (top != -1 && stack[top] != '(') {
-                temp_postfix[postfix_index++] = stack[top--]; // Pop
+        } else if (c == '(') {
+            push(op_stack, c);
+        } else if (c == ')') {
+            while (!isEmpty(op_stack) && op_stack->data[op_stack->top] != '(') {
+                temp_postfix[postfix_index++] = pop(op_stack);
             }
-            if (top != -1) {
-                top--; // Discard the '('
+            if (!isEmpty(op_stack)) {
+                pop(op_stack); // Discard the '('
             }
-        }
-        // If operator (~, *, +, >)
-        else if (c == '~' || c == '*' || c == '+' || c == '>') {
-            // *** CRITICAL SIMPLIFICATION ***
-            // Because the input is "fully parenthesized", we don't
-            // need to check for precedence. The parentheses
-            // already dictate the order. We just push the operator.
-            stack[++top] = c; // Push
+        } else if (c == '~' || c == '*' || c == '+' || c == '>') {
+            push(op_stack, c);
         }
     }
 
-    // 3. Pop all remaining operators from the stack to the output
-    while (top != -1) {
-        temp_postfix[postfix_index++] = stack[top--]; // Pop
+    // 3. Pop all remaining operators
+    while (!isEmpty(op_stack)) {
+        temp_postfix[postfix_index++] = pop(op_stack);
     }
-    temp_postfix[postfix_index] = '\0'; // Null-terminate the postfix string
+    temp_postfix[postfix_index] = '\0';
 
     // 4. Reverse the temporary postfix string to get the final prefix string
     int m = strlen(temp_postfix);
-    char* prefix_result = (char*)malloc(sizeof(char) * (m + 1));
-    if (!prefix_result) {
-        fprintf(stderr, "Memory allocation failed for result\n");
-        // Free all other allocations
-        free(stack);
+    char* prefix_result_string = (char*)malloc(sizeof(char) * (m + 1));
+    if (!prefix_result_string) {
+        fprintf(stderr, "Memory allocation failed for result string\n");
+        freeStack(op_stack);
         free(reversed_infix);
         free(temp_postfix);
         return NULL;
     }
 
     for (int i = 0; i < m; i++) {
-        prefix_result[i] = temp_postfix[m - 1 - i];
+        prefix_result_string[i] = temp_postfix[m - 1 - i];
     }
-    prefix_result[m] = '\0'; // Null-terminate the final prefix string
+    prefix_result_string[m] = '\0';
 
-    // 5. Clean up all allocated memory
-    free(stack);
+    // 5. Clean up temporary allocations
+    freeStack(op_stack);
     free(reversed_infix);
     free(temp_postfix);
 
-    // Return the final result
-    return prefix_result;
+    // --- Create the Final Output Stack ---
+    // This is the stack we will return, as requested.
+    Stack* final_stack = createStack(m);
+    if (!final_stack) {
+        free(prefix_result_string);
+        return NULL;
+    }
+    
+    // Push the prefix string onto the stack in reverse order
+    // so that popping it reveals the string in correct order.
+    // e.g., for ">*ab~c", we push 'c', '~', 'b', 'a', '*', '>'
+    for (int i = m - 1; i >= 0; i--) {
+        push(final_stack, prefix_result_string[i]);
+    }
+
+    // Free the temporary string, as its data is now in the stack
+    free(prefix_result_string);
+
+    // 6. Return the final stack
+    return final_stack;
 }
 
 
@@ -136,35 +202,36 @@ int main() {
     char buffer[1024];
 
     printf("Enter a fully parenthesized infix propositional logic expression:\n");
-    printf("(Use ~ for NOT, + for OR, * for AND, > for IMPLIES)\n");
-    printf("Example: ((a*b)>(~c))\n");
     printf("Input: ");
 
-    // Read input from the terminal
     if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
         fprintf(stderr, "Error reading input\n");
         return 1;
     }
+    buffer[strcspn(buffer, "\n")] = 0; // Remove newline
 
-    // Remove trailing newline character from fgets
-    buffer[strcspn(buffer, "\n")] = 0;
-
-    // Check for empty input
     if (strlen(buffer) == 0) {
         printf("No input provided.\n");
         return 1;
     }
 
     // Call the function for Task 1
-    char* prefix_expression = task1_infixToPrefix(buffer);
+    Stack* prefix_stack = task1_infixToPrefix(buffer);
 
-    if (prefix_expression) {
+    if (prefix_stack) {
         printf("\n--- Result ---\n");
+        // Print the infix expression as requested
         printf("Infix:   %s\n", buffer);
-        printf("Prefix:  %s\n", prefix_expression);
 
-        // Free the memory allocated by the function
-        free(prefix_expression);
+        // Print the prefix expression by popping from the returned stack
+        printf("Prefix:  ");
+        while (!isEmpty(prefix_stack)) {
+            printf("%c", pop(prefix_stack));
+        }
+        printf("\n");
+
+        // Free the memory allocated for the stack
+        freeStack(prefix_stack);
     } else {
         printf("Failed to convert the expression.\n");
     }
