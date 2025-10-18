@@ -1,15 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Task6.h"
+#include "Task2.h"
+#include "Task3.h"
 
-// Take a deep copy of a TreeNode structure
+TreeNode *create_tree_node(char data, TreeNode *left, TreeNode *right)
+{
+    TreeNode *node = (TreeNode *)malloc(sizeof(TreeNode));
+    if (!node)
+    {
+        perror("Memory allocation failed for TreeNode");
+        exit(EXIT_FAILURE);
+    }
+    node->data = data;
+    node->left = left;
+    node->right = right;
+    return node;
+}
+
+//  Take a deep copy of a TreeNode structure
 TreeNode *copyTree(const TreeNode *root)
 {
     if (!root)
         return NULL;
-    TreeNode *new_node = create_tree_node(root->data);
-    new_node->left = copyTree(root->left);
-    new_node->right = copyTree(root->right);
+    TreeNode *new_node = create_tree_node(root->data, copyTree(root->left), copyTree(root->right));
     return new_node;
 }
 
@@ -17,8 +32,7 @@ TreeNode *copyTree(const TreeNode *root)
 Convention: assume the right child is filled (consistent with lectures) */
 TreeNode *negate_tree(TreeNode *phi)
 {
-    TreeNode *negated = create_tree_node('~');
-    negated->right = copyTree(phi);
+    TreeNode *negated = create_tree_node('~', NULL, copyTree(phi));
     return negated;
 }
 
@@ -98,7 +112,7 @@ TreeNode *IMPL_FREE(TreeNode *phi)
         // Result: OR node (+)
         TreeNode *result = create_tree_node('+', not_a, b_free);
 
-        freeTree(a_free); // Free the copy that was used by negate_tree
+        freeTree(a_free); // Free the origical since the negate_tree function made a copy
 
         return result;
     }
