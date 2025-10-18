@@ -15,7 +15,7 @@ typedef struct Stack {
 // -------------------------------
 // The structure for a node in the parse tree.
 typedef struct TreeNode {
-    char* data;
+    char data; // change to char*
     struct TreeNode *left;
     struct TreeNode *right;
 } TreeNode;
