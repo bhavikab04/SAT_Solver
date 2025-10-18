@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-// --- Stack Structure Definition ---
+#include <ctype.h>
+//We can't use the previous reverse-string algorithm for this for large CNF files as it'll be too memory inefficient
+//More dynamics, pushes the tokens into stacks directly
+// --- Stack Structure (now stores strings) ---
 typedef struct {
-    char* data;    // Array to hold stack data
+    char** data;   // Array of strings (char*)
     int top;       // Index of the top element
     int capacity;  // Max size of the stack
 } Stack;
@@ -14,18 +16,16 @@ typedef struct {
  */
 Stack* createStack(int capacity) {
     Stack* stack = (Stack*)malloc(sizeof(Stack));
-    if (!stack) {
-        fprintf(stderr, "Memory allocation failed for stack struct\n");
-        return NULL;
-    }
-    stack->data = (char*)malloc(sizeof(char) * capacity);
+    if (!stack) return NULL;
+    
+    // Allocate space for an array of (char*) pointers
+    stack->data = (char**)malloc(sizeof(char*) * capacity);
     if (!stack->data) {
-        fprintf(stderr, "Memory allocation failed for stack data\n");
         free(stack);
         return NULL;
     }
     stack->capacity = capacity;
-    stack->top = -1; // Stack is initially empty
+    stack->top = -1;
     return stack;
 }
 
@@ -37,204 +37,227 @@ int isEmpty(Stack* stack) {
 }
 
 /**
- * @brief Pushes a character onto the stack.
+ * @brief Pushes a string onto the stack (makes a copy).
  */
-void push(Stack* stack, char item) {
+void push(Stack* stack, const char* item) {
     if (stack->top >= stack->capacity - 1) {
-        // This should not happen given our pre-allocation
+        // In a real-world scenario, we'd realloc here.
         fprintf(stderr, "Stack overflow error\n");
         return;
     }
-    stack->data[++stack->top] = item;
+    // strdup allocates memory for a copy of the string
+    stack->data[++stack->top] = strdup(item);
+    if (stack->data[stack->top] == NULL) {
+        fprintf(stderr, "Memory allocation failed for push\n");
+        stack->top--; // Roll back
+    }
 }
 
 /**
- * @brief Pops a character from the stack.
+ * @brief Pops a string from the stack (transfers ownership).
  */
-char pop(Stack* stack) {
+char* pop(Stack* stack) {
     if (isEmpty(stack)) {
-        fprintf(stderr, "Stack underflow error\n");
-        return '\0'; // Return null char on error
+        return NULL;
     }
+    // Caller is now responsible for freeing this string
     return stack->data[stack->top--];
 }
 
 /**
- * @brief Frees all memory associated with the stack.
+ * @brief Frees all memory associated with the stack, including all strings.
  */
 void freeStack(Stack* stack) {
     if (stack) {
-        free(stack->data);
-        free(stack);
+        // Free all the strings stored in the stack
+        while (!isEmpty(stack)) {
+            free(pop(stack));
+        }
+        free(stack->data); // Free the array of pointers
+        free(stack);       // Free the stack struct
     }
 }
 // --- End of Stack Structure ---
 
 
 /**
- * @brief Checks if a character is an operand (variable).
+ * @brief Checks if a character is one of the operators.
  */
-int isOperand(char ch) {
+int isOperator(char ch) {
+    return ch == '~' || ch == '*' || ch == '+' || ch == '>';
+}
+
+/**
+ * @brief Checks if a character starts an operand (e.g., 'x' in 'x123').
+ */
+int isOperandStart(char ch) {
+    // We assume variables are like 'x1', 'x24', or single letters 'a', 'b'
     return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
 }
 
 /**
- * @brief Task 1: Converts a fully parenthesized infix propositional
- * logic expression to a prefix expression.
- *
- * @param infix The input infix expression string (e.g., "((a*b)+c)")
- * @return A Stack* containing the prefix expression.
- * The top of the stack is the first character.
+ * @brief Dynamically reads a single line from a file stream.
+ * @return A new, heap-allocated string. Caller must free().
  */
-Stack* task1_infixToPrefix(const char* infix) {
-    int n = strlen(infix);
-    if (n == 0) {
-        return NULL;
-    }
+char* read_line(FILE* stream) {
+    size_t capacity = 1024;
+    char* buffer = (char*)malloc(capacity);
+    if (!buffer) return NULL;
 
-    // --- Internal Stack for the Algorithm ---
-    // This stack is temporary and used *only* for the conversion.
-    Stack* op_stack = createStack(n);
-    if (!op_stack) {
-        return NULL;
-    }
+    size_t i = 0;
+    int c;
 
-    // Buffers for intermediate strings
-    char* reversed_infix = (char*)malloc(sizeof(char) * (n + 1));
-    char* temp_postfix = (char*)malloc(sizeof(char) * (n + 1));
-    if (!reversed_infix || !temp_postfix) {
-        fprintf(stderr, "Memory allocation failed for buffers\n");
-        freeStack(op_stack);
-        free(reversed_infix);
-        free(temp_postfix);
-        return NULL;
-    }
-
-    int postfix_index = 0;
-
-    // 1. Reverse infix string and swap parentheses
-    for (int i = 0; i < n; i++) {
-        char c = infix[n - 1 - i];
-        if (c == '(') {
-            reversed_infix[i] = ')';
-        } else if (c == ')') {
-            reversed_infix[i] = '(';
-        } else {
-            reversed_infix[i] = c;
+    while ((c = fgetc(stream)) != EOF && c != '\n') {
+        buffer[i++] = (char)c;
+        // Grow buffer if full
+        if (i >= capacity - 1) {
+            capacity *= 2;
+            char* new_buffer = (char*)realloc(buffer, capacity);
+            if (!new_buffer) {
+                free(buffer);
+                return NULL;
+            }
+            buffer = new_buffer;
         }
     }
-    reversed_infix[n] = '\0';
-
-    // 2. Perform Shunting-Yard (infix-to-postfix) on the reversed string
-    for (int i = 0; i < n; i++) {
-        char c = reversed_infix[i];
-
-        if (isOperand(c)) {
-            temp_postfix[postfix_index++] = c;
-        } else if (c == '(') {
-            push(op_stack, c);
-        } else if (c == ')') {
-            while (!isEmpty(op_stack) && op_stack->data[op_stack->top] != '(') {
-                temp_postfix[postfix_index++] = pop(op_stack);
-            }
-            if (!isEmpty(op_stack)) {
-                pop(op_stack); // Discard the '('
-            }
-        } else if (c == '~' || c == '*' || c == '+' || c == '>') {
-            push(op_stack, c);
-        }
-    }
-
-    // 3. Pop all remaining operators
-    while (!isEmpty(op_stack)) {
-        temp_postfix[postfix_index++] = pop(op_stack);
-    }
-    temp_postfix[postfix_index] = '\0';
-
-    // 4. Reverse the temporary postfix string to get the final prefix string
-    int m = strlen(temp_postfix);
-    char* prefix_result_string = (char*)malloc(sizeof(char) * (m + 1));
-    if (!prefix_result_string) {
-        fprintf(stderr, "Memory allocation failed for result string\n");
-        freeStack(op_stack);
-        free(reversed_infix);
-        free(temp_postfix);
-        return NULL;
-    }
-
-    for (int i = 0; i < m; i++) {
-        prefix_result_string[i] = temp_postfix[m - 1 - i];
-    }
-    prefix_result_string[m] = '\0';
-
-    // 5. Clean up temporary allocations
-    freeStack(op_stack);
-    free(reversed_infix);
-    free(temp_postfix);
-
-    // --- Create the Final Output Stack ---
-    // This is the stack we will return, as requested.
-    Stack* final_stack = createStack(m);
-    if (!final_stack) {
-        free(prefix_result_string);
-        return NULL;
-    }
-    
-    // Push the prefix string onto the stack in reverse order
-    // so that popping it reveals the string in correct order.
-    // e.g., for ">*ab~c", we push 'c', '~', 'b', 'a', '*', '>'
-    for (int i = m - 1; i >= 0; i--) {
-        push(final_stack, prefix_result_string[i]);
-    }
-
-    // Free the temporary string, as its data is now in the stack
-    free(prefix_result_string);
-
-    // 6. Return the final stack
-    return final_stack;
+    buffer[i] = '\0'; // Null-terminate the string
+    return buffer;
 }
 
 
 /**
- * @brief Main function to handle terminal input and run Task 1.
+ * @brief Task 1: Converts a fully parenthesized infix expression
+ * to a prefix expression using a right-to-left scan.
+ *
+ * @param infix The input infix expression string.
+ * @return A Stack* containing the prefix expression tokens.
+ * The top of the stack is the first token.
  */
-int main() {
-    char buffer[1024];
+Stack* task1_infixToPrefix(const char* infix) {
+    int n = strlen(infix);
+    if (n == 0) return NULL;
 
+    Stack* op_stack = createStack(n);    // Stack for operators
+    Stack* final_stack = createStack(n); // Stack for final prefix expression
+    if (!op_stack || !final_stack) {
+        freeStack(op_stack);
+        freeStack(final_stack);
+        return NULL;
+    }
+
+    char token_buffer[128]; // Buffer for a single token (e.g., "x12345")
+
+    // --- Right-to-Left Scan ---
+    for (int i = n - 1; i >= 0; i--) {
+        char c = infix[i];
+
+        if (isspace(c)) {
+            continue; // Skip whitespace
+        }
+        // --- 1. Handle Operands (e.g., "x123", "a") ---
+        // We read them backwards, so we find '3', '2', '1', 'x'
+        else if (isdigit(c) || isOperandStart(c)) {
+            int k = 0;
+            // Keep reading while it's part of the variable name
+            while (i >= 0 && (isOperandStart(infix[i]) || isdigit(infix[i]))) {
+                if (k < 127) {
+                    token_buffer[k++] = infix[i--];
+                } else {
+                    i--; // Skip if token is too long
+                }
+            }
+            i++; // Loop will decrement again, so we adjust
+            token_buffer[k] = '\0';
+
+            // Now, re-reverse the token (we read "321x", we want "x123")
+            strrev(token_buffer); // Use _strrev on Windows
+            
+            // Push the completed operand onto the final stack
+            push(final_stack, token_buffer);
+        }
+        // --- 2. Handle ')' ---
+        else if (c == ')') {
+            push(op_stack, ")"); // Push ")" (as a string)
+        }
+        // --- 3. Handle '(' ---
+        else if (c == '(') {
+            char* op;
+            while (!isEmpty(op_stack) && strcmp((op = pop(op_stack)), ")") != 0) {
+                push(final_stack, op); // Pop ops to final stack
+                free(op); // We're done with this token
+            }
+            free(op); // Free the ")" token
+        }
+        // --- 4. Handle Operators ---
+        else if (isOperator(c)) {
+            // Because it's fully parenthesized, we don't need precedence.
+            // But if we did, we'd pop operators here.
+            token_buffer[0] = c;
+            token_buffer[1] = '\0';
+            push(op_stack, token_buffer);
+        }
+    }
+
+    // --- 5. Pop remaining operators ---
+    char* op;
+    while ((op = pop(op_stack)) != NULL) {
+        push(final_stack, op);
+        free(op);
+    }
+
+    freeStack(op_stack);
+
+    // --- 6. Reverse the final stack ---
+    // The `final_stack` has the prefix expression, but reversed.
+    // e.g., for ">*ab~c", it has 'c', '~', 'b', 'a', '*', '>' (top)
+    // We must return a stack that pops in the *correct* order.
+    Stack* return_stack = createStack(n);
+    while ((op = pop(final_stack)) != NULL) {
+        push(return_stack, op);
+        free(op);
+    }
+
+    freeStack(final_stack);
+    return return_stack;
+}
+
+
+int main() {
     printf("Enter a fully parenthesized infix propositional logic expression:\n");
     printf("Input: ");
 
-    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+    char* buffer = read_line(stdin); // Dynamically read line
+    if (buffer == NULL) {
         fprintf(stderr, "Error reading input\n");
         return 1;
     }
-    buffer[strcspn(buffer, "\n")] = 0; // Remove newline
 
     if (strlen(buffer) == 0) {
         printf("No input provided.\n");
+        free(buffer);
         return 1;
     }
 
-    // Call the function for Task 1
     Stack* prefix_stack = task1_infixToPrefix(buffer);
 
     if (prefix_stack) {
         printf("\n--- Result ---\n");
-        // Print the infix expression as requested
         printf("Infix:   %s\n", buffer);
 
         // Print the prefix expression by popping from the returned stack
         printf("Prefix:  ");
-        while (!isEmpty(prefix_stack)) {
-            printf("%c", pop(prefix_stack));
+        char* token;
+        while ((token = pop(prefix_stack)) != NULL) {
+            printf("%s ", token); // Print token with a space
+            free(token); // Free the token
         }
         printf("\n");
 
-        // Free the memory allocated for the stack
         freeStack(prefix_stack);
     } else {
         printf("Failed to convert the expression.\n");
     }
 
+    free(buffer); // Free the input line buffer
     return 0;
 }
