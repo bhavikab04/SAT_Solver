@@ -4,7 +4,7 @@
 #include <stdbool.h> // For the bool type
 
 // --- Stack Structure Definition (Copied from Task1.c for dependency) ---
-typedef struct {
+typedef struct Stack {
     char* data;    // Array to hold stack data
     int top;       // Index of the top element
     int capacity;  // Max size of the stack
@@ -15,7 +15,7 @@ typedef struct {
 // -------------------------------
 // The structure for a node in the parse tree.
 typedef struct TreeNode {
-    char data;
+    char* data;
     struct TreeNode *left;
     struct TreeNode *right;
 } TreeNode;
