@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h> 
 #include <stdlib.h>
-#include "Task1.c"
+
 #include "Task2.h"
 #include "Task4.h"
 #include "Task3.h"
@@ -47,7 +47,7 @@ int main() {
     }
 
     return 0;
-}
+
 
     //Task 3:
     printf("\n--- Infix Expression Reconstruction (In-order Traversal) ---\n");
