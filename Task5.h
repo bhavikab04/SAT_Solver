@@ -43,5 +43,13 @@ TruthAssignment* getAssignmentsFromFile(const char* filename, int* num_assignmen
  */
 bool evaluateTree(TreeNode* root, const TruthAssignment assignments[], int num_assignments);
 
-#endif // TASK5_H
+/**
+ * @brief Generates and prints the complete truth table for the formula represented by the tree.
+ * @param root The root of the expression tree.
+ * @param literals An array of unique literal names.
+ * @param count The number of unique literals.
+ * @param formula_str The string representation of the formula for the table header.
+ */
+void printTruthTable(TreeNode* root, char** literals, int count, const char* formula_str);
 
+#endif // TASK5_H

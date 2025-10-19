@@ -4,7 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "Task5.h"
-#include "Task2.h" 
+#include "Task2.h" // For TreeNode structure
 
 #define HASH_TABLE_SIZE 1024 // A reasonable size for a hash table, can be adjusted.
 
@@ -18,7 +18,7 @@ typedef struct {
     HashNode* table[HASH_TABLE_SIZE];
 } HashTable;
 
-// --- Helper Functions for the Hash Table ---
+// --- Helper Functions for the Hash Table (Kept as provided) ---
 
 // djb2 hash function: simple and effective for strings.
 static unsigned long hash(const char *str) {
@@ -68,7 +68,7 @@ static void freeHashTable(HashTable* ht) {
     free(ht);
 }
 
-// --- CORE LOGIC (UPDATED FOR char* AND EFFICIENCY) ---
+// --- CORE LOGIC (Kept as provided) ---
 
 /**
  * NOTE: This function is MODIFIED to support string-based atoms (`char*`).
@@ -88,6 +88,7 @@ bool evaluateTree(TreeNode *root, const TruthAssignment assignments[], int num_a
                 return assignments[i].value;
             }
         }
+        // This case should not happen if assignments are generated correctly for the formula
         fprintf(stderr, "Error: Truth value for literal '%s' not found.\n", root->data);
         exit(EXIT_FAILURE);
     }
@@ -95,6 +96,7 @@ bool evaluateTree(TreeNode *root, const TruthAssignment assignments[], int num_a
     // An internal node is an operator.
     switch (root->data[0]) {
         case '~': {
+            // Unary operator, use right child (assumes fully parenthesized and well-formed)
             bool childValue = evaluateTree(root->right, assignments, num_assignments);
             return !childValue;
         }
@@ -111,6 +113,7 @@ bool evaluateTree(TreeNode *root, const TruthAssignment assignments[], int num_a
         case '>': {
             bool leftValue = evaluateTree(root->left, assignments, num_assignments);
             bool rightValue = evaluateTree(root->right, assignments, num_assignments);
+            // Implication: P -> Q is equivalent to ~P + Q
             return !leftValue || rightValue;
         }
         default:
@@ -156,6 +159,8 @@ int collectUniqueLiterals(TreeNode* node, char*** literals_list) {
     int index = 0;
     for (int i = 0; i < HASH_TABLE_SIZE; i++) {
         for (HashNode* current = ht->table[i]; current != NULL; current = current->next) {
+            // Note: The literal names are duplicated from the hash table's keys
+            // This is necessary because the hash table's memory will be freed.
             (*literals_list)[index++] = strdup(current->key);
         }
     }
@@ -164,7 +169,7 @@ int collectUniqueLiterals(TreeNode* node, char*** literals_list) {
     return count;
 }
 
-// Updated to handle string literals
+// Updated to handle string literals (Kept as provided)
 TruthAssignment* getAssignmentsFromTerminal(char** literals, int count) {
     TruthAssignment* assignments = malloc(count * sizeof(TruthAssignment));
     if (!assignments) {
@@ -176,14 +181,18 @@ TruthAssignment* getAssignmentsFromTerminal(char** literals, int count) {
     for (int i = 0; i < count; i++) {
         char input[10];
         printf("  %s: ", literals[i]);
-        scanf("%9s", input);
+        if (scanf("%9s", input) != 1) {
+            fprintf(stderr, "Error reading input.\n");
+            // Clean up and exit or handle error
+            // For simplicity, we assume valid input for now.
+        }
         assignments[i].literal = strdup(literals[i]);
         assignments[i].value = (toupper(input[0]) == 'T');
     }
     return assignments;
 }
 
-// Updated to handle string literals
+// Updated to handle string literals (Kept as provided)
 TruthAssignment* getAssignmentsFromFile(const char* filename, int* num_assignments) {
     FILE* file = fopen(filename, "r");
     if (!file) {
@@ -205,7 +214,16 @@ TruthAssignment* getAssignmentsFromFile(const char* filename, int* num_assignmen
         if (literal && value_str) {
             if (count >= capacity) {
                 capacity *= 2;
-                assignments = realloc(assignments, capacity * sizeof(TruthAssignment));
+                TruthAssignment* new_assignments = realloc(assignments, capacity * sizeof(TruthAssignment));
+                if (!new_assignments) {
+                    perror("Realloc failed");
+                    // Cleanup existing assignments memory before returning
+                    for(int i = 0; i < count; i++) free(assignments[i].literal);
+                    free(assignments);
+                    fclose(file);
+                    return NULL;
+                }
+                assignments = new_assignments;
             }
             // Trim potential whitespace
             literal[strcspn(literal, " \t\r\n")] = 0;
@@ -221,3 +239,78 @@ TruthAssignment* getAssignmentsFromFile(const char* filename, int* num_assignmen
     return assignments;
 }
 
+
+// --- New Truth Table Functionality ---
+
+/**
+ * @brief Recursive helper to generate all 2^n truth assignments and print the results.
+ * @param root The root of the expression tree.
+ * @param literals An array of unique literal names.
+ * @param count The total number of unique literals (depth of recursion).
+ * @param current_index The index of the literal currently being assigned a value.
+ * @param current_assignments The array to store the current truth assignment being built.
+ */
+static void generateAssignmentsAndPrint(TreeNode* root, char** literals, int count, int current_index, TruthAssignment current_assignments[]) {
+    // Base case: All literals have been assigned a value
+    if (current_index == count) {
+        // 1. Evaluate the formula with the current assignment
+        bool result = evaluateTree(root, current_assignments, count);
+
+        // 2. Print the assignment and the result
+        for (int i = 0; i < count; i++) {
+            printf("| %-5s ", current_assignments[i].value ? "T" : "F");
+        }
+        printf("| %-5s |\n", result ? "T" : "F");
+        return;
+    }
+
+    // Recursive step: Try both False and True for the current literal
+
+    // Assignment 1: Set current literal to False
+    current_assignments[current_index].literal = literals[current_index];
+    current_assignments[current_index].value = false;
+    generateAssignmentsAndPrint(root, literals, count, current_index + 1, current_assignments);
+
+    // Assignment 2: Set current literal to True
+    current_assignments[current_index].literal = literals[current_index];
+    current_assignments[current_index].value = true;
+    generateAssignmentsAndPrint(root, literals, count, current_index + 1, current_assignments);
+}
+
+/**
+ * @brief Generates and prints the complete truth table for the formula.
+ */
+void printTruthTable(TreeNode* root, char** literals, int count, const char* formula_str) {
+    if (count == 0 || root == NULL) {
+        printf("Cannot generate a truth table: No literals or empty formula.\n");
+        return;
+    }
+
+    // 1. Print the header
+    int total_width = 0;
+    for (int i = 0; i < count; i++) {
+        printf("| %-5s ", literals[i]);
+        total_width += 8; // | LLLLL | (length 8)
+    }
+    printf("| %s |\n", formula_str);
+    total_width += (strlen(formula_str) + 4); // | Formula |
+
+    // Print a separator line
+    for (int i = 0; i < total_width; i++) {
+        printf("-");
+    }
+    printf("\n");
+
+    // 2. Allocate an array to hold the current assignment during recursion
+    TruthAssignment* current_assignments = malloc(count * sizeof(TruthAssignment));
+    if (!current_assignments) {
+        perror("Failed to allocate memory for assignments");
+        return;
+    }
+
+    // 3. Start the recursive generation and printing process
+    generateAssignmentsAndPrint(root, literals, count, 0, current_assignments);
+
+    // 4. Clean up
+    free(current_assignments);
+}
