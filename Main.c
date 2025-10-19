@@ -10,6 +10,7 @@
 #include "Task5.h"
 #include "Task6.h"
 #include "Task7.h"
+#include "helper.h"
 
 int main(int argc, char *argv[])
 {
