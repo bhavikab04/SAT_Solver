@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include "convertingCNFtoInput.h" // Include its own header
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -9,12 +10,9 @@
 
 /**
  * @brief Builds a fully parenthesized string for a single clause.
- * Example: "1 -2 3 0" becomes "((x1 + (~x2)) + x3)"
- *
- * @param line The line from the CNF file containing the clause.
- * @return A new, heap-allocated string for the clause. Caller must free().
+ * (static = private to this file)
  */
-char* build_clause_string(char* line) {
+static char* build_clause_string(char* line) {
     char* clause_formula = NULL; // This will hold the "A" in "(A + B)"
     char* token = strtok(line, " \t\n"); // Tokenize the line by space/tab/newline
 
@@ -96,9 +94,9 @@ long get_clause_count(const char* filename) {
 
 /**
  * @brief Converts a CNF file into a single-line, fully parenthesized
- * infix expression by streaming the output.
+ * infix expression by streaming the output to out_stream.
  */
-void convertCnfToInfix(const char* filename, long num_clauses) {
+void convertCnfToInfix(const char* filename, long num_clauses, FILE* out_stream) {
     FILE* file = fopen(filename, "r");
     if (file == NULL) {
         perror("Error opening file for pass 2");
@@ -112,7 +110,7 @@ void convertCnfToInfix(const char* filename, long num_clauses) {
     // 1. Print all opening parentheses
     if (num_clauses > 1) {
         for (long i = 0; i < num_clauses - 1; i++) {
-            printf("(");
+            fprintf(out_stream, "("); // CHANGED from printf
         }
     }
 
@@ -136,16 +134,16 @@ void convertCnfToInfix(const char* filename, long num_clauses) {
 
         if (clauses_printed > 0) {
             // This is C2...CN. Print the operator *before* it.
-            printf(" * ");
+            fprintf(out_stream, " * "); // CHANGED from printf
         }
 
         // Print the clause string (C1, C2, etc.)
-        printf("%s", clause_str);
+        fprintf(out_stream, "%s", clause_str); // CHANGED from printf
         free(clause_str);
 
         if (clauses_printed > 0 && num_clauses > 1) {
             // Close the parenthesis for the ' * '
-            printf(")");
+            fprintf(out_stream, ")"); // CHANGED from printf
         }
         
         clauses_printed++;
@@ -154,28 +152,9 @@ void convertCnfToInfix(const char* filename, long num_clauses) {
     fclose(file);
 
     if (clauses_printed != num_clauses) {
+        // This is an error message, so it *should* go to stderr
         fprintf(stderr, "\nWarning: 'p' line said %ld clauses, but found %ld.\n",
                 num_clauses, clauses_printed);
     }
 }
 
-
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <filename.cnf>\n", argv[0]);
-        return 1;
-    }
-
-    // Pass 1: Get the clause count
-    long num_clauses = get_clause_count(argv[1]);
-    if (num_clauses <= 0) {
-        fprintf(stderr, "Error: Could not find 'p cnf ...' header or num_clauses=0.\n");
-        return 1;
-    }
-
-    // Pass 2: Stream and print the infix formula
-    convertCnfToInfix(argv[1], num_clauses);
-    printf("\n"); // Add a final newline
-
-    return 0;
-}

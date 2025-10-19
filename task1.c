@@ -1,10 +1,30 @@
-#include <stdio.h>
+#include "Task1.h" // Include its own header
+
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-// We can't use the previous reverse-string algorithm for this for large CNF files as it'll be too memory inefficient
-// More dynamics, pushes the tokens into stacks directly
-//  --- Stack Structure (now stores strings) ---
+
+// --- Private Helper Function (for portability) ---
+/**
+ * @brief Reverses a string in-place. (Replaces non-standard strrev)
+ */
+static char* my_strrev(char* str) {
+    if (!str || !*str) return str;
+    int i = 0;
+    int j = strlen(str) - 1;
+    char temp;
+    while (i < j) {
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+        i++;
+        j--;
+    }
+    return str;
+}
+
+
+// --- Stack Structure (now stores strings) ---
 typedef struct
 {
     char **data;  // Array of strings (char*)
@@ -94,16 +114,18 @@ void freeStack(Stack *stack)
 
 /**
  * @brief Checks if a character is one of the operators.
+ * (static = private to this file)
  */
-int isOperator(char ch)
+static int isOperator(char ch)
 {
     return ch == '~' || ch == '*' || ch == '+' || ch == '>';
 }
 
 /**
  * @brief Checks if a character starts an operand (e.g., 'x' in 'x123').
+ * (static = private to this file)
  */
-int isOperandStart(char ch)
+static int isOperandStart(char ch)
 {
     // We assume variables are like 'x1', 'x24', or single letters 'a', 'b'
     return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
@@ -198,7 +220,7 @@ Stack *task1_infixToPrefix(const char *infix)
             token_buffer[k] = '\0';
 
             // Now, re-reverse the token (we read "321x", we want "x123")
-            strrev(token_buffer); // Use _strrev on Windows
+            my_strrev(token_buffer); // CHANGED from strrev
 
             // Push the completed operand onto the final stack
             push(final_stack, token_buffer);
@@ -255,49 +277,4 @@ Stack *task1_infixToPrefix(const char *infix)
     return return_stack;
 }
 
-int main()
-{
-    printf("Enter a fully parenthesized infix propositional logic expression:\n");
-    printf("Input: ");
-
-    char *buffer = read_line(stdin); // Dynamically read line
-    if (buffer == NULL)
-    {
-        fprintf(stderr, "Error reading input\n");
-        return 1;
-    }
-
-    if (strlen(buffer) == 0)
-    {
-        printf("No input provided.\n");
-        free(buffer);
-        return 1;
-    }
-
-    Stack *prefix_stack = task1_infixToPrefix(buffer);
-
-    if (prefix_stack)
-    {
-        printf("\n--- Result ---\n");
-        printf("Infix:   %s\n", buffer);
-
-        // Print the prefix expression by popping from the returned stack
-        printf("Prefix:  ");
-        char *token;
-        while ((token = pop(prefix_stack)) != NULL)
-        {
-            printf("%s ", token); // Print token with a space
-            free(token);          // Free the token
-        }
-        printf("\n");
-
-        freeStack(prefix_stack);
-    }
-    else
-    {
-        printf("Failed to convert the expression.\n");
-    }
-
-    free(buffer); // Free the input line buffer
-    return 0;
-}
+// --- NO MAIN FUNCTION ---
