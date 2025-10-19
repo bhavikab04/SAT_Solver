@@ -43,7 +43,7 @@
  * @param right Pointer to the right child node.
  * @return TreeNode* A pointer to the newly created TreeNode. Exits on memory allocation failure.
  */
-TreeNode *create_tree_node(char data, TreeNode *left, TreeNode *right)
+TreeNode *create_tree_node(char *data, TreeNode *left, TreeNode *right)
 {
     TreeNode *node = (TreeNode *)malloc(sizeof(TreeNode));
     if (!node)
@@ -51,7 +51,13 @@ TreeNode *create_tree_node(char data, TreeNode *left, TreeNode *right)
         perror("Memory allocation failed for TreeNode");
         exit(EXIT_FAILURE);
     }
-    node->data = data;
+    node->data = strdup(data); // Duplicate the string data
+    if (!node->data)
+    {
+        perror("Memory allocation failed for TreeNode data");
+        free(node);
+        exit(EXIT_FAILURE);
+    }
     node->left = left;
     node->right = right;
     return node;
@@ -74,7 +80,7 @@ TreeNode *copyTree(const TreeNode *root)
 }
 
 /**
- * @brief Creates a new negation node ('~') for a given formula $\phi$.
+ * @brief Creates a new negation node ("~") for a given formula $\phi$.
  *
  * The function creates a new NOT node and assigns a deep copy of $\phi$ to its right child.
  *
@@ -83,15 +89,15 @@ TreeNode *copyTree(const TreeNode *root)
  */
 TreeNode *negate_tree(TreeNode *phi)
 {
-    TreeNode *negated = create_tree_node('~', NULL, copyTree(phi));
+    TreeNode *negated = create_tree_node("~", NULL, copyTree(phi));
     return negated;
 }
 
 /**
  * @brief Checks if a formula is a literal.
  *
- * A literal is defined as an atom (e.g., 'A') or a negated atom (e.g., '~A').
- * This function assumes 'isAtom(char data)' is defined elsewhere.
+ * A literal is defined as an atom (e.g., "A") or a negated atom (e.g., "~A").
+ * This function assumes 'isAtom(char *data)' is defined elsewhere.
  *
  * @param phi A constant pointer to the root of the formula to check.
  * @return bool True if the formula is a literal, false otherwise.
@@ -100,11 +106,14 @@ bool isLiteral(const TreeNode *phi)
 {
     if (!phi)
         return false;
+
+    // Case 1: Atom
     if (isAtom(phi->data))
         return true;
-    // Check if it's NOT applied directly to an ATOM
-    if (phi->data == '~' && phi->right && isAtom(phi->right->data))
+    // Case 2: Negated Atom (Check if NOT is applied directly to an ATOM)
+    if (strcmp(phi->data, "~") == 0 && phi->right && isAtom(phi->right->data))
         return true;
+
     return false;
 }
 
@@ -123,9 +132,9 @@ void print_formula(const TreeNode *f)
 
     if (isAtom(f->data))
     {
-        printf("%c", f->data);
+        printf("%s", f->data);
     }
-    else if (f->data == '~')
+    else if (strcmp(f->data, "~") == 0)
     {
         printf("~");
         print_formula(f->right);
@@ -134,7 +143,7 @@ void print_formula(const TreeNode *f)
     { // Binary operators: AND ('*'), OR ('+'), IMP ('>')
         printf("(");
         print_formula(f->left);
-        printf(" %c ", f->data);
+        printf(" %s ", f->data);
         print_formula(f->right);
         printf(")");
     }
@@ -165,18 +174,20 @@ TreeNode *IMPL_FREE(TreeNode *phi)
         return copyTree(phi);
     }
 
-    switch (phi->data)
+    // Case '~': Unary operator
+    if (strcmp(phi->data, "~") == 0)
     {
-    case '~':
-        // Unary operator: Recurse on the right child
-        return create_tree_node('~', NULL, IMPL_FREE(phi->right));
+        return create_tree_node("~", NULL, IMPL_FREE(phi->right));
+    }
 
-    case '*': // AND
-    case '+': // OR
-        // Binary operator: Recurse on both children
+    // Case '*' and '+': Binary operators
+    if (strcmp(phi->data, "*") == 0 || strcmp(phi->data, "+") == 0)
+    {
         return create_tree_node(phi->data, IMPL_FREE(phi->left), IMPL_FREE(phi->right));
+    }
 
-    case '>': // IMPLICATION: A > B -> (~A + B)
+    // Case '>' : Implication
+    if (strcmp(phi->data, ">") == 0)
     {
         TreeNode *a_free = IMPL_FREE(phi->left);
         TreeNode *b_free = IMPL_FREE(phi->right);
@@ -184,12 +195,12 @@ TreeNode *IMPL_FREE(TreeNode *phi)
         TreeNode *not_a = negate_tree(a_free); // Creates ~A
 
         // Result: OR node (+)
-        TreeNode *result = create_tree_node('+', not_a, b_free);
+        TreeNode *result = create_tree_node("+", not_a, b_free);
 
-        freeTree(a_free); // Free the origical since the negate_tree function made a copy
+        freeTree(a_free);
+        // Free the original since a copy was already made by negate_tree function
 
         return result;
-    }
     }
     return NULL;
 }
@@ -215,48 +226,45 @@ TreeNode *NNF(TreeNode *phi)
     if (isLiteral(phi))
         return copyTree(phi);
 
-    switch (phi->data)
+    // Case AND(*), OR(+):
+    if (strcmp(phi->data, "*") == 0 || strcmp(phi->data, "+") == 0)
     {
-    case '*': // AND
-    case '+': // OR
-        // Recurse down for non-negated binary operators
         return create_tree_node(phi->data, NNF(phi->left), NNF(phi->right));
-
-    case '~':
+    }
+    // Case NOT(~):
+    else if (strcmp(phi->data, "~") == 0)
     {
         TreeNode *inner = phi->right;
         if (!inner)
             return NULL;
 
-        if (inner->data == '~')
+        if (strcmp(inner->data, "~") == 0)
         {
             // Rule: ~~A -> A (Double Negation)
             return NNF(inner->right);
         }
 
-        if (inner->data == '*')
+        if (strcmp(inner->data, "*") == 0)
         {
             // Rule: ~(A * B) -> ~A + ~B (De Morgan's Law 1)
             TreeNode *l = negate_tree(inner->left);
             TreeNode *r = negate_tree(inner->right);
-            TreeNode *temp_or = create_tree_node('+', l, r);
+            TreeNode *temp_or = create_tree_node("+", l, r);
             TreeNode *result = NNF(temp_or);
             freeTree(temp_or);
             return result;
         }
 
-        if (inner->data == '+')
+        if (strcmp(inner->data, "+") == 0)
         {
             // Rule: ~(A + B) -> ~A * ~B (De Morgan's Law 2)
             TreeNode *l = negate_tree(inner->left);
             TreeNode *r = negate_tree(inner->right);
-            TreeNode *temp_and = create_tree_node('*', l, r);
+            TreeNode *temp_and = create_tree_node("*", l, r);
             TreeNode *result = NNF(temp_and);
             freeTree(temp_and);
             return result;
         }
-        break;
-    }
     }
     return NULL;
 }
@@ -282,26 +290,26 @@ TreeNode *DISTR(TreeNode *eta1, TreeNode *eta2)
         return NULL;
 
     // Case 1: (eta11 * eta12) + eta2  $\equiv$ (eta11 + eta2) * (eta12 + eta2)
-    if (eta1->data == '*')
+    if (strcmp(eta1->data, "*") == 0)
     {
         // (A * B) + C -> (A + C) * (B + C)
         TreeNode *a = DISTR(eta1->left, eta2);
         TreeNode *b = DISTR(eta1->right, eta2);
-        return create_tree_node('*', a, b);
+        return create_tree_node("*", a, b);
     }
 
     // Case 2: eta1 + (eta21 * eta22) $\equiv$ (eta1 + eta21) * (eta1 + eta22)
-    if (eta2->data == '*')
+    if (strcmp(eta2->data, "*") == 0)
     {
         // A + (B * C) -> (A + B) * (A + C)
         TreeNode *a = DISTR(eta1, eta2->left);
         TreeNode *b = DISTR(eta1, eta2->right);
-        return create_tree_node('*', a, b);
+        return create_tree_node("*", a, b);
     }
 
     // Case 3: Otherwise (eta1 + eta2 is a simple OR clause/literal)
     // Create a new OR node with deep copies of the children.
-    return create_tree_node('+', copyTree(eta1), copyTree(eta2));
+    return create_tree_node("+", copyTree(eta1), copyTree(eta2));
 }
 
 /**
@@ -322,14 +330,18 @@ TreeNode *CNF(TreeNode *phi)
     if (isLiteral(phi))
         return copyTree(phi);
 
-    switch (phi->data)
+    // Case AND(*):
+    if (strcmp(phi->data, "*") == 0)
     {
-    case '*': // AND
+        // AND
         // A conjunction of CNF formulas is CNF
-        return create_tree_node('*', CNF(phi->left), CNF(phi->right));
+        return create_tree_node("*", CNF(phi->left), CNF(phi->right));
+    }
 
-    case '+': // OR
+    // Case OR(+):
+    else if (strcmp(phi->data, "+") == 0)
     {
+        // OR
         // Apply distribution after ensuring sub-formulas are CNF
         TreeNode *l = CNF(phi->left);
         TreeNode *r = CNF(phi->right);
@@ -342,9 +354,8 @@ TreeNode *CNF(TreeNode *phi)
 
         return result;
     }
+    // All other cases (atoms, NOT) are handled by isLiteral check at the start.
 
-        // All other cases (atoms, NOT) are handled by isLiteral check at the start.
-    }
     return NULL;
 }
 

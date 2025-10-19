@@ -1,40 +1,45 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
 #include "convertingCNFtoInput.h" // For CNF conversion
-#include "Task1.h"         // For Stack, read_line, task1_infixToPrefix
+#include "Task1.h"                // For Stack, read_line, task1_infixToPrefix
 #include "Task2.h"
 #include "Task3.h"
 #include "Task4.h"
-#include "Task5.h" 
+#include "Task5.h"
+#include "Task6.h"
+#include "Task7.h"
 
-#include "Task7.h" 
-
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     // We must add argc/argv to accept the CNF filename
-    if (argc != 2) {
+    if (argc != 2)
+    {
         fprintf(stderr, "Usage: %s <filename.cnf>\n", argv[0]);
         fprintf(stderr, "This will run the CNF->Infix->Prefix->... pipeline.\n");
         return 1;
     }
-    const char* cnf_filename = argv[1];
-    char* buffer = NULL; // This will hold the infix string
+    const char *cnf_filename = argv[1];
+    char *buffer = NULL; // This will hold the infix string
 
     printf("--- Main Test Function ---\n");
     printf("Processing CNF file: %s\n", cnf_filename);
-    
+
     // ==========================================================
     // --- ADDED: CNF to Infix Conversion ---
     // This part generates the 'buffer' needed for Task 1
     // ==========================================================
     long num_clauses = get_clause_count(cnf_filename);
-    if (num_clauses <= 0) {
+    if (num_clauses <= 0)
+    {
         fprintf(stderr, "Error: Could not find 'p cnf' header in %s\n", cnf_filename);
         return 1;
     }
 
-    FILE* temp_stream = tmpfile(); // Create a temporary in-memory file
-    if (temp_stream == NULL) {
+    FILE *temp_stream = tmpfile(); // Create a temporary in-memory file
+    if (temp_stream == NULL)
+    {
         perror("Error creating temporary file");
         return 1;
     }
@@ -49,7 +54,8 @@ int main(int argc, char *argv[]) {
     buffer = read_line(temp_stream);
     fclose(temp_stream); // Temp file is auto-deleted
 
-    if (buffer == NULL || strlen(buffer) == 0) {
+    if (buffer == NULL || strlen(buffer) == 0)
+    {
         fprintf(stderr, "Error: CNF conversion produced no output.\n");
         free(buffer);
         return 1;
@@ -59,31 +65,31 @@ int main(int argc, char *argv[]) {
 
     const char *test_expression = "~*p>qr";
 
-//end of changes that I made- Pujitha
-
-
+    // end of changes that I made- Pujitha
 
     printf("Testing with expression: %s\n", test_expression);
 
-    //Task 2:
+    // Task 2:
 
-// ... input reading logic ...
+    // ... input reading logic ...
 
-    Stack* prefix_stack = task1_infixToPrefix(buffer);
+    Stack *prefix_stack = task1_infixToPrefix(buffer);
 
-    if (prefix_stack) {
+    if (prefix_stack)
+    {
         printf("\n--- Task 1 Result ---\n");
         // NOTE: The stack is printed by popping, which consumes it.
         // We must *replicate* the stack if we want to print AND use it for Task 2.
         // For simplicity, let's assume Task 1's main prints it first.
-        
+
         // ... (Code to print prefix and free/re-create the stack, OR a simpler approach) ...
 
         printf("\n--- Task 2 Execution ---\n");
         // ** The prefixToTree function will consume (pop) the stack.**
-        TreeNode* root = prefixToTree(prefix_stack); 
+        TreeNode *root = prefixToTree(prefix_stack);
 
-        if (root) {
+        if (root)
+        {
             printTreeVertical(root);
         }
         else
@@ -164,11 +170,12 @@ int main(int argc, char *argv[]) {
     }
 
     // --- Task 7: CNF Validity Check (Independent of the tree) ---
-    //printf("\n\n--- Task 7: CNF Validity Check ---\n");
-    //const char *cnf_formula_valid = "p|q|~p & ~q|r|q";
+    // printf("\n\n--- Task 7: CNF Validity Check ---\n");
+    // const char *cnf_formula_valid = "p|q|~p & ~q|r|q";
     // In Main.c, after Task 6 creates cnf_root...
 
-    if (cnf_root) {
+    if (cnf_root)
+    {
         printf("\n--- Testing CNF Validity (Task 7) ---\n");
         int valid_count = 0;
         int invalid_count = 0;

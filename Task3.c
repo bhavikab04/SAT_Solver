@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <ctype.h>
 #include "Task2.h"
-/* 
+/*
 from task2.h:
 typedef struct TreeNode {
     char data;
@@ -12,27 +13,42 @@ typedef struct TreeNode {
 } TreeNode; */
 
 // Operators:
-int isBinaryOp(char c)
+
+/**
+ * @brief Checks if a string token is a binary operator.
+ * @param c The string token to check.
+ * @return bool True if the token is a binary operator ('+', '*', '>'), false otherwise.
+ */
+bool isBinaryOp(const char *c)
 {
-    return (c == '+' || c == '*' || c == '>');
+    return (strcmp(c, "+") == 0 || strcmp(c, "*") == 0 || strcmp(c, ">") == 0);
 }
 
-int isUnaryOp(char c)
+/**
+ * @brief Checks if a string token is a unary operator.
+ * @param c The string token to check.
+ * @return bool True if the token is a unary operator ('~'), false otherwise.
+ */
+bool isUnaryOp(const char *c)
 {
-    return (c == '~');
+    return (strcmp(c, "~") == 0);
 }
 
-// Inorder traversal:
-/* Structure:
-    -> recursively visit(left)
-    -> print(node)
-    -> recursively visit(right)
+// -------Inorder traversal---------
+
+/**
+ * @brief Performs an in-order traversal (infix) of the parse tree and writes it to a buffer.
+ *
+ * Structure of code:
+ * -> recursively visit(left)
+ * -> print(node)
+ * -> recursively visit(right)
+ *
+ * @param root Pointer to the root of the subtree
+ * @param bufferStr String buffer that updates the expression recursively to store the infix expression
+ * @param position Pointer to current position in the buffer string
  */
-/*
--> pointer root: points to root of subtree
--> bufferStr: a string buffer that updates the expression recursively. Will contain final infix expression
--> position: gives current position in the buffer string.
- */
+
 void inOrderTraversal(TreeNode *root, char *bufferStr, int *position)
 {
     if (root == NULL)
@@ -45,16 +61,20 @@ void inOrderTraversal(TreeNode *root, char *bufferStr, int *position)
     // if there's a binary operator, then there's a left and right node
     if (isBinaryOp(root->data))
     {
-        // recursively visit(left)
+        // 1. recursively visit(left)
         bufferStr[(*position)++] = '(';
         inOrderTraversal(root->left, bufferStr, position);
 
-        // print(node) or save the node
-        bufferStr[(*position)++] = ' ';
-        bufferStr[(*position)++] = root->data;
+        // 2. print(node) or save the node
         bufferStr[(*position)++] = ' ';
 
-        // recursively visit(right)
+        int op_length = (int)strlen(root->data);
+        memcpy(&bufferStr[*position], root->data, op_length);
+        *position += op_length;
+
+        bufferStr[(*position)++] = ' ';
+
+        // 3. recursively visit(right)
         inOrderTraversal(root->right, bufferStr, position);
         bufferStr[(*position)++] = ')';
     }
@@ -63,7 +83,10 @@ void inOrderTraversal(TreeNode *root, char *bufferStr, int *position)
     else if (isUnaryOp(root->data))
     {
         bufferStr[(*position)++] = '(';
-        bufferStr[(*position)++] = root->data;
+
+        int op_length = (int)strlen(root->data);
+        memcpy(&bufferStr[*position], root->data, op_length);
+        *position += op_length;
 
         inOrderTraversal(root->right, bufferStr, position);
         bufferStr[(*position)++] = ')';
@@ -72,37 +95,59 @@ void inOrderTraversal(TreeNode *root, char *bufferStr, int *position)
     // If it's a variable, print it directly
     else
     {
-        bufferStr[(*position)++] = root->data;
+        int atom_length = (int)strlen(root->data);
+        memcpy(&bufferStr[*position], root->data, atom_length);
+        *position += atom_length;
     }
 }
 
-int getExpLength(TreeNode* root) {
-    //Stop recursion condition:
-    if (root == NULL) {
+//-------Calculation of Expression length---------
+/**
+ * @brief Calculates the total length of infix expression represented by the parse tree.
+ * (Includes parantheses and spaces)
+ * @param root Pointer to the root node of the subtree
+ * @return int Total length of the expression
+ */
+int getExpLength(TreeNode *root)
+{
+    // Stop recursion condition:
+    if (root == NULL)
+    {
         return 0;
     }
 
-    // Leaf node (Operand): 1 char
-    if (root->left == NULL && root->right == NULL) {
-        return 1; 
+    // Calculate the length of the data itself:
+    int data_length = (int)strlen(root->data);
+
+    // Leaf node (Operand):
+    if (root->left == NULL && root->right == NULL)
+    {
+        return data_length;
     }
 
-    //Recursive functions to calculate length:
-    // Unary Operator (!A): 2 chars ('(', '!', ')') + Length(A)
-    if (isUnaryOp(root->data)) {
+    // Recursive functions to calculate length:
+    //  Unary Operator (!A): 2 chars ('(', ')') + Length(A) + Length(data)
+    if (isUnaryOp(root->data))
+    {
         // Unary operator uses the right child for its single operand
-        return 2 + getExpLength(root->right); 
+        return 2 + getExpLength(root->right) + data_length;
     }
 
-    // Binary Operator ((A + B)): 4 chars ('(', ' ', OP, ' ', ')') + Length(A) + Length(B)
-    if (isBinaryOp(root->data)) {
-        return 4 + getExpLength(root->left) + getExpLength(root->right);
+    // Binary Operator ((A + B)): 4 chars ('(', ' ', OP, ' ', ')') + Length(A) + Length(B) + Length(data)
+    if (isBinaryOp(root->data))
+    {
+        return 4 + getExpLength(root->left) + getExpLength(root->right) + data_length;
     }
-    
+
     return 0;
 }
 
-//To optimize the code further: free the allocated memory for tree (using post order traversal)
+// To optimize the code further: free the allocated memory for tree (using post order traversal)
+/**
+ * @brief Frees all the allocated memoory to the parse tree nodes and their data.
+ * Uses post-order traversal to free child nodes before parent.
+ * @param root Pointer to the root node of the tree to be freed.
+ */
 void freeTree(TreeNode *root)
 {
     if (root == NULL)
@@ -111,6 +156,6 @@ void freeTree(TreeNode *root)
     }
     freeTree(root->left);
     freeTree(root->right);
+    free(root->data); // Free string allocated by strdup
     free(root);
 }
-
