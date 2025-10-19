@@ -2,149 +2,143 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include "Task7.h"
+#include "Task2.h" // For TreeNode and isAtom definitions
 
-// Forward declarations for static functions
-static bool checkClause(char* clause);
-static char* trimWhitespace(char* str);
+// --- Data Structures for Literal Tracking ---
 
 /**
- * @brief Checks if a given CNF formula is a tautology and counts valid/invalid clauses.
- * @param formula The CNF formula to check is in string format.
- * @param valid_clauses A pointer to an integer where the count of valid clauses will be stored.
- * @param invalid_clauses A pointer to an integer where the count of invalid clauses will be stored.
- * @return Returns true if the formula is a tautology (all clauses are valid), and false otherwise.
+ * @brief Represents the state of a literal (positive or negative).
  */
-bool isValidCNF(const char* formula, int* valid_clauses, int* invalid_clauses) {
-    // Initialize counters to zero
-    *valid_clauses = 0;
-    *invalid_clauses = 0;
+typedef enum {
+    POSITIVE,
+    NEGATIVE
+} LiteralState;
 
-    if (formula == NULL || *formula == '\0') {
-        return true; // An empty formula is trivially a tautology with 0 clauses.
-    }
-
-    char* formula_copy = strdup(formula);
-    if (formula_copy == NULL) {
-        perror("Failed to allocate memory for formula copy");
-        return false;
-    }
-
-    bool is_formula_tautology = true; // Assume true until an invalid clause is found.
-
-    // Split the formula into clauses using '&' as the delimiter
-    char* clause_token = strtok(formula_copy, "&");
-
-    while (clause_token != NULL) {
-        // We need a mutable copy for checkClause since it uses strtok internally
-        char* clause_for_check = strdup(clause_token);
-        if (clause_for_check == NULL) {
-             perror("Failed to allocate memory for clause copy");
-             is_formula_tautology = false; // Cannot proceed
-             break;
-        }
-
-        if (checkClause(clause_for_check)) {
-            (*valid_clauses)++;
-        } else {
-            (*invalid_clauses)++;
-            is_formula_tautology = false; // One invalid clause makes the whole formula not a tautology.
-        }
-        
-        free(clause_for_check);
-        clause_token = strtok(NULL, "&");
-    }
-
-    free(formula_copy);
-    return is_formula_tautology;
-}
-
-// A simple structure to keep track of seen literals in a clause.
+/**
+ * @brief Stores a literal's name and its state (negated or not).
+ */
 typedef struct {
-    char* name; // The base name of the literal (e.g., "p1", "isValid")
-    int state;  // 1 for positive (p), -1 for negative (~p)
+    char* name;
+    LiteralState state;
 } LiteralRecord;
 
+// --- Private Helper Function Prototypes ---
+
+static void collectLiteralsInClause(TreeNode* node, LiteralRecord** list, int* count);
+static bool isClauseTautology(TreeNode* clause_root);
+static void checkCNFValidityRecursive(TreeNode* node, int* valid_clauses, int* invalid_clauses);
+
+
+// --- Core Implementation ---
 
 /**
- * @brief Scans a single clause to see if it contains a complementary literal pair.
- * This version handles arbitrary literal names, not just single characters.
- * @param clause A string representing one clause, like "p1 | q_var | ~p1".
- * @return Returns true if the clause contains a literal and its negation, false otherwise.
+ * @brief Recursively traverses a clause sub-tree to collect all literals.
+ * A clause is a disjunction (ORs) of literals.
  */
-static bool checkClause(char* clause) {
-    LiteralRecord* seen_literals = NULL;
-    int seen_count = 0;
+static void collectLiteralsInClause(TreeNode* node, LiteralRecord** list, int* count) {
+    if (node == NULL) {
+        return;
+    }
+
+    // If the node is an OR ('+'), recurse on both children.
+    if (strcmp(node->data, "+") == 0) {
+        collectLiteralsInClause(node->left, list, count);
+        collectLiteralsInClause(node->right, list, count);
+    }
+    // If the node is a NOT ('~'), it's a negative literal.
+    else if (strcmp(node->data, "~") == 0) {
+        (*count)++;
+        *list = realloc(*list, (*count) * sizeof(LiteralRecord));
+        (*list)[(*count) - 1].name = strdup(node->right->data);
+        (*list)[(*count) - 1].state = NEGATIVE;
+    }
+    // Otherwise, it must be a positive literal (an atom).
+    else if (isAtom(node->data)) {
+        (*count)++;
+        *list = realloc(*list, (*count) * sizeof(LiteralRecord));
+        (*list)[(*count) - 1].name = strdup(node->data);
+        (*list)[(*count) - 1].state = POSITIVE;
+    }
+}
+
+/**
+ * @brief Checks if a single clause is a tautology (e.g., contains p V ~p).
+ * @param clause_root The root of the clause's sub-tree.
+ * @return True if the clause is a tautology, false otherwise.
+ */
+static bool isClauseTautology(TreeNode* clause_root) {
+    LiteralRecord* literals = NULL;
+    int count = 0;
+    collectLiteralsInClause(clause_root, &literals, &count);
+
     bool found_pair = false;
-
-    char* literal_token = strtok(clause, "|");
-
-    while (literal_token != NULL) {
-        char* literal = trimWhitespace(literal_token);
-        
-        if (strlen(literal) > 0) {
-            bool is_negated = literal[0] == '~';
-            char* base_name = is_negated ? literal + 1 : literal;
-            int current_state = is_negated ? -1 : 1;
-
-            // Check if the complement has been seen before
-            for (int i = 0; i < seen_count; i++) {
-                if (strcmp(seen_literals[i].name, base_name) == 0) {
-                    if (seen_literals[i].state == -current_state) {
-                        found_pair = true;
-                        goto cleanup; // Exit loops and proceed to cleanup
-                    }
-                }
+    // Compare every literal with every other literal.
+    for (int i = 0; i < count; i++) {
+        for (int j = i + 1; j < count; j++) {
+            // Check if names are the same and states are opposite.
+            if (strcmp(literals[i].name, literals[j].name) == 0 &&
+                literals[i].state != literals[j].state) {
+                found_pair = true;
+                break;
             }
-            
-            // If not found, add this literal to our list of seen literals
-            seen_count++;
-            seen_literals = realloc(seen_literals, seen_count * sizeof(LiteralRecord));
-            if (seen_literals == NULL) {
-                perror("Failed to reallocate memory for seen literals");
-                found_pair = false; // Indicate error
-                goto cleanup;
-            }
-            seen_literals[seen_count - 1].name = strdup(base_name);
-            seen_literals[seen_count - 1].state = current_state;
         }
-
-        literal_token = strtok(NULL, "|");
+        if (found_pair) break;
     }
 
-cleanup:
-    // Free all the memory we allocated for the literal names
-    for (int i = 0; i < seen_count; i++) {
-        free(seen_literals[i].name);
+    // Cleanup allocated memory for the list of literals.
+    for (int i = 0; i < count; i++) {
+        free(literals[i].name);
     }
-    free(seen_literals);
+    free(literals);
 
     return found_pair;
 }
 
 
 /**
- * @brief A utility function to remove whitespace from the start and end of a string.
- * @param str The string to be trimmed.
- * @return A pointer to the beginning of the trimmed string.
+ * @brief Recursively traverses the main CNF tree structure.
+ * The CNF structure is a conjunction (ANDs) of clauses.
  */
-static char* trimWhitespace(char* str) {
-    char *end;
+static void checkCNFValidityRecursive(TreeNode* node, int* valid_clauses, int* invalid_clauses) {
+    if (node == NULL) {
+        return;
+    }
 
-    // Trim leading space
-    while (isspace((unsigned char)*str)) str++;
-
-    if (*str == 0) // All spaces?
-        return str;
-
-    // Trim trailing space
-    end = str + strlen(str) - 1;
-    while (end > str && isspace((unsigned char)*end)) end--;
-
-    // Write new null terminator character
-    *(end + 1) = '\0';
-
-    return str;
+    // If the node is an AND ('*'), the formula continues. Recurse on children.
+    if (strcmp(node->data, "*") == 0) {
+        checkCNFValidityRecursive(node->left, valid_clauses, invalid_clauses);
+        checkCNFValidityRecursive(node->right, valid_clauses, invalid_clauses);
+    }
+    // If it's not an AND, it must be the root of a clause.
+    else {
+        if (isClauseTautology(node)) {
+            (*valid_clauses)++;
+        } else {
+            (*invalid_clauses)++;
+        }
+    }
 }
 
+
+/**
+ * @brief Checks if a given CNF formula tree is a tautology.
+ * @param cnf_root The root of the CNF formula tree.
+ * @param valid_clauses Pointer to store the count of valid clauses.
+ * @param invalid_clauses Pointer to store the count of invalid clauses.
+ * @return True if the formula is a tautology (all clauses are valid), false otherwise.
+ */
+bool checkCNFValidity(TreeNode* cnf_root, int* valid_clauses, int* invalid_clauses) {
+    *valid_clauses = 0;
+    *invalid_clauses = 0;
+
+    if (cnf_root == NULL) {
+        return true; // An empty formula is trivially a tautology.
+    }
+
+    checkCNFValidityRecursive(cnf_root, valid_clauses, invalid_clauses);
+
+    // A CNF formula is a tautology if and only if every clause is a tautology.
+    // This is equivalent to having zero invalid clauses.
+    return (*invalid_clauses == 0);
+}

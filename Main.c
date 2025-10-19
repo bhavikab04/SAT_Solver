@@ -120,15 +120,26 @@ int main()
     }
 
     // --- Task 7: CNF Validity Check (Independent of the tree) ---
-    printf("\n\n--- Task 7: CNF Validity Check ---\n");
-    const char *cnf_formula_valid = "p|q|~p & ~q|r|q";
-    printf("Checking formula: \"%s\"\n", cnf_formula_valid);
-    printf("Is the formula valid CNF? %s\n", isValidCNF(cnf_formula_valid) ? "Yes" : "No");
+    //printf("\n\n--- Task 7: CNF Validity Check ---\n");
+    //const char *cnf_formula_valid = "p|q|~p & ~q|r|q";
+    // In Main.c, after Task 6 creates cnf_root...
 
-    // --- Final Cleanup ---
-    printf("\n\n--- Final Cleanup ---\n");
-    freeTree(root);
-    printf("Parse tree memory has been freed.\n");
+    if (cnf_root) {
+        printf("\n--- Testing CNF Validity (Task 7) ---\n");
+        int valid_count = 0;
+        int invalid_count = 0;
+
+        // Call the new function with the CNF tree from Task 6
+        bool is_tautology = checkCNFValidity(cnf_root, &valid_count, &invalid_count);
+
+        printf("Analysis of the CNF formula:\n");
+        printf("- Valid (Tautological) Clauses: %d\n", valid_count);
+        printf("- Invalid Clauses: %d\n", invalid_count);
+        printf("- Is the entire formula a tautology? %s\n", is_tautology ? "Yes" : "No");
+
+        // Don't forget to free the CNF tree
+        freeTree(cnf_root);
+    }
 
     return 0;
 }
