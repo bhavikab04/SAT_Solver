@@ -16,44 +16,44 @@ int main()
     printf("--- Main Test Function ---\n");
     printf("Testing with expression: %s\n", test_expression);
 
-// Task 2:
+    // Task 2:
 
-// ... input reading logic ...
+    // ... input reading logic ...
 
-// ASSUMPTION: task1_infixToPrefix is now updated to return a Stack of char* tokens
-// and that it dynamically allocates the tokens that are pushed onto the stack.
-Stack *prefix_stack = task1_infixToPrefix(buffer); 
+    // ASSUMPTION: task1_infixToPrefix is now updated to return a Stack of char* tokens
+    // and that it dynamically allocates the tokens that are pushed onto the stack.
+    Stack *prefix_stack = task1_infixToPrefix(buffer);
 
-if (prefix_stack)
-{
-    printf("\n--- Task 1 Result ---\n");
-    // ... (Code to print prefix and free/re-create the stack, OR a simpler approach) ...
-
-    printf("\n--- Task 2 Execution ---\n");
-    // ** The prefixToTree function will consume (pop) the stack.**
-    TreeNode *root = prefixToTree(prefix_stack);
-
-    if (root)
+    if (prefix_stack)
     {
-        printTreeVertical(root);
-        // NEW: Function to free the tree memory
-        freeTree(root); 
+        printf("\n--- Task 1 Result ---\n");
+        // ... (Code to print prefix and free/re-create the stack, OR a simpler approach) ...
+
+        printf("\n--- Task 2 Execution ---\n");
+        // ** The prefixToTree function will consume (pop) the stack.**
+        TreeNode *root = prefixToTree(prefix_stack);
+
+        if (root)
+        {
+            printTreeVertical(root);
+            // NEW: Function to free the tree memory
+            freeTree(root);
+        }
+        else
+        {
+            printf("Failed to build the parse tree.\n");
+        }
+
+        // Since prefixToTree consumed the stack, freeStack only frees the remaining structure/memory.
+        // NOTE: freeStack must also handle freeing the `data` array of char* pointers.
+        freeStack(prefix_stack);
     }
     else
     {
-        printf("Failed to build the parse tree.\n");
+        printf("Failed to convert the expression.\n");
     }
 
-    // Since prefixToTree consumed the stack, freeStack only frees the remaining structure/memory.
-    // NOTE: freeStack must also handle freeing the `data` array of char* pointers.
-    freeStack(prefix_stack);
-}
-else
-{
-    printf("Failed to convert the expression.\n");
-}
-
-return 0;
+    return 0;
 
     // Task 3:
     printf("\n--- Infix Expression Reconstruction (In-order Traversal) ---\n");

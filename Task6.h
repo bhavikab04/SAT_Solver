@@ -18,7 +18,6 @@
 
 #include "Task2.h" //need it for struct and isAtom() function
 #include "Task3.h" //need it for freeTree() function
-#include "Task5.h" //need it for create_tree_node() function
 
 // Core Algorithms:
 /**
