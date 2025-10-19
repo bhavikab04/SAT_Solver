@@ -1,45 +1,89 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-
-// Include all necessary task headers and the new helper header
-#include "helper.h"
+#include "convertingCNFtoInput.h" // For CNF conversion
+#include "Task1.h"         // For Stack, read_line, task1_infixToPrefix
 #include "Task2.h"
 #include "Task3.h"
 #include "Task4.h"
-#include "Task5.h"
-#include "Task6.h"
-#include "Task7.h"
+#include "Task5.h" 
 
-// Assume the Stack struct and its related functions (createStack, freeStack)
-// are defined in one of the included headers or a separate utility file.
-typedef struct Stack Stack;
+#include "Task7.h" 
 
-int main()
-{
-    const char *test_expression = "~*p>qr";
+int main(int argc, char *argv[]) {
+    // We must add argc/argv to accept the CNF filename
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <filename.cnf>\n", argv[0]);
+        fprintf(stderr, "This will run the CNF->Infix->Prefix->... pipeline.\n");
+        return 1;
+    }
+    const char* cnf_filename = argv[1];
+    char* buffer = NULL; // This will hold the infix string
 
     printf("--- Main Test Function ---\n");
-    printf("Testing with expression: %s\n\n", test_expression);
+    printf("Processing CNF file: %s\n", cnf_filename);
+    
+    // ==========================================================
+    // --- ADDED: CNF to Infix Conversion ---
+    // This part generates the 'buffer' needed for Task 1
+    // ==========================================================
+    long num_clauses = get_clause_count(cnf_filename);
+    if (num_clauses <= 0) {
+        fprintf(stderr, "Error: Could not find 'p cnf' header in %s\n", cnf_filename);
+        return 1;
+    }
 
-    // --- Task 2: Building the Parse Tree ---
-    printf("--- Building Parse Tree from Prefix Expression ---\n");
+    FILE* temp_stream = tmpfile(); // Create a temporary in-memory file
+    if (temp_stream == NULL) {
+        perror("Error creating temporary file");
+        return 1;
+    }
 
-    // 1. Convert the prefix string to a stack using the function from helper.c
-    Stack *prefix_stack = prefixToStack(test_expression);
-    TreeNode *root = NULL;
+    // 1. Run CNF converter, writing its infix string to the temp file
+    convertCnfToInfix(cnf_filename, num_clauses, temp_stream);
 
-    if (prefix_stack)
-    {
-        // 2. Build the tree from the stack. prefixToTree will consume the stack.
-        root = prefixToTree(prefix_stack);
+    // 2. Rewind the temp file to read from the beginning
+    rewind(temp_stream);
 
-        // 3. The stack structure itself can now be freed. The tokens it held
-        //    were consumed and freed during the tree-building process.
-        freeStack(prefix_stack);
+    // 3. Use task1's read_line to read the infix string into 'buffer'
+    buffer = read_line(temp_stream);
+    fclose(temp_stream); // Temp file is auto-deleted
 
-        if (root)
-        {
+    if (buffer == NULL || strlen(buffer) == 0) {
+        fprintf(stderr, "Error: CNF conversion produced no output.\n");
+        free(buffer);
+        return 1;
+    }
+
+    printf("Generated Infix: %s\n", buffer);
+
+    const char *test_expression = "~*p>qr";
+
+//end of changes that I made- Pujitha
+
+
+
+    printf("Testing with expression: %s\n", test_expression);
+
+    //Task 2:
+
+// ... input reading logic ...
+
+    Stack* prefix_stack = task1_infixToPrefix(buffer);
+
+    if (prefix_stack) {
+        printf("\n--- Task 1 Result ---\n");
+        // NOTE: The stack is printed by popping, which consumes it.
+        // We must *replicate* the stack if we want to print AND use it for Task 2.
+        // For simplicity, let's assume Task 1's main prints it first.
+        
+        // ... (Code to print prefix and free/re-create the stack, OR a simpler approach) ...
+
+        printf("\n--- Task 2 Execution ---\n");
+        // ** The prefixToTree function will consume (pop) the stack.**
+        TreeNode* root = prefixToTree(prefix_stack); 
+
+        if (root) {
             printTreeVertical(root);
         }
         else
