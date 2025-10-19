@@ -3,17 +3,16 @@
 
 #include <stdbool.h> // For the bool type
 
-// --- Stack Structure Definition (Updated for char* tokens) ---
-// IMPORTANT ASSUMPTION: The stack now stores char* (string tokens), not char.
-// This is necessary to handle multi-character atoms like "P1" or "abc".
+// --- Stack Structure Definition (Canonical for the project) ---
+// Note: This must be the ONLY definition of struct Stack/Stack in your entire project.
 typedef struct Stack {
-    char** data;    // Array to hold stack data (array of char pointers/strings)
-    int top;        // Index of the top element
-    int capacity;   // Max size of the stack
-} Stack;
+    char** data;      // Array to hold stack data (array of char pointers/strings)
+    int top;          // Index of the top element
+    int capacity;     // Max size of the stack
+} Stack; // The typedef creates an alias 'Stack' for 'struct Stack'
 
 // -------------------------------
-//  Public Structure for Tree Node
+//  Public Structure for Tree Node
 // -------------------------------
 // The structure for a node in the parse tree.
 typedef struct TreeNode {
@@ -24,7 +23,7 @@ typedef struct TreeNode {
 
 
 // -------------------------------
-//  Public Function Prototypes
+//  Public Function Prototypes
 // -------------------------------
 
 /** * @brief Converts a prefix expression, stored in a stack of string tokens, into a parse tree.
