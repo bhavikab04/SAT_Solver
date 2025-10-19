@@ -2,181 +2,133 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+// Include all necessary task headers and the new helper header
+#include "helper.h"
 #include "Task2.h"
-#include "Task4.h"
 #include "Task3.h"
+#include "Task4.h"
 #include "Task5.h"
 #include "Task6.h"
 #include "Task7.h"
+
+// Assume the Stack struct and its related functions (createStack, freeStack)
+// are defined in one of the included headers or a separate utility file.
+typedef struct Stack Stack;
 
 int main()
 {
     const char *test_expression = "~*p>qr";
 
     printf("--- Main Test Function ---\n");
-    printf("Testing with expression: %s\n", test_expression);
+    printf("Testing with expression: %s\n\n", test_expression);
 
-    // Task 2:
+    // --- Task 2: Building the Parse Tree ---
+    printf("--- Building Parse Tree from Prefix Expression ---\n");
 
-    // ... input reading logic ...
-
-    // ASSUMPTION: task1_infixToPrefix is now updated to return a Stack of char* tokens
-    // and that it dynamically allocates the tokens that are pushed onto the stack.
-    Stack *prefix_stack = task1_infixToPrefix(buffer);
+    // 1. Convert the prefix string to a stack using the function from helper.c
+    Stack *prefix_stack = prefixToStack(test_expression);
+    TreeNode *root = NULL;
 
     if (prefix_stack)
     {
-        printf("\n--- Task 1 Result ---\n");
-        // ... (Code to print prefix and free/re-create the stack, OR a simpler approach) ...
+        // 2. Build the tree from the stack. prefixToTree will consume the stack.
+        root = prefixToTree(prefix_stack);
 
-        printf("\n--- Task 2 Execution ---\n");
-        // ** The prefixToTree function will consume (pop) the stack.**
-        TreeNode *root = prefixToTree(prefix_stack);
+        // 3. The stack structure itself can now be freed. The tokens it held
+        //    were consumed and freed during the tree-building process.
+        freeStack(prefix_stack);
 
         if (root)
         {
             printTreeVertical(root);
-            // NEW: Function to free the tree memory
-            freeTree(root);
         }
         else
         {
-            printf("Failed to build the parse tree.\n");
+            printf("Failed to build the parse tree from the stack.\n");
         }
-
-        // Since prefixToTree consumed the stack, freeStack only frees the remaining structure/memory.
-        // NOTE: freeStack must also handle freeing the `data` array of char* pointers.
-        freeStack(prefix_stack);
     }
     else
     {
-        printf("Failed to convert the expression.\n");
+        printf("Failed to convert the prefix expression to a stack.\n");
     }
 
-    return 0;
-
-    // Task 3:
-    printf("\n--- Infix Expression Reconstruction (In-order Traversal) ---\n");
-
-    int bufferLength = getExpLength(root);
-    char *infix = (char *)malloc(bufferLength + 1);
-
-    if (!infix)
+    // --- Proceed with other tasks only if the tree was successfully built ---
+    if (root == NULL)
     {
-        printf("Memory allocation failed for infix buffer string\n");
-        freeTree(root);
+        printf("\nAborting further tasks because the parse tree could not be built.\n");
         return 1;
     }
-    int pos = 0;
-    inOrderTraversal(root, infix, &pos);
-    infix[pos] = '\0';
 
-    free(infix);
-    // TreeNode *root_new = prefixToTree(test_expression);
-    // Task 4:
+    // --- Task 3: Infix Expression Reconstruction ---
+    printf("\n\n--- Task 3: Infix Expression Reconstruction ---\n");
+    int bufferLength = getExpLength(root);
+    char *infix = (char *)malloc(bufferLength + 1);
+    if (infix)
+    {
+        int pos = 0;
+        inOrderTraversal(root, infix, &pos);
+        infix[pos] = '\0';
+        printf("Reconstructed Infix: %s\n", infix);
+        free(infix);
+    }
+    else
+    {
+        printf("Memory allocation failed for infix buffer string\n");
+    }
+
+    // --- Task 4: Calculate Tree Height ---
+    printf("\n\n--- Task 4: Tree Height Calculation ---\n");
     int height = calculateHeight(root);
-    printf("\nThe calculated height of the tree is: %d\n", height);
+    printf("The calculated height of the tree is: %d\n", height);
 
-    printf("\n--- Testing Evaluation ---\n");
-
-
-    // Task 5:
-
-// Example usage of the original Task 5
-{
-    // NOTE: If you are using Task2.h, the literals in the assignment
-    // should be char* strings, not single characters.
-    // The provided Main.c code assumes single-char literals ('p', 'q', 'r') 
-    // but the evaluation code (evaluateTree) uses strcmp for char*.
-    // To be consistent with the string-based Task5.c, this snippet 
-    // would need to be updated in your actual Main.c to handle char* constants 
-    // or string-literals properly.
-
-    // Corrected to use string literals:
+    // --- Task 5: Evaluation and Truth Table ---
+    printf("\n\n--- Task 5: Evaluation & Truth Table ---\n");
     TruthAssignment assignments[] = {
         {.literal = "p", .value = true},
         {.literal = "q", .value = false},
         {.literal = "r", .value = true}};
     int num_assignments = sizeof(assignments) / sizeof(assignments[0]);
 
-    printf("--- Task 5: Single Evaluation ---\n");
-    printf("With p=T, q=F, r=T...\n");
-    if (root == NULL)
-    {
-        printf("NULL node\n");
-    } else {
-        bool result = evaluateTree(root, assignments, num_assignments);
-        printf("The formula evaluates to: %s\n", result ? "True" : "False");
-    }
-}
+    printf("With p=T, q=F, r=T, the formula evaluates to: %s\n",
+           evaluateTree(root, assignments, num_assignments) ? "True" : "False");
 
-// ---------------------------------------------
-// --- New Subtask: Calculate and Print Truth Table ---
-// ---------------------------------------------
-
-if (root != NULL) {
-    char** literals_list = NULL;
+    char **literals_list = NULL;
     int literal_count = collectUniqueLiterals(root, &literals_list);
-    
-    printf("\n--- Task 5: Truth Table Calculation ---\n");
-    // Assuming you have the original formula string stored in a variable, e.g., 'formula_str'
-    const char* formula_str = "((~p)+q)*r"; // Replace with the actual formula string
-
-    if (literal_count > 0) {
-        printTruthTable(root, literals_list, literal_count, formula_str);
-        
-        // IMPORTANT: Free the memory allocated by collectUniqueLiterals
-        for (int i = 0; i < literal_count; i++) {
+    if (literal_count > 0)
+    {
+        printTruthTable(root, literals_list, literal_count, test_expression);
+        for (int i = 0; i < literal_count; i++)
+        {
             free(literals_list[i]);
         }
         free(literals_list);
-    } else {
-        printf("Formula contains no unique literals to build a table.\n");
     }
-}
 
-    // Task 6: Convert the formula to CNF form
-    //-------------------------------------------------------------
-    printf("\n--- Testing CNF Conversion (Task 6) ---\n");
-
-    // Pass the root of the existing parse tree to the CNF conversion function.
-    // The CNF_FORMULA() function will create and return a new tree
-    // that represents the formula in CNF (Conjunctive Normal Form).
+    // --- Task 6: Convert to CNF ---
+    printf("\n\n--- Task 6: CNF Conversion ---\n");
     TreeNode *cnf_root = CNF_FORMULA(root);
-
     if (cnf_root)
     {
-        printf("\nCNF Conversion Complete.\n");
-        printf("Here’s the final CNF formula (conversion steps were shown above):\n");
-
-        // Print the converted CNF formula neatly
+        printf("Final CNF formula: ");
         print_formula(cnf_root);
         printf("\n");
-
-        // Free up the memory used by the new CNF tree to avoid memory leaks
         freeTree(cnf_root);
     }
     else
     {
-        printf("CNF conversion failed. Something went wrong during processing.\n");
+        printf("CNF conversion failed.\n");
     }
-    //-------------------------------------------------------------
 
-    // Task 7:
-    printf("\n--- Testing CNF Validity (Task 7) ---\n");
-
+    // --- Task 7: CNF Validity Check (Independent of the tree) ---
+    printf("\n\n--- Task 7: CNF Validity Check ---\n");
     const char *cnf_formula_valid = "p|q|~p & ~q|r|q";
-    const char *cnf_formula_invalid = "a | b & c | ~b";
-
     printf("Checking formula: \"%s\"\n", cnf_formula_valid);
-    bool cnf_result_1 = isValidCNF(cnf_formula_valid);
-    printf("Is the formula valid? %s\n\n", cnf_result_1 ? "Yes" : "No");
+    printf("Is the formula valid CNF? %s\n", isValidCNF(cnf_formula_valid) ? "Yes" : "No");
 
-    printf("Checking formula: \"%s\"\n", cnf_formula_invalid);
-    bool cnf_result_2 = isValidCNF(cnf_formula_invalid);
-    printf("Is the formula valid? %s\n", cnf_result_2 ? "Yes" : "No");
-
+    // --- Final Cleanup ---
+    printf("\n\n--- Final Cleanup ---\n");
     freeTree(root);
+    printf("Parse tree memory has been freed.\n");
 
     return 0;
 }
