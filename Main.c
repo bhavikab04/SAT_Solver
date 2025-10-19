@@ -78,20 +78,62 @@ int main()
     printf("\nThe calculated height of the tree is: %d\n", height);
 
     printf("\n--- Testing Evaluation ---\n");
+
+
     // Task 5:
+
+// Example usage of the original Task 5
+{
+    // NOTE: If you are using Task2.h, the literals in the assignment
+    // should be char* strings, not single characters.
+    // The provided Main.c code assumes single-char literals ('p', 'q', 'r') 
+    // but the evaluation code (evaluateTree) uses strcmp for char*.
+    // To be consistent with the string-based Task5.c, this snippet 
+    // would need to be updated in your actual Main.c to handle char* constants 
+    // or string-literals properly.
+
+    // Corrected to use string literals:
     TruthAssignment assignments[] = {
-        {'p', true},
-        {'q', false},
-        {'r', true}};
+        {.literal = "p", .value = true},
+        {.literal = "q", .value = false},
+        {.literal = "r", .value = true}};
     int num_assignments = sizeof(assignments) / sizeof(assignments[0]);
 
-    printf("With p=true, q=false, r=true...\n");
+    printf("--- Task 5: Single Evaluation ---\n");
+    printf("With p=T, q=F, r=T...\n");
     if (root == NULL)
     {
-        printf("NULL node");
+        printf("NULL node\n");
+    } else {
+        bool result = evaluateTree(root, assignments, num_assignments);
+        printf("The formula evaluates to: %s\n", result ? "True" : "False");
     }
-    bool result = evaluateTree(root, assignments, num_assignments);
-    printf("The formula evaluates to: %s\n", result ? "true" : "false");
+}
+
+// ---------------------------------------------
+// --- New Subtask: Calculate and Print Truth Table ---
+// ---------------------------------------------
+
+if (root != NULL) {
+    char** literals_list = NULL;
+    int literal_count = collectUniqueLiterals(root, &literals_list);
+    
+    printf("\n--- Task 5: Truth Table Calculation ---\n");
+    // Assuming you have the original formula string stored in a variable, e.g., 'formula_str'
+    const char* formula_str = "((~p)+q)*r"; // Replace with the actual formula string
+
+    if (literal_count > 0) {
+        printTruthTable(root, literals_list, literal_count, formula_str);
+        
+        // IMPORTANT: Free the memory allocated by collectUniqueLiterals
+        for (int i = 0; i < literal_count; i++) {
+            free(literals_list[i]);
+        }
+        free(literals_list);
+    } else {
+        printf("Formula contains no unique literals to build a table.\n");
+    }
+}
 
     // Task 6: Convert the formula to CNF form
     //-------------------------------------------------------------
