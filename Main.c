@@ -79,9 +79,8 @@ int main()
 
     printf("\n--- Testing Evaluation ---\n");
 
-    
+
     // Task 5:
-// ... other code and includes in Main.c ...
 
 // Example usage of the original Task 5
 {
