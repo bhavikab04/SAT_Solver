@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "Task1.c"
+
 #include "Task2.h"
 #include "Task4.h"
 #include "Task3.h"
@@ -20,15 +20,13 @@ int main()
 
     // ... input reading logic ...
 
+    // ASSUMPTION: task1_infixToPrefix is now updated to return a Stack of char* tokens
+    // and that it dynamically allocates the tokens that are pushed onto the stack.
     Stack *prefix_stack = task1_infixToPrefix(buffer);
 
     if (prefix_stack)
     {
         printf("\n--- Task 1 Result ---\n");
-        // NOTE: The stack is printed by popping, which consumes it.
-        // We must *replicate* the stack if we want to print AND use it for Task 2.
-        // For simplicity, let's assume Task 1's main prints it first.
-
         // ... (Code to print prefix and free/re-create the stack, OR a simpler approach) ...
 
         printf("\n--- Task 2 Execution ---\n");
@@ -38,7 +36,8 @@ int main()
         if (root)
         {
             printTreeVertical(root);
-            // TODO: Add function to free the tree memory (not shown here)
+            // NEW: Function to free the tree memory
+            freeTree(root);
         }
         else
         {
@@ -46,7 +45,7 @@ int main()
         }
 
         // Since prefixToTree consumed the stack, freeStack only frees the remaining structure/memory.
-        // If the stack was completely consumed (which it should be), this is safe.
+        // NOTE: freeStack must also handle freeing the `data` array of char* pointers.
         freeStack(prefix_stack);
     }
     else

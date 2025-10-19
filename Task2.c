@@ -1,74 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Task2.h" // Includes the Stack and TreeNode definitions
-// Assuming push and pop functions are accessible, 
-// but since we are only popping here, we only need the Stack struct 
-// and the pop function implementation (which we'll define locally for completeness 
-// or assume to be provided/linked).
+#include "Task2.h" 
 
-// Re-defining helpers from Task1 for pop/isEmpty on the Stack type
-// Since Task1's stack functions are not in a header, we need to redefine them
-// or assume they are available from a linked object file.
-// For self-containment, we'll assume the necessary Stack functions are accessible
-// or re-declare/define them here. Let's assume you'll link Task1's object file,
-// but for compilation, we must include the function prototypes used:
-
-// --- Assumed Stack Function Prototypes (from Task1) ---
+// --- Assumed Stack Function Prototypes (Updated for char* tokens) ---
+// NOTE: These MUST be implemented elsewhere (e.g., Task1.c/utils.c) to handle char*
 int isEmpty(Stack* stack);
-char pop(Stack* stack);
-// NOTE: Since I don't have the implementation of isEmpty/pop 
-// available outside Task1.c, I must assume they are accessible.
-// For the purpose of *showing* the Task2 logic, I'll proceed with calling them.
-
-// Since the prompt provided the full stack functions, 
-// let's include them here to make Task2.c compile standalone 
-// if Task2.h included Stack definition.
-
-// We must include the stack operations used by Task2's logic.
-// They are NOT good candidates for a header file if they are only used in Task1's file.
-// For simplicity in this answer, I will assume the `Stack` structure and
-// the `pop` and `isEmpty` functions are correctly defined/linked.
-// If not, you should place the implementation of `isEmpty` and `pop` here 
-// or in a separate stack utility file/header.
-
-// For now, let's proceed with the logic assuming the stack operations are available.
-// If you link Task1.o, it should work, but for a standalone Task2.c,
-// you would need to define/include these:
-/*
-int isEmpty(Stack* stack) { return stack->top == -1; }
-char pop(Stack* stack) { 
-    if (isEmpty(stack)) return '\0';
-    return stack->data[stack->top--];
-}
-*/
-// --- End of assumed Stack Function Prototypes ---
-
+char* pop(Stack* stack); // ASSUMED: pop now returns a char*
+void freeStack(Stack *stack); // ASSUMED: frees the stack structure AND the tokens it holds
 
 // --- Private Globals & Helpers ---
-// static int indexPos = 0; // NO LONGER NEEDED
-static TreeNode* makeNode(char value);
-static bool isBinary(char c);
-static bool isUnary(char c);
+static TreeNode* makeNode(const char *value);
+static bool isBinary(const char *token);
+static bool isUnary(const char *token);
 static void printTreeRecursiveHelper(TreeNode *root, const char *prefix, bool isLeftChild);
-// The new recursive helper function for building the tree
-static TreeNode* buildTreeRecursive(Stack *stack); // MODIFIED SIGNATURE
-
+static TreeNode* buildTreeRecursive(Stack *stack); 
 
 // --- Public Function Definitions ---
 
-bool isAtom(char c) {
-    // Assuming variables are any character that is NOT an operator.
-    return !(isBinary(c) || isUnary(c));
+// Updated to take a string token
+bool isAtom(const char *token) {
+    if (!token || token[0] == '\0') return false;
+    // Check the first character against known operators
+    return !(isBinary(token) || isUnary(token));
 }
 
-// MODIFIED: This is now a wrapper function that takes the Stack*.
 TreeNode* prefixToTree(Stack *prefix_stack) {
     if (prefix_stack == NULL || isEmpty(prefix_stack)) {
         return NULL;
     }
-    // No global index reset needed. The stack naturally advances with pop.
-    return buildTreeRecursive(prefix_stack); // Call the helper to do the actual work.
+    return buildTreeRecursive(prefix_stack);
 }
 
 void printTreeVertical(TreeNode *root) {
@@ -77,39 +38,66 @@ void printTreeVertical(TreeNode *root) {
         return;
     }
     printf("\nParse Tree Structure:\n");
-    printf("%c\n", root->data);
+    printf("%s\n", root->data);
     
-    // Note: The print helper needs to be able to handle left=NULL for unary logic.
-    // The original print function seemed to miss printing the left node if it existed for unary.
-    // For a unary operator, convention is often to use the RIGHT child.
-    // However, the original Task2.c assigned to 'right' for unary, which we keep.
+    // The print helper needs to be called correctly for the children
     if (isUnary(root->data)) {
-        // Unary operator like '~' only has one child (right in our convention)
         printTreeRecursiveHelper(root->right, "", true); 
     } else if (isBinary(root->data)) {
-        // Binary operators have two children
-        printTreeRecursiveHelper(root->left, "", false);
+        // Left is handled as NOT the last child (false for isLeftChild) 
+        // in the branch rendering logic.
+        printTreeRecursiveHelper(root->left, "", false); 
+        // Right is handled as the last child (true for isLeftChild)
         printTreeRecursiveHelper(root->right, "", true);
     }
 }
 
+void freeTree(TreeNode *root) {
+    if (root == NULL) {
+        return;
+    }
+
+    // Recursively free children
+    freeTree(root->left);
+    freeTree(root->right);
+
+    // Free the dynamically allocated data string
+    if (root->data != NULL) {
+        free(root->data);
+    }
+
+    // Free the node itself
+    free(root);
+}
+
 // --- Private Helper Implementations ---
 
-// NEW: This is the actual recursive logic, now taking the Stack*.
 static TreeNode* buildTreeRecursive(Stack *stack) {
     if (isEmpty(stack))
         return NULL;
 
-    // Get the next symbol from the stack
-    char ch = pop(stack);
-    TreeNode *node = makeNode(ch);
+    // Get the next token (string) from the stack
+    char *token = pop(stack); // pop() returns char*
+    if (!token) return NULL; // Should not happen if isEmpty is checked, but for safety
 
-    if (isBinary(ch)) {
+    TreeNode *node = makeNode(token);
+    // The token string from the stack is now copied/stored in the node.
+    // The original token from the stack must be freed if it was dynamically allocated 
+    // when pushed. For now, we assume `pop` handles token memory or that 
+    // `makeNode` takes ownership and frees it (but standard is to copy).
+    // Let's assume `pop` gives us a string that MUST be freed by the caller 
+    // after it's no longer needed (i.e., after copying to the node).
+
+    // Since makeNode *copies* the string, we free the token from the stack now.
+    free(token); 
+    
+    if (isBinary(node->data)) {
         // Binary operators need two operands (subtrees)
+        // NOTE: Order of recursion is important for prefix: Left then Right.
         node->left = buildTreeRecursive(stack);
         node->right = buildTreeRecursive(stack);
-    } else if (isUnary(ch)) {
-        // Unary operators need one operand (sub-tree), conventionally right child in this scheme
+    } else if (isUnary(node->data)) {
+        // Unary operators need one operand (sub-tree), conventionally right child
         node->right = buildTreeRecursive(stack);
     }
     // Atoms (operands) automatically stop the recursion for that branch.
@@ -117,52 +105,59 @@ static TreeNode* buildTreeRecursive(Stack *stack) {
 }
 
 
-static TreeNode* makeNode(char value) {
+static TreeNode* makeNode(const char *value) {
     TreeNode* node = (TreeNode*)malloc(sizeof(TreeNode));
     if (!node) {
-        fprintf(stderr, "Memory allocation failed.\n");
+        fprintf(stderr, "Memory allocation failed for TreeNode.\n");
         exit(EXIT_FAILURE);
     }
-    node->data = value;
+    
+    // Allocate memory for the string data
+    node->data = strdup(value); // strdup() is a convenient way to allocate and copy
+    if (!node->data) {
+        fprintf(stderr, "Memory allocation failed for TreeNode data.\n");
+        free(node);
+        exit(EXIT_FAILURE);
+    }
+
     node->left = NULL;
     node->right = NULL;
     return node;
 }
 
-static bool isBinary(char c) {
+// Operators are single characters, so we check the first character of the token
+static bool isBinary(const char *token) {
+    if (!token || strlen(token) != 1) return false;
+    char c = token[0];
     return (c == '+' || c == '*' || c == '>');
 }
 
-static bool isUnary(char c) {
+static bool isUnary(const char *token) {
+    if (!token || strlen(token) != 1) return false;
+    char c = token[0];
     return (c == '~');
 }
 
-// Note on printTreeRecursiveHelper:
-// The original code had a slight issue in the unary printing path: 
-// printTreeRecursiveHelper(root->left, newPrefix, true); 
-// was called, but 'node->left' is NULL for unary operators. 
-// We should only call for the right child. The fix is applied below:
-
+// Helper to print the tree structure visually
 static void printTreeRecursiveHelper(TreeNode *root, const char *prefix, bool isLeftChild) {
     if (root == NULL)
         return;
 
     // Use isLeftChild to determine the branch drawing character
     const char *connector = isLeftChild ? "`-- " : "|-- ";
-    printf("%s%s%c\n", prefix, connector, root->data);
+    printf("%s%s%s\n", prefix, connector, root->data); // Print the full string
 
     char newPrefix[256];
     // Extend the prefix drawing: ' ' for the `--- branch, '|' for the |-- branch
-    sprintf(newPrefix, "%s%s", prefix, (isLeftChild ? "    " : "|   "));
+    // Note: The newPrefix calculation is a bit of a trick for visual representation
+    sprintf(newPrefix, "%s%s", prefix, (isLeftChild ? "    " : "|   "));
 
     if (isBinary(root->data)) {
-        // Binary: print left then right. Left is NOT the last child of its parent's branch.
+        // Binary: print left then right.
         printTreeRecursiveHelper(root->left, newPrefix, false); 
-        // Right is the last child of its parent's branch.
         printTreeRecursiveHelper(root->right, newPrefix, true);
     } else if (isUnary(root->data)) {
-        // Unary: print only the right child (in our convention). It is the only child.
+        // Unary: print only the right child (it is the only child, so it's the 'last')
         printTreeRecursiveHelper(root->right, newPrefix, true);
     }
-    // If it is an Atom, we stop recursion.
 }
