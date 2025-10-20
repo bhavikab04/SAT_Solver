@@ -91,6 +91,9 @@ $(function(){initNavTree('_task6_8c.html','',''); });
   <div class="headertitle"><div class="title">Task6.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of functions for converting propositional logic formulas to Conjunctive Normal Form (CNF).  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -103,7 +106,7 @@ $(function(){initNavTree('_task6_8c.html','',''); });
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_task6_8c__incl.png" border="0" usemap="#a_task6_8c" loading="lazy" alt=""/></div>
 <map name="a_task6_8c" id="a_task6_8c">
-<area shape="rect" title=" " alt="" coords="195,5,263,31"/>
+<area shape="rect" title="Implementation of functions for converting propositional logic formulas to Conjunctive Normal Form (C..." alt="" coords="195,5,263,31"/>
 <area shape="rect" title=" " alt="" coords="235,300,295,326"/>
 <area shape="poly" title=" " alt="" coords="258,29,293,48,334,74,374,109,405,151,418,179,425,203,424,227,411,254,391,275,365,291,338,302,311,309,310,303,336,297,363,286,387,271,407,250,419,226,420,203,413,180,400,154,370,113,331,79,290,52,255,34"/>
 <area shape="rect" title=" " alt="" coords="5,153,69,178"/>
@@ -152,7 +155,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a85ccaa203611107094401f69fead7bdf" id="r_a85ccaa203611107094401f69fead7bdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_tree_node.html">TreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85ccaa203611107094401f69fead7bdf">CNF_FORMULA</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *phi)</td></tr>
 <tr class="memdesc:a85ccaa203611107094401f69fead7bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver function for converting an arbitrary formula to Conjunctive Normal Form (CNF).  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of functions for converting propositional logic formulas to Conjunctive Normal Form (CNF). </p>
+<p>This file contains the implementation of functions for creating, copying, and manipulating a propositional logic formula represented as a binary tree (<a class="el" href="struct_tree_node.html" title="Represents a node in the abstract syntax tree (AST) of a propositional logic formula.">TreeNode</a> structure). It includes the core algorithms for converting a formula to CNF:</p><ol type="1">
+<li>Implication Elimination (IMPL_FREE)</li>
+<li>Negation Normal Form (NNF)</li>
+<li>Distribution and CNF generation (CNF, DISTR)</li>
+</ol>
+<p>It is assumed that '<a class="el" href="_task6_8h.html" title="Header file containing function prototypes for converting propositional logic formulas to Conjunctive...">Task6.h</a>', '<a class="el" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion.">Task2.h</a>', and '<a class="el" href="_task3_8h.html" title="Header file for Task 3: Parse Tree to Infix Conversion.">Task3.h</a>' define the <a class="el" href="struct_tree_node.html" title="Represents a node in the abstract syntax tree (AST) of a propositional logic formula.">TreeNode</a> structure, the 'isAtom' function, the 'freeTree' function, and the 'bool' type. Operators used: '&gt;' (Implication), '~' (Negation), '*' (AND), '+' (OR). </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a93732f4385a09ea1ce41af2e27bf1dc1" name="a93732f4385a09ea1ce41af2e27bf1dc1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93732f4385a09ea1ce41af2e27bf1dc1">&#9670;&#160;</a></span>CNF()</h2>
 
