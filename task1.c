@@ -126,9 +126,7 @@ Stack *task1_infixToPrefix(const char *infix)
     if (n == 0)
         return NULL;
 
-    // *** FIX 1: Use a safe, fixed capacity instead of 'n' ***
-    // 'n' can be millions of chars, but we only have a few thousand tokens.
-    // 1,000,000 tokens is more than enough and uses ~8MB of RAM, not ~800MB.
+    // Use a safe, fixed capacity
     int capacity = 1000000; 
 
     Stack *op_stack = createStack(capacity);
@@ -173,9 +171,9 @@ Stack *task1_infixToPrefix(const char *infix)
         {
             push(op_stack, ")");
         }
+        // This is the safe version of this block
         else if (c == '(')
         {
-            // This is the safe version of this block
             char *op = NULL;
             while ((op = pop(op_stack)) != NULL) 
             {
@@ -200,7 +198,6 @@ Stack *task1_infixToPrefix(const char *infix)
     char *op;
     while ((op = pop(op_stack)) != NULL)
     {
-        // *** FIX 2: Do NOT push any leftover parentheses ***
         if (strcmp(op, ")") != 0 && strcmp(op, "(") != 0) 
         {
             push(final_stack, op);
@@ -209,20 +206,12 @@ Stack *task1_infixToPrefix(const char *infix)
     }
     freeStack(op_stack);
 
-    // --- 6. Reverse the final stack ---
-    // The iterative prefixToTree expects to pop tokens in
-    // the correct prefix order (e.g., "+", "a", "b").
-    // final_stack is currently in reverse order ("b", "a", "+").
-    // We MUST reverse it.
-    Stack *return_stack = createStack(capacity); // Use new capacity
-    while ((op = pop(final_stack)) != NULL)
-    {
-        push(return_stack, op);
-        free(op);
-    }
+    // --- 6. RETURN THE FINAL STACK (DO NOT REVERSE) ---
+    // Your recursive Task2 `buildTreeRecursive` expects
+    // the stack in REVERSE prefix order (e.g., "b", "a", "+").
+    // `final_stack` is already in this correct order.
+    
+    // The "reversal" loop is the bug. We remove it.
 
-    freeStack(final_stack);
-    return return_stack;
+    return final_stack;
 }
-
-// --- NO MAIN FUNCTION ---
