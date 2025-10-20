@@ -25,6 +25,27 @@
 var NAVTREE =
 [
   [ "Logic_Assignment_SAT_Solver", "index.html", [
+    [ "Project Algorithm Analysis", "analysis_page.html", [
+      [ "Overall Review &amp; Summary", "analysis_page.html#overview_sec", [
+        [ "Key Strengths", "analysis_page.html#review_strengths", null ],
+        [ "Critical Performance &amp; Memory Analysis", "analysis_page.html#review_bottlenecks", null ]
+      ] ],
+      [ "Analysis Variable Key", "analysis_page.html#key_sec", null ],
+      [ "Full Pipeline Analysis (main.c)", "analysis_page.html#pipeline_sec", [
+        [ "Time Complexity: <picture><source srcset=\"form_19_dark.png\" media=\"(prefers-color-scheme: dark)\"/><img class=\"formulaInl\" alt=\"$O(F + C \\cdot L_{\\text{max}}^2 \\cdot k + S_{\\text{total}} + 2^V \\cdot M \\cdot k + 2^M)$\" src=\"form_19.png\"/></picture>", "analysis_page.html#main_time", null ],
+        [ "Space Complexity: <picture><source srcset=\"form_22_dark.png\" media=\"(prefers-color-scheme: dark)\"/><img class=\"formulaInl\" alt=\"$O(S_{\\text{total}} + M \\cdot k + V \\cdot k + 2^M)$\" src=\"form_22.png\"/></picture>", "analysis_page.html#main_space", null ]
+      ] ],
+      [ "Detailed Module Analysis", "analysis_page.html#modules_sec", [
+        [ "Task 0: CNF to Infix (convertingCNFtoInput.c)", "analysis_page.html#task0_sec", null ],
+        [ "Task 1: Infix to Prefix (task1.c)", "analysis_page.html#task1_sec", null ],
+        [ "Task 2: Prefix to Tree (Task2.c)", "analysis_page.html#task2_sec", null ],
+        [ "Task 3: Tree to Infix (Task3.c)", "analysis_page.html#task3_sec", null ],
+        [ "Task 4: Tree Height (Task4.c)", "analysis_page.html#task4_sec", null ],
+        [ "Task 5: Evaluation &amp; Truth Table (Task5.c)", "analysis_page.html#task5_sec", null ],
+        [ "Task 6: CNF Conversion (Task6.c)", "analysis_page.html#task6_sec", null ],
+        [ "Task 7: Tautology Check (Task7.c)", "analysis_page.html#task7_sec", null ]
+      ] ]
+    ] ],
     [ "SAT_Solver", "md__r_e_a_d_m_e.html", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],

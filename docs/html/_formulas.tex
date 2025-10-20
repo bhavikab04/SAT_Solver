@@ -1,0 +1,160 @@
+\documentclass{article}
+\usepackage{iftex}
+\usepackage{ifthen}
+\usepackage{epsfig}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\ifPDFTeX
+\usepackage{newunicodechar}
+  \makeatletter
+    \def\doxynewunicodechar#1#2{%
+    \@tempswafalse
+    \edef\nuc@tempa{\detokenize{#1}}%
+    \if\relax\nuc@tempa\relax
+      \nuc@emptyargerr
+    \else
+      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
+      \nuc@check
+      \if@tempswa
+        \@namedef{u8:\nuc@tempa}{#2}%
+      \fi
+    \fi
+  }
+  \makeatother
+  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
+  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+
+\fi
+\pagestyle{empty}
+\begin{document}
+$\to$
+\pagebreak
+
+$O(1)$
+\pagebreak
+
+$O(2^V \cdot M \cdot k)$
+\pagebreak
+
+$2^V$
+\pagebreak
+
+$O(M \cdot k)$
+\pagebreak
+
+$O(2^M)$
+\pagebreak
+
+$O(L^2 \cdot k)$
+\pagebreak
+
+$N$
+\pagebreak
+
+$M$
+\pagebreak
+
+$H$
+\pagebreak
+
+$V$
+\pagebreak
+
+$k$
+\pagebreak
+
+$F$
+\pagebreak
+
+$C$
+\pagebreak
+
+$L$
+\pagebreak
+
+$L_{\text{max}}$
+\pagebreak
+
+$L_{\text{avg}}$
+\pagebreak
+
+$S_{\text{total}}$
+\pagebreak
+
+$M_{\text{cnf}}$
+\pagebreak
+
+$O(F + C \cdot L_{\text{max}}^2 \cdot k + S_{\text{total}} + 2^V \cdot M \cdot k + 2^M)$
+\pagebreak
+
+$O(F + C \cdot L_{\text{max}}^2 \cdot k)$
+\pagebreak
+
+$O(S_{\text{total}})$
+\pagebreak
+
+$O(S_{\text{total}} + M \cdot k + V \cdot k + 2^M)$
+\pagebreak
+
+$O(V \cdot k)$
+\pagebreak
+
+$O(F)$
+\pagebreak
+
+$O(L \cdot k)$
+\pagebreak
+
+$O(k \cdot (1 + 2 + ... + L)) = O(k \cdot L^2)$
+\pagebreak
+
+$O(L_{\text{max}} \cdot k)$
+\pagebreak
+
+$O(N)$
+\pagebreak
+
+$O(M)$
+\pagebreak
+
+$O(L)$
+\pagebreak
+
+$O(k)$
+\pagebreak
+
+$O(M + S)$
+\pagebreak
+
+$S$
+\pagebreak
+
+$O(H)$
+\pagebreak
+
+$O(M \cdot H)$
+\pagebreak
+
+$O(V \cdot k + H)$
+\pagebreak
+
+$O(2^V \cdot (V \cdot k + M \cdot k))$
+\pagebreak
+
+$O(M_{\text{cnf}} \cdot k)$
+\pagebreak
+
+$O(L_{\text{avg}} \cdot k)$
+\pagebreak
+
+$O(C \cdot L_{\text{avg}} \cdot k)$
+\pagebreak
+
+$O(\max(C, L_{\text{max}} \cdot k))$
+\pagebreak
+
+$O(C)$
+\pagebreak
+
+\end{document}
