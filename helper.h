@@ -1,5 +1,6 @@
 #ifndef HELPER_H
 #define HELPER_H
+#include "Task1.h"
 
 // Forward declaration of the Stack struct to avoid circular dependencies.
 // The actual definition should be in its own header file.
