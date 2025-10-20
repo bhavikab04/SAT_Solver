@@ -94,6 +94,7 @@ static int isOperator(char ch)
 
 static int isOperandStart(char ch)
 {
+    // We assume variables are like 'x1', 'x24', or single letters 'a', 'b'
     return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
 }
 
@@ -179,16 +180,29 @@ Stack *task1_infixToPrefix(const char *infix)
         {
             push(op_stack, ")");
         }
+        // --- 3. Handle '(' ---
+        // *** THIS BLOCK IS NOW FIXED ***
         else if (c == '(')
         {
-            char *op;
-            while (!isEmpty(op_stack) && strcmp((op = pop(op_stack)), ")") != 0)
+            char *op = NULL;
+            // Pop operators until we find the matching ')'
+            while ((op = pop(op_stack)) != NULL) 
             {
+                if (strcmp(op, ")") == 0) 
+                {
+                    // Found the matching parenthesis
+                    free(op); // Free the ")"
+                    break;    // Stop popping
+                }
+                
+                // It wasn't ")", so push the operator to the final stack
                 push(final_stack, op);
-                free(op);
+                free(op); // We're done with this operator token
             }
-            free(op);
+            // 'op' is either NULL or was already freed.
+            // No final 'free(op)' is needed.
         }
+        // --- END OF FIX ---
         else if (isOperator(c))
         {
             token_buffer[0] = c;
@@ -197,6 +211,7 @@ Stack *task1_infixToPrefix(const char *infix)
         }
     }
 
+    // --- 5. Pop remaining operators ---
     char *op;
     while ((op = pop(op_stack)) != NULL)
     {
@@ -205,6 +220,7 @@ Stack *task1_infixToPrefix(const char *infix)
     }
     freeStack(op_stack);
 
+    // --- 6. Reverse the final stack ---
     Stack *return_stack = createStack(n);
     while ((op = pop(final_stack)) != NULL)
     {
