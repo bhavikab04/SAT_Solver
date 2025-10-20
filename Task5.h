@@ -5,7 +5,7 @@
 #include "Task2.h" // For TreeNode
 
 // --- Configuration ---
-#define MAX_TRUTH_TABLE_VARIABLES 10
+#define MAX_TRUTH_TABLE_VARIABLES 250
 
 // --- Opaque Pointer for the Hash Table ---
 // This is the type your Task5.c file actually uses.
