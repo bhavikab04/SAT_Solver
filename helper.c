@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -22,6 +23,7 @@
  * @param prefix_expression The null-terminated string containing the prefix formula.
  * @return A pointer to a new Stack containing the expression tokens, or NULL on failure.
  */
+/*
 Stack* prefixToStack(const char* prefix_expression) {
     if (!prefix_expression) {
         fprintf(stderr, "Error: Input prefix expression cannot be NULL.\n");
@@ -63,3 +65,5 @@ Stack* prefixToStack(const char* prefix_expression) {
 
     return stack;
 }
+
+*/

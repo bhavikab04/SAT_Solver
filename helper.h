@@ -1,3 +1,4 @@
+/*
 #ifndef HELPER_H
 #define HELPER_H
 
@@ -10,6 +11,8 @@ typedef struct Stack Stack;
  * @param prefix_expression The null-terminated string containing the prefix formula.
  * @return A pointer to a new Stack containing the expression tokens, or NULL on failure.
  */
+/*
 Stack* prefixToStack(const char* prefix_expression);
 
 #endif // HELPER_H
+*/
