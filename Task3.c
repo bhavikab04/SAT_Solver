@@ -148,14 +148,3 @@ int getExpLength(TreeNode *root)
  * Uses post-order traversal to free child nodes before parent.
  * @param root Pointer to the root node of the tree to be freed.
  */
-void freeTree(TreeNode *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    freeTree(root->left);
-    freeTree(root->right);
-    free(root->data); // Free string allocated by strdup
-    free(root);
-}
