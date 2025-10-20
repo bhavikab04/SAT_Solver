@@ -1,6 +1,7 @@
 #ifndef TASK1_H
 #define TASK1_H
 
+
 #include <stdio.h> // Needed for FILE* in read_line prototype
 
 // --- Stack Structure Definition ---

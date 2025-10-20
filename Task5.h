@@ -8,49 +8,49 @@
 #define MAX_TRUTH_TABLE_VARIABLES 10
 
 // --- Opaque Pointer for the new Hash Table ---
-// The implementation details are hidden in Task5.c
+// This is for your new functions
 typedef struct AssignmentHashTable AssignmentHashTable;
 
+// --- FIX 1: ADD THE TruthAssignment STRUCT BACK ---
+// Your main.c file needs this struct definition.
+typedef struct {
+    char* literal;
+    bool value;
+} TruthAssignment;
+
+
 // --- Function Declarations ---
+
+// --- FIX 2: ADD THE OLD evaluateTree PROTOTYPE BACK ---
+// Your main.c file calls this version.
+bool evaluateTree(TreeNode* root, TruthAssignment* assignments, int num_assignments);
+
 
 /**
  * @brief NEW: Recursively evaluates the tree using a fast hash table for assignments.
  *
- * @param root The root of the expression tree.
- * @param assignments A pointer to the hash table containing truth assignments.
- * @return The boolean result of the evaluation.
+ * NOTE: I have renamed this to "evaluateTreeWithHash" to avoid a
+ * "conflicting types" error with the function main.c uses.
+ * You must also rename the function in your Task5.c file.
  */
-bool evaluateTree(TreeNode *root, const AssignmentHashTable *assignments);
+bool evaluateTreeWithHash(TreeNode *root, const AssignmentHashTable *assignments);
 
 /**
- * @brief Reads truth assignments from a file and evaluates the tree. This function
- * now builds an internal hash table for efficient evaluation.
- *
- * @param root The root of the expression tree to evaluate.
- * @param filename The path to the file containing assignments (e.g., "p = T").
- * @return true if evaluation was successful, false on error.
+ * @brief Reads truth assignments from a file and evaluates the tree.
  */
 bool evaluateFromFile(TreeNode *root, const char *filename);
 
 /**
  * @brief Collects all unique literals (variables) from the tree.
  * (This function's signature and purpose remain the same).
- *
- * @param root The root of the expression tree.
- * @param literals_list_out A pointer to a char** that will be populated.
- * @return The number of unique literals found.
  */
 int collectUniqueLiterals(TreeNode *root, char ***literals_list_out);
 
 /**
  * @brief Generates and prints the complete truth table for the formula.
  *
- * @param root The root of the expression tree.
- * @param literals An array of unique literal names.
- * @param count The number of unique literals.
- * @param formula_str The original infix formula string.
+ * (This 4-argument prototype is correct for your main.c file)
  */
 void printTruthTable(TreeNode *root, char **literals, int count, const char *formula_str);
 
 #endif // TASK5_H
-
