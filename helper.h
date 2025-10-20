@@ -4,7 +4,7 @@
 
 // Forward declaration of the Stack struct to avoid circular dependencies.
 // The actual definition should be in its own header file.
-typedef struct Stack Stack;
+// typedef struct Stack Stack; // <-- DELETE THIS LINE
 
 /**
  * @brief Converts a prefix expression string into a stack of tokens.
