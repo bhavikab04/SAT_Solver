@@ -1,0 +1,8 @@
+x1 = T
+x2 = F
+x3 = T
+x4 = T
+x5 = T
+x6 = F
+x7 = T
+x8 = F
