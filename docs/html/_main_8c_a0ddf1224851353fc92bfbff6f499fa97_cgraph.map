@@ -1,5 +1,5 @@
 <map id="main" name="main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,780,55,806"/>
+<area shape="rect" id="Node000001" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,780,55,806"/>
 <area shape="rect" id="Node000002" href="$_task4_8c.html#ae32540cc08f6690afeaf78d1133c5e71" title="Determines the height of a tree by checking its subtrees." alt="" coords="118,129,230,155"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="28,779,28,663,34,479,42,382,55,292,74,217,86,187,101,165,104,161,108,165,105,168,91,190,79,218,60,293,47,382,39,479,33,663,34,779"/>
 <area shape="rect" id="Node000003" href="$_task7_8c.html#a20129f9af610ac016eb7f2e16bbc17f4" title="Checks if a CNF formula is a tautology." alt="" coords="111,179,237,204"/>

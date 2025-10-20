@@ -3,6 +3,6 @@
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="384,16,373,10,352,8,332,10,321,15,319,20,324,27,320,30,313,21,317,11,330,5,352,3,375,5,387,12"/>
 <area shape="rect" id="Node000002" href="$_task2_8c.html#a5747e8d5aa91bc519b54545d310465e1" title="Public function to print the tree in a vertical, human&#45;readable format." alt="" coords="103,29,219,55"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="251,45,220,45,220,40,251,40"/>
-<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,29,55,55"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,29,55,55"/>
 <area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
 </map>

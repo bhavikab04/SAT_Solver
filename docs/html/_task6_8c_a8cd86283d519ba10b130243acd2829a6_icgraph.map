@@ -7,7 +7,7 @@
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="314,16,308,10,297,8,286,10,281,14,280,20,283,28,278,30,274,21,276,11,284,5,297,3,310,5,317,12"/>
 <area shape="rect" id="Node000003" href="$_task6_8c.html#a85ccaa203611107094401f69fead7bdf" title="Driver function for converting an arbitrary formula to Conjunctive Normal Form (CNF)." alt="" coords="103,67,224,92"/>
 <area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="258,56,212,69,211,63,256,51"/>
-<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,67,55,92"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,67,55,92"/>
 <area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="87,82,55,82,55,77,87,77"/>
 <area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="256,107,213,95,214,90,258,102"/>
 <area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="314,89,308,83,297,81,286,83,281,88,280,94,283,101,278,103,274,94,276,85,284,78,297,76,310,79,317,86"/>

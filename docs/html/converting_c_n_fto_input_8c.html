@@ -91,6 +91,9 @@ $(function(){initNavTree('converting_c_n_fto_input_8c.html','',''); });
   <div class="headertitle"><div class="title">convertingCNFtoInput.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation file for CNF to Infix Conversion.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="converting_c_n_fto_input_8h_source.html">convertingCNFtoInput.h</a>&quot;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -100,8 +103,8 @@ $(function(){initNavTree('converting_c_n_fto_input_8c.html','',''); });
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="converting_c_n_fto_input_8c__incl.png" border="0" usemap="#aconverting_c_n_fto_input_8c" loading="lazy" alt=""/></div>
 <map name="aconverting_c_n_fto_input_8c" id="aconverting_c_n_fto_input_8c">
-<area shape="rect" title=" " alt="" coords="141,5,302,31"/>
-<area shape="rect" href="converting_c_n_fto_input_8h.html" title=" " alt="" coords="5,79,166,105"/>
+<area shape="rect" title="Implementation file for CNF to Infix Conversion." alt="" coords="141,5,302,31"/>
+<area shape="rect" href="converting_c_n_fto_input_8h.html" title="Header file for CNF to Infix Conversion." alt="" coords="5,79,166,105"/>
 <area shape="poly" title=" " alt="" coords="200,34,123,74,121,69,197,29"/>
 <area shape="rect" title=" " alt="" coords="190,79,253,105"/>
 <area shape="poly" title=" " alt="" coords="224,31,224,63,219,63,219,31"/>
@@ -133,7 +136,12 @@ Variables</h2></td></tr>
 <tr class="memitem:a27960f12ae8062e5342fae680ab2f04c" id="r_a27960f12ae8062e5342fae680ab2f04c"><td class="memItemLeft" align="right" valign="top">static long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27960f12ae8062e5342fae680ab2f04c">num_vars</a> = 0</td></tr>
 <tr class="memdesc:a27960f12ae8062e5342fae680ab2f04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">File-scope variable to store the number of variables.  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation file for CNF to Infix Conversion. </p>
+<dl class="section author"><dt>Author</dt><dd>[Your Name/Handle] </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>October 2025</dd></dl>
+<p>Implements the functions declared in <a class="el" href="converting_c_n_fto_input_8h.html" title="Header file for CNF to Infix Conversion.">convertingCNFtoInput.h</a>. Contains the logic to parse a .cnf file, read its clauses, and build an equivalent infix string (e.g., "(x1 + -x2) * (x3)"). </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="afa0499dcb85922b683da3918f512adb6" name="afa0499dcb85922b683da3918f512adb6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa0499dcb85922b683da3918f512adb6">&#9670;&#160;</a></span>LINE_BUFFER_SIZE</h2>
 
@@ -204,7 +212,7 @@ Variables</h2></td></tr>
 <area shape="rect" title="Builds a fully parenthesized string for a single clause. (static = private to this file)" alt="" coords="275,5,407,31"/>
 <area shape="rect" href="converting_c_n_fto_input_8c.html#a0d734ec7f2dfef344199131771e21460" title="Converts a CNF file into a single&#45;line, fully parenthesized infix expression by streaming the output ..." alt="" coords="103,5,227,31"/>
 <area shape="poly" title=" " alt="" coords="259,21,227,21,227,16,259,16"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -265,7 +273,7 @@ Variables</h2></td></tr>
 <div class="center"><img src="converting_c_n_fto_input_8c_a0d734ec7f2dfef344199131771e21460_icgraph.png" border="0" usemap="#aconverting_c_n_fto_input_8c_a0d734ec7f2dfef344199131771e21460_icgraph" loading="lazy" alt=""/></div>
 <map name="aconverting_c_n_fto_input_8c_a0d734ec7f2dfef344199131771e21460_icgraph" id="aconverting_c_n_fto_input_8c_a0d734ec7f2dfef344199131771e21460_icgraph">
 <area shape="rect" title="Converts a CNF file into a single&#45;line, fully parenthesized infix expression by streaming the output ..." alt="" coords="103,5,227,31"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -303,7 +311,7 @@ Variables</h2></td></tr>
 <div class="center"><img src="converting_c_n_fto_input_8c_a83b70176a7973de7b0984da1da4add66_icgraph.png" border="0" usemap="#aconverting_c_n_fto_input_8c_a83b70176a7973de7b0984da1da4add66_icgraph" loading="lazy" alt=""/></div>
 <map name="aconverting_c_n_fto_input_8c_a83b70176a7973de7b0984da1da4add66_icgraph" id="aconverting_c_n_fto_input_8c_a83b70176a7973de7b0984da1da4add66_icgraph">
 <area shape="rect" title="Scans the file for the &#39;p cnf&#39; line and returns the number of clauses." alt="" coords="103,5,226,31"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>

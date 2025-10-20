@@ -1,6 +1,6 @@
 <map id="Task3.h" name="Task3.h">
 <area shape="rect" id="Node000001" title="Header file for Task 3: Parse Tree to Infix Conversion." alt="" coords="46,5,113,31"/>
-<area shape="rect" id="Node000002" href="$_main_8c.html" title=" " alt="" coords="5,153,66,178"/>
+<area shape="rect" id="Node000002" href="$_main_8c.html" title="Main driver for the logic formula processing pipeline." alt="" coords="5,153,66,178"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,44,46,61,37,80,32,119,36,152,30,153,26,119,32,78,41,58,54,41"/>
 <area shape="rect" id="Node000003" href="$_task6_8c.html" title=" " alt="" coords="103,153,170,178"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="104,41,127,78,137,118,140,152,134,152,132,119,122,80,99,44"/>

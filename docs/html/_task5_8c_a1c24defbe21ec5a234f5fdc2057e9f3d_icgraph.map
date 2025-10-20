@@ -11,7 +11,7 @@
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="430,17,417,10,392,8,369,10,356,15,354,20,360,27,355,31,348,21,353,11,367,5,392,3,418,5,432,12"/>
 <area shape="rect" id="Node000003" href="$_task5_8c.html#af9f1056614fbcb26ab5a9d329137b63c" title="Gathers all unique variable names from the formula tree." alt="" coords="103,31,245,56"/>
 <area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="297,45,246,46,246,40,297,40"/>
-<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,80,55,106"/>
 <area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="120,64,104,70,56,87,54,82,102,65,118,59"/>
 <area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="97,96,55,96,55,90,97,90"/>
 <area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="430,142,417,136,392,133,369,135,356,140,354,145,360,153,355,156,348,146,353,136,367,130,392,128,418,131,432,138"/>

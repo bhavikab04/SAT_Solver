@@ -14,7 +14,7 @@
 <area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="644,27,633,21,611,19,592,21,581,26,579,31,584,38,580,41,573,32,577,22,590,16,612,14,634,16,646,23"/>
 <area shape="rect" id="Node000004" href="$_task5_8c.html#acaed9188cbcf7a8f97c285743d8e96b4" title="Evaluates a formula using variable values from a file." alt="" coords="331,28,452,54"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="548,52,453,47,453,42,548,47"/>
-<area shape="rect" id="Node000005" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,134,55,159"/>
+<area shape="rect" id="Node000005" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,134,55,159"/>
 <area shape="poly" id="edge10_Node000003_Node000005" title=" " alt="" coords="562,37,490,18,435,11,392,8,348,10,293,18,237,28,194,39,154,56,104,83,70,109,45,135,41,131,67,105,101,79,151,51,193,34,236,23,293,13,348,5,392,3,435,6,491,13,563,32"/>
 <area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="549,73,442,104,440,98,548,68"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="320,61,294,68,103,124,56,140,54,135,102,119,292,63,319,56"/>

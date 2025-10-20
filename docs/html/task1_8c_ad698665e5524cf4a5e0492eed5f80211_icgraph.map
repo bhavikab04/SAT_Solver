@@ -8,7 +8,7 @@
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="500,109,468,117,466,112,499,104"/>
 <area shape="rect" id="Node000006" href="$_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="283,157,376,183"/>
 <area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="520,119,468,147,422,161,377,169,376,163,420,156,466,142,517,114"/>
-<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,55,82"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,56,55,82"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="276,23,194,31,103,46,56,62,54,56,102,41,193,26,275,18"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="277,37,213,58,211,53,275,32"/>
 <area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="87,72,55,72,55,66,87,66"/>

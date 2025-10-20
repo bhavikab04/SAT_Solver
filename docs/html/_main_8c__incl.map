@@ -1,5 +1,5 @@
 <map id="Main.c" name="Main.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="303,5,364,31"/>
+<area shape="rect" id="Node000001" title="Main driver for the logic formula processing pipeline." alt="" coords="303,5,364,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="399,300,460,326"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="364,19,424,25,496,36,562,53,587,64,603,77,618,101,624,125,623,147,614,169,584,212,542,254,509,279,475,297,472,292,506,274,538,250,580,208,610,167,617,146,619,125,613,103,599,81,584,68,560,58,495,41,423,30,364,24"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="454,226,528,252"/>
@@ -8,11 +8,11 @@
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="303,23,260,26,207,35,152,53,102,81,78,108,63,139,58,137,74,105,98,77,150,48,206,30,259,21,303,17"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="108,153,172,178"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="303,26,196,45,145,61,126,70,114,81,109,94,109,109,123,139,119,141,104,110,103,93,110,77,123,66,143,56,195,40,302,21"/>
-<area shape="rect" id="Node000006" href="$converting_c_n_fto_input_8h.html" title=" " alt="" coords="691,226,851,252"/>
+<area shape="rect" id="Node000006" href="$converting_c_n_fto_input_8h.html" title="Header file for CNF to Infix Conversion." alt="" coords="691,226,851,252"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="364,19,527,37,614,54,648,65,674,77,706,106,732,142,752,179,765,210,760,212,747,181,728,145,702,110,671,81,646,69,612,59,526,42,364,24"/>
 <area shape="rect" id="Node000007" href="$_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="105,226,172,252"/>
 <area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="303,22,233,27,190,34,145,46,102,62,64,85,32,115,11,154,8,167,11,179,29,199,58,214,91,225,89,230,56,219,26,203,6,181,3,167,6,152,28,112,61,81,100,57,144,41,189,29,232,22,303,17"/>
-<area shape="rect" id="Node000008" href="$_task2_8h.html" title=" " alt="" coords="338,153,406,178"/>
+<area shape="rect" id="Node000008" href="$_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion." alt="" coords="338,153,406,178"/>
 <area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="339,31,368,137,362,138,334,32"/>
 <area shape="rect" id="Node000009" href="$_task3_8h.html" title="Header file for Task 3: Parse Tree to Infix Conversion." alt="" coords="246,153,314,178"/>
 <area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="308,34,279,53,266,65,256,80,252,94,253,109,265,139,260,141,248,111,247,94,251,78,262,62,275,49,305,29"/>

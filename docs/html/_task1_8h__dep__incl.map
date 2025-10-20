@@ -1,12 +1,12 @@
 <map id="Task1.h" name="Task1.h">
 <area shape="rect" id="Node000001" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="432,5,499,31"/>
-<area shape="rect" id="Node000002" href="$_main_8c.html" title=" " alt="" coords="248,226,309,252"/>
+<area shape="rect" id="Node000002" href="$_main_8c.html" title="Main driver for the logic formula processing pipeline." alt="" coords="248,226,309,252"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="417,29,315,46,193,74,133,91,81,110,39,131,13,154,8,166,12,176,42,186,107,201,248,229,247,235,106,206,40,191,9,180,3,166,8,151,36,127,79,105,132,86,191,68,314,41,416,24"/>
-<area shape="rect" id="Node000003" href="$_task2_8c.html" title=" " alt="" coords="730,153,798,178"/>
+<area shape="rect" id="Node000003" href="$_task2_8c.html" title="Implementation file for Task 2: Prefix to Parse Tree Conversion." alt="" coords="730,153,798,178"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="479,43,500,75,528,102,565,119,620,134,731,156,730,161,619,139,563,124,525,107,495,78,475,46"/>
-<area shape="rect" id="Node000004" href="$_task2_8h.html" title=" " alt="" coords="397,79,464,105"/>
+<area shape="rect" id="Node000004" href="$_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion." alt="" coords="397,79,464,105"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="455,46,439,80,434,77,450,44"/>
-<area shape="rect" id="Node000014" href="$task1_8c.html" title=" " alt="" coords="538,79,603,105"/>
+<area shape="rect" id="Node000014" href="$task1_8c.html" title="Implementation file for Task 1: Infix to Prefix Conversion." alt="" coords="538,79,603,105"/>
 <area shape="poly" id="edge23_Node000001_Node000014" title=" " alt="" coords="497,38,554,76,551,81,494,42"/>
 <area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="383,104,336,122,314,136,295,154,286,172,281,191,280,226,275,226,276,190,281,170,291,151,310,132,333,118,381,99"/>
 <area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="480,101,483,102,713,150,730,154,729,159,711,155,482,107,479,107"/>

@@ -91,6 +91,9 @@ $(function(){initNavTree('_main_8c.html','',''); });
   <div class="headertitle"><div class="title">Main.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Main driver for the logic formula processing pipeline.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -109,7 +112,7 @@ $(function(){initNavTree('_main_8c.html','',''); });
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_main_8c__incl.png" border="0" usemap="#a_main_8c" loading="lazy" alt=""/></div>
 <map name="a_main_8c" id="a_main_8c">
-<area shape="rect" title=" " alt="" coords="303,5,364,31"/>
+<area shape="rect" title="Main driver for the logic formula processing pipeline." alt="" coords="303,5,364,31"/>
 <area shape="rect" title=" " alt="" coords="399,300,460,326"/>
 <area shape="poly" title=" " alt="" coords="364,19,424,25,496,36,562,53,587,64,603,77,618,101,624,125,623,147,614,169,584,212,542,254,509,279,475,297,472,292,506,274,538,250,580,208,610,167,617,146,619,125,613,103,599,81,584,68,560,58,495,41,423,30,364,24"/>
 <area shape="rect" title=" " alt="" coords="454,226,528,252"/>
@@ -118,11 +121,11 @@ $(function(){initNavTree('_main_8c.html','',''); });
 <area shape="poly" title=" " alt="" coords="303,23,260,26,207,35,152,53,102,81,78,108,63,139,58,137,74,105,98,77,150,48,206,30,259,21,303,17"/>
 <area shape="rect" title=" " alt="" coords="108,153,172,178"/>
 <area shape="poly" title=" " alt="" coords="303,26,196,45,145,61,126,70,114,81,109,94,109,109,123,139,119,141,104,110,103,93,110,77,123,66,143,56,195,40,302,21"/>
-<area shape="rect" href="converting_c_n_fto_input_8h.html" title=" " alt="" coords="691,226,851,252"/>
+<area shape="rect" href="converting_c_n_fto_input_8h.html" title="Header file for CNF to Infix Conversion." alt="" coords="691,226,851,252"/>
 <area shape="poly" title=" " alt="" coords="364,19,527,37,614,54,648,65,674,77,706,106,732,142,752,179,765,210,760,212,747,181,728,145,702,110,671,81,646,69,612,59,526,42,364,24"/>
 <area shape="rect" href="_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="105,226,172,252"/>
 <area shape="poly" title=" " alt="" coords="303,22,233,27,190,34,145,46,102,62,64,85,32,115,11,154,8,167,11,179,29,199,58,214,91,225,89,230,56,219,26,203,6,181,3,167,6,152,28,112,61,81,100,57,144,41,189,29,232,22,303,17"/>
-<area shape="rect" href="_task2_8h.html" title=" " alt="" coords="338,153,406,178"/>
+<area shape="rect" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion." alt="" coords="338,153,406,178"/>
 <area shape="poly" title=" " alt="" coords="339,31,368,137,362,138,334,32"/>
 <area shape="rect" href="_task3_8h.html" title="Header file for Task 3: Parse Tree to Infix Conversion." alt="" coords="246,153,314,178"/>
 <area shape="poly" title=" " alt="" coords="308,34,279,53,266,65,256,80,252,94,253,109,265,139,260,141,248,111,247,94,251,78,262,62,275,49,305,29"/>
@@ -154,8 +157,25 @@ $(function(){initNavTree('_main_8c.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main entry point for the logic formula processing pipeline.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Main driver for the logic formula processing pipeline. </p>
+<dl class="section author"><dt>Author</dt><dd>[Your Name/Handle] </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>October 2025</dd></dl>
+<p>This program serves as the central controller for a multi-task project. It takes a single file in DIMACS CNF (Conjunctive Normal Form) format as input and runs it through a series of transformations and analyses:</p>
+<ol type="1">
+<li><b>CNF to Infix</b>: Reads a <span class="tt">.cnf</span> file and converts it into a single infix propositional logic string (using <span class="tt"><a class="el" href="converting_c_n_fto_input_8h.html" title="Header file for CNF to Infix Conversion.">convertingCNFtoInput.h</a></span>).</li>
+<li><b>Infix to Prefix</b>: Converts the infix string into a prefix notation stack (Task 1).</li>
+<li><b>Prefix to Tree</b>: Builds a binary parse tree from the prefix stack (Task 2).</li>
+<li><b>Tree to Infix</b>: Reconstructs the infix string from the parse tree (Task 3).</li>
+<li><b>Tree Height</b>: Calculates the height of the parse tree (Task 4).</li>
+<li><b>Evaluation</b>: Evaluates the formula from a file and generates a full truth table (Task 5).</li>
+<li><b>Tree to CNF</b>: Converts the parse tree into an equivalent CNF tree structure (Task 6).</li>
+<li><b>CNF Validity</b>: Checks the resulting CNF formula for tautological clauses (Task 7).</li>
+</ol>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="converting_c_n_fto_input_8h.html" title="Header file for CNF to Infix Conversion.">convertingCNFtoInput.h</a>, <a class="el" href="_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion.">Task1.h</a>, <a class="el" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion.">Task2.h</a>, <a class="el" href="_task3_8h.html" title="Header file for Task 3: Parse Tree to Infix Conversion.">Task3.h</a>, <a class="el" href="_task4_8h.html" title="Header file for the tree height calculation function.">Task4.h</a>, <a class="el" href="_task5_8h.html" title="Header for functions that evaluate logical formulas.">Task5.h</a>, <a class="el" href="_task6_8h.html" title="Header file containing function prototypes for converting propositional logic formulas to Conjunctive...">Task6.h</a>, <a class="el" href="_task7_8h.html" title="Header for the Conjunctive Normal Form (CNF) validity checker.">Task7.h</a> </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
 
@@ -174,13 +194,63 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Main entry point for the logic formula processing pipeline. </p>
+<p>&lt; For get_clause_count, convertCnfToInfix &lt; For <a class="el" href="struct_stack.html" title="A stack structure for storing strings (char*).">Stack</a>, read_line, task1_infixToPrefix For <a class="el" href="struct_tree_node.html" title="Represents a node in the abstract syntax tree (AST) of a propositional logic formula.">TreeNode</a>, prefixToTree, printTreeVertical, freeTree For getExpLength, inOrderTraversal For calculateHeight For evaluateFromFile, collectUniqueLiterals, printTruthTable, evaluateTree For CNF_FORMULA, print_formula For checkCNFValidity </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td>The number of command-line arguments. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">argv</td><td>An array of command-line argument strings. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int Returns 0 on successful completion, 1 on error.</dd></dl>
+<p>Expects exactly one argument: the path to a .cnf file. It then orchestrates the entire pipeline from CNF to validity checking. </p>
+<p>Validates the command-line arguments.</p>
+<p>Ensures exactly one argument (the filename) is provided.</p>
+<p>&lt; Exit with error code 1</p>
+<p>&lt; Store the input filename</p>
+<p>&lt; This will hold the infix string generated from the CNF</p>
+<p>Use a temporary in-memory file stream.</p>
+<p>This is an efficient way to pass the output of convertCnfToInfix (which expects a FILE*) as input to read_line (which also reads from a FILE*). The file is automatically deleted on fclose().</p>
+<p>&lt; Temp file is auto-deleted</p>
+<p>&lt; Declare the parse tree root in the outer scope</p>
+<p>&lt; Build the tree from the stack</p>
+<p>&lt; Print the resulting tree</p>
+<p>&lt; Free the infix buffer before exiting</p>
+<p>&lt; Free root (it's NULL, but safe)</p>
+<p>&lt; Calculate needed buffer size</p>
+<p>&lt; Allocate buffer</p>
+<p>&lt; Position index for the infix string</p>
+<p>&lt; Rebuild string via in-order traversal</p>
+<p>&lt; Null-terminate the string</p>
+<p>&lt; Free the reconstructed string</p>
+<p>&lt; Calculate the tree's height</p>
+<p>Collect all unique variables (literals) from the tree.</p>
+<p>This is needed for both single evaluation and the full truth table.</p>
+<p>&lt; Evaluate the tree using truth values from the specified file.</p>
+<p>&lt; Clear stdin in case of malformed input (e.g., "file name")</p>
+<p>Print the full truth table for the formula. </p><dl class="section note"><dt>Note</dt><dd>The 'buffer' (original infix string) is used for the table header.</dd></dl>
+<p>&lt; If no literals, just evaluate the constant expression.</p>
+<p>Clean up the dynamically allocated list of literals.</p>
+<p>&lt; Free each literal string</p>
+<p>&lt; Free the array of pointers</p>
+<p>&lt; Convert the original tree to CNF</p>
+<p>&lt; Print the resulting CNF formula</p>
+<p>&lt; </p><dl class="section note"><dt>Note</dt><dd>cnf_root is NOT freed here; it's needed for Task 7.</dd></dl>
+<p>&lt; Counter for tautological clauses</p>
+<p>&lt; Counter for non-tautological clauses</p>
+<p>&lt; Check if the entire CNF formula is a tautology (all clauses are valid).</p>
+<p>&lt; Now we can free the CNF tree</p>
+<p>&lt; Free the initial infix string read from the CNF</p>
+<p>&lt; Free the main parse tree from Task 2</p>
+<p>&lt; Success</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#a_main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" loading="lazy" alt=""/></div>
 <map name="a_main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="a_main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title=" " alt="" coords="5,780,55,806"/>
+<area shape="rect" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,780,55,806"/>
 <area shape="rect" href="_task4_8c.html#ae32540cc08f6690afeaf78d1133c5e71" title="Determines the height of a tree by checking its subtrees." alt="" coords="118,129,230,155"/>
 <area shape="poly" title=" " alt="" coords="28,779,28,663,34,479,42,382,55,292,74,217,86,187,101,165,104,161,108,165,105,168,91,190,79,218,60,293,47,382,39,479,33,663,34,779"/>
 <area shape="rect" href="_task7_8c.html#a20129f9af610ac016eb7f2e16bbc17f4" title="Checks if a CNF formula is a tautology." alt="" coords="111,179,237,204"/>

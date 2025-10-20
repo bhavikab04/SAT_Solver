@@ -1,6 +1,6 @@
 <map id="convertingCNFtoInput.c" name="convertingCNFtoInput.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="141,5,302,31"/>
-<area shape="rect" id="Node000002" href="$converting_c_n_fto_input_8h.html" title=" " alt="" coords="5,79,166,105"/>
+<area shape="rect" id="Node000001" title="Implementation file for CNF to Infix Conversion." alt="" coords="141,5,302,31"/>
+<area shape="rect" id="Node000002" href="$converting_c_n_fto_input_8h.html" title="Header file for CNF to Infix Conversion." alt="" coords="5,79,166,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,34,123,74,121,69,197,29"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="190,79,253,105"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="224,31,224,63,219,63,219,31"/>

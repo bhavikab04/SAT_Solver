@@ -91,6 +91,9 @@ $(function(){initNavTree('task1_8c.html','',''); });
   <div class="headertitle"><div class="title">task1.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation file for Task 1: Infix to Prefix Conversion.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_task1_8h_source.html">Task1.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -103,7 +106,7 @@ $(function(){initNavTree('task1_8c.html','',''); });
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="task1_8c__incl.png" border="0" usemap="#atask1_8c" loading="lazy" alt=""/></div>
 <map name="atask1_8c" id="atask1_8c">
-<area shape="rect" title=" " alt="" coords="191,5,255,31"/>
+<area shape="rect" title="Implementation file for Task 1: Infix to Prefix Conversion." alt="" coords="191,5,255,31"/>
 <area shape="rect" href="_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="5,79,73,105"/>
 <area shape="poly" title=" " alt="" coords="193,34,85,75,83,71,191,29"/>
 <area shape="rect" title=" " alt="" coords="44,153,104,178"/>
@@ -145,7 +148,12 @@ Functions</h2></td></tr>
 <tr class="memitem:af2160a30128fd75f80d206fb5d0bbb66" id="r_af2160a30128fd75f80d206fb5d0bbb66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_stack.html">Stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2160a30128fd75f80d206fb5d0bbb66">task1_infixToPrefix</a> (const char *infix)</td></tr>
 <tr class="memdesc:af2160a30128fd75f80d206fb5d0bbb66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an infix expression string to a prefix expression stack.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation file for Task 1: Infix to Prefix Conversion. </p>
+<dl class="section author"><dt>Author</dt><dd>[Your Name/Handle] </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>October 2025</dd></dl>
+<p>Implements the Shunting-yard-like algorithm to convert an infix string to a prefix stack, as well as stack helper functions (push, pop, etc.) and the read_line utility. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a4d864c6b72f0668478189fdeb616c701" name="a4d864c6b72f0668478189fdeb616c701"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d864c6b72f0668478189fdeb616c701">&#9670;&#160;</a></span>createStack()</h2>
 
@@ -178,7 +186,7 @@ Functions</h2></td></tr>
 <area shape="rect" title="Creates and initializes a new stack." alt="" coords="283,5,374,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="268,21,235,21,235,16,268,16"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -229,7 +237,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="task1_8c_afc0d1f371e3750b1c5d184672e816013_icgraph.png" border="0" usemap="#atask1_8c_afc0d1f371e3750b1c5d184672e816013_icgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_afc0d1f371e3750b1c5d184672e816013_icgraph" id="atask1_8c_afc0d1f371e3750b1c5d184672e816013_icgraph">
 <area shape="rect" title="Frees all memory associated with the stack." alt="" coords="283,5,360,31"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,55,21,55,16,267,16"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,31,235,56"/>
 <area shape="poly" title=" " alt="" coords="268,30,236,35,235,30,267,24"/>
@@ -277,7 +285,7 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="500,109,468,117,466,112,499,104"/>
 <area shape="rect" href="_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="283,157,376,183"/>
 <area shape="poly" title=" " alt="" coords="520,119,468,147,422,161,377,169,376,163,420,156,466,142,517,114"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,55,82"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,56,55,82"/>
 <area shape="poly" title=" " alt="" coords="276,23,194,31,103,46,56,62,54,56,102,41,193,26,275,18"/>
 <area shape="poly" title=" " alt="" coords="277,37,213,58,211,53,275,32"/>
 <area shape="poly" title=" " alt="" coords="87,72,55,72,55,66,87,66"/>
@@ -330,7 +338,7 @@ Functions</h2></td></tr>
 <area shape="rect" title="Checks if a character can be the start of an operand (a letter)." alt="" coords="283,5,391,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,236,21,236,16,267,16"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -377,7 +385,7 @@ Functions</h2></td></tr>
 <area shape="rect" title="Checks if a character is a supported operator." alt="" coords="283,5,364,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,235,21,235,16,267,16"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -425,7 +433,7 @@ Functions</h2></td></tr>
 <area shape="rect" title="Reverses a string in place." alt="" coords="283,5,362,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,235,21,235,16,267,16"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -480,7 +488,7 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="393,72,235,72,235,66,393,66"/>
 <area shape="rect" href="_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="122,105,216,131"/>
 <area shape="poly" title=" " alt="" coords="394,78,216,112,215,107,393,73"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,55,82"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,56,55,82"/>
 <area shape="poly" title=" " alt="" coords="268,24,190,31,103,46,56,62,54,56,102,41,189,26,267,18"/>
 <area shape="poly" title=" " alt="" coords="269,38,211,58,209,53,268,33"/>
 <area shape="poly" title=" " alt="" coords="87,72,55,72,55,66,87,66"/>
@@ -530,7 +538,7 @@ Functions</h2></td></tr>
 <area shape="rect" title="Determines the precedence of an operator. Higher number means higher precedence." alt="" coords="283,5,371,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,235,21,235,16,267,16"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -574,7 +582,7 @@ Functions</h2></td></tr>
 <area shape="rect" title="Pushes a string item onto the stack." alt="" coords="283,5,332,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,235,21,235,16,267,16"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -611,7 +619,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="task1_8c_a6c59b46ff495586afe7869b39c0859d2_icgraph.png" border="0" usemap="#atask1_8c_a6c59b46ff495586afe7869b39c0859d2_icgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_a6c59b46ff495586afe7869b39c0859d2_icgraph" id="atask1_8c_a6c59b46ff495586afe7869b39c0859d2_icgraph">
 <area shape="rect" title="Reads a line of arbitrary length from a stream." alt="" coords="103,5,176,31"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -681,7 +689,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="task1_8c_af2160a30128fd75f80d206fb5d0bbb66_icgraph.png" border="0" usemap="#atask1_8c_af2160a30128fd75f80d206fb5d0bbb66_icgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_af2160a30128fd75f80d206fb5d0bbb66_icgraph" id="atask1_8c_af2160a30128fd75f80d206fb5d0bbb66_icgraph">
 <area shape="rect" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
