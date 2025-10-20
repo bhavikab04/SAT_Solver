@@ -1,0 +1,7 @@
+c This is a 3-variable formula that is true
+c when an odd number of variables are true.
+p cnf 3 4
+1 2 -3 0
+-1 -2 -3 0
+1 -2 3 0
+-1 2 3 0
