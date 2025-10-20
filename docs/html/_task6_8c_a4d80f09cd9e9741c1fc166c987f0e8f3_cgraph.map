@@ -1,0 +1,6 @@
+<map id="copyTree" name="copyTree">
+<area shape="rect" id="Node000001" title="Creates a deep copy of a propositional logic formula tree." alt="" coords="5,29,81,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="18,30,13,21,16,11,26,5,43,3,61,5,71,12,67,16,59,10,43,8,28,10,20,14,18,20,22,28"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#af039c54f229051991073b472179c5ba3" title="Creates and allocates memory for a new TreeNode." alt="" coords="129,29,250,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="81,40,113,40,113,45,81,45"/>
+</map>

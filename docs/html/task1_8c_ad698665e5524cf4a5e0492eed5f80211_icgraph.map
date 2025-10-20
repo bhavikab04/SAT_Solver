@@ -1,0 +1,19 @@
+<map id="isEmpty" name="isEmpty">
+<area shape="rect" id="Node000001" title="Checks if the stack is empty." alt="" coords="515,81,584,107"/>
+<area shape="rect" id="Node000002" href="$task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all memory associated with the stack." alt="" coords="291,5,368,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="513,75,466,53,415,37,368,27,369,22,417,32,468,48,515,71"/>
+<area shape="rect" id="Node000004" href="$task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,56,235,82"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="499,94,235,76,236,71,500,88"/>
+<area shape="rect" id="Node000005" href="$task1_8c.html#a23bb8ff1764ad3b7f91c564dd918746a" title="Pops a string item from the stack." alt="" coords="424,107,467,132"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="500,109,468,117,466,112,499,104"/>
+<area shape="rect" id="Node000006" href="$_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="283,157,376,183"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="520,119,468,147,422,161,377,169,376,163,420,156,466,142,517,114"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,55,82"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="276,23,194,31,103,46,56,62,54,56,102,41,193,26,275,18"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="277,37,213,58,211,53,275,32"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="87,72,55,72,55,66,87,66"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="416,98,344,33,348,29,420,94"/>
+<area shape="poly" id="edge9_Node000005_Node000004" title=" " alt="" coords="408,116,235,84,236,78,409,110"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="411,137,362,159,360,154,409,132"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="273,155,102,97,54,80,56,75,104,92,275,150"/>
+</map>

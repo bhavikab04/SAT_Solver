@@ -1,0 +1,15 @@
+<map id="collectLiteralsRecursive" name="collectLiteralsRecursive">
+<area shape="rect" id="Node000001" title="Helper function to recursively find all unique literals in the tree." alt="" coords="5,55,166,80"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="52,56,45,46,49,36,63,30,86,28,110,31,123,38,120,42,109,36,85,33,64,35,53,40,51,45,56,53"/>
+<area shape="rect" id="Node000002" href="$_task5_8c.html#a1c24defbe21ec5a234f5fdc2057e9f3d" title="Inserts a new variable or updates an existing one in the hash table." alt="" coords="214,29,360,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,55,198,51,198,56,166,60"/>
+<area shape="rect" id="Node000004" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand). An atom is any token that is not a known operator." alt="" coords="256,79,318,104"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="166,74,241,83,240,89,166,80"/>
+<area shape="rect" id="Node000003" href="$_task5_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash value from a string." alt="" coords="418,29,467,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,40,402,40,402,45,360,45"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="416,30,410,21,414,11,424,5,442,3,461,5,471,12,468,16,459,10,442,8,426,10,418,15,416,20,420,28"/>
+<area shape="rect" id="Node000005" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="408,79,476,104"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="318,89,392,89,392,94,318,94"/>
+<area shape="rect" id="Node000006" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="409,128,475,154"/>
+<area shape="poly" id="edge7_Node000004_Node000006" title=" " alt="" coords="319,99,395,123,393,128,318,104"/>
+</map>

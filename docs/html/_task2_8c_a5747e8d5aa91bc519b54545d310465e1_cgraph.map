@@ -1,0 +1,9 @@
+<map id="printTreeVertical" name="printTreeVertical">
+<area shape="rect" id="Node000001" title="Public function to print the tree in a vertical, human&#45;readable format." alt="" coords="5,8,122,34"/>
+<area shape="rect" id="Node000002" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="387,8,453,34"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,11,169,7,254,3,339,7,372,10,371,16,339,12,254,8,170,12,122,16"/>
+<area shape="rect" id="Node000003" href="$_task2_8c.html#a0e5abad76fd8689607286d869bca1126" title="Recursive helper function for printing the tree vertically." alt="" coords="170,46,339,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="123,30,171,40,170,45,122,35"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="314,42,371,29,372,35,315,48"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="226,47,221,37,224,27,236,21,254,19,275,22,285,28,282,33,273,27,254,24,237,26,228,31,226,37,231,44"/>
+</map>

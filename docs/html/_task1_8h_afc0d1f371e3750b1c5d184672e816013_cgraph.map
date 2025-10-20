@@ -1,0 +1,8 @@
+<map id="freeStack" name="freeStack">
+<area shape="rect" id="Node000001" title="Frees all memory associated with the stack. This includes all strings still on the stack,..." alt="" coords="5,5,83,31"/>
+<area shape="rect" id="Node000002" href="$task1_8c.html#ad698665e5524cf4a5e0492eed5f80211" title="Checks if the stack is empty." alt="" coords="221,5,290,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,16,205,16,205,21,83,21"/>
+<area shape="rect" id="Node000003" href="$task1_8c.html#a23bb8ff1764ad3b7f91c564dd918746a" title="Pops a string item from the stack." alt="" coords="131,31,173,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="84,25,116,32,115,38,83,30"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="173,36,205,28,206,33,174,41"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="NodeStack" name="NodeStack">
+<area shape="rect" id="Node000001" title="A simple stack structure for holding TreeNode pointers." alt="" coords="5,120,92,145"/>
+<area shape="rect" id="Node000002" href="$struct_tree_node.html" title="Represents a node in the abstract syntax tree (AST) of a propositional logic formula." alt="" coords="9,14,88,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,55,51,120,46,120,46,55"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="104,16,111,20,114,27,106,37,88,40,88,35,103,33,109,27,107,24,102,21"/>
+</map>

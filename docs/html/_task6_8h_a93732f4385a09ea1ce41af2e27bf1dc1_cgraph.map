@@ -1,0 +1,26 @@
+<map id="CNF" name="CNF">
+<area shape="rect" id="Node000001" title="Main function to convert an NNF formula to CNF." alt="" coords="5,131,55,156"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="11,131,7,122,9,113,17,106,30,104,44,107,51,114,47,117,41,111,30,109,19,111,14,116,13,122,16,129"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#a4d80f09cd9e9741c1fc166c987f0e8f3" title="Creates a deep copy of a propositional logic formula tree." alt="" coords="220,80,295,106"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="54,134,102,122,204,100,205,105,103,127,56,140"/>
+<area shape="rect" id="Node000003" href="$_task6_8c.html#af039c54f229051991073b472179c5ba3" title="Creates and allocates memory for a new TreeNode." alt="" coords="343,80,465,106"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="55,140,159,132,295,116,337,107,338,112,296,121,160,137,55,145"/>
+<area shape="rect" id="Node000004" href="$_task6_8c.html#a2764cce81d706e3aa77a53b911d86082" title="Distributes disjunction (&#39;+&#39;) over conjunction (&#39;*&#39;)." alt="" coords="106,29,168,55"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="43,128,101,72,110,64,113,68,105,76,47,132"/>
+<area shape="rect" id="Node000005" href="$_task2_8c.html#af9c8e6687905b200d52e36c5d55abbf2" title="Recursively frees all nodes in the tree." alt="" coords="103,205,172,231"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="52,155,107,194,103,198,48,159"/>
+<area shape="rect" id="Node000006" href="$_task6_8c.html#a8cd86283d519ba10b130243acd2829a6" title="Checks if a formula is a literal." alt="" coords="104,255,170,280"/>
+<area shape="poly" id="edge12_Node000001_Node000006" title=" " alt="" coords="41,155,67,196,105,242,105,242,101,246,101,245,63,199,37,158"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="236,81,233,71,235,62,244,56,258,53,273,56,281,63,277,67,271,61,258,59,246,61,239,65,238,71,241,79"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="296,90,328,90,328,96,296,96"/>
+<area shape="poly" id="edge7_Node000004_Node000002" title=" " alt="" coords="170,53,213,71,211,76,168,58"/>
+<area shape="poly" id="edge8_Node000004_Node000003" title=" " alt="" coords="169,36,228,34,296,41,335,54,369,70,367,75,333,58,295,46,228,39,169,41"/>
+<area shape="poly" id="edge9_Node000004_Node000004" title=" " alt="" coords="118,30,115,21,117,11,125,5,137,3,151,5,158,12,155,16,149,10,137,8,127,10,121,14,120,20,123,28"/>
+<area shape="poly" id="edge11_Node000005_Node000005" title=" " alt="" coords="118,206,115,197,117,187,125,181,137,179,151,181,158,188,155,192,149,186,137,184,127,186,121,190,120,196,123,204"/>
+<area shape="rect" id="Node000007" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand). An atom is any token that is not a known operator." alt="" coords="226,255,289,280"/>
+<area shape="poly" id="edge13_Node000006_Node000007" title=" " alt="" coords="171,265,211,265,211,270,171,270"/>
+<area shape="rect" id="Node000008" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="370,279,438,304"/>
+<area shape="poly" id="edge14_Node000007_Node000008" title=" " alt="" coords="290,270,355,281,354,286,289,275"/>
+<area shape="rect" id="Node000009" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="371,229,437,255"/>
+<area shape="poly" id="edge15_Node000007_Node000009" title=" " alt="" coords="289,260,355,248,356,253,290,265"/>
+</map>

@@ -1,0 +1,24 @@
+<map id="freeTree" name="freeTree">
+<area shape="rect" id="Node000001" title="Recursively frees all nodes in the tree." alt="" coords="415,192,485,218"/>
+<area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="471,179,464,173,450,171,437,173,430,177,428,183,432,190,427,193,423,183,426,174,435,168,450,165,466,168,475,175"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#a93732f4385a09ea1ce41af2e27bf1dc1" title="Converts an NNF formula to Conjunctive Normal Form (CNF)." alt="" coords="295,29,344,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="434,179,405,129,365,76,342,58,346,53,369,72,410,126,438,176"/>
+<area shape="rect" id="Node000003" href="$_task6_8c.html#a85ccaa203611107094401f69fead7bdf" title="Driver function for converting an arbitrary formula to Conjunctive Normal Form (CNF)." alt="" coords="103,155,224,180"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="431,181,404,147,386,132,366,121,342,114,317,112,267,120,221,138,186,157,184,152,219,133,266,115,317,106,343,108,368,116,389,128,407,144,435,177"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,279,55,304"/>
+<area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="427,230,400,251,368,269,325,282,280,292,191,300,112,301,55,297,55,291,112,295,191,295,279,286,324,277,366,264,397,247,424,226"/>
+<area shape="rect" id="Node000005" href="$_task6_8c.html#ad308644f7e1e684c100810694ac02d41" title="Eliminates all implication operators (&#39;&gt;&#39;) from the formula." alt="" coords="272,155,367,180"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="400,193,366,184,368,178,401,188"/>
+<area shape="rect" id="Node000006" href="$_task6_8c.html#a686962f85e00c08f6040312732974e4b" title="Converts a formula to Negation Normal Form (NNF)." alt="" coords="295,228,344,254"/>
+<area shape="poly" id="edge11_Node000001_Node000006" title=" " alt="" coords="401,221,346,237,344,232,399,216"/>
+<area shape="rect" id="Node000007" href="$_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="117,329,210,355"/>
+<area shape="poly" id="edge14_Node000001_Node000007" title=" " alt="" coords="438,233,410,275,391,296,369,312,330,330,288,341,211,347,210,342,287,335,328,325,366,308,388,292,406,271,433,230"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="341,16,334,10,320,8,306,10,300,14,298,20,302,28,297,30,293,21,295,11,305,5,320,3,336,5,344,12"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="288,66,274,76,181,156,177,152,270,72,284,62"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="139,193,47,280,43,276,135,189"/>
+<area shape="poly" id="edge8_Node000005_Node000003" title=" " alt="" coords="256,170,224,170,224,165,256,165"/>
+<area shape="poly" id="edge9_Node000005_Node000005" title=" " alt="" coords="341,142,334,136,320,133,306,135,300,140,298,146,302,153,297,155,293,146,295,137,305,130,320,128,336,131,344,137"/>
+<area shape="poly" id="edge12_Node000006_Node000003" title=" " alt="" coords="280,226,192,183,194,179,283,221"/>
+<area shape="poly" id="edge13_Node000006_Node000006" title=" " alt="" coords="341,215,334,209,320,207,306,209,300,213,298,219,302,226,297,229,293,219,295,210,305,204,320,201,336,204,344,211"/>
+<area shape="poly" id="edge15_Node000007_Node000004" title=" " alt="" coords="112,326,54,303,56,298,114,321"/>
+</map>

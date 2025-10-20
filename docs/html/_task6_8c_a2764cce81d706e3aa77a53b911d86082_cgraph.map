@@ -1,0 +1,10 @@
+<map id="DISTR" name="DISTR">
+<area shape="rect" id="Node000001" title="Distributes disjunction (&#39;+&#39;) over conjunction (&#39;*&#39;)." alt="" coords="5,55,68,80"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="16,55,12,46,14,37,23,30,37,28,51,31,59,37,55,41,49,36,36,33,25,35,19,40,17,46,21,53"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#a4d80f09cd9e9741c1fc166c987f0e8f3" title="Creates a deep copy of a propositional logic formula tree." alt="" coords="116,29,191,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,58,100,51,101,56,68,63"/>
+<area shape="rect" id="Node000003" href="$_task6_8c.html#af039c54f229051991073b472179c5ba3" title="Creates and allocates memory for a new TreeNode." alt="" coords="239,55,360,80"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="68,65,224,65,224,70,68,70"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="133,30,129,21,131,11,140,5,153,3,168,5,176,12,172,16,166,10,153,8,142,10,136,14,134,20,138,28"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="192,46,224,52,223,57,191,51"/>
+</map>

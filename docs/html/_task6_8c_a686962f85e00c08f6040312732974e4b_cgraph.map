@@ -1,0 +1,25 @@
+<map id="NNF" name="NNF">
+<area shape="rect" id="Node000001" title="Converts a formula to Negation Normal Form (NNF)." alt="" coords="5,96,55,122"/>
+<area shape="poly" id="edge14_Node000001_Node000001" title=" " alt="" coords="9,97,5,88,8,78,16,72,30,70,45,72,53,79,49,83,43,77,30,75,18,77,12,81,11,87,14,95"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#a4d80f09cd9e9741c1fc166c987f0e8f3" title="Creates a deep copy of a propositional logic formula tree." alt="" coords="240,58,315,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="44,94,69,74,102,57,133,51,165,49,225,55,224,60,165,54,134,56,104,62,72,78,47,98"/>
+<area shape="rect" id="Node000003" href="$_task6_8c.html#af039c54f229051991073b472179c5ba3" title="Creates and allocates memory for a new TreeNode." alt="" coords="363,58,485,83"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="38,94,64,63,81,47,101,35,158,12,206,3,255,7,316,19,355,31,389,48,387,52,353,36,315,24,255,12,206,9,160,17,104,40,85,52,67,67,42,98"/>
+<area shape="rect" id="Node000004" href="$_task2_8c.html#af9c8e6687905b200d52e36c5d55abbf2" title="Recursively frees all nodes in the tree." alt="" coords="113,96,182,122"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="55,106,97,106,97,112,55,112"/>
+<area shape="rect" id="Node000005" href="$_task6_8c.html#a8cd86283d519ba10b130243acd2829a6" title="Checks if a formula is a literal." alt="" coords="114,195,180,221"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="44,121,70,150,104,182,108,185,105,189,101,186,66,154,40,124"/>
+<area shape="rect" id="Node000009" href="$_task6_8c.html#a3bcd71b8ae16f6bc5122925d90337a97" title="Creates a new negation node (&quot;~&quot;) for a given formula $\phi$." alt="" coords="103,146,192,171"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="56,117,102,137,100,142,54,122"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="255,58,251,49,253,40,263,33,278,31,294,34,302,40,299,45,292,39,278,36,264,38,258,43,256,49,260,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="316,68,348,68,348,73,316,73"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="127,97,123,88,125,78,134,72,147,70,162,72,170,79,166,83,160,77,147,75,136,77,129,81,128,87,131,95"/>
+<area shape="rect" id="Node000006" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand). An atom is any token that is not a known operator." alt="" coords="246,195,309,221"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="181,205,231,205,231,210,181,210"/>
+<area shape="rect" id="Node000007" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="390,219,458,245"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="310,210,375,221,374,226,309,216"/>
+<area shape="rect" id="Node000008" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="391,170,457,195"/>
+<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="309,200,375,188,376,193,310,205"/>
+<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="173,143,191,132,247,91,250,96,193,137,176,147"/>
+<area shape="poly" id="edge13_Node000009_Node000003" title=" " alt="" coords="189,143,365,86,367,91,191,148"/>
+</map>

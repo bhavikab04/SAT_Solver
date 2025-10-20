@@ -1,0 +1,7 @@
+<map id="build_clause_string" name="build_clause_string">
+<area shape="rect" id="Node000001" title="Builds a fully parenthesized string for a single clause. (static = private to this file)" alt="" coords="275,5,407,31"/>
+<area shape="rect" id="Node000002" href="$converting_c_n_fto_input_8c.html#a0d734ec7f2dfef344199131771e21460" title="Converts a CNF file into a single&#45;line, fully parenthesized infix expression by streaming the output ..." alt="" coords="103,5,227,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,21,227,21,227,16,259,16"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="IMPL_FREE" name="IMPL_FREE">
+<area shape="rect" id="Node000001" title="Eliminates all implication operators (&#39;&gt;&#39;) from a formula." alt="" coords="272,29,367,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="346,16,337,10,320,8,304,10,295,15,293,20,298,28,293,30,288,21,291,11,302,5,320,3,339,5,349,12"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#a85ccaa203611107094401f69fead7bdf" title="Driver function for converting an arbitrary formula to Conjunctive Normal Form (CNF)." alt="" coords="103,29,224,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,45,224,45,224,40,256,40"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,29,55,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
+</map>
