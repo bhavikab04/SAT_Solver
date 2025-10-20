@@ -10,7 +10,7 @@
 #include "Task5.h"
 #include "Task6.h"
 #include "Task7.h"
-#include "helper.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -73,21 +73,20 @@ int main(int argc, char *argv[])
     // Task 2:
 
     // ... input reading logic ...
-
     Stack *prefix_stack = task1_infixToPrefix(buffer);
+    
+    // Declare root here in the outer scope and initialize to NULL
+    TreeNode *root = NULL; 
 
     if (prefix_stack)
     {
         printf("\n--- Task 1 Result ---\n");
-        // NOTE: The stack is printed by popping, which consumes it.
-        // We must *replicate* the stack if we want to print AND use it for Task 2.
-        // For simplicity, let's assume Task 1's main prints it first.
-
-        // ... (Code to print prefix and free/re-create the stack, OR a simpler approach) ...
+        // ... (Code to print/handle the prefix stack) ...
 
         printf("\n--- Task 2 Execution ---\n");
-        // ** The prefixToTree function will consume (pop) the stack.**
-        TreeNode *root = prefixToTree(prefix_stack);
+        
+        // Now, this is an assignment, not a new declaration.
+        root = prefixToTree(prefix_stack);
 
         if (root)
         {
@@ -103,13 +102,12 @@ int main(int argc, char *argv[])
         printf("Failed to convert the prefix expression to a stack.\n");
     }
 
-    // --- Proceed with other tasks only if the tree was successfully built ---
+
     if (root == NULL)
     {
         printf("\nAborting further tasks because the parse tree could not be built.\n");
         return 1;
     }
-
     // --- Task 3: Infix Expression Reconstruction ---
     printf("\n\n--- Task 3: Infix Expression Reconstruction ---\n");
     int bufferLength = getExpLength(root);
