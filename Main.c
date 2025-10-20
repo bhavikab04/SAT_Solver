@@ -148,7 +148,7 @@ int main(int argc, char *argv[])
         printf("--- Single Evaluation From File ---\n");
         // 1. Inform the user of the required inputs.
         printf("The formula contains %d unique variables.\n", literal_count);
-        printf("Please provide a file with truth assignments for each (e.g., 'p = T').\n\n");
+        printf("Please provide a file with truth assignments for each (e.g., 'x1 = T').\n\n");
 
         // 2. Prompt the user for the filename.
         char filename_buffer[256];

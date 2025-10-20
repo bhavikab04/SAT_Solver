@@ -7,7 +7,7 @@
 #define LINE_BUFFER_SIZE 65536 
 // Define a safe buffer size for a single literal string (e.g., "(~x2147483647)")
 #define LITERAL_BUFFER_SIZE 32
-
+static long num_vars = 0;
 /**
  * @brief Builds a fully parenthesized string for a single clause.
  * (static = private to this file)
@@ -82,7 +82,8 @@ long get_clause_count(const char* filename) {
     while (fgets(line_buffer, sizeof(line_buffer), file)) {
         if (line_buffer[0] == 'p' && strncmp(line_buffer, "p cnf", 5) == 0) {
             char* p;
-            strtol(line_buffer + 5, &p, 10); // Skip variables
+            num_vars = strtol(line_buffer + 5, &p, 10); // reads number of variables
+            //strtol(line_buffer + 5, &p, 10); // Skip variables
             num_clauses = strtol(p, NULL, 10); // Get clauses
             break;
         }
@@ -90,6 +91,9 @@ long get_clause_count(const char* filename) {
     
     fclose(file);
     return num_clauses;
+}
+long get_variable_count(void) {
+    return num_vars;
 }
 
 /**

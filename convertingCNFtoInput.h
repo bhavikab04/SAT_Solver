@@ -20,5 +20,6 @@ long get_clause_count(const char* filename);
  * @param out_stream The file stream to write the resulting string to.
  */
 void convertCnfToInfix(const char* filename, long num_clauses, FILE* out_stream);
+long get_variable_count(void);
 
 #endif // CNF_CONVERTER_H
