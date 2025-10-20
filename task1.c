@@ -1,12 +1,12 @@
 /**
- * @file task1_corrected.c
- * @brief Corrected implementation for infix to prefix conversion.
+ * @file task1.c
+ * @brief Implementation file for Task 1: Infix to Prefix Conversion.
+ * @author [Your Name/Handle]
+ * @date October 2025
  *
- * The primary error in the original code was the failure to handle
- * operator precedence. This corrected version includes a precedence()
- * helper function and updates the main conversion loop to correctly
- * manage the operator stack according to standard precedence rules
- * for a right-to-left scan.
+ * Implements the Shunting-yard-like algorithm to convert an infix
+ * string to a prefix stack, as well as stack helper functions
+ * (push, pop, etc.) and the read_line utility.
  */
 
 #include "Task1.h" // Includes the Stack definition

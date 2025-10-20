@@ -9,6 +9,17 @@
 #define LITERAL_BUFFER_SIZE 32
 
 /**
+ * @file convertingCNFtoInput.c
+ * @brief Implementation file for CNF to Infix Conversion.
+ * @author [Your Name/Handle]
+ * @date October 2025
+ *
+ * Implements the functions declared in convertingCNFtoInput.h.
+ * Contains the logic to parse a .cnf file, read its clauses,
+ * and build an equivalent infix string (e.g., "(x1 + -x2) * (x3)").
+ */
+
+/**
  * @brief File-scope variable to store the number of variables.
  * @note This is set by `get_clause_count()` and read by `get_variable_count()`.
  * This is a simple way to pass the value without changing function signatures.

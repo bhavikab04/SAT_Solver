@@ -27,6 +27,7 @@
  * \see convertingCNFtoInput.h, Task1.h, Task2.h, Task3.h, Task4.h, Task5.h, Task6.h, Task7.h
  */
 
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>

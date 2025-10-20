@@ -2,6 +2,15 @@
 #define CNF_CONVERTER_H
 
 #include <stdio.h> // Needed for FILE*
+/**
+ * @file convertingCNFtoInput.h
+ * @brief Header file for CNF to Infix Conversion.
+ * @author [Your Name/Handle]
+ * @date October 2025
+ *
+ * Declares functions for reading a DIMACS CNF file and converting
+ * it into a single, parenthesized infix propositional logic string.
+ */
 
 /**
  * @brief Scans the file for the 'p cnf' line and returns the number of clauses.

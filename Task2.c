@@ -4,6 +4,17 @@
 #include "Task2.h" // Includes TreeNode definition
 #include "Task1.h" // For Stack, pop(), isEmpty() (the string token stack)
 
+/**
+ * @file Task2.c
+ * @brief Implementation file for Task 2: Prefix to Parse Tree Conversion.
+ * @author [Your Name/Handle]
+ * @date October 2025
+ *
+ * Implements the `prefixToTree` function, which recursively (or
+ * iteratively) builds the parse tree. Also contains the definitions
+ * for tree traversal, printing, and deallocation functions.
+ */
+
 // --- Private Helper Prototypes ---
 
 /**
