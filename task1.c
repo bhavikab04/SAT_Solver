@@ -5,9 +5,6 @@
 #include <ctype.h>
 
 // --- Private Helper Function (for portability) ---
-/**
- * @brief Reverses a string in-place. (Replaces non-standard strrev)
- */
 static char* my_strrev(char* str) {
     if (!str || !*str) return str;
     int i = 0;
@@ -24,7 +21,6 @@ static char* my_strrev(char* str) {
 }
 
 // --- Stack Function Implementations ---
-
 Stack *createStack(int capacity)
 {
     Stack *stack = (Stack *)malloc(sizeof(Stack));
@@ -41,10 +37,7 @@ Stack *createStack(int capacity)
     return stack;
 }
 
-int isEmpty(Stack *stack)
-{
-    return stack->top == -1;
-}
+int isEmpty(Stack *stack) { return stack->top == -1; }
 
 void push(Stack *stack, const char *item)
 {
@@ -86,7 +79,6 @@ void freeStack(Stack *stack)
 
 
 // --- Private Helper Functions ---
-
 static int isOperator(char ch)
 {
     return ch == '~' || ch == '*' || ch == '+' || ch == '>';
@@ -94,13 +86,11 @@ static int isOperator(char ch)
 
 static int isOperandStart(char ch)
 {
-    // We assume variables are like 'x1', 'x24', or single letters 'a', 'b'
     return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
 }
 
 
 // --- Public Function Implementations ---
-
 char *read_line(FILE *stream)
 {
     size_t capacity = 1024;
@@ -136,8 +126,13 @@ Stack *task1_infixToPrefix(const char *infix)
     if (n == 0)
         return NULL;
 
-    Stack *op_stack = createStack(n);
-    Stack *final_stack = createStack(n);
+    // *** FIX 1: Use a safe, fixed capacity instead of 'n' ***
+    // 'n' can be millions of chars, but we only have a few thousand tokens.
+    // 1,000,000 tokens is more than enough and uses ~8MB of RAM, not ~800MB.
+    int capacity = 1000000; 
+
+    Stack *op_stack = createStack(capacity);
+    Stack *final_stack = createStack(capacity);
     if (!op_stack || !final_stack)
     {
         freeStack(op_stack);
@@ -171,38 +166,28 @@ Stack *task1_infixToPrefix(const char *infix)
             }
             i++;
             token_buffer[k] = '\0';
-
-            my_strrev(token_buffer); // Use portable reverse
-            
+            my_strrev(token_buffer); 
             push(final_stack, token_buffer);
         }
         else if (c == ')')
         {
             push(op_stack, ")");
         }
-        // --- 3. Handle '(' ---
-        // *** THIS BLOCK IS NOW FIXED ***
         else if (c == '(')
         {
+            // This is the safe version of this block
             char *op = NULL;
-            // Pop operators until we find the matching ')'
             while ((op = pop(op_stack)) != NULL) 
             {
                 if (strcmp(op, ")") == 0) 
                 {
-                    // Found the matching parenthesis
                     free(op); // Free the ")"
                     break;    // Stop popping
                 }
-                
-                // It wasn't ")", so push the operator to the final stack
                 push(final_stack, op);
-                free(op); // We're done with this operator token
+                free(op); 
             }
-            // 'op' is either NULL or was already freed.
-            // No final 'free(op)' is needed.
         }
-        // --- END OF FIX ---
         else if (isOperator(c))
         {
             token_buffer[0] = c;
@@ -215,20 +200,29 @@ Stack *task1_infixToPrefix(const char *infix)
     char *op;
     while ((op = pop(op_stack)) != NULL)
     {
-        push(final_stack, op);
-        free(op);
+        // *** FIX 2: Do NOT push any leftover parentheses ***
+        if (strcmp(op, ")") != 0 && strcmp(op, "(") != 0) 
+        {
+            push(final_stack, op);
+        }
+        free(op); // Free the token regardless
     }
     freeStack(op_stack);
 
-// --- 6. Return the final stack ---
-    // The `final_stack` has the prefix expression in reverse order,
-    // which is exactly what prefixToTree expects to pop from.
-    // We do NOT reverse it.
-    
-    // We free the op_stack, but we return the final_stack.
-    freeStack(op_stack); 
-    return final_stack;
+    // --- 6. Reverse the final stack ---
+    // The iterative prefixToTree expects to pop tokens in
+    // the correct prefix order (e.g., "+", "a", "b").
+    // final_stack is currently in reverse order ("b", "a", "+").
+    // We MUST reverse it.
+    Stack *return_stack = createStack(capacity); // Use new capacity
+    while ((op = pop(final_stack)) != NULL)
+    {
+        push(return_stack, op);
+        free(op);
+    }
 
+    freeStack(final_stack);
+    return return_stack;
 }
 
 // --- NO MAIN FUNCTION ---
