@@ -9,7 +9,7 @@
  * 2. Negation Normal Form (NNF)
  * 3. Distribution and CNF generation (CNF, DISTR)
  *
- * It is assumed that 'Task6.h', 'Task2.h', and 'Task3.h' define the TreeNode structure,
+ * It is assumed that 'Task6.h' and 'Task2.h' define the TreeNode structure,
  * the 'isAtom' function, the 'freeTree' function, and the 'bool' type.
  * Operators used: '>' (Implication), '~' (Negation), '*' (AND), '+' (OR).
  */
@@ -18,7 +18,6 @@
 #include <string.h>
 #include "Task6.h"
 #include "Task2.h"
-#include "Task3.h"
 
 // Assume TreeNode is defined in one of the included headers, e.g., Task6.h
 /**

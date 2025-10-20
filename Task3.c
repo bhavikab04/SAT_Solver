@@ -1,9 +1,27 @@
+/**
+ * @file parse_tree_to_infix.c
+ *
+ * @brief Implentation of functions to construct infix expression from parse tree by in-order traversal.
+ *
+ * Structure of code:
+ * Core functions:
+ * 1) In-order traversal function to build the infix expression from the parse tree.
+ *
+ * Helper functions:
+ * 1) Total expression length calculator function.
+ * 2) Function to check if the operator is binary.
+ * 3) Function to check if the operator is unary.
+ *
+ *
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
-#include "Task2.h"
+#include "Task2.h" //for TreeNode definition, isAtom and freeTree functions
+#include "Task3.h" //for getExpLength and inOrderTraversal function prototypes
 /*
 from task2.h:
 typedef struct TreeNode {
@@ -140,22 +158,4 @@ int getExpLength(TreeNode *root)
     }
 
     return 0;
-}
-
-// To optimize the code further: free the allocated memory for tree (using post order traversal)
-/**
- * @brief Frees all the allocated memoory to the parse tree nodes and their data.
- * Uses post-order traversal to free child nodes before parent.
- * @param root Pointer to the root node of the tree to be freed.
- */
-void freeTree(TreeNode *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    freeTree(root->left);
-    freeTree(root->right);
-    free(root->data); // Free string allocated by strdup
-    free(root);
 }
