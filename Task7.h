@@ -14,4 +14,3 @@
 bool checkCNFValidity(TreeNode* cnf_root, int* valid_clauses, int* invalid_clauses);
 
 #endif // TASK7_H
-
