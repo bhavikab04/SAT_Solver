@@ -220,16 +220,15 @@ Stack *task1_infixToPrefix(const char *infix)
     }
     freeStack(op_stack);
 
-    // --- 6. Reverse the final stack ---
-    Stack *return_stack = createStack(n);
-    while ((op = pop(final_stack)) != NULL)
-    {
-        push(return_stack, op);
-        free(op);
-    }
+// --- 6. Return the final stack ---
+    // The `final_stack` has the prefix expression in reverse order,
+    // which is exactly what prefixToTree expects to pop from.
+    // We do NOT reverse it.
+    
+    // We free the op_stack, but we return the final_stack.
+    freeStack(op_stack); 
+    return final_stack;
 
-    freeStack(final_stack);
-    return return_stack;
 }
 
 // --- NO MAIN FUNCTION ---
