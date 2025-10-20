@@ -137,19 +137,8 @@ int main(int argc, char *argv[])
     // ==========================================================
     printf("\n\n--- Task 5: Evaluation & Truth Table ---\n");
     
-    // Note: This evaluation is using hardcoded 'p', 'q', 'r'.
-    // This will likely evaluate to 'False' if your tree uses 'x1', 'x2', etc.
-    // This section is just for demonstration as per your original code.
-    TruthAssignment assignments[] = {
-        {.literal = "p", .value = true},
-        {.literal = "q", .value = false},
-        {.literal = "r", .value = true}};
-    int num_assignments = sizeof(assignments) / sizeof(assignments[0]);
-
-    printf("With p=T, q=F, r=T, the formula evaluates to: %s\n",
-           evaluateTree(root, assignments, num_assignments) ? "True" : "False");
-
-    // This part is more useful: it finds all literals (like 'x1', 'x2')
+    // This part finds all literals (like 'x1', 'x2')
+    // and generates the full truth table.
     char **literals_list = NULL;
     int literal_count = collectUniqueLiterals(root, &literals_list);
     if (literal_count > 0)
