@@ -103,6 +103,7 @@ int main(int argc, char *argv[])
     {
         printf("\nAborting further tasks because the parse tree could not be built.\n");
         free(buffer); // Free the buffer before exiting
+        free(root);
         return 1;
     }
 
@@ -136,15 +137,69 @@ int main(int argc, char *argv[])
     // STEP 6: Evaluation & Truth Table (Task 5)
     // ==========================================================
     printf("\n\n--- Task 5: Evaluation & Truth Table ---\n");
-    
-    // This part finds all literals (like 'x1', 'x2')
-    // and generates the full truth table.
+
+    // First, find out what variables we are dealing with for all parts of Task 5.
     char **literals_list = NULL;
     int literal_count = collectUniqueLiterals(root, &literals_list);
+
+    // --- Part 1: Single Evaluation from a user-provided file ---
     if (literal_count > 0)
     {
-        // *** FIXED ***: Use 'buffer' as the label, not 'test_expression'
+        printf("--- Single Evaluation From File ---\n");
+        // 1. Inform the user of the required inputs.
+        printf("The formula contains %d unique variables.\n", literal_count);
+        printf("Please provide a file with truth assignments for each (e.g., 'p = T').\n\n");
+
+        // 2. Prompt the user for the filename.
+        char filename_buffer[256];
+        printf("Enter the path to your assignments file (or type 'skip' to cancel): ");
+
+        // 3. Read the filename safely.
+        if (scanf("%255s", filename_buffer) == 1)
+        {
+            // Allow the user to skip this step.
+            if (strcmp(filename_buffer, "skip") != 0)
+            {
+                // 4. Call the efficient file evaluation function.
+                evaluateFromFile(root, filename_buffer);
+            }
+            else
+            {
+                printf("Skipping single evaluation.\n");
+            }
+        }
+        else
+        {
+            fprintf(stderr, "Failed to read filename. Skipping evaluation.\n");
+            // Clear the input buffer in case of bad input (e.g., "hello world")
+            while (getchar() != '\n');
+        }
+    }
+    else
+    {
+        // This case handles formulas without variables like "T + F"
+        printf("No literals found. The expression is a constant.\n");
+    }
+
+    // --- Part 2: Generate Full Truth Table ---
+    printf("\n--- Full Truth Table ---\n");
+
+    // The printTruthTable function now contains its own safety check using MAX_TRUTH_TABLE_VARIABLES.
+    if (literal_count > 0)
+    {
+        // The 'buffer' variable holds the original infix string for the header.
         printTruthTable(root, literals_list, literal_count, buffer);
+    }
+    else
+    {
+        // If no literals, just print the single evaluation result.
+        // Passing NULL for assignments is safe for constant expressions.
+        bool result = evaluateTree(root, NULL);
+        printf("The constant expression evaluates to: %s\n", result ? "True" : "False");
+    }
+
+    // --- Cleanup for literals_list ---
+    if (literals_list) {
         for (int i = 0; i < literal_count; i++)
         {
             free(literals_list[i]);
@@ -173,7 +228,7 @@ int main(int argc, char *argv[])
     // STEP 8: CNF Validity Check (Task 7)
     // ==========================================================
     
-    // *** FIXED ***: Check 'cnf_root' *after* it has been created
+   
     if (cnf_root)
     {
         printf("\n--- Testing CNF Validity (Task 7) ---\n");
@@ -187,7 +242,7 @@ int main(int argc, char *argv[])
         printf("- Invalid Clauses: %d\n", invalid_count);
         printf("- Is the entire formula a tautology? %s\n", is_tautology ? "Yes" : "No");
 
-        // *** FIXED ***: Free cnf_root *after* you are done using it
+      
         freeTree(cnf_root);
     }
 
