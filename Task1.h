@@ -3,19 +3,18 @@
 
 /**
  * @file Task1.h
- * @brief Header file for Task 1: Infix to Prefix Conversion.
+ * @brief This is the header file for Task 1: Infix to Prefix Conversion.
  *
  * This file defines the structure for a Stack used to hold string
  * tokens and declares the public functions required for stack
  * operations, reading input, and the main conversion logic.
  */
 
-#include <stdio.h> // Needed for FILE* in read_line prototype
-
-// --- Stack Structure Definition ---
+#include <stdio.h> 
+// Defining the Stack Structure
 
 /**
- * @brief A stack structure for storing strings (char*).
+ * @brief A stack structure for storing strings.
  *
  * Used as both the operator stack and the output stack during
  * the infix-to-prefix conversion.
@@ -26,9 +25,9 @@ typedef struct {
     int capacity;   // Max number of items the stack can hold.
 } Stack;
 
-// --- Public Function Prototypes ---
+// Prototypes of the public function
 
-// --- Stack functions ---
+// Stack Function
 
 /**
  * @brief Creates and initializes a new stack.
@@ -40,7 +39,7 @@ Stack* createStack(int capacity);
 /**
  * @brief Checks if the stack is empty.
  * @param stack Pointer to the stack.
- * @return 1 (true) if empty, 0 (false) otherwise.
+ * @return 1 (true) if empty,else  0 (false).
  */
 int isEmpty(Stack* stack);
 
@@ -68,7 +67,7 @@ char* pop(Stack* stack);
  */
 void freeStack(Stack* stack);
 
-// --- Utility function ---
+// Utility funcn
 
 /**
  * @brief Reads a line of arbitrary length from a stream.
@@ -78,7 +77,7 @@ void freeStack(Stack* stack);
  */
 char* read_line(FILE* stream);
 
-// --- Main task function ---
+// Main task function
 
 /**
  * @brief Converts an infix expression string to a prefix expression stack.
@@ -90,4 +89,4 @@ char* read_line(FILE* stream);
  */
 Stack* task1_infixToPrefix(const char* infix);
 
-#endif // TASK1_H
+#endif 
