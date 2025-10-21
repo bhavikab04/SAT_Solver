@@ -18,12 +18,12 @@ html {
     --link-color: var(--primary-color);
 
     /* page base colors */
-    --page-background-color: #ffffff;
+    --page-background-color: #191970;/* Change made here */
     --page-foreground-color: #2f4153;
     --page-secondary-foreground-color: #6f7e8e;
 
     /* color for all separators on the website: hr, borders, ... */
-    --separator-color: #dedede;
+    --separator-color: #1D1D86;/* Change made here */
 
     /* border radius for all rounded components. Will affect many components, like dropdowns, memitems, codeblocks, ... */
     --border-radius-large: 10px;
@@ -137,7 +137,7 @@ html {
     --fragment-lineheight: 20px;
 
     /* sidebar navigation (treeview) colors */
-    --side-nav-background: #fbfbfb;
+    --side-nav-background: #e1dededb;
     --side-nav-foreground: var(--page-foreground-color);
     --side-nav-arrow-opacity: 0;
     --side-nav-arrow-hover-opacity: 0.9;
@@ -186,7 +186,7 @@ html {
         --page-foreground-color: #d2dbde;
         --page-secondary-foreground-color: #859399;
         --separator-color: #38393b;
-        --side-nav-background: #252628;
+        --side-nav-background: #212e48;
 
         --code-background: #2a2c2f;
 
@@ -233,7 +233,7 @@ html {
 html.dark-mode {
     color-scheme: dark;
 
-    --primary-color: #1982d2;
+    --primary-color:#191970;
     --primary-dark-color: #86a9c4;
     --primary-light-color: #4779ac;
 
@@ -247,7 +247,7 @@ html.dark-mode {
     --page-foreground-color: #d2dbde;
     --page-secondary-foreground-color: #859399;
     --separator-color: #38393b;
-    --side-nav-background: #252628;
+    --side-nav-background: #1b263e;
 
     --code-background: #2a2c2f;
 
