@@ -7,7 +7,7 @@
 /**
  * @file Task2.c
  * @brief Implementation file for Task 2: Prefix to Parse Tree Conversion.
- * @author [Your Name/Handle]
+ * @author [Team]
  * @date October 2025
  *
  * Implements the `prefixToTree` function, which recursively (or

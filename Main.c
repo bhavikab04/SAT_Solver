@@ -1,7 +1,7 @@
 /**
  * \file main.c
  * \brief Main driver for the logic formula processing pipeline.
- * \author [Your Name/Handle]
+ * \author [Team]
  * \date October 2025
  *
  * \details This program serves as the central controller for a multi-task

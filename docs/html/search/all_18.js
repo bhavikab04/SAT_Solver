@@ -1,8 +1,11 @@
 var searchData=
 [
   ['sat_5fsolver_0',['SAT_Solver',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['space_20complexity_3a_2022_1',['Space Complexity: &lt;picture&gt;&lt;source srcset=&quot;form_22_dark.png&quot; media=&quot;(prefers-color-scheme: dark)&quot;/&gt;&lt;img class=&quot;formulaInl&quot; alt=&quot;$O(S_{\text{total}} + M \cdot k + V \cdot k + 2^M)$&quot; src=&quot;form_22.png&quot;/&gt;&lt;/picture&gt;',['../analysis_page.html#main_space',1,'']]],
-  ['stack_2',['Stack',['../struct_stack.html',1,'']]],
-  ['strengths_3',['Key Strengths',['../analysis_page.html#review_strengths',1,'']]],
-  ['summary_4',['Overall Review &amp;amp; Summary',['../analysis_page.html#overview_sec',1,'']]]
+  ['science_20assignment_20algorithm_20analysis_1',['Logic in Computer Science Assignment Algorithm Analysis',['../analysis_page.html',1,'']]],
+  ['since_20no_20individual_20clause_20is_20a_20tautology_20the_20function_20correctly_20returns_20false_20the_20entire_20formula_20is_20not_20a_20tautology_2',['* Since no individual clause is a tautology, the function correctly returns &lt;span class=&quot;tt&quot;&gt;false&lt;/span&gt; (the entire formula is not a tautology).',['../analysis_page.html#autotoc_md3',1,'']]],
+  ['space_20complexity_3a_2022_3',['Space Complexity: \(O(S_{\text{total}} + M \cdot k + V \cdot k + 2^M)\)',['../analysis_page.html#main_space',1,'']]],
+  ['stack_4',['Stack',['../struct_stack.html',1,'']]],
+  ['strengths_5',['Key Strengths',['../analysis_page.html#review_strengths',1,'']]],
+  ['subsequent_20analysis_20tasks_6',['Subsequent Analysis Tasks',['../analysis_page.html#example_tasks3_7_sec',1,'']]],
+  ['summary_7',['Overall Review and Summary',['../analysis_page.html#overview_sec',1,'']]]
 ];

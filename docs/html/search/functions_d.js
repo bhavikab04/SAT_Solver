@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['task1_5finfixtoprefix_0',['task1_infixToPrefix',['../task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66',1,'task1_infixToPrefix(const char *infix):&#160;task1.c'],['../_task1_8h.html#af2160a30128fd75f80d206fb5d0bbb66',1,'task1_infixToPrefix(const char *infix):&#160;task1.c']]]
+  ['task1_5finfixtoprefix_0',['task1_infixToPrefix',['../task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66',1,'task1_infixToPrefix(const char *infix):&#160;task1.c'],['../_task1_8h.html#af2160a30128fd75f80d206fb5d0bbb66',1,'task1_infixToPrefix(const char *infix):&#160;task1.c']]],
+  ['track_5funique_5fliterals_1',['Track_Unique_Literals',['../_task5_8c.html#a8530bf93feeff96c334c2ead4cee5e38',1,'Task5.c']]]
 ];

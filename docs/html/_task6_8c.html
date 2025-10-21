@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,14 +124,14 @@ $(function(){initNavTree('_task6_8c.html','',''); });
 <area shape="poly" title=" " alt="" coords="226,32,209,66,205,64,221,30"/>
 <area shape="rect" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion." alt="" coords="231,153,299,178"/>
 <area shape="poly" title=" " alt="" coords="235,31,261,137,256,138,229,32"/>
-<area shape="rect" href="_task3_8h.html" title="Header file for Task 3: Parse Tree to Infix Conversion." alt="" coords="323,153,391,178"/>
+<area shape="rect" href="_task3_8h.html" title="Header file for Task 3: Conversion of prase tree to infix." alt="" coords="323,153,391,178"/>
 <area shape="poly" title=" " alt="" coords="241,30,338,139,334,142,237,33"/>
 <area shape="poly" title=" " alt="" coords="197,105,201,169,209,211,222,251,245,287,241,290,217,253,204,212,196,170,192,105"/>
 <area shape="poly" title=" " alt="" coords="169,108,79,148,77,143,167,103"/>
 <area shape="poly" title=" " alt="" coords="185,107,149,143,145,140,181,103"/>
 <area shape="poly" title=" " alt="" coords="208,103,244,140,241,143,204,107"/>
 <area shape="poly" title=" " alt="" coords="223,103,316,144,314,148,221,108"/>
-<area shape="rect" href="_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="231,226,299,252"/>
+<area shape="rect" href="_task1_8h.html" title="This is the header file for Task 1: Infix to Prefix Conversion." alt="" coords="231,226,299,252"/>
 <area shape="poly" title=" " alt="" coords="268,179,268,211,262,211,262,179"/>
 <area shape="rect" title=" " alt="" coords="322,226,397,252"/>
 <area shape="poly" title=" " alt="" coords="283,177,333,215,330,219,279,181"/>
@@ -157,12 +164,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of functions for converting propositional logic formulas to Conjunctive Normal Form (CNF). </p>
-<p>This file contains the implementation of functions for creating, copying, and manipulating a propositional logic formula represented as a binary tree (<a class="el" href="struct_tree_node.html" title="Represents a node in the abstract syntax tree (AST) of a propositional logic formula.">TreeNode</a> structure). It includes the core algorithms for converting a formula to CNF:</p><ol type="1">
-<li>Implication Elimination (IMPL_FREE)</li>
-<li>Negation Normal Form (NNF)</li>
-<li>Distribution and CNF generation (CNF, DISTR)</li>
-</ol>
-<p>It is assumed that '<a class="el" href="_task6_8h.html" title="Header file containing function prototypes for converting propositional logic formulas to Conjunctive...">Task6.h</a>', '<a class="el" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion.">Task2.h</a>', and '<a class="el" href="_task3_8h.html" title="Header file for Task 3: Parse Tree to Infix Conversion.">Task3.h</a>' define the <a class="el" href="struct_tree_node.html" title="Represents a node in the abstract syntax tree (AST) of a propositional logic formula.">TreeNode</a> structure, the 'isAtom' function, the 'freeTree' function, and the 'bool' type. Operators used: '&gt;' (Implication), '~' (Negation), '*' (AND), '+' (OR). </p>
+<p>This file contains the implementation of functions for creating, copying, and manipulating a propositional logic formula represented as a binary tree (<a class="el" href="struct_tree_node.html" title="Represents a node in the abstract syntax tree (AST) of a propositional logic formula.">TreeNode</a> structure). It includes the core algorithms for converting a formula to CNF: a. Implication Elimination (IMPL_FREE) b. Negation Normal Form (NNF) c. Distribution and CNF generation (CNF, DISTR)</p>
+<p>'<a class="el" href="_task6_8h.html" title="Header file containing function prototypes for converting propositional logic formulas to Conjunctive...">Task6.h</a>', '<a class="el" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion.">Task2.h</a>', and '<a class="el" href="_task3_8h.html" title="Header file for Task 3: Conversion of prase tree to infix.">Task3.h</a>' define the <a class="el" href="struct_tree_node.html" title="Represents a node in the abstract syntax tree (AST) of a propositional logic formula.">TreeNode</a> structure, the 'isAtom' function, the 'freeTree' function, and the 'bool' type. Operators used: '&gt;' (Implication), '~' (Negation), '*' (AND), '+' (OR). </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a93732f4385a09ea1ce41af2e27bf1dc1" name="a93732f4385a09ea1ce41af2e27bf1dc1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93732f4385a09ea1ce41af2e27bf1dc1">&#9670;&#160;</a></span>CNF()</h2>

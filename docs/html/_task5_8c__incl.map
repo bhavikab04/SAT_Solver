@@ -1,5 +1,5 @@
 <map id="Task5.c" name="Task5.c">
-<area shape="rect" id="Node000001" title="Implementation of the formula evaluation and truth table logic." alt="" coords="134,5,201,31"/>
+<area shape="rect" id="Node000001" title="Implements formula evaluation and truth table generation." alt="" coords="134,5,201,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="112,300,172,326"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,25,105,31,74,41,45,57,22,80,10,108,9,137,18,166,33,195,74,248,117,288,113,292,70,251,28,197,13,168,4,137,5,107,17,78,42,53,72,36,104,26,133,20"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="32,79,95,105"/>
@@ -15,7 +15,7 @@
 <area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="284,107,249,154,213,214,208,211,244,151,280,104"/>
 <area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="294,105,294,137,289,137,289,105"/>
 <area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="277,181,227,219,223,215,274,177"/>
-<area shape="rect" id="Node000008" href="$_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="258,226,325,252"/>
+<area shape="rect" id="Node000008" href="$_task1_8h.html" title="This is the header file for Task 1: Infix to Prefix Conversion." alt="" coords="258,226,325,252"/>
 <area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="294,179,294,211,289,211,289,179"/>
 <area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="267,255,182,295,180,291,265,250"/>
 </map>

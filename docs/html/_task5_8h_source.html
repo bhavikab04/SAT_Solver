@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -100,23 +107,23 @@ $(function(){initNavTree('_task5_8h_source.html','',''); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="_task5_8h.html#a395e3fc41daa49b9968d00bbbc579a03">   23</a></span><span class="preprocessor">#define MAX_TRUTH_TABLE_VARIABLES 25</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="_task5_8h.html#aedaeb56e6c9e8a74dc2c0dd43d41c190">   32</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_assignment_hash_table.html">AssignmentHashTable</a> <a class="code hl_struct" href="struct_assignment_hash_table.html">AssignmentHashTable</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="_task5_8h.html#aac17116b181195c6c2799ac72439bd07">   32</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_assign___h_t.html">Assign_HT</a> <a class="code hl_struct" href="struct_assign___h_t.html">Assign_HT</a>;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_task5_8h.html#ad2414fa3dad8119f1c5423f2661f5651">evaluateTree</a>(<a class="code hl_struct" href="struct_tree_node.html">TreeNode</a> *root, <span class="keyword">const</span> <a class="code hl_struct" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *assignments);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_task5_8h.html#afeb82f5b72e7ce998b644ba8bbf4c0c8">evaluateTree</a>(<a class="code hl_struct" href="struct_tree_node.html">TreeNode</a> *root, <span class="keyword">const</span> <a class="code hl_struct" href="struct_assign___h_t.html">Assign_HT</a> *assignments);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_task5_8h.html#acaed9188cbcf7a8f97c285743d8e96b4">evaluateFromFile</a>(<a class="code hl_struct" href="struct_tree_node.html">TreeNode</a> *root, <span class="keyword">const</span> <span class="keywordtype">char</span> *filename);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">int</span> <a class="code hl_function" href="_task5_8h.html#af9f1056614fbcb26ab5a9d329137b63c">get_Unique_Literals</a>(<a class="code hl_struct" href="struct_tree_node.html">TreeNode</a> *root, <span class="keywordtype">char</span> ***literals_list_out);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">int</span> <a class="code hl_function" href="_task5_8h.html#ac2042b25d32acaada52485aaef2759d5">get_Unique_Literals</a>(<a class="code hl_struct" href="struct_tree_node.html">TreeNode</a> *root, <span class="keywordtype">char</span> ***literals_list_out);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span> <a class="code hl_function" href="_task5_8h.html#a2597eda358ca1446a3e05ddb1af31ae4">printTruthTable</a>(<a class="code hl_struct" href="struct_tree_node.html">TreeNode</a> *root, <span class="keywordtype">char</span> **literals, <span class="keywordtype">int</span> count, <span class="keyword">const</span> <span class="keywordtype">char</span> *formula_str);</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif </span><span class="comment">// TASK5_H</span></div>
 <div class="ttc" id="a_task2_8h_html"><div class="ttname"><a href="_task2_8h.html">Task2.h</a></div><div class="ttdoc">Header file for Task 2: Prefix to Parse Tree Conversion.</div></div>
-<div class="ttc" id="a_task5_8h_html_a2597eda358ca1446a3e05ddb1af31ae4"><div class="ttname"><a href="_task5_8h.html#a2597eda358ca1446a3e05ddb1af31ae4">printTruthTable</a></div><div class="ttdeci">void printTruthTable(TreeNode *root, char **literals, int count, const char *formula_str)</div><div class="ttdoc">Creates and prints a complete truth table for the formula.</div><div class="ttdef"><b>Definition</b> Task5.c:224</div></div>
-<div class="ttc" id="a_task5_8h_html_acaed9188cbcf7a8f97c285743d8e96b4"><div class="ttname"><a href="_task5_8h.html#acaed9188cbcf7a8f97c285743d8e96b4">evaluateFromFile</a></div><div class="ttdeci">bool evaluateFromFile(TreeNode *root, const char *filename)</div><div class="ttdoc">Evaluates a formula using variable values from a file.</div><div class="ttdef"><b>Definition</b> Task5.c:165</div></div>
-<div class="ttc" id="a_task5_8h_html_ad2414fa3dad8119f1c5423f2661f5651"><div class="ttname"><a href="_task5_8h.html#ad2414fa3dad8119f1c5423f2661f5651">evaluateTree</a></div><div class="ttdeci">bool evaluateTree(TreeNode *root, const AssignmentHashTable *assignments)</div><div class="ttdoc">Evaluates the logical formula in the tree.</div><div class="ttdef"><b>Definition</b> Task5.c:141</div></div>
-<div class="ttc" id="a_task5_8h_html_af9f1056614fbcb26ab5a9d329137b63c"><div class="ttname"><a href="_task5_8h.html#af9f1056614fbcb26ab5a9d329137b63c">get_Unique_Literals</a></div><div class="ttdeci">int get_Unique_Literals(TreeNode *root, char ***literals_list_out)</div><div class="ttdoc">Gathers all unique variable names from the formula tree.</div><div class="ttdef"><b>Definition</b> Task5.c:199</div></div>
-<div class="ttc" id="astruct_assignment_hash_table_html"><div class="ttname"><a href="struct_assignment_hash_table.html">AssignmentHashTable</a></div><div class="ttdoc">The internal structure of the hash table for variable assignments.</div><div class="ttdef"><b>Definition</b> Task5.c:44</div></div>
+<div class="ttc" id="a_task5_8h_html_a2597eda358ca1446a3e05ddb1af31ae4"><div class="ttname"><a href="_task5_8h.html#a2597eda358ca1446a3e05ddb1af31ae4">printTruthTable</a></div><div class="ttdeci">void printTruthTable(TreeNode *root, char **literals, int count, const char *formula_str)</div><div class="ttdoc">Creates and prints a complete truth table for the formula.</div><div class="ttdef"><b>Definition</b> Task5.c:230</div></div>
+<div class="ttc" id="a_task5_8h_html_ac2042b25d32acaada52485aaef2759d5"><div class="ttname"><a href="_task5_8h.html#ac2042b25d32acaada52485aaef2759d5">get_Unique_Literals</a></div><div class="ttdeci">int get_Unique_Literals(TreeNode *root, char ***literals_list_out)</div><div class="ttdoc">Gathers all unique variable names from the formula tree.</div><div class="ttdef"><b>Definition</b> Task5.c:194</div></div>
+<div class="ttc" id="a_task5_8h_html_acaed9188cbcf7a8f97c285743d8e96b4"><div class="ttname"><a href="_task5_8h.html#acaed9188cbcf7a8f97c285743d8e96b4">evaluateFromFile</a></div><div class="ttdeci">bool evaluateFromFile(TreeNode *root, const char *filename)</div><div class="ttdoc">Evaluates a formula using variable values from a file.</div><div class="ttdef"><b>Definition</b> Task5.c:160</div></div>
+<div class="ttc" id="a_task5_8h_html_afeb82f5b72e7ce998b644ba8bbf4c0c8"><div class="ttname"><a href="_task5_8h.html#afeb82f5b72e7ce998b644ba8bbf4c0c8">evaluateTree</a></div><div class="ttdeci">bool evaluateTree(TreeNode *root, const Assign_HT *assignments)</div><div class="ttdoc">Evaluates the logical formula in the tree.</div><div class="ttdef"><b>Definition</b> Task5.c:136</div></div>
+<div class="ttc" id="astruct_assign___h_t_html"><div class="ttname"><a href="struct_assign___h_t.html">Assign_HT</a></div><div class="ttdoc">The internal structure of the hash table.</div><div class="ttdef"><b>Definition</b> Task5.c:42</div></div>
 <div class="ttc" id="astruct_tree_node_html"><div class="ttname"><a href="struct_tree_node.html">TreeNode</a></div><div class="ttdoc">Represents a node in the abstract syntax tree (AST) of a propositional logic formula.</div><div class="ttdef"><b>Definition</b> Task2.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
