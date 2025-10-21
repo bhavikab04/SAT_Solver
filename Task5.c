@@ -136,7 +136,6 @@ static bool assignmentHT_Get(const AssignmentHashTable* ht, const char* literal,
     return false;
 }
 
-// --- Public Function Implementations ---
 
 bool evaluateTree(TreeNode *root, const AssignmentHashTable *assignments) {
     if (!root || !root->data) return false;

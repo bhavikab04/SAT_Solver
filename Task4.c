@@ -4,7 +4,7 @@
 
 /**
  * @file Task4.c
- * @brief Contains the implementation for the tree height calculation.
+ * @brief Implements height of Tree calculation
  *
  * This file provides the actual code that performs the height calculation
  * using a recursive method.
