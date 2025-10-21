@@ -223,6 +223,7 @@ int main(int argc, char *argv[])
         printf("No literals found. The expression is a constant.\n");
     }
 
+    
     //    Part 2: Generate Full Truth Table 
     printf("\n--- Full Truth Table ---\n");
 
