@@ -1,4 +1,4 @@
-<map id="assignmentHT_Get" name="assignmentHT_Get">
+<map id="HT_Get" name="HT_Get">
 <area shape="rect" id="Node000001" title="Looks up a variable&#39;s value in the hash table." alt="" coords="662,93,796,119"/>
 <area shape="rect" id="Node000002" href="$_task5_8c.html#ad2414fa3dad8119f1c5423f2661f5651" title="Evaluates the logical formula in the tree." alt="" coords="517,63,614,88"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="646,93,614,87,615,82,647,88"/>

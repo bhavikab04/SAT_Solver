@@ -20,6 +20,6 @@
  * @param root A pointer to the root node of the tree.
  * @return The height of the tree as an integer.
  */
-int calculateHeight(TreeNode *root);
+int find_height(TreeNode *root);
 
 #endif // TASK4_H

@@ -21,20 +21,20 @@
  * @param root A pointer to the root node of the tree.
  * @return The integer height of the tree. It returns -1 if the tree is empty.
  */
-int calculateHeight(TreeNode *root) {
+int find_height(TreeNode *root) {
     // An empty tree (NULL) is defined to have a height of -1.
     if (root == NULL) {
         return -1;
     }
 
     // Find the height of the left and right branches from this node.
-    int leftSubtreeHeight = calculateHeight(root->left);
-    int rightSubtreeHeight = calculateHeight(root->right);
+    int height_left = find_height(root->left);
+    int height_right = find_height(root->right);
 
     // The height at this point is 1 plus the height of the taller branch.
-    if (leftSubtreeHeight > rightSubtreeHeight) {
-        return 1 + leftSubtreeHeight;
+    if (height_left > height_right) {
+        return 1 + height_left;
     } else {
-        return 1 + rightSubtreeHeight;
+        return 1 + height_right;
     }
 }

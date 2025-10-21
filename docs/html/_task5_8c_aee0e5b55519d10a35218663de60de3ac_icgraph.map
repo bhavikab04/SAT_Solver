@@ -1,4 +1,4 @@
-<map id="generateAssignmentsAndPrint" name="generateAssignmentsAndPrint">
+<map id="Assign_value" name="Assign_value">
 <area shape="rect" id="Node000001" title="Recursively generates and prints each row of the truth table." alt="" coords="258,29,455,55"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="391,17,380,10,357,8,336,10,324,15,322,20,327,27,323,30,317,21,321,11,334,5,357,3,381,5,394,12"/>
 <area shape="rect" id="Node000002" href="$_task5_8c.html#a2597eda358ca1446a3e05ddb1af31ae4" title="Creates and prints a complete truth table for the formula." alt="" coords="103,29,210,55"/>

@@ -38,8 +38,8 @@
 #include "Task1.h"                ///< For Stack, read_line, task1_infixToPrefix
 #include "Task2.h"                ///< For TreeNode, prefixToTree, printTreeVertical, freeTree
 #include "Task3.h"                ///< For getExpLength, inOrderTraversal
-#include "Task4.h"                ///< For calculateHeight
-#include "Task5.h"                ///< For evaluateFromFile, collectUniqueLiterals, printTruthTable, evaluateTree
+#include "Task4.h"                ///< For find_height
+#include "Task5.h"                ///< For evaluateFromFile, get_Unique_Literals, printTruthTable, evaluateTree
 #include "Task6.h"                ///< For CNF_FORMULA, print_formula
 #include "Task7.h"                ///< For checkCNFValidity
 
@@ -176,7 +176,7 @@ int main(int argc, char *argv[])
     // STEP 5: Tree Height (Task 4)
     //
     printf("\n\n--- Task 4: Tree Height Calculation ---\n");
-    int height = calculateHeight(root); ///< Calculate the tree's height
+    int height = find_height(root); ///< Calculate the tree's height
     printf("The calculated height of the tree is: %d\n", height);
 
     // 
@@ -187,7 +187,7 @@ int main(int argc, char *argv[])
     /// \brief Collect all unique variables (literals) from the tree.
     /// \details This is needed for both single evaluation and the full truth table.
     char **literals_list = NULL;
-    int literal_count = collectUniqueLiterals(root, &literals_list);
+    int literal_count = get_Unique_Literals(root, &literals_list);
 
     //     Part 1: Single Evaluation from a user-provided file 
     if (literal_count > 0)

@@ -1,4 +1,4 @@
-<map id="findLiteralsInClause" name="findLiteralsInClause">
+<map id="find_Literals" name="find_Literals">
 <area shape="rect" id="Node000001" title="Traverses a clause to find literals and check for a tautology." alt="" coords="687,29,823,55"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="786,16,775,10,755,8,736,10,726,15,724,20,729,28,724,30,718,21,722,11,735,5,755,3,777,5,788,12"/>
 <area shape="rect" id="Node000002" href="$_task7_8c.html#ab848cdc49dc8abcdbc409eb7b9c8c254" title="Checks if an individual clause is a tautology." alt="" coords="510,29,639,55"/>

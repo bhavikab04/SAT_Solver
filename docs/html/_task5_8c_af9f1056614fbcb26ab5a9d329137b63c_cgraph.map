@@ -1,4 +1,4 @@
-<map id="collectUniqueLiterals" name="collectUniqueLiterals">
+<map id="get_Unique_Literals" name="get_Unique_Literals">
 <area shape="rect" id="Node000001" title="Gathers all unique variable names from the formula tree." alt="" coords="5,103,148,128"/>
 <area shape="rect" id="Node000002" href="$_task5_8c.html#a0113889471665bba55572ca1191e3743" title="Helper function to recursively find all unique literals in the tree." alt="" coords="210,53,370,79"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,99,216,80,217,86,136,105"/>

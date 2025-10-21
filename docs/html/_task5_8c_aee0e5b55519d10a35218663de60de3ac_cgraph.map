@@ -1,4 +1,4 @@
-<map id="generateAssignmentsAndPrint" name="generateAssignmentsAndPrint">
+<map id="Assign_value" name="Assign_value">
 <area shape="rect" id="Node000001" title="Recursively generates and prints each row of the truth table." alt="" coords="5,60,203,86"/>
 <area shape="poly" id="edge12_Node000001_Node000001" title=" " alt="" coords="67,61,60,51,65,42,79,35,104,33,131,36,145,43,142,48,129,41,104,39,81,41,68,45,66,51,72,58"/>
 <area shape="rect" id="Node000002" href="$_task5_8c.html#aab263d800d109eaa312d8909cf58a768" title="Looks up a variable&#39;s value in the hash table." alt="" coords="445,60,579,86"/>

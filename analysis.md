@@ -165,7 +165,7 @@ Reconstructs the fully-parenthesized infix string from the parse tree.
 
 Calculates the height of the parse tree.
 
-* **`calculateHeight(TreeNode *root)`**
+* **`find_height(TreeNode *root)`**
     * **Output:** An `int` representing the tree's height.
     * **Time:** \f$O(M)\f$. This is the textbook post-order traversal for height, visiting every node once.
     * **Space:** \f$O(H)\f$ (for the recursive call stack).
@@ -174,7 +174,7 @@ Calculates the height of the parse tree.
 
 Implements formula evaluation and truth table generation.
 
-* **Hash Table (`assignmentHT_Insert` / `assignmentHT_Get`)**
+* **Hash Table (`HT_Insert` / `HT_Get`)**
     * **Time:** \f$O(k)\f$ (Average). Dominated by the `djb2` hash function. Worst case is \f$O(V \cdot k)\f$ on collision.
     * **Space:** \f$O(V \cdot k)\f$ (to store \f$V\f$ variables of average length \f$k\f$).
 
@@ -183,12 +183,12 @@ Implements formula evaluation and truth table generation.
     * **Time:** \f$O(M \cdot k)\f$. Visits \f$M\f$ nodes. At leaf nodes, performs an \f$O(k)\f$ hash table lookup.
     * **Space:** \f$O(H)\f$ (for the recursive call stack).
 
-* **`collectUniqueLiterals(TreeNode *root, ...)`**
+* **`get_Unique_Literals(TreeNode *root, ...)`**
     * **Output:** An `int` \f$V\f$ and a `char**` list of unique variables (side effect).
-    * **Time:** \f$O(M \cdot k)\f$. Traverses the tree (\f$O(M)\f$), calling `assignmentHT_Insert` (\f$O(k)\f$) at each atom.
+    * **Time:** \f$O(M \cdot k)\f$. Traverses the tree (\f$O(M)\f$), calling `HT_Insert` (\f$O(k)\f$) at each atom.
     * **Space:** \f$O(V \cdot k + H)\f$. Requires a hash table (\f$O(V \cdot k)\f$) and recursion stack (\f$O(H)\f$).
 
-* **`printTruthTable / generateAssignmentsAndPrint(...)`**
+* **`printTruthTable / Assign_value(...)`**
     * **Output:** Prints the formatted truth table to `stdout`.
     * **Time:** \f$O(2^V \cdot M \cdot k)\f$.
 
@@ -229,14 +229,14 @@ Implements the three-stage (IMPL_FREE, NNF, CNF) conversion.
 
 Checks if a CNF formula is a tautology by checking each clause.
 
-* **`findLiteralsInClause(...)`**
+* **`find_Literals(...)`**
     * **Output:** Modifies `hash_table` and `is_tautology` flag (side effect).
     * **Time:** \f$O(L \cdot k)\f$ (Average). Traverses the \f$O(L)\f$ nodes of a clause. At each leaf, performs an \f$O(k)\f$ hash table operation.
     * **Space:** \f$O(L \cdot k)\f$. The hash table stores \f$O(L)\f$ literals (\f$O(L \cdot k)\f$) and the recursion stack can go \f$O(L)\f$ deep.
 
 * **`isClauseTautology(TreeNode* clause_root)`**
     * **Output:** A `bool` indicating if the clause contains `x` and `~x`.
-    * **Time:** \f$O(L \cdot k)\f$ (Average). Dominated by calling `findLiteralsInClause` and freeing the hash table.
+    * **Time:** \f$O(L \cdot k)\f$ (Average). Dominated by calling `find_Literals` and freeing the hash table.
     * **Space:** \f$O(L \cdot k)\f$ (to create the temporary hash table).
 
 * **`checkCNFValidity(TreeNode* cnf_root, ...)`**

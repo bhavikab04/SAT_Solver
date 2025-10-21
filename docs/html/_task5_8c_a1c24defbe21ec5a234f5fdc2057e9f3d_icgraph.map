@@ -1,4 +1,4 @@
-<map id="assignmentHT_Insert" name="assignmentHT_Insert">
+<map id="HT_Insert" name="HT_Insert">
 <area shape="rect" id="Node000001" title="Inserts a new variable or updates an existing one in the hash table." alt="" coords="538,117,685,143"/>
 <area shape="rect" id="Node000002" href="$_task5_8c.html#a0113889471665bba55572ca1191e3743" title="Helper function to recursively find all unique literals in the tree." alt="" coords="312,29,472,55"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="569,113,489,77,437,58,438,53,491,72,572,108"/>

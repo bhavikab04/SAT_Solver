@@ -1,4 +1,4 @@
-<map id="assignmentHT_Get" name="assignmentHT_Get">
+<map id="HT_Get" name="HT_Get">
 <area shape="rect" id="Node000001" title="Looks up a variable&#39;s value in the hash table." alt="" coords="5,29,140,55"/>
 <area shape="rect" id="Node000002" href="$_task5_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash value from a string." alt="" coords="188,29,237,55"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,40,172,40,172,45,140,45"/>

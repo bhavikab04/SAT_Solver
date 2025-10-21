@@ -1,4 +1,4 @@
-<map id="checkCNFValidityRecursive" name="checkCNFValidityRecursive">
+<map id="Valid_CNF" name="Valid_CNF">
 <area shape="rect" id="Node000001" title="Recursively navigates the CNF structure to check each clause." alt="" coords="5,55,191,80"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="64,56,57,46,61,36,75,30,98,28,123,31,136,38,133,42,122,36,98,33,76,35,65,40,62,45,68,53"/>
 <area shape="rect" id="Node000002" href="$_task7_8c.html#ab848cdc49dc8abcdbc409eb7b9c8c254" title="Checks if an individual clause is a tautology." alt="" coords="239,55,367,80"/>
