@@ -3,19 +3,21 @@
 #include <stdbool.h>
 #include <string.h>
 #include "Task5.h"
-#include "Task2.h"
+#include "Task2.h" // For TreeNode and isAtom definitions
 
 /**
  * @file Task5.c
- * @brief Implementation of the formula evaluation and truth table logic.
+ * @brief Implements formula evaluation and truth table generation.
  *
- * This file provides the core functions for working with logical formulas.
- * An efficient hash table is used to manage variable assignments, which is
- * key to the performance of the evaluation functions.
+ * This file provides functions to evaluate logical formulas using an
+ * efficient hash table for variable assignments.
  */
 
-#define HASH_TABLE_SIZE 2048 ///< Defines the number of buckets in the hash table.
+#define HASH_TABLE_SIZE 2048 // Defines the number of buckets in the hash table.
 
+// Global variables for limiting truth table output rows.
+static int g_line_counter = 0;
+static bool g_limit_output = false;
 
 static void Track_Unique_Literals(TreeNode* node, Assign_HT* ht);
 static void Assign_value(TreeNode* root, char** literals, int count, int index, Assign_HT* current_assignments);
@@ -23,32 +25,28 @@ static unsigned long hash(const char *str);
 
 /**
  * @struct Assign
- * @brief Represents a single variable-to-value mapping in the hash table.
- *
- * Each node stores the variable's name, its boolean value, and a pointer
- * to the next node to handle potential hash collisions.
+ * @brief Represents a single variable assignment in a hash table bucket.
  */
 typedef struct Assign {
-    char* literal;
-    bool value;
-    struct Assign* next;
+    char* literal;  // The variable name.
+    bool value;     // The assigned boolean value.
+    struct Assign* next; ///< Pointer to the next node for collision handling.
 } Assign;
 
 /**
  * @struct Assign_HT
- * @brief The internal structure of the hash table for variable assignments.
+ * @brief The internal structure of the hash table.
  *
- * It consists of an array of pointers, where each pointer acts as the head
- * of a linked list for storing Assign objects.
+ * An array of pointers, where each pointer is the head of a linked list.
  */
 struct Assign_HT {
     Assign* table[HASH_TABLE_SIZE];
 };
 
 /**
- * @brief Generates a hash value from a string.
- * @param str The string (variable name) to be hashed.
- * @return A numerical hash value to be used as an array index.
+ * @brief Generates a hash index from a string (djb2 algorithm).
+ * @param str The string to hash.
+ * @return A numerical hash value for an array index.
  */
 static unsigned long hash(const char *str) {
     unsigned long hash = 5381;
@@ -67,8 +65,8 @@ static Assign_HT* createAssign_HT() {
 }
 
 /**
- * @brief Frees all memory used by the hash table.
- * @param ht A pointer to the hash table that needs to be deallocated.
+ * @brief Frees all memory used by the hash table and its nodes.
+ * @param ht A pointer to the hash table to deallocate.
  */
 static void freeAssign_HT(Assign_HT* ht) {
     if (!ht) return;
@@ -85,15 +83,14 @@ static void freeAssign_HT(Assign_HT* ht) {
 }
 
 /**
- * @brief Inserts a new variable or updates an existing one in the hash table.
- * @note This function checks if the variable already exists. If it does, the
- * function just updates the value. Otherwise, it creates a new entry. This
- * "update-or-insert" behavior is critical for the efficiency of generating
- * a truth table.
+ * @brief Inserts or updates a variable's value in the hash table.
+ *
+ * If the literal exists, its value is updated. Otherwise, a new
+ * entry is created. This is efficient for recursive calls.
  *
  * @param ht A pointer to the hash table.
- * @param literal The name of the variable to add or update.
- * @param value The boolean value to assign to the variable.
+ * @param literal The name of the variable.
+ * @param value The boolean value to assign.
  */
 static void HT_Insert(Assign_HT* ht, const char* literal, bool value) {
     unsigned long index = hash(literal);
@@ -115,13 +112,12 @@ static void HT_Insert(Assign_HT* ht, const char* literal, bool value) {
 }
 
 /**
- * @brief Looks up a variable's value in the hash table.
- * @note This lookup is very fast, with an average time complexity of O(1).
+ * @brief Retrieves a variable's value from the hash table.
  *
  * @param ht A pointer to the hash table to search.
  * @param literal The name of the variable to find.
- * @param[out] out_value A pointer to a boolean where the found value is stored.
- * @return Returns true if the variable was found, and false otherwise.
+ * @param[out] out_value A pointer to store the found boolean value.
+ * @return Returns true if the variable was found, false otherwise.
  */
 static bool HT_Get(const Assign_HT* ht, const char* literal, bool* out_value) {
     unsigned long index = hash(literal);
@@ -145,7 +141,7 @@ bool evaluateTree(TreeNode *root, const Assign_HT *assignments) {
         if (HT_Get(assignments, root->data, &value)) {
             return value;
         }
-        return false; // Assume false if a variable is not assigned.
+        return false; // Default to false if not assigned.
     }
 
     char op = root->data[0];
@@ -182,9 +178,9 @@ bool evaluateFromFile(TreeNode* root, const char* filename) {
 }
 
 /**
- * @brief Helper function to recursively find all unique literals in the tree.
- * @param node The current node being visited in the tree.
- * @param ht The hash table used to keep track of literals already found.
+ * @brief Helper function to recursively find all unique literals.
+ * @param node The current node being visited.
+ * @param ht The hash table for tracking found literals.
  */
 static void Track_Unique_Literals(TreeNode* node, Assign_HT* ht) {
     if (node == NULL) return;
@@ -220,13 +216,29 @@ int get_Unique_Literals(TreeNode *root, char ***literals_list_out) {
     return count;
 }
 
-void printTruthTable(TreeNode* root, char** literals, int count, const char* formula_str) {
+/**
+ * @brief Prints a truth table, limiting output for large variable counts.
+ *
+ * If the variable count exceeds MAX_TRUTH_TABLE_VARIABLES, it prints a
+ * warning and stops after 100 rows.
+ *
+ * @param root The root of the formula tree.
+ * @param literals An array of all unique variable names.
+ * @param count The total number of unique variables.
+ * @param formula_str The formula as a string for the header.
+ */
+void printTruthTable(TreeNode *root, char **literals, int count, const char *formula_str) {
     if (count == 0 || !root) return;
-    if (count > MAX_TRUTH_TABLE_VARIABLES) {
-        printf("Skipping truth table: %d variables exceeds limit of %d.\n", count, MAX_TRUTH_TABLE_VARIABLES);
-        return;
-    }
 
+    if (count > MAX_TRUTH_TABLE_VARIABLES) {
+        printf("Warning: %d variables exceeds limit of %d.\n", count, MAX_TRUTH_TABLE_VARIABLES);
+        printf("Printing only the first 100 lines of the truth table.\n");
+        g_limit_output = true;
+    } else {
+        g_limit_output = false;
+    }
+    
+    // Print table header
     for (int i = 0; i < count; i++) printf("| %-5s ", literals[i]);
     printf("| %s |\n", formula_str);
     
@@ -235,26 +247,33 @@ void printTruthTable(TreeNode* root, char** literals, int count, const char* for
         HT_Insert(current_assignments, literals[i], false);
     }
 
+    g_line_counter = 0; // Reset line counter
+    
     Assign_value(root, literals, count, 0, current_assignments);
+    
     freeAssign_HT(current_assignments);
 }
 
 /**
- * @brief Recursively generates and prints each row of the truth table.
+ * @brief Recursively generates and prints rows for the truth table.
  *
- * This function operates by assigning `false` to a variable, then calling
- * itself to handle the remaining variables. After that returns, it assigns
- * `true` to the same variable and calls itself again. This process builds every
- * possible combination. A row is printed when all variables have been assigned.
+ * This function assigns true/false to each variable. It checks the global
+ * line counter to stop printing if the 100-line limit is reached.
  *
  * @param root The root of the formula tree.
  * @param literals An array of all variable names.
  * @param count The total number of variables.
- * @param index The current variable being processed.
- * @param current_assignments The hash table storing assignments for the current row.
+ * @param index The index of the current variable being processed.
+ * @param current_assignments The hash table holding the current assignments.
  */
 static void Assign_value(TreeNode* root, char** literals, int count, int index, Assign_HT* current_assignments) {
+    if (g_limit_output && g_line_counter >= 100) {
+        return;
+    }
+    
     if (index == count) {
+        g_line_counter++; // Count this printed line
+        
         for (int i = 0; i < count; i++) {
             bool value;
             HT_Get(current_assignments, literals[i], &value);
@@ -267,6 +286,10 @@ static void Assign_value(TreeNode* root, char** literals, int count, int index, 
 
     HT_Insert(current_assignments, literals[index], false);
     Assign_value(root, literals, count, index + 1, current_assignments);
+
+    if (g_limit_output && g_line_counter >= 100) {
+        return;
+    }
 
     HT_Insert(current_assignments, literals[index], true);
     Assign_value(root, literals, count, index + 1, current_assignments);
