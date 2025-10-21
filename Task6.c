@@ -161,7 +161,7 @@ void print_formula(const TreeNode *f)
  * @param phi The root of the formula tree.
  * @return TreeNode* The root of the new formula tree without implications.
  */
-//--------------1. IMPL_FREE()--------------------
+//         1. IMPL_FREE()
 
 TreeNode *IMPL_FREE(TreeNode *phi)
 {
@@ -216,7 +216,9 @@ TreeNode *IMPL_FREE(TreeNode *phi)
  * @param phi The root of the formula tree.
  * @return TreeNode* The root of the new formula tree in NNF.
  */
-//------------------2. NNF()-------------------------
+
+
+//         2. NNF()
 // Convert to Negation Normal form:
 
 TreeNode *NNF(TreeNode *phi)
@@ -281,7 +283,7 @@ TreeNode *NNF(TreeNode *phi)
  * @param eta2 The right sub-formula of the disjunction.
  * @return TreeNode* The root of the new formula tree after distribution.
  */
-//-------------------3. DISTR()----------------------
+//               3. DISTR()
 // Distribute Or over AND
 // Like: eta1 + (eta21 * eta22) -> (eta1 + eta21) * (eta1 + eta22))
 TreeNode *DISTR(TreeNode *eta1, TreeNode *eta2)

@@ -25,9 +25,9 @@
     int capacity;     // Max size of the stack
 } Stack; // The typedef creates an alias 'Stack' for 'struct Stack'
 */
-// -------------------------------
+
 //  Public Structure for Tree Node
-// -------------------------------
+
 // The structure for a node in the parse tree.
 typedef struct TreeNode {
     char *data; // CHANGED from char to char* to store string tokens
@@ -36,9 +36,9 @@ typedef struct TreeNode {
 } TreeNode;
 
 
-// -------------------------------
+
 //  Public Function Prototypes
-// -------------------------------
+
 
 /** * @brief Converts a prefix expression, stored in a stack of string tokens, into a parse tree.
  * The stack is consumed during this process.
