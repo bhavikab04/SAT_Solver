@@ -25,15 +25,15 @@
 var NAVTREE =
 [
   [ "Logic_Assignment_SAT_Solver", "index.html", [
-    [ "Project Algorithm Analysis", "analysis_page.html", [
-      [ "Overall Review &amp; Summary", "analysis_page.html#overview_sec", [
+    [ "Logic in Computer Science Assignment Algorithm Analysis", "analysis_page.html", [
+      [ "Overall Review and Summary", "analysis_page.html#overview_sec", [
         [ "Key Strengths", "analysis_page.html#review_strengths", null ],
-        [ "Critical Performance &amp; Memory Analysis", "analysis_page.html#review_bottlenecks", null ]
+        [ "Critical Performance and Memory Analysis", "analysis_page.html#review_bottlenecks", null ]
       ] ],
       [ "Analysis Variable Key", "analysis_page.html#key_sec", null ],
       [ "Full Pipeline Analysis (main.c)", "analysis_page.html#pipeline_sec", [
-        [ "Time Complexity: <picture><source srcset=\"form_19_dark.png\" media=\"(prefers-color-scheme: dark)\"/><img class=\"formulaInl\" alt=\"$O(F + C \\cdot L_{\\text{max}}^2 \\cdot k + S_{\\text{total}} + 2^V \\cdot M \\cdot k + 2^M)$\" src=\"form_19.png\"/></picture>", "analysis_page.html#main_time", null ],
-        [ "Space Complexity: <picture><source srcset=\"form_22_dark.png\" media=\"(prefers-color-scheme: dark)\"/><img class=\"formulaInl\" alt=\"$O(S_{\\text{total}} + M \\cdot k + V \\cdot k + 2^M)$\" src=\"form_22.png\"/></picture>", "analysis_page.html#main_space", null ]
+        [ "Time Complexity: \\(O(F + C \\cdot L_{\\text{max}}^2 \\cdot k + S_{\\text{total}} + 2^V \\cdot M \\cdot k + 2^M)\\)", "analysis_page.html#main_time", null ],
+        [ "Space Complexity: \\(O(S_{\\text{total}} + M \\cdot k + V \\cdot k + 2^M)\\)", "analysis_page.html#main_space", null ]
       ] ],
       [ "Detailed Module Analysis", "analysis_page.html#modules_sec", [
         [ "Task 0: CNF to Infix (convertingCNFtoInput.c)", "analysis_page.html#task0_sec", null ],
@@ -44,6 +44,14 @@ var NAVTREE =
         [ "Task 5: Evaluation &amp; Truth Table (Task5.c)", "analysis_page.html#task5_sec", null ],
         [ "Task 6: CNF Conversion (Task6.c)", "analysis_page.html#task6_sec", null ],
         [ "Task 7: Tautology Check (Task7.c)", "analysis_page.html#task7_sec", null ]
+      ] ],
+      [ "Example Pipeline Trace (example.cnf)", "analysis_page.html#example_trace_sec", [
+        [ "Input File (example.cnf)", "analysis_page.html#example_input_sec", null ],
+        [ "Task 0: CNF to Infix", "analysis_page.html#example_task0_sec", null ],
+        [ "Task 1: Infix to Prefix", "analysis_page.html#example_task1_sec", null ],
+        [ "Task 2: Prefix to Tree", "analysis_page.html#example_task2_sec", null ],
+        [ "Subsequent Analysis Tasks", "analysis_page.html#example_tasks3_7_sec", null ],
+        [ "* Since no individual clause is a tautology, the function correctly returns <span class=\"tt\">false</span> (the entire formula is not a tautology).", "analysis_page.html#autotoc_md3", null ]
       ] ]
     ] ],
     [ "SAT_Solver", "md__r_e_a_d_m_e.html", null ],

@@ -1,5 +1,5 @@
 <map id="freeStack" name="freeStack">
-<area shape="rect" id="Node000001" title="Frees all memory associated with the stack." alt="" coords="283,5,360,31"/>
+<area shape="rect" id="Node000001" title="Frees all the memory associated with the stack." alt="" coords="283,5,360,31"/>
 <area shape="rect" id="Node000002" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,21,55,21,55,16,267,16"/>
 <area shape="rect" id="Node000003" href="$task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,31,235,56"/>

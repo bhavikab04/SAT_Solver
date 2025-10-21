@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -123,15 +130,15 @@ $(function(){initNavTree('_task6_8h_source.html','',''); });
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_task2_8h_html"><div class="ttname"><a href="_task2_8h.html">Task2.h</a></div><div class="ttdoc">Header file for Task 2: Prefix to Parse Tree Conversion.</div></div>
-<div class="ttc" id="a_task3_8h_html"><div class="ttname"><a href="_task3_8h.html">Task3.h</a></div><div class="ttdoc">Header file for Task 3: Parse Tree to Infix Conversion.</div></div>
+<div class="ttc" id="a_task3_8h_html"><div class="ttname"><a href="_task3_8h.html">Task3.h</a></div><div class="ttdoc">Header file for Task 3: Conversion of prase tree to infix.</div></div>
 <div class="ttc" id="a_task6_8h_html_a09c8eb01a39fa8de3225a3e5d5015bf7"><div class="ttname"><a href="_task6_8h.html#a09c8eb01a39fa8de3225a3e5d5015bf7">print_formula</a></div><div class="ttdeci">void print_formula(const TreeNode *f)</div><div class="ttdoc">Prints the propositional logic formula represented by the tree.</div><div class="ttdef"><b>Definition</b> Task6.c:128</div></div>
-<div class="ttc" id="a_task6_8h_html_a2764cce81d706e3aa77a53b911d86082"><div class="ttname"><a href="_task6_8h.html#a2764cce81d706e3aa77a53b911d86082">DISTR</a></div><div class="ttdeci">TreeNode * DISTR(TreeNode *eta1, TreeNode *eta2)</div><div class="ttdoc">Distributes disjunction (&#39;+&#39;) over conjunction (&#39;*&#39;).</div><div class="ttdef"><b>Definition</b> Task6.c:287</div></div>
+<div class="ttc" id="a_task6_8h_html_a2764cce81d706e3aa77a53b911d86082"><div class="ttname"><a href="_task6_8h.html#a2764cce81d706e3aa77a53b911d86082">DISTR</a></div><div class="ttdeci">TreeNode * DISTR(TreeNode *eta1, TreeNode *eta2)</div><div class="ttdoc">Distributes disjunction (&#39;+&#39;) over conjunction (&#39;*&#39;).</div><div class="ttdef"><b>Definition</b> Task6.c:289</div></div>
 <div class="ttc" id="a_task6_8h_html_a3bcd71b8ae16f6bc5122925d90337a97"><div class="ttname"><a href="_task6_8h.html#a3bcd71b8ae16f6bc5122925d90337a97">negate_tree</a></div><div class="ttdeci">TreeNode * negate_tree(TreeNode *phi)</div><div class="ttdoc">Creates a new negation node (&#39;~&#39;) for a given formula $\phi$.</div><div class="ttdef"><b>Definition</b> Task6.c:90</div></div>
 <div class="ttc" id="a_task6_8h_html_a4d80f09cd9e9741c1fc166c987f0e8f3"><div class="ttname"><a href="_task6_8h.html#a4d80f09cd9e9741c1fc166c987f0e8f3">copyTree</a></div><div class="ttdeci">TreeNode * copyTree(const TreeNode *root)</div><div class="ttdoc">Creates a deep copy of a propositional logic formula tree.</div><div class="ttdef"><b>Definition</b> Task6.c:74</div></div>
-<div class="ttc" id="a_task6_8h_html_a686962f85e00c08f6040312732974e4b"><div class="ttname"><a href="_task6_8h.html#a686962f85e00c08f6040312732974e4b">NNF</a></div><div class="ttdeci">TreeNode * NNF(TreeNode *phi)</div><div class="ttdoc">Converts an implication-free formula to Negation Normal Form (NNF).</div><div class="ttdef"><b>Definition</b> Task6.c:222</div></div>
-<div class="ttc" id="a_task6_8h_html_a85ccaa203611107094401f69fead7bdf"><div class="ttname"><a href="_task6_8h.html#a85ccaa203611107094401f69fead7bdf">CNF_FORMULA</a></div><div class="ttdeci">TreeNode * CNF_FORMULA(TreeNode *phi)</div><div class="ttdoc">Driver function to execute the full CNF conversion process.</div><div class="ttdef"><b>Definition</b> Task6.c:374</div></div>
+<div class="ttc" id="a_task6_8h_html_a686962f85e00c08f6040312732974e4b"><div class="ttname"><a href="_task6_8h.html#a686962f85e00c08f6040312732974e4b">NNF</a></div><div class="ttdeci">TreeNode * NNF(TreeNode *phi)</div><div class="ttdoc">Converts an implication-free formula to Negation Normal Form (NNF).</div><div class="ttdef"><b>Definition</b> Task6.c:224</div></div>
+<div class="ttc" id="a_task6_8h_html_a85ccaa203611107094401f69fead7bdf"><div class="ttname"><a href="_task6_8h.html#a85ccaa203611107094401f69fead7bdf">CNF_FORMULA</a></div><div class="ttdeci">TreeNode * CNF_FORMULA(TreeNode *phi)</div><div class="ttdoc">Driver function to execute the full CNF conversion process.</div><div class="ttdef"><b>Definition</b> Task6.c:376</div></div>
 <div class="ttc" id="a_task6_8h_html_a8cd86283d519ba10b130243acd2829a6"><div class="ttname"><a href="_task6_8h.html#a8cd86283d519ba10b130243acd2829a6">isLiteral</a></div><div class="ttdeci">bool isLiteral(const TreeNode *phi)</div><div class="ttdoc">Checks if a formula is a literal.</div><div class="ttdef"><b>Definition</b> Task6.c:105</div></div>
-<div class="ttc" id="a_task6_8h_html_a93732f4385a09ea1ce41af2e27bf1dc1"><div class="ttname"><a href="_task6_8h.html#a93732f4385a09ea1ce41af2e27bf1dc1">CNF</a></div><div class="ttdeci">TreeNode * CNF(TreeNode *phi)</div><div class="ttdoc">Main function to convert an NNF formula to CNF.</div><div class="ttdef"><b>Definition</b> Task6.c:325</div></div>
+<div class="ttc" id="a_task6_8h_html_a93732f4385a09ea1ce41af2e27bf1dc1"><div class="ttname"><a href="_task6_8h.html#a93732f4385a09ea1ce41af2e27bf1dc1">CNF</a></div><div class="ttdeci">TreeNode * CNF(TreeNode *phi)</div><div class="ttdoc">Main function to convert an NNF formula to CNF.</div><div class="ttdef"><b>Definition</b> Task6.c:327</div></div>
 <div class="ttc" id="a_task6_8h_html_ad308644f7e1e684c100810694ac02d41"><div class="ttname"><a href="_task6_8h.html#ad308644f7e1e684c100810694ac02d41">IMPL_FREE</a></div><div class="ttdeci">TreeNode * IMPL_FREE(TreeNode *phi)</div><div class="ttdoc">Eliminates all implication operators (&#39;&gt;&#39;) from a formula.</div><div class="ttdef"><b>Definition</b> Task6.c:166</div></div>
 <div class="ttc" id="astruct_tree_node_html"><div class="ttname"><a href="struct_tree_node.html">TreeNode</a></div><div class="ttdoc">Represents a node in the abstract syntax tree (AST) of a propositional logic formula.</div><div class="ttdef"><b>Definition</b> Task2.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->

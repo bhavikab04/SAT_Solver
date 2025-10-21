@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -95,52 +102,51 @@ $(function(){initNavTree('_task1_8h_source.html','',''); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TASK1_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdio.h&gt;</span> <span class="comment">// Needed for FILE* in read_line prototype</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">// --- Stack Structure Definition ---</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="struct_stack.html">   23</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="struct_stack.html#a57b4889ab3a3f7aca7fc502497622d8d">   24</a></span>    <span class="keywordtype">char</span>** <a class="code hl_variable" href="struct_stack.html#a57b4889ab3a3f7aca7fc502497622d8d">data</a>;    <span class="comment">// Array of strings (char*). Each string is dynamically allocated.</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_stack.html#ad62fb36816185f3eef3a6f735a61f54a">   25</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_stack.html#ad62fb36816185f3eef3a6f735a61f54a">top</a>;        <span class="comment">// Index of the top element (-1 if empty).</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_stack.html#a9d88966b156fd4547e9b8a2e7fe48427">   26</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_stack.html#a9d88966b156fd4547e9b8a2e7fe48427">capacity</a>;   <span class="comment">// Max number of items the stack can hold.</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>} <a class="code hl_struct" href="struct_stack.html">Stack</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdio.h&gt;</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// Defining the Stack Structure</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="struct_stack.html">   22</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="struct_stack.html#a57b4889ab3a3f7aca7fc502497622d8d">   23</a></span>    <span class="keywordtype">char</span>** <a class="code hl_variable" href="struct_stack.html#a57b4889ab3a3f7aca7fc502497622d8d">data</a>;    <span class="comment">// Array of strings (char*). Each string is dynamically allocated.</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="struct_stack.html#ad62fb36816185f3eef3a6f735a61f54a">   24</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_stack.html#ad62fb36816185f3eef3a6f735a61f54a">top</a>;        <span class="comment">// Index of the top element (-1 if empty).</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_stack.html#a9d88966b156fd4547e9b8a2e7fe48427">   25</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_stack.html#a9d88966b156fd4547e9b8a2e7fe48427">capacity</a>;   <span class="comment">// Max number of items the stack can hold.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>} <a class="code hl_struct" href="struct_stack.html">Stack</a>;</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">// --- Public Function Prototypes ---</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// --- Stack functions ---</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><a class="code hl_struct" href="struct_stack.html">Stack</a>* <a class="code hl_function" href="_task1_8h.html#a4d864c6b72f0668478189fdeb616c701">createStack</a>(<span class="keywordtype">int</span> capacity);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">int</span> <a class="code hl_function" href="_task1_8h.html#ad698665e5524cf4a5e0492eed5f80211">isEmpty</a>(<a class="code hl_struct" href="struct_stack.html">Stack</a>* stack);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> <a class="code hl_function" href="_task1_8h.html#af9d75461c12377af99958163d3e5d018">push</a>(<a class="code hl_struct" href="struct_stack.html">Stack</a>* stack, <span class="keyword">const</span> <span class="keywordtype">char</span>* item);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">char</span>* <a class="code hl_function" href="_task1_8h.html#a23bb8ff1764ad3b7f91c564dd918746a">pop</a>(<a class="code hl_struct" href="struct_stack.html">Stack</a>* stack);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> <a class="code hl_function" href="_task1_8h.html#afc0d1f371e3750b1c5d184672e816013">freeStack</a>(<a class="code hl_struct" href="struct_stack.html">Stack</a>* stack);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">// --- Utility function ---</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">char</span>* <a class="code hl_function" href="_task1_8h.html#a6c59b46ff495586afe7869b39c0859d2">read_line</a>(FILE* stream);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">// --- Main task function ---</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><a class="code hl_struct" href="struct_stack.html">Stack</a>* <a class="code hl_function" href="_task1_8h.html#af2160a30128fd75f80d206fb5d0bbb66">task1_infixToPrefix</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* infix);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif </span><span class="comment">// TASK1_H</span></div>
-<div class="ttc" id="a_task1_8h_html_a23bb8ff1764ad3b7f91c564dd918746a"><div class="ttname"><a href="_task1_8h.html#a23bb8ff1764ad3b7f91c564dd918746a">pop</a></div><div class="ttdeci">char * pop(Stack *stack)</div><div class="ttdoc">Pops a string item from the stack.</div><div class="ttdef"><b>Definition</b> task1.c:105</div></div>
-<div class="ttc" id="a_task1_8h_html_a4d864c6b72f0668478189fdeb616c701"><div class="ttname"><a href="_task1_8h.html#a4d864c6b72f0668478189fdeb616c701">createStack</a></div><div class="ttdeci">Stack * createStack(int capacity)</div><div class="ttdoc">Creates and initializes a new stack.</div><div class="ttdef"><b>Definition</b> task1.c:51</div></div>
-<div class="ttc" id="a_task1_8h_html_a6c59b46ff495586afe7869b39c0859d2"><div class="ttname"><a href="_task1_8h.html#a6c59b46ff495586afe7869b39c0859d2">read_line</a></div><div class="ttdeci">char * read_line(FILE *stream)</div><div class="ttdoc">Reads a line of arbitrary length from a stream.</div><div class="ttdef"><b>Definition</b> task1.c:178</div></div>
-<div class="ttc" id="a_task1_8h_html_ad698665e5524cf4a5e0492eed5f80211"><div class="ttname"><a href="_task1_8h.html#ad698665e5524cf4a5e0492eed5f80211">isEmpty</a></div><div class="ttdeci">int isEmpty(Stack *stack)</div><div class="ttdoc">Checks if the stack is empty.</div><div class="ttdef"><b>Definition</b> task1.c:74</div></div>
-<div class="ttc" id="a_task1_8h_html_af2160a30128fd75f80d206fb5d0bbb66"><div class="ttname"><a href="_task1_8h.html#af2160a30128fd75f80d206fb5d0bbb66">task1_infixToPrefix</a></div><div class="ttdeci">Stack * task1_infixToPrefix(const char *infix)</div><div class="ttdoc">Converts an infix expression string to a prefix expression stack.</div><div class="ttdef"><b>Definition</b> task1.c:218</div></div>
-<div class="ttc" id="a_task1_8h_html_af9d75461c12377af99958163d3e5d018"><div class="ttname"><a href="_task1_8h.html#af9d75461c12377af99958163d3e5d018">push</a></div><div class="ttdeci">void push(Stack *stack, const char *item)</div><div class="ttdoc">Pushes a string item onto the stack.</div><div class="ttdef"><b>Definition</b> task1.c:82</div></div>
-<div class="ttc" id="a_task1_8h_html_afc0d1f371e3750b1c5d184672e816013"><div class="ttname"><a href="_task1_8h.html#afc0d1f371e3750b1c5d184672e816013">freeStack</a></div><div class="ttdeci">void freeStack(Stack *stack)</div><div class="ttdoc">Frees all memory associated with the stack. This includes all strings still on the stack,...</div><div class="ttdef"><b>Definition</b> task1.c:118</div></div>
-<div class="ttc" id="astruct_stack_html"><div class="ttname"><a href="struct_stack.html">Stack</a></div><div class="ttdoc">A stack structure for storing strings (char*).</div><div class="ttdef"><b>Definition</b> Task1.h:23</div></div>
-<div class="ttc" id="astruct_stack_html_a57b4889ab3a3f7aca7fc502497622d8d"><div class="ttname"><a href="struct_stack.html#a57b4889ab3a3f7aca7fc502497622d8d">Stack::data</a></div><div class="ttdeci">char ** data</div><div class="ttdef"><b>Definition</b> Task1.h:24</div></div>
-<div class="ttc" id="astruct_stack_html_a9d88966b156fd4547e9b8a2e7fe48427"><div class="ttname"><a href="struct_stack.html#a9d88966b156fd4547e9b8a2e7fe48427">Stack::capacity</a></div><div class="ttdeci">int capacity</div><div class="ttdef"><b>Definition</b> Task1.h:26</div></div>
-<div class="ttc" id="astruct_stack_html_ad62fb36816185f3eef3a6f735a61f54a"><div class="ttname"><a href="struct_stack.html#ad62fb36816185f3eef3a6f735a61f54a">Stack::top</a></div><div class="ttdeci">int top</div><div class="ttdef"><b>Definition</b> Task1.h:25</div></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// Prototypes of the public function</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// Stack Function</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><a class="code hl_struct" href="struct_stack.html">Stack</a>* <a class="code hl_function" href="_task1_8h.html#a4d864c6b72f0668478189fdeb616c701">createStack</a>(<span class="keywordtype">int</span> capacity);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">int</span> <a class="code hl_function" href="_task1_8h.html#ad698665e5524cf4a5e0492eed5f80211">isEmpty</a>(<a class="code hl_struct" href="struct_stack.html">Stack</a>* stack);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> <a class="code hl_function" href="_task1_8h.html#af9d75461c12377af99958163d3e5d018">push</a>(<a class="code hl_struct" href="struct_stack.html">Stack</a>* stack, <span class="keyword">const</span> <span class="keywordtype">char</span>* item);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">char</span>* <a class="code hl_function" href="_task1_8h.html#a23bb8ff1764ad3b7f91c564dd918746a">pop</a>(<a class="code hl_struct" href="struct_stack.html">Stack</a>* stack);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="_task1_8h.html#afc0d1f371e3750b1c5d184672e816013">freeStack</a>(<a class="code hl_struct" href="struct_stack.html">Stack</a>* stack);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">// Utility funcn</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">char</span>* <a class="code hl_function" href="_task1_8h.html#a6c59b46ff495586afe7869b39c0859d2">read_line</a>(FILE* stream);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">// Main task function</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><a class="code hl_struct" href="struct_stack.html">Stack</a>* <a class="code hl_function" href="_task1_8h.html#af2160a30128fd75f80d206fb5d0bbb66">task1_infixToPrefix</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* infix);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif </span></div>
+<div class="ttc" id="a_task1_8h_html_a23bb8ff1764ad3b7f91c564dd918746a"><div class="ttname"><a href="_task1_8h.html#a23bb8ff1764ad3b7f91c564dd918746a">pop</a></div><div class="ttdeci">char * pop(Stack *stack)</div><div class="ttdoc">Pops a string item from the stack.</div><div class="ttdef"><b>Definition</b> task1.c:107</div></div>
+<div class="ttc" id="a_task1_8h_html_a4d864c6b72f0668478189fdeb616c701"><div class="ttname"><a href="_task1_8h.html#a4d864c6b72f0668478189fdeb616c701">createStack</a></div><div class="ttdeci">Stack * createStack(int capacity)</div><div class="ttdoc">Creates and initializes a new stack.</div><div class="ttdef"><b>Definition</b> task1.c:53</div></div>
+<div class="ttc" id="a_task1_8h_html_a6c59b46ff495586afe7869b39c0859d2"><div class="ttname"><a href="_task1_8h.html#a6c59b46ff495586afe7869b39c0859d2">read_line</a></div><div class="ttdeci">char * read_line(FILE *stream)</div><div class="ttdoc">Reads a line of arbitrary length from a stream.</div><div class="ttdef"><b>Definition</b> task1.c:177</div></div>
+<div class="ttc" id="a_task1_8h_html_ad698665e5524cf4a5e0492eed5f80211"><div class="ttname"><a href="_task1_8h.html#ad698665e5524cf4a5e0492eed5f80211">isEmpty</a></div><div class="ttdeci">int isEmpty(Stack *stack)</div><div class="ttdoc">Checks if the stack is empty.</div><div class="ttdef"><b>Definition</b> task1.c:76</div></div>
+<div class="ttc" id="a_task1_8h_html_af2160a30128fd75f80d206fb5d0bbb66"><div class="ttname"><a href="_task1_8h.html#af2160a30128fd75f80d206fb5d0bbb66">task1_infixToPrefix</a></div><div class="ttdeci">Stack * task1_infixToPrefix(const char *infix)</div><div class="ttdoc">Converts an infix expression string to a prefix expression stack.</div><div class="ttdef"><b>Definition</b> task1.c:217</div></div>
+<div class="ttc" id="a_task1_8h_html_af9d75461c12377af99958163d3e5d018"><div class="ttname"><a href="_task1_8h.html#af9d75461c12377af99958163d3e5d018">push</a></div><div class="ttdeci">void push(Stack *stack, const char *item)</div><div class="ttdoc">Pushes a string item onto the stack.</div><div class="ttdef"><b>Definition</b> task1.c:84</div></div>
+<div class="ttc" id="a_task1_8h_html_afc0d1f371e3750b1c5d184672e816013"><div class="ttname"><a href="_task1_8h.html#afc0d1f371e3750b1c5d184672e816013">freeStack</a></div><div class="ttdeci">void freeStack(Stack *stack)</div><div class="ttdoc">Frees all memory associated with the stack. This includes all strings still on the stack,...</div><div class="ttdef"><b>Definition</b> task1.c:120</div></div>
+<div class="ttc" id="astruct_stack_html"><div class="ttname"><a href="struct_stack.html">Stack</a></div><div class="ttdoc">A stack structure for storing strings.</div><div class="ttdef"><b>Definition</b> Task1.h:22</div></div>
+<div class="ttc" id="astruct_stack_html_a57b4889ab3a3f7aca7fc502497622d8d"><div class="ttname"><a href="struct_stack.html#a57b4889ab3a3f7aca7fc502497622d8d">Stack::data</a></div><div class="ttdeci">char ** data</div><div class="ttdef"><b>Definition</b> Task1.h:23</div></div>
+<div class="ttc" id="astruct_stack_html_a9d88966b156fd4547e9b8a2e7fe48427"><div class="ttname"><a href="struct_stack.html#a9d88966b156fd4547e9b8a2e7fe48427">Stack::capacity</a></div><div class="ttdeci">int capacity</div><div class="ttdef"><b>Definition</b> Task1.h:25</div></div>
+<div class="ttc" id="astruct_stack_html_ad62fb36816185f3eef3a6f735a61f54a"><div class="ttname"><a href="struct_stack.html#ad62fb36816185f3eef3a6f735a61f54a">Stack::top</a></div><div class="ttdeci">int top</div><div class="ttdef"><b>Definition</b> Task1.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

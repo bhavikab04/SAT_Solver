@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -92,7 +99,7 @@ $(function(){initNavTree('converting_c_n_fto_input_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation file for CNF to Infix Conversion.  
+<p>The implemenation file for CNF to Infix Conversion.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="converting_c_n_fto_input_8h_source.html">convertingCNFtoInput.h</a>&quot;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -103,8 +110,8 @@ $(function(){initNavTree('converting_c_n_fto_input_8c.html','',''); });
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="converting_c_n_fto_input_8c__incl.png" border="0" usemap="#aconverting_c_n_fto_input_8c" loading="lazy" alt=""/></div>
 <map name="aconverting_c_n_fto_input_8c" id="aconverting_c_n_fto_input_8c">
-<area shape="rect" title="Implementation file for CNF to Infix Conversion." alt="" coords="141,5,302,31"/>
-<area shape="rect" href="converting_c_n_fto_input_8h.html" title="Header file for CNF to Infix Conversion." alt="" coords="5,79,166,105"/>
+<area shape="rect" title="The implemenation file for CNF to Infix Conversion." alt="" coords="141,5,302,31"/>
+<area shape="rect" href="converting_c_n_fto_input_8h.html" title="Header file for the CNF to Infix Conversion." alt="" coords="5,79,166,105"/>
 <area shape="poly" title=" " alt="" coords="200,34,123,74,121,69,197,29"/>
 <area shape="rect" title=" " alt="" coords="190,79,253,105"/>
 <area shape="poly" title=" " alt="" coords="224,31,224,63,219,63,219,31"/>
@@ -137,10 +144,10 @@ Variables</h2></td></tr>
 <tr class="memdesc:a27960f12ae8062e5342fae680ab2f04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">File-scope variable to store the number of variables.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation file for CNF to Infix Conversion. </p>
-<dl class="section author"><dt>Author</dt><dd>[Your Name/Handle] </dd></dl>
+<div class="textblock"><p>The implemenation file for CNF to Infix Conversion. </p>
+<dl class="section author"><dt>Author</dt><dd>[team] </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>October 2025</dd></dl>
-<p>Implements the functions declared in <a class="el" href="converting_c_n_fto_input_8h.html" title="Header file for CNF to Infix Conversion.">convertingCNFtoInput.h</a>. Contains the logic to parse a .cnf file, read its clauses, and build an equivalent infix string (e.g., "(x1 + -x2) * (x3)"). </p>
+<p>Implements the functions declared in <a class="el" href="converting_c_n_fto_input_8h.html" title="Header file for the CNF to Infix Conversion.">convertingCNFtoInput.h</a>. Contains the logic to parse a .cnf file, read its clauses, and build an equivalent infix string (e.g., "(x1 + -x2) * (x3)"). </p>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="afa0499dcb85922b683da3918f512adb6" name="afa0499dcb85922b683da3918f512adb6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa0499dcb85922b683da3918f512adb6">&#9670;&#160;</a></span>LINE_BUFFER_SIZE</h2>
@@ -195,7 +202,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Builds a fully parenthesized string for a single clause. (static = private to this file) </p>
-<p>This function takes a line from a DIMACS file (e.g., "1 -2 3 0") and converts it into a fully parenthesized infix string (e.g., "((x1 + (~x2)) + x3)").</p>
+<p>This function takes a line from a DIMACS file and converts it into a fully parenthesized infix string</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">line</td><td>A mutable string containing the clause literals. </td></tr>
@@ -251,7 +258,7 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">filename</td><td>The path to the DIMACS CNF file. </td></tr>
     <tr><td class="paramname">num_clauses</td><td>The expected number of clauses (from <span class="tt">get_clause_count</span>). </td></tr>
-    <tr><td class="paramname">out_stream</td><td>The file stream (e.g., stdout) to write the output to. </td></tr>
+    <tr><td class="paramname">out_stream</td><td>The file stream to write the output to. </td></tr>
   </table>
   </dd>
 </dl>

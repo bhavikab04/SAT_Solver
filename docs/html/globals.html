@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -91,10 +98,9 @@ $(function(){initNavTree('globals.html','',''); });
 <div class="textblock">Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:</div>
 
 <h3 class="doxsection"><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>AssignmentHashTable&#160;:&#160;<a class="el" href="_task5_8h.html#aedaeb56e6c9e8a74dc2c0dd43d41c190">Task5.h</a></li>
-<li>HT_Get()&#160;:&#160;<a class="el" href="_task5_8c.html#aab263d800d109eaa312d8909cf58a768">Task5.c</a></li>
-<li>HT_Insert()&#160;:&#160;<a class="el" href="_task5_8c.html#a1c24defbe21ec5a234f5fdc2057e9f3d">Task5.c</a></li>
-<li>AssignmentNode&#160;:&#160;<a class="el" href="_task5_8c.html#a9a4064ee0b338e276fa8bca0e60f7d40">Task5.c</a></li>
+<li>Assign&#160;:&#160;<a class="el" href="_task5_8c.html#aaa26a656edf581e2a91964dca0957386">Task5.c</a></li>
+<li>Assign_HT&#160;:&#160;<a class="el" href="_task5_8h.html#aac17116b181195c6c2799ac72439bd07">Task5.h</a></li>
+<li>Assign_value()&#160;:&#160;<a class="el" href="_task5_8c.html#af20250e404a5b30cabe9a4c624a768c4">Task5.c</a></li>
 </ul>
 
 
@@ -104,17 +110,13 @@ $(function(){initNavTree('globals.html','',''); });
 
 
 <h3 class="doxsection"><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>find_height()&#160;:&#160;<a class="el" href="_task4_8c.html#ae32540cc08f6690afeaf78d1133c5e71">Task4.c</a>, <a class="el" href="_task4_8h.html#ae32540cc08f6690afeaf78d1133c5e71">Task4.h</a></li>
 <li>checkCNFValidity()&#160;:&#160;<a class="el" href="_task7_8c.html#a20129f9af610ac016eb7f2e16bbc17f4">Task7.c</a>, <a class="el" href="_task7_8h.html#a20129f9af610ac016eb7f2e16bbc17f4">Task7.h</a></li>
-<li>Valid_CNF()&#160;:&#160;<a class="el" href="_task7_8c.html#a4f83f423b745f2024ed0a378bef3c197">Task7.c</a></li>
 <li>CNF()&#160;:&#160;<a class="el" href="_task6_8c.html#a93732f4385a09ea1ce41af2e27bf1dc1">Task6.c</a>, <a class="el" href="_task6_8h.html#a93732f4385a09ea1ce41af2e27bf1dc1">Task6.h</a></li>
 <li>CNF_FORMULA()&#160;:&#160;<a class="el" href="_task6_8c.html#a85ccaa203611107094401f69fead7bdf">Task6.c</a>, <a class="el" href="_task6_8h.html#a85ccaa203611107094401f69fead7bdf">Task6.h</a></li>
-<li>Track_Unique_Literals()&#160;:&#160;<a class="el" href="_task5_8c.html#a0113889471665bba55572ca1191e3743">Task5.c</a></li>
-<li>get_Unique_Literals()&#160;:&#160;<a class="el" href="_task5_8c.html#af9f1056614fbcb26ab5a9d329137b63c">Task5.c</a>, <a class="el" href="_task5_8h.html#af9f1056614fbcb26ab5a9d329137b63c">Task5.h</a></li>
 <li>convertCnfToInfix()&#160;:&#160;<a class="el" href="converting_c_n_fto_input_8c.html#a0d734ec7f2dfef344199131771e21460">convertingCNFtoInput.c</a>, <a class="el" href="converting_c_n_fto_input_8h.html#a0d734ec7f2dfef344199131771e21460">convertingCNFtoInput.h</a></li>
 <li>copyTree()&#160;:&#160;<a class="el" href="_task6_8c.html#a4d80f09cd9e9741c1fc166c987f0e8f3">Task6.c</a>, <a class="el" href="_task6_8h.html#a4d80f09cd9e9741c1fc166c987f0e8f3">Task6.h</a></li>
 <li>create_tree_node()&#160;:&#160;<a class="el" href="_task6_8c.html#af039c54f229051991073b472179c5ba3">Task6.c</a></li>
-<li>createAssignmentHashTable()&#160;:&#160;<a class="el" href="_task5_8c.html#a4bfb78843c287401dbd2e541e130cab4">Task5.c</a></li>
+<li>createAssign_HT()&#160;:&#160;<a class="el" href="_task5_8c.html#aa01ed3d98f58a7337b38688f241f8b6a">Task5.c</a></li>
 <li>createNodeStack()&#160;:&#160;<a class="el" href="_task2_8c.html#ac316be311ae970457746eabc99bc6ae4">Task2.c</a></li>
 <li>createStack()&#160;:&#160;<a class="el" href="task1_8c.html#a4d864c6b72f0668478189fdeb616c701">task1.c</a>, <a class="el" href="_task1_8h.html#a4d864c6b72f0668478189fdeb616c701">Task1.h</a></li>
 </ul>
@@ -127,13 +129,14 @@ $(function(){initNavTree('globals.html','',''); });
 
 <h3 class="doxsection"><a id="index_e" name="index_e"></a>- e -</h3><ul>
 <li>evaluateFromFile()&#160;:&#160;<a class="el" href="_task5_8c.html#acaed9188cbcf7a8f97c285743d8e96b4">Task5.c</a>, <a class="el" href="_task5_8h.html#acaed9188cbcf7a8f97c285743d8e96b4">Task5.h</a></li>
-<li>evaluateTree()&#160;:&#160;<a class="el" href="_task5_8c.html#ad2414fa3dad8119f1c5423f2661f5651">Task5.c</a>, <a class="el" href="_task5_8h.html#ad2414fa3dad8119f1c5423f2661f5651">Task5.h</a></li>
+<li>evaluateTree()&#160;:&#160;<a class="el" href="_task5_8c.html#afeb82f5b72e7ce998b644ba8bbf4c0c8">Task5.c</a>, <a class="el" href="_task5_8h.html#afeb82f5b72e7ce998b644ba8bbf4c0c8">Task5.h</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_f" name="index_f"></a>- f -</h3><ul>
-<li>find_Literals()&#160;:&#160;<a class="el" href="_task7_8c.html#a967e5c3e9efd0ebcb7a351bbc2632ec0">Task7.c</a></li>
-<li>freeAssignmentHashTable()&#160;:&#160;<a class="el" href="_task5_8c.html#a8abceca02c40340133308452e62c3b1a">Task5.c</a></li>
+<li>find_height()&#160;:&#160;<a class="el" href="_task4_8c.html#a6160e80425a58081f8e0a1c61b7f25f1">Task4.c</a>, <a class="el" href="_task4_8h.html#a6160e80425a58081f8e0a1c61b7f25f1">Task4.h</a></li>
+<li>find_Literals()&#160;:&#160;<a class="el" href="_task7_8c.html#a923d8f0797166fb7bf6839f8d9191bf8">Task7.c</a></li>
+<li>freeAssign_HT()&#160;:&#160;<a class="el" href="_task5_8c.html#a7d32a1050161ad204d75d7f236545df8">Task5.c</a></li>
 <li>freeNodeStack()&#160;:&#160;<a class="el" href="_task2_8c.html#a6bcce81de3d2b0fd329e35b59a81c43b">Task2.c</a></li>
 <li>freeStack()&#160;:&#160;<a class="el" href="task1_8c.html#afc0d1f371e3750b1c5d184672e816013">task1.c</a>, <a class="el" href="_task1_8h.html#afc0d1f371e3750b1c5d184672e816013">Task1.h</a></li>
 <li>freeTree()&#160;:&#160;<a class="el" href="_task2_8c.html#af9c8e6687905b200d52e36c5d55abbf2">Task2.c</a>, <a class="el" href="_task2_8h.html#af9c8e6687905b200d52e36c5d55abbf2">Task2.h</a>, <a class="el" href="_task3_8h.html#af9c8e6687905b200d52e36c5d55abbf2">Task3.h</a></li>
@@ -141,8 +144,10 @@ $(function(){initNavTree('globals.html','',''); });
 
 
 <h3 class="doxsection"><a id="index_g" name="index_g"></a>- g -</h3><ul>
-<li>Assign_value()&#160;:&#160;<a class="el" href="_task5_8c.html#aee0e5b55519d10a35218663de60de3ac">Task5.c</a></li>
+<li>g_limit_output&#160;:&#160;<a class="el" href="_task5_8c.html#afced489c1705c1136949cc57fca2d645">Task5.c</a></li>
+<li>g_line_counter&#160;:&#160;<a class="el" href="_task5_8c.html#a68b861fb11762efa898b12352067053b">Task5.c</a></li>
 <li>get_clause_count()&#160;:&#160;<a class="el" href="converting_c_n_fto_input_8c.html#a83b70176a7973de7b0984da1da4add66">convertingCNFtoInput.c</a>, <a class="el" href="converting_c_n_fto_input_8h.html#a83b70176a7973de7b0984da1da4add66">convertingCNFtoInput.h</a></li>
+<li>get_Unique_Literals()&#160;:&#160;<a class="el" href="_task5_8c.html#ac2042b25d32acaada52485aaef2759d5">Task5.c</a>, <a class="el" href="_task5_8h.html#ac2042b25d32acaada52485aaef2759d5">Task5.h</a></li>
 <li>get_variable_count()&#160;:&#160;<a class="el" href="converting_c_n_fto_input_8c.html#a1bfa5596206b3523e3984e8843881dc9">convertingCNFtoInput.c</a>, <a class="el" href="converting_c_n_fto_input_8h.html#a1bfa5596206b3523e3984e8843881dc9">convertingCNFtoInput.h</a></li>
 <li>getExpLength()&#160;:&#160;<a class="el" href="_task3_8c.html#a08875542fa7d7370c09a41d4d6337497">Task3.c</a>, <a class="el" href="_task3_8h.html#a08875542fa7d7370c09a41d4d6337497">Task3.h</a></li>
 </ul>
@@ -151,6 +156,8 @@ $(function(){initNavTree('globals.html','',''); });
 <h3 class="doxsection"><a id="index_h" name="index_h"></a>- h -</h3><ul>
 <li>hash()&#160;:&#160;<a class="el" href="_task5_8c.html#a403b4c6368a2e98940a7da0226045667">Task5.c</a>, <a class="el" href="_task7_8c.html#a403b4c6368a2e98940a7da0226045667">Task7.c</a></li>
 <li>HASH_TABLE_SIZE&#160;:&#160;<a class="el" href="_task5_8c.html#abfd8510b1fadf533d685965730e2969b">Task5.c</a>, <a class="el" href="_task7_8c.html#abfd8510b1fadf533d685965730e2969b">Task7.c</a></li>
+<li>HT_Get()&#160;:&#160;<a class="el" href="_task5_8c.html#ab5b7688c6792c3ca61820ac6a88254dc">Task5.c</a></li>
+<li>HT_Insert()&#160;:&#160;<a class="el" href="_task5_8c.html#a6d34b85b431850bd71ef1dd8c73e1a6f">Task5.c</a></li>
 </ul>
 
 
@@ -174,7 +181,7 @@ $(function(){initNavTree('globals.html','',''); });
 <h3 class="doxsection"><a id="index_l" name="index_l"></a>- l -</h3><ul>
 <li>LINE_BUFFER_SIZE&#160;:&#160;<a class="el" href="converting_c_n_fto_input_8c.html#afa0499dcb85922b683da3918f512adb6">convertingCNFtoInput.c</a></li>
 <li>LITERAL_BUFFER_SIZE&#160;:&#160;<a class="el" href="converting_c_n_fto_input_8c.html#ad987d62f929c71ac4ea6cd503dc35a28">convertingCNFtoInput.c</a></li>
-<li>Literal_present&#160;:&#160;<a class="el" href="_task7_8c.html#a466eb7294206a0851190e97e48bdb569">Task7.c</a></li>
+<li>Literal_present&#160;:&#160;<a class="el" href="_task7_8c.html#ac24adca4991056fda838b20c7a4eaeae">Task7.c</a></li>
 </ul>
 
 
@@ -182,7 +189,7 @@ $(function(){initNavTree('globals.html','',''); });
 <li>main()&#160;:&#160;<a class="el" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">Main.c</a></li>
 <li>makeNode()&#160;:&#160;<a class="el" href="_task2_8c.html#aa5e9c313d5d2232949de8fb389d94f80">Task2.c</a></li>
 <li>MAX_TRUTH_TABLE_VARIABLES&#160;:&#160;<a class="el" href="_task5_8h.html#a395e3fc41daa49b9968d00bbbc579a03">Task5.h</a></li>
-<li>my_strrev()&#160;:&#160;<a class="el" href="task1_8c.html#a2b16b14fb6f6462974698bf0f00f545d">task1.c</a></li>
+<li>my_strrev()&#160;:&#160;<a class="el" href="task1_8c.html#aa29204da7130cf1b6f916fa4660912d8">task1.c</a></li>
 </ul>
 
 
@@ -215,7 +222,13 @@ $(function(){initNavTree('globals.html','',''); });
 
 <h3 class="doxsection"><a id="index_t" name="index_t"></a>- t -</h3><ul>
 <li>task1_infixToPrefix()&#160;:&#160;<a class="el" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66">task1.c</a>, <a class="el" href="_task1_8h.html#af2160a30128fd75f80d206fb5d0bbb66">Task1.h</a></li>
+<li>Track_Unique_Literals()&#160;:&#160;<a class="el" href="_task5_8c.html#a8530bf93feeff96c334c2ead4cee5e38">Task5.c</a></li>
 <li>TreeNode&#160;:&#160;<a class="el" href="_task2_8h.html#aba028b9fa75702386100892732a4e800">Task2.h</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>Valid_CNF()&#160;:&#160;<a class="el" href="_task7_8c.html#a1ab845d6781875c278b2fdd748e2b4f5">Task7.c</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

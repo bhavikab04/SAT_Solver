@@ -1,0 +1,20 @@
+<map id="Valid_CNF" name="Valid_CNF">
+<area shape="rect" id="Node000001" title="Recursively navigates the CNF structure to check each clause." alt="" coords="5,55,90,80"/>
+<area shape="poly" id="edge10_Node000001_Node000001" title=" " alt="" coords="21,56,16,46,19,36,30,30,48,28,66,31,76,37,73,42,65,36,47,33,32,35,23,40,21,46,26,53"/>
+<area shape="rect" id="Node000002" href="$_task7_8c.html#ab848cdc49dc8abcdbc409eb7b9c8c254" title="Checks if an individual clause is a tautology." alt="" coords="138,55,266,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,65,122,65,122,70,90,70"/>
+<area shape="rect" id="Node000003" href="$_task7_8c.html#a923d8f0797166fb7bf6839f8d9191bf8" title="Traverses a clause to find literals and check for a tautology." alt="" coords="314,55,405,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="266,65,298,65,298,70,266,70"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="338,55,334,46,336,37,345,30,360,28,375,31,384,37,380,42,373,36,360,33,347,35,341,40,339,46,343,53"/>
+<area shape="rect" id="Node000004" href="$_task7_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash value from a string." alt="" coords="460,29,509,55"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="405,56,444,48,445,53,406,61"/>
+<area shape="rect" id="Node000006" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand). An atom is any token that is not a known operator." alt="" coords="453,79,516,104"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="406,74,439,80,438,85,405,79"/>
+<area shape="rect" id="Node000005" href="$_task5_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash index from a string (djb2 algorithm)." alt="" coords="573,29,622,55"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="509,40,557,40,557,45,509,45"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="578,30,574,21,576,11,584,5,598,3,612,5,620,12,616,16,610,10,598,8,587,10,581,14,579,20,583,28"/>
+<area shape="rect" id="Node000007" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="564,79,632,104"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="516,89,548,89,548,94,516,94"/>
+<area shape="rect" id="Node000008" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="565,128,631,154"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="517,103,554,119,551,124,515,107"/>
+</map>

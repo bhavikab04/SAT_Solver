@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -114,9 +121,9 @@ $(function(){initNavTree('_task6_8h.html','',''); });
 <area shape="poly" title=" " alt="" coords="151,31,151,63,145,63,145,31"/>
 <area shape="rect" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion." alt="" coords="204,79,271,105"/>
 <area shape="poly" title=" " alt="" coords="165,29,212,67,209,71,161,34"/>
-<area shape="rect" href="_task3_8h.html" title="Header file for Task 3: Parse Tree to Infix Conversion." alt="" coords="296,79,363,105"/>
+<area shape="rect" href="_task3_8h.html" title="Header file for Task 3: Conversion of prase tree to infix." alt="" coords="296,79,363,105"/>
 <area shape="poly" title=" " alt="" coords="180,29,285,70,283,75,178,34"/>
-<area shape="rect" href="_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="72,153,139,178"/>
+<area shape="rect" href="_task1_8h.html" title="This is the header file for Task 1: Infix to Prefix Conversion." alt="" coords="72,153,139,178"/>
 <area shape="poly" title=" " alt="" coords="216,108,142,147,139,143,214,103"/>
 <area shape="rect" title=" " alt="" coords="200,153,274,178"/>
 <area shape="poly" title=" " alt="" coords="240,105,240,137,235,137,235,105"/>
@@ -167,7 +174,7 @@ Functions</h2></td></tr>
 <li>Negation Normal Form conversion (NNF)</li>
 <li>Distribution to achieve CNF (DISTR, CNF)</li>
 </ol>
-<p>It relies on structures and functions defined in <a class="el" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion.">Task2.h</a>, <a class="el" href="_task3_8h.html" title="Header file for Task 3: Parse Tree to Infix Conversion.">Task3.h</a>, and <a class="el" href="_task5_8h.html" title="Header for functions that evaluate logical formulas.">Task5.h</a>. </p>
+<p>It relies on structures and functions defined in <a class="el" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion.">Task2.h</a>, <a class="el" href="_task3_8h.html" title="Header file for Task 3: Conversion of prase tree to infix.">Task3.h</a>, and <a class="el" href="_task5_8h.html" title="Header for functions that evaluate logical formulas.">Task5.h</a>. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a93732f4385a09ea1ce41af2e27bf1dc1" name="a93732f4385a09ea1ce41af2e27bf1dc1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93732f4385a09ea1ce41af2e27bf1dc1">&#9670;&#160;</a></span>CNF()</h2>

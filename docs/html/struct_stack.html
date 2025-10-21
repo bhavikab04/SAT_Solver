@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -92,7 +99,7 @@ $(function(){initNavTree('struct_stack.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>A stack structure for storing strings (char*).  
+<p>A stack structure for storing strings.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_task1_8h_source.html">Task1.h</a>&gt;</code></p>
@@ -104,7 +111,7 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a9d88966b156fd4547e9b8a2e7fe48427" id="r_a9d88966b156fd4547e9b8a2e7fe48427"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d88966b156fd4547e9b8a2e7fe48427">capacity</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A stack structure for storing strings (char*). </p>
+<div class="textblock"><p>A stack structure for storing strings. </p>
 <p>Used as both the operator stack and the output stack during the infix-to-prefix conversion. </p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="a9d88966b156fd4547e9b8a2e7fe48427" name="a9d88966b156fd4547e9b8a2e7fe48427"></a>

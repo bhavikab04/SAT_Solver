@@ -1,6 +1,6 @@
 <map id="task1.c" name="task1.c">
-<area shape="rect" id="Node000001" title="Implementation file for Task 1: Infix to Prefix Conversion." alt="" coords="191,5,255,31"/>
-<area shape="rect" id="Node000002" href="$_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="5,79,73,105"/>
+<area shape="rect" id="Node000001" title="This is the implementation file for Task 1: Converting an infix to a prefix." alt="" coords="191,5,255,31"/>
+<area shape="rect" id="Node000002" href="$_task1_8h.html" title="This is the header file for Task 1: Infix to Prefix Conversion." alt="" coords="5,79,73,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,34,85,75,83,71,191,29"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="44,153,104,178"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="202,34,170,54,137,81,111,111,90,141,86,138,107,108,133,77,167,50,199,29"/>

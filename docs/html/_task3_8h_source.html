@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -102,10 +109,10 @@ $(function(){initNavTree('_task3_8h_source.html','',''); });
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> <a class="code hl_function" href="_task3_8h.html#af9c8e6687905b200d52e36c5d55abbf2">freeTree</a>(<a class="code hl_struct" href="struct_tree_node.html">TreeNode</a>* root);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif </span><span class="comment">// TASK3_H</span></div>
-<div class="ttc" id="a_task3_8h_html_a08875542fa7d7370c09a41d4d6337497"><div class="ttname"><a href="_task3_8h.html#a08875542fa7d7370c09a41d4d6337497">getExpLength</a></div><div class="ttdeci">int getExpLength(TreeNode *root)</div><div class="ttdoc">Calculates the required string length for the infix expression.</div><div class="ttdef"><b>Definition</b> Task3.c:121</div></div>
-<div class="ttc" id="a_task3_8h_html_a270dd2b3600f255939f3b261f8b38aa5"><div class="ttname"><a href="_task3_8h.html#a270dd2b3600f255939f3b261f8b38aa5">inOrderTraversal</a></div><div class="ttdeci">void inOrderTraversal(TreeNode *root, char *bufferStr, int *pos)</div><div class="ttdoc">Reconstructs the infix expression string using in-order traversal.</div><div class="ttdef"><b>Definition</b> Task3.c:62</div></div>
-<div class="ttc" id="a_task3_8h_html_af9c8e6687905b200d52e36c5d55abbf2"><div class="ttname"><a href="_task3_8h.html#af9c8e6687905b200d52e36c5d55abbf2">freeTree</a></div><div class="ttdeci">void freeTree(TreeNode *root)</div><div class="ttdoc">Frees all memory allocated to the parse tree.</div><div class="ttdef"><b>Definition</b> Task2.c:278</div></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif </span></div>
+<div class="ttc" id="a_task3_8h_html_a08875542fa7d7370c09a41d4d6337497"><div class="ttname"><a href="_task3_8h.html#a08875542fa7d7370c09a41d4d6337497">getExpLength</a></div><div class="ttdeci">int getExpLength(TreeNode *root)</div><div class="ttdoc">Calculates the required string length for the infix expression.</div><div class="ttdef"><b>Definition</b> Task3.c:114</div></div>
+<div class="ttc" id="a_task3_8h_html_a270dd2b3600f255939f3b261f8b38aa5"><div class="ttname"><a href="_task3_8h.html#a270dd2b3600f255939f3b261f8b38aa5">inOrderTraversal</a></div><div class="ttdeci">void inOrderTraversal(TreeNode *root, char *bufferStr, int *pos)</div><div class="ttdoc">Reconstructs the infix expression string using in-order traversal.</div><div class="ttdef"><b>Definition</b> Task3.c:55</div></div>
+<div class="ttc" id="a_task3_8h_html_af9c8e6687905b200d52e36c5d55abbf2"><div class="ttname"><a href="_task3_8h.html#af9c8e6687905b200d52e36c5d55abbf2">freeTree</a></div><div class="ttdeci">void freeTree(TreeNode *root)</div><div class="ttdoc">Frees all memory allocated to the parse tree.</div><div class="ttdef"><b>Definition</b> Task2.c:277</div></div>
 <div class="ttc" id="astruct_tree_node_html"><div class="ttname"><a href="struct_tree_node.html">TreeNode</a></div><div class="ttdoc">Represents a node in the abstract syntax tree (AST) of a propositional logic formula.</div><div class="ttdef"><b>Definition</b> Task2.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

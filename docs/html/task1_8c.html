@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -92,7 +99,7 @@ $(function(){initNavTree('task1_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation file for Task 1: Infix to Prefix Conversion.  
+<p>This is the implementation file for Task 1: Converting an infix to a prefix.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_task1_8h_source.html">Task1.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -106,8 +113,8 @@ $(function(){initNavTree('task1_8c.html','',''); });
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="task1_8c__incl.png" border="0" usemap="#atask1_8c" loading="lazy" alt=""/></div>
 <map name="atask1_8c" id="atask1_8c">
-<area shape="rect" title="Implementation file for Task 1: Infix to Prefix Conversion." alt="" coords="191,5,255,31"/>
-<area shape="rect" href="_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="5,79,73,105"/>
+<area shape="rect" title="This is the implementation file for Task 1: Converting an infix to a prefix." alt="" coords="191,5,255,31"/>
+<area shape="rect" href="_task1_8h.html" title="This is the header file for Task 1: Infix to Prefix Conversion." alt="" coords="5,79,73,105"/>
 <area shape="poly" title=" " alt="" coords="193,34,85,75,83,71,191,29"/>
 <area shape="rect" title=" " alt="" coords="44,153,104,178"/>
 <area shape="poly" title=" " alt="" coords="202,34,170,54,137,81,111,111,90,141,86,138,107,108,133,77,167,50,199,29"/>
@@ -125,10 +132,10 @@ $(function(){initNavTree('task1_8c.html','',''); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2b16b14fb6f6462974698bf0f00f545d" id="r_a2b16b14fb6f6462974698bf0f00f545d"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b16b14fb6f6462974698bf0f00f545d">my_strrev</a> (char *str)</td></tr>
-<tr class="memdesc:a2b16b14fb6f6462974698bf0f00f545d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses a string in place.  <br /></td></tr>
+<tr class="memitem:aa29204da7130cf1b6f916fa4660912d8" id="r_aa29204da7130cf1b6f916fa4660912d8"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa29204da7130cf1b6f916fa4660912d8">my_strrev</a> (char *string)</td></tr>
+<tr class="memdesc:aa29204da7130cf1b6f916fa4660912d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses a string in place. This is needed for the operands read backwards.  <br /></td></tr>
 <tr class="memitem:a4d864c6b72f0668478189fdeb616c701" id="r_a4d864c6b72f0668478189fdeb616c701"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_stack.html">Stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d864c6b72f0668478189fdeb616c701">createStack</a> (int capacity)</td></tr>
-<tr class="memdesc:a4d864c6b72f0668478189fdeb616c701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and initializes a new stack.  <br /></td></tr>
+<tr class="memdesc:a4d864c6b72f0668478189fdeb616c701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creating and initializing a new stack.  <br /></td></tr>
 <tr class="memitem:ad698665e5524cf4a5e0492eed5f80211" id="r_ad698665e5524cf4a5e0492eed5f80211"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad698665e5524cf4a5e0492eed5f80211">isEmpty</a> (<a class="el" href="struct_stack.html">Stack</a> *stack)</td></tr>
 <tr class="memdesc:ad698665e5524cf4a5e0492eed5f80211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the stack is empty.  <br /></td></tr>
 <tr class="memitem:af9d75461c12377af99958163d3e5d018" id="r_af9d75461c12377af99958163d3e5d018"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9d75461c12377af99958163d3e5d018">push</a> (<a class="el" href="struct_stack.html">Stack</a> *stack, const char *item)</td></tr>
@@ -136,23 +143,23 @@ Functions</h2></td></tr>
 <tr class="memitem:a23bb8ff1764ad3b7f91c564dd918746a" id="r_a23bb8ff1764ad3b7f91c564dd918746a"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23bb8ff1764ad3b7f91c564dd918746a">pop</a> (<a class="el" href="struct_stack.html">Stack</a> *stack)</td></tr>
 <tr class="memdesc:a23bb8ff1764ad3b7f91c564dd918746a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops a string item from the stack.  <br /></td></tr>
 <tr class="memitem:afc0d1f371e3750b1c5d184672e816013" id="r_afc0d1f371e3750b1c5d184672e816013"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc0d1f371e3750b1c5d184672e816013">freeStack</a> (<a class="el" href="struct_stack.html">Stack</a> *stack)</td></tr>
-<tr class="memdesc:afc0d1f371e3750b1c5d184672e816013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all memory associated with the stack.  <br /></td></tr>
+<tr class="memdesc:afc0d1f371e3750b1c5d184672e816013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all the memory associated with the stack.  <br /></td></tr>
 <tr class="memitem:a6915df24ae1e8618808b5baf74e81831" id="r_a6915df24ae1e8618808b5baf74e81831"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6915df24ae1e8618808b5baf74e81831">isOperator</a> (char ch)</td></tr>
 <tr class="memdesc:a6915df24ae1e8618808b5baf74e81831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a character is a supported operator.  <br /></td></tr>
 <tr class="memitem:a7b0c75b2308eae025b071d02f4bf423c" id="r_a7b0c75b2308eae025b071d02f4bf423c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b0c75b2308eae025b071d02f4bf423c">isOperandStart</a> (char ch)</td></tr>
 <tr class="memdesc:a7b0c75b2308eae025b071d02f4bf423c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a character can be the start of an operand (a letter).  <br /></td></tr>
 <tr class="memitem:a60d67638b713875c72a088ccb7bd0edf" id="r_a60d67638b713875c72a088ccb7bd0edf"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60d67638b713875c72a088ccb7bd0edf">precedence</a> (char op)</td></tr>
-<tr class="memdesc:a60d67638b713875c72a088ccb7bd0edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the precedence of an operator. Higher number means higher precedence.  <br /></td></tr>
+<tr class="memdesc:a60d67638b713875c72a088ccb7bd0edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the precedence of an operator. Higher number corresponds to a higher precedence.  <br /></td></tr>
 <tr class="memitem:a6c59b46ff495586afe7869b39c0859d2" id="r_a6c59b46ff495586afe7869b39c0859d2"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c59b46ff495586afe7869b39c0859d2">read_line</a> (FILE *stream)</td></tr>
-<tr class="memdesc:a6c59b46ff495586afe7869b39c0859d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a line of arbitrary length from a stream.  <br /></td></tr>
+<tr class="memdesc:a6c59b46ff495586afe7869b39c0859d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a line of unknown or arbitary length from a stream.  <br /></td></tr>
 <tr class="memitem:af2160a30128fd75f80d206fb5d0bbb66" id="r_af2160a30128fd75f80d206fb5d0bbb66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_stack.html">Stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2160a30128fd75f80d206fb5d0bbb66">task1_infixToPrefix</a> (const char *infix)</td></tr>
 <tr class="memdesc:af2160a30128fd75f80d206fb5d0bbb66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an infix expression string to a prefix expression stack.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation file for Task 1: Infix to Prefix Conversion. </p>
-<dl class="section author"><dt>Author</dt><dd>[Your Name/Handle] </dd></dl>
+<div class="textblock"><p>This is the implementation file for Task 1: Converting an infix to a prefix. </p>
+<dl class="section author"><dt>Author</dt><dd>[Team] </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>October 2025</dd></dl>
-<p>Implements the Shunting-yard-like algorithm to convert an infix string to a prefix stack, as well as stack helper functions (push, pop, etc.) and the read_line utility. </p>
+<p>Implements a Shunting-yard-like algorithm to convert an infix to a prefix string to a prefix stack, as well as stack helper functions (push, pop, etc.) and the read_line utility. The normal Shunting-yard algorithm is for converting a infix to a postfix. We used a modified algorithm that goes from right to left and has reverse handling of paranthesis. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a4d864c6b72f0668478189fdeb616c701" name="a4d864c6b72f0668478189fdeb616c701"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d864c6b72f0668478189fdeb616c701">&#9670;&#160;</a></span>createStack()</h2>
@@ -169,21 +176,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates and initializes a new stack. </p>
+<p>Creating and initializing a new stack. </p>
+<p>Creates and initializes a new stack.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">capacity</td><td>The maximum number of items the stack can hold. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly allocated <a class="el" href="struct_stack.html" title="A stack structure for storing strings (char*).">Stack</a>, or NULL on failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly allocated <a class="el" href="struct_stack.html" title="A stack structure for storing strings.">Stack</a>, or will point to NULL on failure. </dd></dl>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="task1_8c_a4d864c6b72f0668478189fdeb616c701_icgraph.png" border="0" usemap="#atask1_8c_a4d864c6b72f0668478189fdeb616c701_icgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_a4d864c6b72f0668478189fdeb616c701_icgraph" id="atask1_8c_a4d864c6b72f0668478189fdeb616c701_icgraph">
-<area shape="rect" title="Creates and initializes a new stack." alt="" coords="283,5,374,31"/>
+<area shape="rect" title="Creating and initializing a new stack." alt="" coords="283,5,374,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="268,21,235,21,235,16,268,16"/>
 <area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
@@ -208,11 +216,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Frees all memory associated with the stack. </p>
+<p>Frees all the memory associated with the stack. </p>
 <p>Frees all memory associated with the stack. This includes all strings still on the stack, the data array, and the stack structure itself.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stack</td><td>Pointer to the stack to be freed. </td></tr>
+    <tr><td class="paramname">stack</td><td>Pointer to the stack that is to be freed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -222,7 +230,7 @@ Functions</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="task1_8c_afc0d1f371e3750b1c5d184672e816013_cgraph.png" border="0" usemap="#atask1_8c_afc0d1f371e3750b1c5d184672e816013_cgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_afc0d1f371e3750b1c5d184672e816013_cgraph" id="atask1_8c_afc0d1f371e3750b1c5d184672e816013_cgraph">
-<area shape="rect" title="Frees all memory associated with the stack." alt="" coords="5,5,83,31"/>
+<area shape="rect" title="Frees all the memory associated with the stack." alt="" coords="5,5,83,31"/>
 <area shape="rect" href="task1_8c.html#ad698665e5524cf4a5e0492eed5f80211" title="Checks if the stack is empty." alt="" coords="221,5,290,31"/>
 <area shape="poly" title=" " alt="" coords="83,16,205,16,205,21,83,21"/>
 <area shape="rect" href="task1_8c.html#a23bb8ff1764ad3b7f91c564dd918746a" title="Pops a string item from the stack." alt="" coords="131,31,173,56"/>
@@ -236,7 +244,7 @@ Functions</h2></td></tr>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="task1_8c_afc0d1f371e3750b1c5d184672e816013_icgraph.png" border="0" usemap="#atask1_8c_afc0d1f371e3750b1c5d184672e816013_icgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_afc0d1f371e3750b1c5d184672e816013_icgraph" id="atask1_8c_afc0d1f371e3750b1c5d184672e816013_icgraph">
-<area shape="rect" title="Frees all memory associated with the stack." alt="" coords="283,5,360,31"/>
+<area shape="rect" title="Frees all the memory associated with the stack." alt="" coords="283,5,360,31"/>
 <area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,55,21,55,16,267,16"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,31,235,56"/>
@@ -269,7 +277,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 (true) if empty, 0 (false) otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1/true) if empty, 0/false otherwise. </dd></dl>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
@@ -277,7 +285,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="task1_8c_ad698665e5524cf4a5e0492eed5f80211_icgraph.png" border="0" usemap="#atask1_8c_ad698665e5524cf4a5e0492eed5f80211_icgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_ad698665e5524cf4a5e0492eed5f80211_icgraph" id="atask1_8c_ad698665e5524cf4a5e0492eed5f80211_icgraph">
 <area shape="rect" title="Checks if the stack is empty." alt="" coords="515,81,584,107"/>
-<area shape="rect" href="task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all memory associated with the stack." alt="" coords="291,5,368,31"/>
+<area shape="rect" href="task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all the memory associated with the stack." alt="" coords="291,5,368,31"/>
 <area shape="poly" title=" " alt="" coords="513,75,466,53,415,37,368,27,369,22,417,32,468,48,515,71"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,56,235,82"/>
 <area shape="poly" title=" " alt="" coords="499,94,235,76,236,71,500,88"/>
@@ -324,11 +332,11 @@ Functions</h2></td></tr>
 <p>Checks if a character can be the start of an operand (a letter). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ch</td><td>The character to check. </td></tr>
+    <tr><td class="paramname">ch</td><td>The character to be checked. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 (true) if it's a letter, 0 (false) otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1/true if it's a letter, 0/false otherwise. </dd></dl>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
@@ -371,11 +379,11 @@ Functions</h2></td></tr>
 <p>Checks if a character is a supported operator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ch</td><td>The character to check. </td></tr>
+    <tr><td class="paramname">ch</td><td>The character that is to be checked. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 (true) if it's an operator, 0 (false) otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1/true if it's an operator, 0/false otherwise. </dd></dl>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
@@ -392,8 +400,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2b16b14fb6f6462974698bf0f00f545d" name="a2b16b14fb6f6462974698bf0f00f545d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b16b14fb6f6462974698bf0f00f545d">&#9670;&#160;</a></span>my_strrev()</h2>
+<a id="aa29204da7130cf1b6f916fa4660912d8" name="aa29204da7130cf1b6f916fa4660912d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29204da7130cf1b6f916fa4660912d8">&#9670;&#160;</a></span>my_strrev()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -404,7 +412,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">char * my_strrev </td>
           <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -415,22 +423,22 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reverses a string in place. </p>
-<dl class="section note"><dt>Note</dt><dd>This is a helper function, as strrev() is not standard C. </dd></dl>
+<p>Reverses a string in place. This is needed for the operands read backwards. </p>
+<dl class="section note"><dt>Note</dt><dd>This is a helper function,as strrev() is not standard C.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>The string to be reversed. </td></tr>
+    <tr><td class="paramname">string</td><td>The string to be reversed. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the reversed string (same as str). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the string which has been reversed (same as string). </dd></dl>
 <div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="task1_8c_a2b16b14fb6f6462974698bf0f00f545d_icgraph.png" border="0" usemap="#atask1_8c_a2b16b14fb6f6462974698bf0f00f545d_icgraph" loading="lazy" alt=""/></div>
-<map name="atask1_8c_a2b16b14fb6f6462974698bf0f00f545d_icgraph" id="atask1_8c_a2b16b14fb6f6462974698bf0f00f545d_icgraph">
-<area shape="rect" title="Reverses a string in place." alt="" coords="283,5,362,31"/>
+<div class="center"><img src="task1_8c_aa29204da7130cf1b6f916fa4660912d8_icgraph.png" border="0" usemap="#atask1_8c_aa29204da7130cf1b6f916fa4660912d8_icgraph" loading="lazy" alt=""/></div>
+<map name="atask1_8c_aa29204da7130cf1b6f916fa4660912d8_icgraph" id="atask1_8c_aa29204da7130cf1b6f916fa4660912d8_icgraph">
+<area shape="rect" title="Reverses a string in place. This is needed for the operands read backwards." alt="" coords="283,5,362,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,235,21,235,16,267,16"/>
 <area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
@@ -456,7 +464,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Pops a string item from the stack. </p>
-<dl class="section note"><dt>Note</dt><dd>The caller is responsible for freeing the returned string. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The caller is for freeing the returned string. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stack</td><td>Pointer to the stack. </td></tr>
@@ -482,7 +490,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="task1_8c_a23bb8ff1764ad3b7f91c564dd918746a_icgraph.png" border="0" usemap="#atask1_8c_a23bb8ff1764ad3b7f91c564dd918746a_icgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_a23bb8ff1764ad3b7f91c564dd918746a_icgraph" id="atask1_8c_a23bb8ff1764ad3b7f91c564dd918746a_icgraph">
 <area shape="rect" title="Pops a string item from the stack." alt="" coords="408,56,451,82"/>
-<area shape="rect" href="task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all memory associated with the stack." alt="" coords="283,5,360,31"/>
+<area shape="rect" href="task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all the memory associated with the stack." alt="" coords="283,5,360,31"/>
 <area shape="poly" title=" " alt="" coords="393,55,350,34,352,29,395,50"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,56,235,82"/>
 <area shape="poly" title=" " alt="" coords="393,72,235,72,235,66,393,66"/>
@@ -521,7 +529,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Determines the precedence of an operator. Higher number means higher precedence. </p>
+<p>Determines the precedence of an operator. Higher number corresponds to a higher precedence. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">op</td><td>The operator character. </td></tr>
@@ -535,7 +543,7 @@ Functions</h2></td></tr>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="task1_8c_a60d67638b713875c72a088ccb7bd0edf_icgraph.png" border="0" usemap="#atask1_8c_a60d67638b713875c72a088ccb7bd0edf_icgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_a60d67638b713875c72a088ccb7bd0edf_icgraph" id="atask1_8c_a60d67638b713875c72a088ccb7bd0edf_icgraph">
-<area shape="rect" title="Determines the precedence of an operator. Higher number means higher precedence." alt="" coords="283,5,371,31"/>
+<area shape="rect" title="Determines the precedence of an operator. Higher number corresponds to a higher precedence." alt="" coords="283,5,371,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,235,21,235,16,267,16"/>
 <area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
@@ -604,10 +612,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads a line of arbitrary length from a stream. </p>
+<p>Reads a line of unknown or arbitary length from a stream. </p>
+<p>Reads a line of arbitrary length from a stream.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stream</td><td>The file stream (e.g., stdin). </td></tr>
+    <tr><td class="paramname">stream</td><td>The file stream (like stdin). </td></tr>
   </table>
   </dd>
 </dl>
@@ -618,7 +627,7 @@ Functions</h2></td></tr>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="task1_8c_a6c59b46ff495586afe7869b39c0859d2_icgraph.png" border="0" usemap="#atask1_8c_a6c59b46ff495586afe7869b39c0859d2_icgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_a6c59b46ff495586afe7869b39c0859d2_icgraph" id="atask1_8c_a6c59b46ff495586afe7869b39c0859d2_icgraph">
-<area shape="rect" title="Reads a line of arbitrary length from a stream." alt="" coords="103,5,176,31"/>
+<area shape="rect" title="Reads a line of unknown or arbitary length from a stream." alt="" coords="103,5,176,31"/>
 <area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
@@ -651,7 +660,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a <a class="el" href="struct_stack.html" title="A stack structure for storing strings (char*).">Stack</a> containing the prefix expression tokens. The tokens are ordered such that popping from the stack gives the reverse prefix order, but iterating the stack-&gt;data array from top-to-bottom gives the correct prefix order. Returns NULL on failure or empty input. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a <a class="el" href="struct_stack.html" title="A stack structure for storing strings.">Stack</a> containing the prefix expression tokens. The tokens are ordered such that popping from the stack gives the reverse prefix order, but iterating through the stack-&gt;data array from top-to-bottom gives the correct prefix order. Returns NULL on failure or empty input. </dd></dl>
 <div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
@@ -659,9 +668,9 @@ Functions</h2></td></tr>
 <div class="center"><img src="task1_8c_af2160a30128fd75f80d206fb5d0bbb66_cgraph.png" border="0" usemap="#atask1_8c_af2160a30128fd75f80d206fb5d0bbb66_cgraph" loading="lazy" alt=""/></div>
 <map name="atask1_8c_af2160a30128fd75f80d206fb5d0bbb66_cgraph" id="atask1_8c_af2160a30128fd75f80d206fb5d0bbb66_cgraph">
 <area shape="rect" title="Converts an infix expression string to a prefix expression stack." alt="" coords="5,207,138,232"/>
-<area shape="rect" href="task1_8c.html#a4d864c6b72f0668478189fdeb616c701" title="Creates and initializes a new stack." alt="" coords="194,5,286,31"/>
+<area shape="rect" href="task1_8c.html#a4d864c6b72f0668478189fdeb616c701" title="Creating and initializing a new stack." alt="" coords="194,5,286,31"/>
 <area shape="poly" title=" " alt="" coords="76,205,114,129,145,82,184,40,187,37,191,42,187,44,149,85,118,132,81,207"/>
-<area shape="rect" href="task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all memory associated with the stack." alt="" coords="201,55,278,80"/>
+<area shape="rect" href="task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all the memory associated with the stack." alt="" coords="201,55,278,80"/>
 <area shape="poly" title=" " alt="" coords="81,204,124,155,184,97,199,87,202,91,187,102,128,159,85,208"/>
 <area shape="rect" href="task1_8c.html#ad698665e5524cf4a5e0492eed5f80211" title="Checks if the stack is empty." alt="" coords="432,105,502,131"/>
 <area shape="poly" title=" " alt="" coords="132,203,384,141,417,131,418,136,385,146,133,209"/>
@@ -671,9 +680,9 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="138,217,170,217,170,222,138,222"/>
 <area shape="rect" href="task1_8c.html#a6915df24ae1e8618808b5baf74e81831" title="Checks if a character is a supported operator." alt="" coords="199,256,280,282"/>
 <area shape="poly" title=" " alt="" coords="119,230,185,250,184,255,117,236"/>
-<area shape="rect" href="task1_8c.html#a2b16b14fb6f6462974698bf0f00f545d" title="Reverses a string in place." alt="" coords="200,305,280,331"/>
+<area shape="rect" href="task1_8c.html#aa29204da7130cf1b6f916fa4660912d8" title="Reverses a string in place. This is needed for the operands read backwards." alt="" coords="200,305,280,331"/>
 <area shape="poly" title=" " alt="" coords="93,231,135,260,187,292,195,296,192,301,184,296,132,264,90,235"/>
-<area shape="rect" href="task1_8c.html#a60d67638b713875c72a088ccb7bd0edf" title="Determines the precedence of an operator. Higher number means higher precedence." alt="" coords="196,355,284,380"/>
+<area shape="rect" href="task1_8c.html#a60d67638b713875c72a088ccb7bd0edf" title="Determines the precedence of an operator. Higher number corresponds to a higher precedence." alt="" coords="196,355,284,380"/>
 <area shape="poly" title=" " alt="" coords="84,231,126,283,155,314,187,341,192,345,189,349,184,346,151,318,121,287,80,234"/>
 <area shape="rect" href="task1_8c.html#af9d75461c12377af99958163d3e5d018" title="Pushes a string item onto the stack." alt="" coords="215,404,264,430"/>
 <area shape="poly" title=" " alt="" coords="81,231,119,305,150,351,187,391,203,401,200,405,184,395,145,354,114,308,76,234"/>

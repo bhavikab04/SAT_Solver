@@ -1,6 +1,6 @@
 <map id="isEmpty" name="isEmpty">
 <area shape="rect" id="Node000001" title="Checks if the stack is empty." alt="" coords="515,81,584,107"/>
-<area shape="rect" id="Node000002" href="$task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all memory associated with the stack." alt="" coords="291,5,368,31"/>
+<area shape="rect" id="Node000002" href="$task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all the memory associated with the stack." alt="" coords="291,5,368,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="513,75,466,53,415,37,368,27,369,22,417,32,468,48,515,71"/>
 <area shape="rect" id="Node000004" href="$task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,56,235,82"/>
 <area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="499,94,235,76,236,71,500,88"/>

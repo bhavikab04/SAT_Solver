@@ -1,17 +1,17 @@
-#include "convertingCNFtoInput.h" // Include its own header
+#include "convertingCNFtoInput.h" 
 
 #include <stdlib.h>
 #include <string.h>
 
 // Define a safe buffer size for reading lines
 #define LINE_BUFFER_SIZE 65536 
-// Define a safe buffer size for a single literal string (e.g., "(~x2147483647)")
+// Define a safe buffer size for a single literal string
 #define LITERAL_BUFFER_SIZE 32
 
 /**
  * @file convertingCNFtoInput.c
- * @brief Implementation file for CNF to Infix Conversion.
- * @author [Your Name/Handle]
+ * @brief The implemenation file for CNF to Infix Conversion.
+ * @author [team]
  * @date October 2025
  *
  * Implements the functions declared in convertingCNFtoInput.h.
@@ -30,9 +30,8 @@ static long num_vars = 0;
  * @brief Builds a fully parenthesized string for a single clause.
  * (static = private to this file)
  *
- * This function takes a line from a DIMACS file (e.g., "1 -2 3 0")
+ * This function takes a line from a DIMACS file 
  * and converts it into a fully parenthesized infix string
- * (e.g., "((x1 + (~x2)) + x3)").
  *
  * @param line A mutable string containing the clause literals.
  * @return A dynamically allocated string (char*) containing the infix
@@ -41,10 +40,10 @@ static long num_vars = 0;
 static char* build_clause_string(char* line) {
     // clause_formula stores the partially built clause string.
     // Example:
-    // 1. Starts as NULL
-    // 2. Becomes "x1"
-    // 3. Becomes "(x1 + (~x2))"
-    // 4. Becomes "((x1 + (~x2)) + x3)"
+    // a. Starts as NULL
+    // b. Becomes "x1"
+    // c. Becomes "(x1 + (~x2))"
+    // d. Becomes "((x1 + (~x2)) + x3)"
     char* clause_formula = NULL; // This will hold the "A" in "(A + B)"
     
     // Tokenize the line by space/tab/newline to get individual literals
@@ -58,7 +57,7 @@ static char* build_clause_string(char* line) {
         // The DIMACS format ends each clause with a 0
         if (lit == 0) break; // End of clause
 
-        // --- 1. Create the string for the current literal (B) ---
+        //Creates the string for the current literal (B)
         
         // Temporary buffer for the current literal's string form
         char literal_str[LITERAL_BUFFER_SIZE];
@@ -70,7 +69,7 @@ static char* build_clause_string(char* line) {
             snprintf(literal_str, LITERAL_BUFFER_SIZE, "x%ld", lit);
         }
 
-        // --- 2. Combine with the formula so far ---
+        //Combine with the formula so far
         
         if (clause_formula == NULL) {
             // This is the first literal in the clause.
@@ -116,10 +115,10 @@ static char* build_clause_string(char* line) {
     
     // Handle edge case: empty line or line with just "0"
     if (clause_formula == NULL) {
-        clause_formula = strdup(""); // Return empty string, not NULL
+        clause_formula = strdup(""); // Return empty string
     }
     
-    // Return the final, fully built clause string
+    
     return clause_formula;
 }
 
@@ -185,7 +184,7 @@ long get_variable_count(void) {
  *
  * @param filename The path to the DIMACS CNF file.
  * @param num_clauses The expected number of clauses (from `get_clause_count`).
- * @param out_stream The file stream (e.g., stdout) to write the output to.
+ * @param out_stream The file stream to write the output to.
  */
 void convertCnfToInfix(const char* filename, long num_clauses, FILE* out_stream) {
     // Open the file for the second pass (to process clauses)
@@ -195,25 +194,25 @@ void convertCnfToInfix(const char* filename, long num_clauses, FILE* out_stream)
         return;
     }
 
-    char line_buffer[LINE_BUFFER_SIZE]; // Buffer for reading lines
-    long clauses_printed = 0; // Counter to track processed clauses
+    char line_buffer[LINE_BUFFER_SIZE]; 
+    long clauses_printed = 0; 
 
-    // --- Streaming Algorithm ---
+    // Streaming algorithm
     
-    // 1. Print all opening parentheses
-    // For N clauses, we need N-1 opening parentheses for the form
+    // a. Print all opening brackets
+    // For N clauses, we need N-1 opening brackets for the form
     // (C1 * (C2 * (C3 * ... )))
     if (num_clauses > 1) {
         for (long i = 0; i < num_clauses - 1; i++) {
-            fprintf(out_stream, "("); // CHANGED from printf (Comment OK)
+            fprintf(out_stream, "("); 
         }
     }
 
-    // 2. Read file line by line and print clauses + operators
+    // b. Read file line by line and print clauses + operators
     while (fgets(line_buffer, sizeof(line_buffer), file)) {
-        // --- Pre-process the line ---
+        // preprocess the line
         char* line_start = line_buffer;
-        // Skip any leading whitespace
+        // Skipping any leading whitespaces
         while (*line_start == ' ' || *line_start == '\t') line_start++;
 
         // Skip comments ('c'), the problem line ('p'), or empty lines
@@ -222,7 +221,7 @@ void convertCnfToInfix(const char* filename, long num_clauses, FILE* out_stream)
             continue;
         }
         
-        // --- Process the clause ---
+        // Processing the cluase
         // If it's not a comment or 'p' line, it must be a clause.
         // Build the infix string for this single clause
         char* clause_str = build_clause_string(line_start);
@@ -233,32 +232,32 @@ void convertCnfToInfix(const char* filename, long num_clauses, FILE* out_stream)
             continue;
         }
 
-        // --- Print the clause and operators ---
+        // Print the clause and it's operators
         
         if (clauses_printed > 0) {
             // This is the 2nd, 3rd, ... Nth clause (C2...CN).
             // We must print the ' * ' operator *before* it.
             // This forms: (C1 * C2) or (C1 * (C2 * C3)) etc.
-            fprintf(out_stream, " * "); // CHANGED from printf (Comment OK)
+            fprintf(out_stream, " * "); 
         }
 
         // Print the clause string itself (e.g., C1, or C2, etc.)
-        fprintf(out_stream, "%s", clause_str); // CHANGED from printf (Comment OK)
+        fprintf(out_stream, "%s", clause_str); 
         free(clause_str); // Free the string from build_clause_string
 
         if (clauses_printed > 0 && num_clauses > 1) {
             // If this was C2 or later, we just printed " * Ck".
             // Now we must close the parenthesis: "(... * Ck)"
-            fprintf(out_stream, ")"); // CHANGED from printf (Comment OK)
+            fprintf(out_stream, ")"); 
         }
         
-        clauses_printed++; // Increment the count of clauses we've printed
+        clauses_printed++; 
     }
 
-    // Done with the file
+ 
     fclose(file);
 
-    // --- Final validation ---
+    // Final Validation
     // Check if the number of clauses we found matches the 'p' line
     if (clauses_printed != num_clauses) {
         // This is an error message, so it *should* go to stderr

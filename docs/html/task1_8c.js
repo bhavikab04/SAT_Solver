@@ -5,7 +5,7 @@ var task1_8c =
     [ "isEmpty", "task1_8c.html#ad698665e5524cf4a5e0492eed5f80211", null ],
     [ "isOperandStart", "task1_8c.html#a7b0c75b2308eae025b071d02f4bf423c", null ],
     [ "isOperator", "task1_8c.html#a6915df24ae1e8618808b5baf74e81831", null ],
-    [ "my_strrev", "task1_8c.html#a2b16b14fb6f6462974698bf0f00f545d", null ],
+    [ "my_strrev", "task1_8c.html#aa29204da7130cf1b6f916fa4660912d8", null ],
     [ "pop", "task1_8c.html#a23bb8ff1764ad3b7f91c564dd918746a", null ],
     [ "precedence", "task1_8c.html#a60d67638b713875c72a088ccb7bd0edf", null ],
     [ "push", "task1_8c.html#af9d75461c12377af99958163d3e5d018", null ],

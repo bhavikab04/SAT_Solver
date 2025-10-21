@@ -2,6 +2,6 @@
 <area shape="rect" id="Node000001" title="Header file for the tree height calculation function." alt="" coords="46,5,113,31"/>
 <area shape="rect" id="Node000002" href="$_main_8c.html" title="Main driver for the logic formula processing pipeline." alt="" coords="5,79,66,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,46,45,80,41,77,62,43"/>
-<area shape="rect" id="Node000003" href="$_task4_8c.html" title="Contains the implementation for the tree height calculation." alt="" coords="90,79,157,105"/>
+<area shape="rect" id="Node000003" href="$_task4_8c.html" title="Implements height of Tree calculation." alt="" coords="90,79,157,105"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="97,43,118,77,114,80,93,46"/>
 </map>

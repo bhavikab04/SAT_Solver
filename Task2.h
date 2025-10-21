@@ -6,7 +6,7 @@
 /**
  * @file Task2.h
  * @brief Header file for Task 2: Prefix to Parse Tree Conversion.
- * @author [Your Name/Handle]
+ * @author [Team]
  * @date October 2025
  *
  * Declares the `TreeNode` structure and the functions required

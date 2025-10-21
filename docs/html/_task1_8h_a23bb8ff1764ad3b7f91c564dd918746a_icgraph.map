@@ -1,6 +1,6 @@
 <map id="pop" name="pop">
 <area shape="rect" id="Node000001" title="Pops a string item from the stack." alt="" coords="408,56,451,82"/>
-<area shape="rect" id="Node000002" href="$task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all memory associated with the stack." alt="" coords="283,5,360,31"/>
+<area shape="rect" id="Node000002" href="$task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all the memory associated with the stack." alt="" coords="283,5,360,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,55,350,34,352,29,395,50"/>
 <area shape="rect" id="Node000004" href="$task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,56,235,82"/>
 <area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="393,72,235,72,235,66,393,66"/>
