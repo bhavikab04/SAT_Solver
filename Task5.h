@@ -23,13 +23,13 @@
 #define MAX_TRUTH_TABLE_VARIABLES 25
 
 /**
- * @struct AssignmentHashTable
+ * @struct Assign_HT
  * @brief A structure for efficiently storing variable assignments.
  *
  * This is an "opaque" type, meaning its internal details are managed in the .c file.
  * Code outside that file interacts with it through a pointer.
  */
-typedef struct AssignmentHashTable AssignmentHashTable;
+typedef struct Assign_HT Assign_HT;
 
 /**
  * @brief Evaluates the logical formula in the tree.
@@ -41,7 +41,7 @@ typedef struct AssignmentHashTable AssignmentHashTable;
  * @param assignments A hash table that maps variable names to their boolean values.
  * @return The final true or false result of the formula.
  */
-bool evaluateTree(TreeNode *root, const AssignmentHashTable *assignments);
+bool evaluateTree(TreeNode *root, const Assign_HT *assignments);
 
 /**
  * @brief Evaluates a formula using variable values from a file.
@@ -66,7 +66,7 @@ bool evaluateFromFile(TreeNode *root, const char *filename);
  * @param[out] literals_list_out A pointer that will be set to the new array of strings.
  * @return The number of unique variables that were found.
  */
-int collectUniqueLiterals(TreeNode *root, char ***literals_list_out);
+int get_Unique_Literals(TreeNode *root, char ***literals_list_out);
 
 /**
  * @brief Creates and prints a complete truth table for the formula.

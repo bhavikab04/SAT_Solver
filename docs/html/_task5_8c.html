@@ -146,9 +146,9 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0113889471665bba55572ca1191e3743" id="r_a0113889471665bba55572ca1191e3743"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0113889471665bba55572ca1191e3743">collectLiteralsRecursive</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *node, <a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *ht)</td></tr>
+<tr class="memitem:a0113889471665bba55572ca1191e3743" id="r_a0113889471665bba55572ca1191e3743"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0113889471665bba55572ca1191e3743">Track_Unique_Literals</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *node, <a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *ht)</td></tr>
 <tr class="memdesc:a0113889471665bba55572ca1191e3743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to recursively find all unique literals in the tree.  <br /></td></tr>
-<tr class="memitem:aee0e5b55519d10a35218663de60de3ac" id="r_aee0e5b55519d10a35218663de60de3ac"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee0e5b55519d10a35218663de60de3ac">generateAssignmentsAndPrint</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, char **literals, int count, int index, <a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *current_assignments)</td></tr>
+<tr class="memitem:aee0e5b55519d10a35218663de60de3ac" id="r_aee0e5b55519d10a35218663de60de3ac"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee0e5b55519d10a35218663de60de3ac">Assign_value</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, char **literals, int count, int index, <a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *current_assignments)</td></tr>
 <tr class="memdesc:aee0e5b55519d10a35218663de60de3ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively generates and prints each row of the truth table.  <br /></td></tr>
 <tr class="memitem:a403b4c6368a2e98940a7da0226045667" id="r_a403b4c6368a2e98940a7da0226045667"><td class="memItemLeft" align="right" valign="top">static unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a403b4c6368a2e98940a7da0226045667">hash</a> (const char *str)</td></tr>
 <tr class="memdesc:a403b4c6368a2e98940a7da0226045667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a hash value from a string.  <br /></td></tr>
@@ -156,15 +156,15 @@ Functions</h2></td></tr>
 <tr class="memdesc:a4bfb78843c287401dbd2e541e130cab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates memory for a new, empty hash table.  <br /></td></tr>
 <tr class="memitem:a8abceca02c40340133308452e62c3b1a" id="r_a8abceca02c40340133308452e62c3b1a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8abceca02c40340133308452e62c3b1a">freeAssignmentHashTable</a> (<a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *ht)</td></tr>
 <tr class="memdesc:a8abceca02c40340133308452e62c3b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all memory used by the hash table.  <br /></td></tr>
-<tr class="memitem:a1c24defbe21ec5a234f5fdc2057e9f3d" id="r_a1c24defbe21ec5a234f5fdc2057e9f3d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c24defbe21ec5a234f5fdc2057e9f3d">assignmentHT_Insert</a> (<a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *ht, const char *literal, bool value)</td></tr>
+<tr class="memitem:a1c24defbe21ec5a234f5fdc2057e9f3d" id="r_a1c24defbe21ec5a234f5fdc2057e9f3d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c24defbe21ec5a234f5fdc2057e9f3d">HT_Insert</a> (<a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *ht, const char *literal, bool value)</td></tr>
 <tr class="memdesc:a1c24defbe21ec5a234f5fdc2057e9f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a new variable or updates an existing one in the hash table.  <br /></td></tr>
-<tr class="memitem:aab263d800d109eaa312d8909cf58a768" id="r_aab263d800d109eaa312d8909cf58a768"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab263d800d109eaa312d8909cf58a768">assignmentHT_Get</a> (const <a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *ht, const char *literal, bool *out_value)</td></tr>
+<tr class="memitem:aab263d800d109eaa312d8909cf58a768" id="r_aab263d800d109eaa312d8909cf58a768"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab263d800d109eaa312d8909cf58a768">HT_Get</a> (const <a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *ht, const char *literal, bool *out_value)</td></tr>
 <tr class="memdesc:aab263d800d109eaa312d8909cf58a768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looks up a variable's value in the hash table.  <br /></td></tr>
 <tr class="memitem:ad2414fa3dad8119f1c5423f2661f5651" id="r_ad2414fa3dad8119f1c5423f2661f5651"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2414fa3dad8119f1c5423f2661f5651">evaluateTree</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, const <a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *assignments)</td></tr>
 <tr class="memdesc:ad2414fa3dad8119f1c5423f2661f5651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the logical formula in the tree.  <br /></td></tr>
 <tr class="memitem:acaed9188cbcf7a8f97c285743d8e96b4" id="r_acaed9188cbcf7a8f97c285743d8e96b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acaed9188cbcf7a8f97c285743d8e96b4">evaluateFromFile</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, const char *filename)</td></tr>
 <tr class="memdesc:acaed9188cbcf7a8f97c285743d8e96b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates a formula using variable values from a file.  <br /></td></tr>
-<tr class="memitem:af9f1056614fbcb26ab5a9d329137b63c" id="r_af9f1056614fbcb26ab5a9d329137b63c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9f1056614fbcb26ab5a9d329137b63c">collectUniqueLiterals</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, char ***literals_list_out)</td></tr>
+<tr class="memitem:af9f1056614fbcb26ab5a9d329137b63c" id="r_af9f1056614fbcb26ab5a9d329137b63c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9f1056614fbcb26ab5a9d329137b63c">get_Unique_Literals</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, char ***literals_list_out)</td></tr>
 <tr class="memdesc:af9f1056614fbcb26ab5a9d329137b63c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gathers all unique variable names from the formula tree.  <br /></td></tr>
 <tr class="memitem:a2597eda358ca1446a3e05ddb1af31ae4" id="r_a2597eda358ca1446a3e05ddb1af31ae4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2597eda358ca1446a3e05ddb1af31ae4">printTruthTable</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, char **literals, int count, const char *formula_str)</td></tr>
 <tr class="memdesc:a2597eda358ca1446a3e05ddb1af31ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and prints a complete truth table for the formula.  <br /></td></tr>
@@ -206,7 +206,7 @@ Functions</h2></td></tr>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="aab263d800d109eaa312d8909cf58a768" name="aab263d800d109eaa312d8909cf58a768"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab263d800d109eaa312d8909cf58a768">&#9670;&#160;</a></span>assignmentHT_Get()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aab263d800d109eaa312d8909cf58a768">&#9670;&#160;</a></span>HT_Get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -215,7 +215,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool assignmentHT_Get </td>
+          <td class="memname">bool HT_Get </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span>, </td>
         </tr>
@@ -288,7 +288,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a1c24defbe21ec5a234f5fdc2057e9f3d" name="a1c24defbe21ec5a234f5fdc2057e9f3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c24defbe21ec5a234f5fdc2057e9f3d">&#9670;&#160;</a></span>assignmentHT_Insert()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c24defbe21ec5a234f5fdc2057e9f3d">&#9670;&#160;</a></span>HT_Insert()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +297,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void assignmentHT_Insert </td>
+          <td class="memname">void HT_Insert </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_assignment_hash_table.html">AssignmentHashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span>, </td>
         </tr>
@@ -371,7 +371,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a0113889471665bba55572ca1191e3743" name="a0113889471665bba55572ca1191e3743"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0113889471665bba55572ca1191e3743">&#9670;&#160;</a></span>collectLiteralsRecursive()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0113889471665bba55572ca1191e3743">&#9670;&#160;</a></span>Track_Unique_Literals()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,7 +380,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void collectLiteralsRecursive </td>
+          <td class="memname">void Track_Unique_Literals </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_tree_node.html">TreeNode</a> *</td>          <td class="paramname"><span class="paramname"><em>node</em></span>, </td>
         </tr>
@@ -444,13 +444,13 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="af9f1056614fbcb26ab5a9d329137b63c" name="af9f1056614fbcb26ab5a9d329137b63c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9f1056614fbcb26ab5a9d329137b63c">&#9670;&#160;</a></span>collectUniqueLiterals()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af9f1056614fbcb26ab5a9d329137b63c">&#9670;&#160;</a></span>get_Unique_Literals()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int collectUniqueLiterals </td>
+          <td class="memname">int get_Unique_Literals </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_tree_node.html">TreeNode</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
         </tr>
@@ -760,7 +760,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="aee0e5b55519d10a35218663de60de3ac" name="aee0e5b55519d10a35218663de60de3ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee0e5b55519d10a35218663de60de3ac">&#9670;&#160;</a></span>generateAssignmentsAndPrint()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aee0e5b55519d10a35218663de60de3ac">&#9670;&#160;</a></span>Assign_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -769,7 +769,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void generateAssignmentsAndPrint </td>
+          <td class="memname">void Assign_value </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_tree_node.html">TreeNode</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
         </tr>

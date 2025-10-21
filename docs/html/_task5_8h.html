@@ -145,7 +145,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad2414fa3dad8119f1c5423f2661f5651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the logical formula in the tree.  <br /></td></tr>
 <tr class="memitem:acaed9188cbcf7a8f97c285743d8e96b4" id="r_acaed9188cbcf7a8f97c285743d8e96b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acaed9188cbcf7a8f97c285743d8e96b4">evaluateFromFile</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, const char *filename)</td></tr>
 <tr class="memdesc:acaed9188cbcf7a8f97c285743d8e96b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates a formula using variable values from a file.  <br /></td></tr>
-<tr class="memitem:af9f1056614fbcb26ab5a9d329137b63c" id="r_af9f1056614fbcb26ab5a9d329137b63c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9f1056614fbcb26ab5a9d329137b63c">collectUniqueLiterals</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, char ***literals_list_out)</td></tr>
+<tr class="memitem:af9f1056614fbcb26ab5a9d329137b63c" id="r_af9f1056614fbcb26ab5a9d329137b63c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9f1056614fbcb26ab5a9d329137b63c">get_Unique_Literals</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, char ***literals_list_out)</td></tr>
 <tr class="memdesc:af9f1056614fbcb26ab5a9d329137b63c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gathers all unique variable names from the formula tree.  <br /></td></tr>
 <tr class="memitem:a2597eda358ca1446a3e05ddb1af31ae4" id="r_a2597eda358ca1446a3e05ddb1af31ae4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2597eda358ca1446a3e05ddb1af31ae4">printTruthTable</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, char **literals, int count, const char *formula_str)</td></tr>
 <tr class="memdesc:a2597eda358ca1446a3e05ddb1af31ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and prints a complete truth table for the formula.  <br /></td></tr>
@@ -188,13 +188,13 @@ Functions</h2></td></tr>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="af9f1056614fbcb26ab5a9d329137b63c" name="af9f1056614fbcb26ab5a9d329137b63c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9f1056614fbcb26ab5a9d329137b63c">&#9670;&#160;</a></span>collectUniqueLiterals()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af9f1056614fbcb26ab5a9d329137b63c">&#9670;&#160;</a></span>get_Unique_Literals()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int collectUniqueLiterals </td>
+          <td class="memname">int get_Unique_Literals </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_tree_node.html">TreeNode</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
         </tr>

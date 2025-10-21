@@ -17,23 +17,23 @@
 #define HASH_TABLE_SIZE 256 ///< Defines the hash table size for checking a single clause.
 
 /**
- * @struct LiteralPresence
+ * @struct Literal_present
  * @brief A simple structure to track if a literal's positive and negative forms appear.
  *
  * This is used in a temporary hash table to quickly determine if a clause
  * contains a variable and its negation.
  */
-typedef struct LiteralPresence {
+typedef struct Literal_present {
     char* name;
     bool has_positive;
     bool has_negative;
-    struct LiteralPresence* next;
-} LiteralPresence;
+    struct Literal_present* next;
+} Literal_present;
 
 // --- Internal Helper Function Prototypes ---
 static bool isClauseTautology(TreeNode* clause_root);
-static void findLiteralsInClause(TreeNode* node, LiteralPresence** hash_table, bool* is_tautology);
-static void checkCNFValidityRecursive(TreeNode* node, int* valid_clauses, int* invalid_clauses);
+static void find_Literals(TreeNode* node, Literal_present** hash_table, bool* is_tautology);
+static void Valid_CNF(TreeNode* node, int* valid_clauses, int* invalid_clauses);
 static unsigned long hash(const char* str);
 
 /**
@@ -61,12 +61,12 @@ static unsigned long hash(const char* str) {
  * @param hash_table A temporary hash table for tracking literals in this clause.
  * @param[in,out] is_tautology A pointer to a flag that is set to true if a tautology is found.
  */
-static void findLiteralsInClause(TreeNode* node, LiteralPresence** hash_table, bool* is_tautology) {
+static void find_Literals(TreeNode* node, Literal_present** hash_table, bool* is_tautology) {
     if (node == NULL || *is_tautology) return;
 
     if (strcmp(node->data, "+") == 0) {
-        findLiteralsInClause(node->left, hash_table, is_tautology);
-        findLiteralsInClause(node->right, hash_table, is_tautology);
+        find_Literals(node->left, hash_table, is_tautology);
+        find_Literals(node->right, hash_table, is_tautology);
     } else {
         char* literal_name;
         bool is_negative = false;
@@ -81,13 +81,13 @@ static void findLiteralsInClause(TreeNode* node, LiteralPresence** hash_table, b
         }
 
         unsigned long index = hash(literal_name);
-        LiteralPresence* entry = hash_table[index];
+        Literal_present* entry = hash_table[index];
         while (entry != NULL && strcmp(entry->name, literal_name) != 0) {
             entry = entry->next;
         }
 
         if (entry == NULL) {
-            entry = (LiteralPresence*)malloc(sizeof(LiteralPresence));
+            entry = (Literal_present*)malloc(sizeof(Literal_present));
             entry->name = strdup(literal_name);
             entry->has_positive = !is_negative;
             entry->has_negative = is_negative;
@@ -118,14 +118,14 @@ static bool isClauseTautology(TreeNode* clause_root) {
     if (clause_root == NULL) return false;
 
     bool is_tautology = false;
-    LiteralPresence** hash_table = (LiteralPresence**)calloc(HASH_TABLE_SIZE, sizeof(LiteralPresence*));
+    Literal_present** hash_table = (Literal_present**)calloc(HASH_TABLE_SIZE, sizeof(Literal_present*));
 
-    findLiteralsInClause(clause_root, hash_table, &is_tautology);
+    find_Literals(clause_root, hash_table, &is_tautology);
 
     for (int i = 0; i < HASH_TABLE_SIZE; i++) {
-        LiteralPresence* entry = hash_table[i];
+        Literal_present* entry = hash_table[i];
         while (entry != NULL) {
-            LiteralPresence* temp = entry;
+            Literal_present* temp = entry;
             entry = entry->next;
             free(temp->name);
             free(temp);
@@ -147,12 +147,12 @@ static bool isClauseTautology(TreeNode* clause_root) {
  * @param[out] valid_clauses A counter for valid clauses.
  * @param[out] invalid_clauses A counter for invalid clauses.
  */
-static void checkCNFValidityRecursive(TreeNode* node, int* valid_clauses, int* invalid_clauses) {
+static void Valid_CNF(TreeNode* node, int* valid_clauses, int* invalid_clauses) {
     if (node == NULL) return;
 
     if (strcmp(node->data, "*") == 0) {
-        checkCNFValidityRecursive(node->left, valid_clauses, invalid_clauses);
-        checkCNFValidityRecursive(node->right, valid_clauses, invalid_clauses);
+        Valid_CNF(node->left, valid_clauses, invalid_clauses);
+        Valid_CNF(node->right, valid_clauses, invalid_clauses);
     } else {
         if (isClauseTautology(node)) {
             (*valid_clauses)++;
@@ -170,7 +170,7 @@ bool checkCNFValidity(TreeNode* cnf_root, int* valid_clauses, int* invalid_claus
         return true;
     }
 
-    checkCNFValidityRecursive(cnf_root, valid_clauses, invalid_clauses);
+    Valid_CNF(cnf_root, valid_clauses, invalid_clauses);
 
     return (*invalid_clauses == 0);
 }

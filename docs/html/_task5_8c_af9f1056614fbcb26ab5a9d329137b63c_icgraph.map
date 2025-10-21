@@ -1,4 +1,4 @@
-<map id="collectUniqueLiterals" name="collectUniqueLiterals">
+<map id="get_Unique_Literals" name="get_Unique_Literals">
 <area shape="rect" id="Node000001" title="Gathers all unique variable names from the formula tree." alt="" coords="103,5,245,31"/>
 <area shape="rect" id="Node000002" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>

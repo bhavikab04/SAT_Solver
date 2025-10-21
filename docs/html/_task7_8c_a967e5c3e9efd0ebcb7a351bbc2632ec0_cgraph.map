@@ -1,4 +1,4 @@
-<map id="findLiteralsInClause" name="findLiteralsInClause">
+<map id="find_Literals" name="find_Literals">
 <area shape="rect" id="Node000001" title="Traverses a clause to find literals and check for a tautology." alt="" coords="5,55,142,80"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="48,56,43,46,46,37,57,30,74,28,92,31,101,37,98,42,90,36,73,33,58,35,50,40,49,46,53,53"/>
 <area shape="rect" id="Node000002" href="$_task7_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash value from a string." alt="" coords="196,29,246,55"/>

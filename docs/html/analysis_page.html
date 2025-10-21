@@ -287,7 +287,7 @@ Task 3: Tree to Infix (Task3.c)</h2>
 Task 4: Tree Height (Task4.c)</h2>
 <p>Calculates the height of the parse tree.</p>
 <ul>
-<li><b><span class="tt"><a class="el" href="_task4_8c.html#ae32540cc08f6690afeaf78d1133c5e71" title="Determines the height of a tree by checking its subtrees.">calculateHeight(TreeNode *root)</a></span></b><ul>
+<li><b><span class="tt"><a class="el" href="_task4_8c.html#ae32540cc08f6690afeaf78d1133c5e71" title="Determines the height of a tree by checking its subtrees.">find_height(TreeNode *root)</a></span></b><ul>
 <li><b>Output:</b> An <span class="tt">int</span> representing the tree's height.</li>
 <li><b>Time:</b> <picture><source srcset="form_29_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(M)$" src="form_29.png"/></picture>. This is the textbook post-order traversal for height, visiting every node once.</li>
 <li><b>Space:</b> <picture><source srcset="form_34_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(H)$" src="form_34.png"/></picture> (for the recursive call stack).</li>
@@ -298,7 +298,7 @@ Task 4: Tree Height (Task4.c)</h2>
 Task 5: Evaluation &amp; Truth Table (Task5.c)</h2>
 <p>Implements formula evaluation and truth table generation.</p>
 <ul>
-<li><b>Hash Table (<span class="tt">assignmentHT_Insert</span> / <span class="tt">assignmentHT_Get</span>)</b><ul>
+<li><b>Hash Table (<span class="tt">HT_Insert</span> / <span class="tt">HT_Get</span>)</b><ul>
 <li><b>Time:</b> <picture><source srcset="form_31_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(k)$" src="form_31.png"/></picture> (Average). Dominated by the <span class="tt">djb2</span> hash function. Worst case is <picture><source srcset="form_23_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(V \cdot k)$" src="form_23.png"/></picture> on collision.</li>
 <li><b>Space:</b> <picture><source srcset="form_23_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(V \cdot k)$" src="form_23.png"/></picture> (to store <picture><source srcset="form_10_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$V$" src="form_10.png"/></picture> variables of average length <picture><source srcset="form_11_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$k$" src="form_11.png"/></picture>).</li>
 </ul>
@@ -309,13 +309,13 @@ Task 5: Evaluation &amp; Truth Table (Task5.c)</h2>
 <li><b>Space:</b> <picture><source srcset="form_34_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(H)$" src="form_34.png"/></picture> (for the recursive call stack).</li>
 </ul>
 </li>
-<li><b><span class="tt">collectUniqueLiterals(TreeNode *root, ...)</span></b><ul>
+<li><b><span class="tt">get_Unique_Literals(TreeNode *root, ...)</span></b><ul>
 <li><b>Output:</b> An <span class="tt">int</span> <picture><source srcset="form_10_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$V$" src="form_10.png"/></picture> and a <span class="tt">char**</span> list of unique variables (side effect).</li>
-<li><b>Time:</b> <picture><source srcset="form_4_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(M \cdot k)$" src="form_4.png"/></picture>. Traverses the tree ( <picture><source srcset="form_29_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(M)$" src="form_29.png"/></picture>), calling <span class="tt">assignmentHT_Insert</span> ( <picture><source srcset="form_31_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(k)$" src="form_31.png"/></picture>) at each atom.</li>
+<li><b>Time:</b> <picture><source srcset="form_4_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(M \cdot k)$" src="form_4.png"/></picture>. Traverses the tree ( <picture><source srcset="form_29_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(M)$" src="form_29.png"/></picture>), calling <span class="tt">HT_Insert</span> ( <picture><source srcset="form_31_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(k)$" src="form_31.png"/></picture>) at each atom.</li>
 <li><b>Space:</b> <picture><source srcset="form_36_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(V \cdot k + H)$" src="form_36.png"/></picture>. Requires a hash table ( <picture><source srcset="form_23_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(V \cdot k)$" src="form_23.png"/></picture>) and recursion stack ( <picture><source srcset="form_34_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(H)$" src="form_34.png"/></picture>).</li>
 </ul>
 </li>
-<li><p class="startli"><b><span class="tt">printTruthTable / generateAssignmentsAndPrint(...)</span></b></p><ul>
+<li><p class="startli"><b><span class="tt">printTruthTable / Assign_value(...)</span></b></p><ul>
 <li><b>Output:</b> Prints the formatted truth table to <span class="tt">stdout</span>.</li>
 <li><b>Time:</b> <picture><source srcset="form_2_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(2^V \cdot M \cdot k)$" src="form_2.png"/></picture>.</li>
 </ul>
@@ -361,7 +361,7 @@ Task 6: CNF Conversion (Task6.c)</h2>
 Task 7: Tautology Check (Task7.c)</h2>
 <p>Checks if a CNF formula is a tautology by checking each clause.</p>
 <ul>
-<li><b><span class="tt">findLiteralsInClause(...)</span></b><ul>
+<li><b><span class="tt">find_Literals(...)</span></b><ul>
 <li><b>Output:</b> Modifies <span class="tt">hash_table</span> and <span class="tt">is_tautology</span> flag (side effect).</li>
 <li><b>Time:</b> <picture><source srcset="form_25_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(L \cdot k)$" src="form_25.png"/></picture> (Average). Traverses the <picture><source srcset="form_30_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(L)$" src="form_30.png"/></picture> nodes of a clause. At each leaf, performs an <picture><source srcset="form_31_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(k)$" src="form_31.png"/></picture> hash table operation.</li>
 <li><b>Space:</b> <picture><source srcset="form_25_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(L \cdot k)$" src="form_25.png"/></picture>. The hash table stores <picture><source srcset="form_30_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(L)$" src="form_30.png"/></picture> literals ( <picture><source srcset="form_25_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(L \cdot k)$" src="form_25.png"/></picture>) and the recursion stack can go <picture><source srcset="form_30_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(L)$" src="form_30.png"/></picture> deep.</li>
@@ -369,7 +369,7 @@ Task 7: Tautology Check (Task7.c)</h2>
 </li>
 <li><b><span class="tt"><a class="el" href="_task7_8c.html#ab848cdc49dc8abcdbc409eb7b9c8c254" title="Checks if an individual clause is a tautology.">isClauseTautology(TreeNode* clause_root)</a></span></b><ul>
 <li><b>Output:</b> A <span class="tt">bool</span> indicating if the clause contains <span class="tt">x</span> and <span class="tt">~x</span>.</li>
-<li><b>Time:</b> <picture><source srcset="form_25_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(L \cdot k)$" src="form_25.png"/></picture> (Average). Dominated by calling <span class="tt">findLiteralsInClause</span> and freeing the hash table.</li>
+<li><b>Time:</b> <picture><source srcset="form_25_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(L \cdot k)$" src="form_25.png"/></picture> (Average). Dominated by calling <span class="tt">find_Literals</span> and freeing the hash table.</li>
 <li><b>Space:</b> <picture><source srcset="form_25_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$O(L \cdot k)$" src="form_25.png"/></picture> (to create the temporary hash table).</li>
 </ul>
 </li>

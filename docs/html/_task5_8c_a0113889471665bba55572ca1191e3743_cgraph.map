@@ -1,4 +1,4 @@
-<map id="collectLiteralsRecursive" name="collectLiteralsRecursive">
+<map id="Track_Unique_Literals" name="Track_Unique_Literals">
 <area shape="rect" id="Node000001" title="Helper function to recursively find all unique literals in the tree." alt="" coords="5,55,166,80"/>
 <area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="52,56,45,46,49,36,63,30,86,28,110,31,123,38,120,42,109,36,85,33,64,35,53,40,51,45,56,53"/>
 <area shape="rect" id="Node000002" href="$_task5_8c.html#a1c24defbe21ec5a234f5fdc2057e9f3d" title="Inserts a new variable or updates an existing one in the hash table." alt="" coords="214,29,360,55"/>

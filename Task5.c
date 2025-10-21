@@ -16,33 +16,33 @@
 
 #define HASH_TABLE_SIZE 2048 ///< Defines the number of buckets in the hash table.
 
-// --- Internal Helper Function Prototypes ---
-static void collectLiteralsRecursive(TreeNode* node, AssignmentHashTable* ht);
-static void generateAssignmentsAndPrint(TreeNode* root, char** literals, int count, int index, AssignmentHashTable* current_assignments);
+
+static void Track_Unique_Literals(TreeNode* node, Assign_HT* ht);
+static void Assign_value(TreeNode* root, char** literals, int count, int index, Assign_HT* current_assignments);
 static unsigned long hash(const char *str);
 
 /**
- * @struct AssignmentNode
+ * @struct Assign
  * @brief Represents a single variable-to-value mapping in the hash table.
  *
  * Each node stores the variable's name, its boolean value, and a pointer
  * to the next node to handle potential hash collisions.
  */
-typedef struct AssignmentNode {
+typedef struct Assign {
     char* literal;
     bool value;
-    struct AssignmentNode* next;
-} AssignmentNode;
+    struct Assign* next;
+} Assign;
 
 /**
- * @struct AssignmentHashTable
+ * @struct Assign_HT
  * @brief The internal structure of the hash table for variable assignments.
  *
  * It consists of an array of pointers, where each pointer acts as the head
- * of a linked list for storing AssignmentNode objects.
+ * of a linked list for storing Assign objects.
  */
-struct AssignmentHashTable {
-    AssignmentNode* table[HASH_TABLE_SIZE];
+struct Assign_HT {
+    Assign* table[HASH_TABLE_SIZE];
 };
 
 /**
@@ -62,20 +62,20 @@ static unsigned long hash(const char *str) {
  * @brief Allocates memory for a new, empty hash table.
  * @return A pointer to the newly created hash table.
  */
-static AssignmentHashTable* createAssignmentHashTable() {
-    return (AssignmentHashTable*)calloc(1, sizeof(AssignmentHashTable));
+static Assign_HT* createAssign_HT() {
+    return (Assign_HT*)calloc(1, sizeof(Assign_HT));
 }
 
 /**
  * @brief Frees all memory used by the hash table.
  * @param ht A pointer to the hash table that needs to be deallocated.
  */
-static void freeAssignmentHashTable(AssignmentHashTable* ht) {
+static void freeAssign_HT(Assign_HT* ht) {
     if (!ht) return;
     for (int i = 0; i < HASH_TABLE_SIZE; i++) {
-        AssignmentNode* current = ht->table[i];
+        Assign* current = ht->table[i];
         while (current) {
-            AssignmentNode* temp = current;
+            Assign* temp = current;
             current = current->next;
             free(temp->literal);
             free(temp);
@@ -95,9 +95,9 @@ static void freeAssignmentHashTable(AssignmentHashTable* ht) {
  * @param literal The name of the variable to add or update.
  * @param value The boolean value to assign to the variable.
  */
-static void assignmentHT_Insert(AssignmentHashTable* ht, const char* literal, bool value) {
+static void HT_Insert(Assign_HT* ht, const char* literal, bool value) {
     unsigned long index = hash(literal);
-    AssignmentNode* current = ht->table[index];
+    Assign* current = ht->table[index];
 
     while (current) {
         if (strcmp(current->literal, literal) == 0) {
@@ -107,7 +107,7 @@ static void assignmentHT_Insert(AssignmentHashTable* ht, const char* literal, bo
         current = current->next;
     }
 
-    AssignmentNode* newNode = (AssignmentNode*)malloc(sizeof(AssignmentNode));
+    Assign* newNode = (Assign*)malloc(sizeof(Assign));
     newNode->literal = strdup(literal);
     newNode->value = value;
     newNode->next = ht->table[index];
@@ -123,9 +123,9 @@ static void assignmentHT_Insert(AssignmentHashTable* ht, const char* literal, bo
  * @param[out] out_value A pointer to a boolean where the found value is stored.
  * @return Returns true if the variable was found, and false otherwise.
  */
-static bool assignmentHT_Get(const AssignmentHashTable* ht, const char* literal, bool* out_value) {
+static bool HT_Get(const Assign_HT* ht, const char* literal, bool* out_value) {
     unsigned long index = hash(literal);
-    AssignmentNode* current = ht->table[index];
+    Assign* current = ht->table[index];
     while (current) {
         if (strcmp(current->literal, literal) == 0) {
             *out_value = current->value;
@@ -137,12 +137,12 @@ static bool assignmentHT_Get(const AssignmentHashTable* ht, const char* literal,
 }
 
 
-bool evaluateTree(TreeNode *root, const AssignmentHashTable *assignments) {
+bool evaluateTree(TreeNode *root, const Assign_HT *assignments) {
     if (!root || !root->data) return false;
 
     if (isAtom(root->data)) {
         bool value;
-        if (assignmentHT_Get(assignments, root->data, &value)) {
+        if (HT_Get(assignments, root->data, &value)) {
             return value;
         }
         return false; // Assume false if a variable is not assigned.
@@ -165,19 +165,19 @@ bool evaluateFromFile(TreeNode* root, const char* filename) {
     FILE *fp = fopen(filename, "r");
     if (!fp) return false;
 
-    AssignmentHashTable* assignments_ht = createAssignmentHashTable();
+    Assign_HT* assignments_ht = createAssign_HT();
     char line_buffer[256];
     while (fgets(line_buffer, sizeof(line_buffer), fp)) {
         char literal_buffer[128];
         char value_char;
         if (sscanf(line_buffer, "%127s = %c", literal_buffer, &value_char) == 2) {
-            assignmentHT_Insert(assignments_ht, literal_buffer, (value_char == 'T' || value_char == 't'));
+            HT_Insert(assignments_ht, literal_buffer, (value_char == 'T' || value_char == 't'));
         }
     }
     fclose(fp);
 
     evaluateTree(root, assignments_ht);
-    freeAssignmentHashTable(assignments_ht);
+    freeAssign_HT(assignments_ht);
     return true;
 }
 
@@ -186,29 +186,29 @@ bool evaluateFromFile(TreeNode* root, const char* filename) {
  * @param node The current node being visited in the tree.
  * @param ht The hash table used to keep track of literals already found.
  */
-static void collectLiteralsRecursive(TreeNode* node, AssignmentHashTable* ht) {
+static void Track_Unique_Literals(TreeNode* node, Assign_HT* ht) {
     if (node == NULL) return;
     if (isAtom(node->data)) {
-        assignmentHT_Insert(ht, node->data, false);
+        HT_Insert(ht, node->data, false);
     }
-    collectLiteralsRecursive(node->left, ht);
-    collectLiteralsRecursive(node->right, ht);
+    Track_Unique_Literals(node->left, ht);
+    Track_Unique_Literals(node->right, ht);
 }
 
-int collectUniqueLiterals(TreeNode *root, char ***literals_list_out) {
-    AssignmentHashTable* ht = createAssignmentHashTable();
-    collectLiteralsRecursive(root, ht);
+int get_Unique_Literals(TreeNode *root, char ***literals_list_out) {
+    Assign_HT* ht = createAssign_HT();
+    Track_Unique_Literals(root, ht);
 
     int count = 0;
     for (int i = 0; i < HASH_TABLE_SIZE; i++) {
-        for (AssignmentNode* node = ht->table[i]; node != NULL; node = node->next) count++;
+        for (Assign* node = ht->table[i]; node != NULL; node = node->next) count++;
     }
 
     if (count > 0) {
         *literals_list_out = (char**)malloc(count * sizeof(char*));
         int k = 0;
         for (int i = 0; i < HASH_TABLE_SIZE; i++) {
-            for (AssignmentNode* node = ht->table[i]; node != NULL; node = node->next) {
+            for (Assign* node = ht->table[i]; node != NULL; node = node->next) {
                 (*literals_list_out)[k++] = strdup(node->literal);
             }
         }
@@ -216,7 +216,7 @@ int collectUniqueLiterals(TreeNode *root, char ***literals_list_out) {
         *literals_list_out = NULL;
     }
 
-    freeAssignmentHashTable(ht);
+    freeAssign_HT(ht);
     return count;
 }
 
@@ -230,13 +230,13 @@ void printTruthTable(TreeNode* root, char** literals, int count, const char* for
     for (int i = 0; i < count; i++) printf("| %-5s ", literals[i]);
     printf("| %s |\n", formula_str);
     
-    AssignmentHashTable* current_assignments = createAssignmentHashTable();
+    Assign_HT* current_assignments = createAssign_HT();
     for (int i = 0; i < count; i++) {
-        assignmentHT_Insert(current_assignments, literals[i], false);
+        HT_Insert(current_assignments, literals[i], false);
     }
 
-    generateAssignmentsAndPrint(root, literals, count, 0, current_assignments);
-    freeAssignmentHashTable(current_assignments);
+    Assign_value(root, literals, count, 0, current_assignments);
+    freeAssign_HT(current_assignments);
 }
 
 /**
@@ -253,11 +253,11 @@ void printTruthTable(TreeNode* root, char** literals, int count, const char* for
  * @param index The current variable being processed.
  * @param current_assignments The hash table storing assignments for the current row.
  */
-static void generateAssignmentsAndPrint(TreeNode* root, char** literals, int count, int index, AssignmentHashTable* current_assignments) {
+static void Assign_value(TreeNode* root, char** literals, int count, int index, Assign_HT* current_assignments) {
     if (index == count) {
         for (int i = 0; i < count; i++) {
             bool value;
-            assignmentHT_Get(current_assignments, literals[i], &value);
+            HT_Get(current_assignments, literals[i], &value);
             printf("| %-5s ", value ? "T" : "F");
         }
         bool result = evaluateTree(root, current_assignments);
@@ -265,9 +265,9 @@ static void generateAssignmentsAndPrint(TreeNode* root, char** literals, int cou
         return;
     }
 
-    assignmentHT_Insert(current_assignments, literals[index], false);
-    generateAssignmentsAndPrint(root, literals, count, index + 1, current_assignments);
+    HT_Insert(current_assignments, literals[index], false);
+    Assign_value(root, literals, count, index + 1, current_assignments);
 
-    assignmentHT_Insert(current_assignments, literals[index], true);
-    generateAssignmentsAndPrint(root, literals, count, index + 1, current_assignments);
+    HT_Insert(current_assignments, literals[index], true);
+    Assign_value(root, literals, count, index + 1, current_assignments);
 }
