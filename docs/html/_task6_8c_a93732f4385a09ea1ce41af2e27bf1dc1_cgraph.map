@@ -17,7 +17,7 @@
 <area shape="poly" id="edge8_Node000004_Node000003" title=" " alt="" coords="169,36,228,34,296,41,335,54,369,70,367,75,333,58,295,46,228,39,169,41"/>
 <area shape="poly" id="edge9_Node000004_Node000004" title=" " alt="" coords="118,30,115,21,117,11,125,5,137,3,151,5,158,12,155,16,149,10,137,8,127,10,121,14,120,20,123,28"/>
 <area shape="poly" id="edge11_Node000005_Node000005" title=" " alt="" coords="118,206,115,197,117,187,125,181,137,179,151,181,158,188,155,192,149,186,137,184,127,186,121,190,120,196,123,204"/>
-<area shape="rect" id="Node000007" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand). An atom is any token that is not a known operator." alt="" coords="226,255,289,280"/>
+<area shape="rect" id="Node000007" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand)." alt="" coords="226,255,289,280"/>
 <area shape="poly" id="edge13_Node000006_Node000007" title=" " alt="" coords="171,265,211,265,211,270,171,270"/>
 <area shape="rect" id="Node000008" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="370,279,438,304"/>
 <area shape="poly" id="edge14_Node000007_Node000008" title=" " alt="" coords="290,270,355,281,354,286,289,275"/>

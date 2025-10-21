@@ -117,8 +117,11 @@ $(function(){initNavTree('struct_tree_node.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:ac385b30df5a74875def4973343e9bd2e" id="r_ac385b30df5a74875def4973343e9bd2e"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac385b30df5a74875def4973343e9bd2e">data</a></td></tr>
+<tr class="memdesc:ac385b30df5a74875def4973343e9bd2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The operator or atom character ('A'-'Z', 'a'-'z', '~', '&gt;', '+', '*').  <br /></td></tr>
 <tr class="memitem:af4ab5453a9305f5620c0eb9ac360fb90" id="r_af4ab5453a9305f5620c0eb9ac360fb90"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_tree_node.html">TreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4ab5453a9305f5620c0eb9ac360fb90">left</a></td></tr>
+<tr class="memdesc:af4ab5453a9305f5620c0eb9ac360fb90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the left child node.  <br /></td></tr>
 <tr class="memitem:a66ef3b5201772f36789f8da6fe46eda6" id="r_a66ef3b5201772f36789f8da6fe46eda6"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_tree_node.html">TreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66ef3b5201772f36789f8da6fe46eda6">right</a></td></tr>
+<tr class="memdesc:a66ef3b5201772f36789f8da6fe46eda6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the right child node.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a node in the abstract syntax tree (AST) of a propositional logic formula. </p>
@@ -135,6 +138,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>The operator or atom character ('A'-'Z', 'a'-'z', '~', '&gt;', '+', '*'). </p>
 
 </div>
@@ -150,7 +154,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pointer to the left child node. Used for binary operators. </p>
+
+<p>Pointer to the left child node. </p>
+<p>Used for binary operators. </p>
 
 </div>
 </div>
@@ -165,7 +171,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pointer to the right child node. Used for both unary ('~') and binary operators. </p>
+
+<p>Pointer to the right child node. </p>
+<p>Used for both unary ('~') and binary operators. </p>
 
 </div>
 </div>

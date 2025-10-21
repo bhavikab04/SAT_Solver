@@ -5,7 +5,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="434,179,405,129,365,76,342,58,346,53,369,72,410,126,438,176"/>
 <area shape="rect" id="Node000003" href="$_task6_8c.html#a85ccaa203611107094401f69fead7bdf" title="Driver function for converting an arbitrary formula to Conjunctive Normal Form (CNF)." alt="" coords="103,155,224,180"/>
 <area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="431,181,404,147,386,132,366,121,342,114,317,112,267,120,221,138,186,157,184,152,219,133,266,115,317,106,343,108,368,116,389,128,407,144,435,177"/>
-<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,279,55,304"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,279,55,304"/>
 <area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="427,230,400,251,368,269,325,282,280,292,191,300,112,301,55,297,55,291,112,295,191,295,279,286,324,277,366,264,397,247,424,226"/>
 <area shape="rect" id="Node000005" href="$_task6_8c.html#ad308644f7e1e684c100810694ac02d41" title="Eliminates all implication operators (&#39;&gt;&#39;) from the formula." alt="" coords="272,155,367,180"/>
 <area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="400,193,366,184,368,178,401,188"/>

@@ -12,9 +12,9 @@
 <area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="138,217,170,217,170,222,138,222"/>
 <area shape="rect" id="Node000007" href="$task1_8c.html#a6915df24ae1e8618808b5baf74e81831" title="Checks if a character is a supported operator." alt="" coords="199,256,280,282"/>
 <area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="119,230,185,250,184,255,117,236"/>
-<area shape="rect" id="Node000008" href="$task1_8c.html#aa29204da7130cf1b6f916fa4660912d8" title="Reverses a string in place. This is needed for the operands read backwards." alt="" coords="200,305,280,331"/>
+<area shape="rect" id="Node000008" href="$task1_8c.html#aa29204da7130cf1b6f916fa4660912d8" title="Reverses a string in place." alt="" coords="200,305,280,331"/>
 <area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="93,231,135,260,187,292,195,296,192,301,184,296,132,264,90,235"/>
-<area shape="rect" id="Node000009" href="$task1_8c.html#a60d67638b713875c72a088ccb7bd0edf" title="Determines the precedence of an operator. Higher number corresponds to a higher precedence." alt="" coords="196,355,284,380"/>
+<area shape="rect" id="Node000009" href="$task1_8c.html#a60d67638b713875c72a088ccb7bd0edf" title="Determines the precedence of an operator." alt="" coords="196,355,284,380"/>
 <area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="84,231,126,283,155,314,187,341,192,345,189,349,184,346,151,318,121,287,80,234"/>
 <area shape="rect" id="Node000010" href="$task1_8c.html#af9d75461c12377af99958163d3e5d018" title="Pushes a string item onto the stack." alt="" coords="215,404,264,430"/>
 <area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="81,231,119,305,150,351,187,391,203,401,200,405,184,395,145,354,114,308,76,234"/>

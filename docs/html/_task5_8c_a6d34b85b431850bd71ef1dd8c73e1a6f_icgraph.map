@@ -10,7 +10,7 @@
 <area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="492,142,387,207,384,203,489,137"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="390,16,381,10,363,8,346,10,337,15,335,20,339,28,335,30,329,21,333,11,344,5,363,3,383,5,393,12"/>
 <area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="299,62,223,82,221,77,297,57"/>
-<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,131,55,156"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,131,55,156"/>
 <area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="120,114,56,137,54,132,118,109"/>
 <area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="95,146,55,146,55,141,95,141"/>
 <area shape="poly" id="edge11_Node000006_Node000006" title=" " alt="" coords="390,192,381,186,363,184,346,186,337,191,335,196,339,204,335,206,329,197,333,187,344,181,363,179,383,181,393,188"/>

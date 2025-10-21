@@ -3,7 +3,7 @@
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="31,55,27,46,29,37,38,30,54,28,70,31,78,37,75,42,68,36,53,33,40,35,33,40,32,46,36,53"/>
 <area shape="rect" id="Node000002" href="$_task5_8c.html#ab5b7688c6792c3ca61820ac6a88254dc" title="Retrieves a variable&#39;s value from the hash table." alt="" coords="150,29,217,55"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="102,55,134,49,135,54,103,61"/>
-<area shape="rect" id="Node000004" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand). An atom is any token that is not a known operator." alt="" coords="152,79,214,104"/>
+<area shape="rect" id="Node000004" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand)." alt="" coords="152,79,214,104"/>
 <area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="103,74,137,80,136,86,102,79"/>
 <area shape="rect" id="Node000003" href="$_task5_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash index from a string (djb2 algorithm)." alt="" coords="274,29,324,55"/>
 <area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="217,40,259,40,259,45,217,45"/>

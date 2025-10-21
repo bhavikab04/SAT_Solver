@@ -177,7 +177,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a23bb8ff1764ad3b7f91c564dd918746a" id="r_a23bb8ff1764ad3b7f91c564dd918746a"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23bb8ff1764ad3b7f91c564dd918746a">pop</a> (<a class="el" href="struct_stack.html">Stack</a> *stack)</td></tr>
 <tr class="memdesc:a23bb8ff1764ad3b7f91c564dd918746a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops a string item from the stack.  <br /></td></tr>
 <tr class="memitem:afc0d1f371e3750b1c5d184672e816013" id="r_afc0d1f371e3750b1c5d184672e816013"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc0d1f371e3750b1c5d184672e816013">freeStack</a> (<a class="el" href="struct_stack.html">Stack</a> *stack)</td></tr>
-<tr class="memdesc:afc0d1f371e3750b1c5d184672e816013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all memory associated with the stack. This includes all strings still on the stack, the data array, and the stack structure itself.  <br /></td></tr>
+<tr class="memdesc:afc0d1f371e3750b1c5d184672e816013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all memory associated with the stack.  <br /></td></tr>
 <tr class="memitem:a6c59b46ff495586afe7869b39c0859d2" id="r_a6c59b46ff495586afe7869b39c0859d2"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c59b46ff495586afe7869b39c0859d2">read_line</a> (FILE *stream)</td></tr>
 <tr class="memdesc:a6c59b46ff495586afe7869b39c0859d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a line of arbitrary length from a stream.  <br /></td></tr>
 <tr class="memitem:af2160a30128fd75f80d206fb5d0bbb66" id="r_af2160a30128fd75f80d206fb5d0bbb66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_stack.html">Stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2160a30128fd75f80d206fb5d0bbb66">task1_infixToPrefix</a> (const char *infix)</td></tr>
@@ -227,7 +227,7 @@ Functions</h2></td></tr>
 <area shape="rect" title="Creates and initializes a new stack." alt="" coords="283,5,374,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="268,21,235,21,235,16,268,16"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -249,14 +249,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Frees all memory associated with the stack. This includes all strings still on the stack, the data array, and the stack structure itself. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Frees all memory associated with the stack. </p>
+<p>This includes all strings still on the stack, the data array, and the stack structure itself. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stack</td><td>Pointer to the stack to be freed.</td></tr>
   </table>
   </dd>
 </dl>
-<p>Frees all memory associated with the stack. This includes all strings still on the stack, the data array, and the stack structure itself.</p>
+<p>Frees all memory associated with the stack.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stack</td><td>Pointer to the stack that is to be freed. </td></tr>
@@ -269,7 +269,7 @@ Functions</h2></td></tr>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_task1_8h_afc0d1f371e3750b1c5d184672e816013_cgraph.png" border="0" usemap="#a_task1_8h_afc0d1f371e3750b1c5d184672e816013_cgraph" loading="lazy" alt=""/></div>
 <map name="a_task1_8h_afc0d1f371e3750b1c5d184672e816013_cgraph" id="a_task1_8h_afc0d1f371e3750b1c5d184672e816013_cgraph">
-<area shape="rect" title="Frees all memory associated with the stack. This includes all strings still on the stack,..." alt="" coords="5,5,83,31"/>
+<area shape="rect" title="Frees all memory associated with the stack." alt="" coords="5,5,83,31"/>
 <area shape="rect" href="task1_8c.html#ad698665e5524cf4a5e0492eed5f80211" title="Checks if the stack is empty." alt="" coords="221,5,290,31"/>
 <area shape="poly" title=" " alt="" coords="83,16,205,16,205,21,83,21"/>
 <area shape="rect" href="task1_8c.html#a23bb8ff1764ad3b7f91c564dd918746a" title="Pops a string item from the stack." alt="" coords="131,31,173,56"/>
@@ -283,8 +283,8 @@ Functions</h2></td></tr>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_task1_8h_afc0d1f371e3750b1c5d184672e816013_icgraph.png" border="0" usemap="#a_task1_8h_afc0d1f371e3750b1c5d184672e816013_icgraph" loading="lazy" alt=""/></div>
 <map name="a_task1_8h_afc0d1f371e3750b1c5d184672e816013_icgraph" id="a_task1_8h_afc0d1f371e3750b1c5d184672e816013_icgraph">
-<area shape="rect" title="Frees all memory associated with the stack. This includes all strings still on the stack,..." alt="" coords="283,5,360,31"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
+<area shape="rect" title="Frees all memory associated with the stack." alt="" coords="283,5,360,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,55,21,55,16,267,16"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,31,235,56"/>
 <area shape="poly" title=" " alt="" coords="268,30,236,35,235,30,267,24"/>
@@ -339,7 +339,7 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="500,109,468,117,466,112,499,104"/>
 <area shape="rect" href="_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="283,157,376,183"/>
 <area shape="poly" title=" " alt="" coords="520,119,468,147,422,161,377,169,376,163,420,156,466,142,517,114"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,56,55,82"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,56,55,82"/>
 <area shape="poly" title=" " alt="" coords="276,23,194,31,103,46,56,62,54,56,102,41,193,26,275,18"/>
 <area shape="poly" title=" " alt="" coords="277,37,213,58,211,53,275,32"/>
 <area shape="poly" title=" " alt="" coords="87,72,55,72,55,66,87,66"/>
@@ -408,7 +408,7 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="393,72,235,72,235,66,393,66"/>
 <area shape="rect" href="_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="122,105,216,131"/>
 <area shape="poly" title=" " alt="" coords="394,78,216,112,215,107,393,73"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,56,55,82"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,56,55,82"/>
 <area shape="poly" title=" " alt="" coords="268,24,190,31,103,46,56,62,54,56,102,41,189,26,267,18"/>
 <area shape="poly" title=" " alt="" coords="269,38,211,58,209,53,268,33"/>
 <area shape="poly" title=" " alt="" coords="87,72,55,72,55,66,87,66"/>
@@ -463,7 +463,7 @@ Functions</h2></td></tr>
 <area shape="rect" title="Pushes a string item onto the stack." alt="" coords="283,5,332,31"/>
 <area shape="rect" href="task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
 <area shape="poly" title=" " alt="" coords="267,21,235,21,235,16,267,16"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -508,7 +508,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="_task1_8h_a6c59b46ff495586afe7869b39c0859d2_icgraph.png" border="0" usemap="#a_task1_8h_a6c59b46ff495586afe7869b39c0859d2_icgraph" loading="lazy" alt=""/></div>
 <map name="a_task1_8h_a6c59b46ff495586afe7869b39c0859d2_icgraph" id="a_task1_8h_a6c59b46ff495586afe7869b39c0859d2_icgraph">
 <area shape="rect" title="Reads a line of arbitrary length from a stream." alt="" coords="103,5,176,31"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
@@ -567,9 +567,9 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="138,217,170,217,170,222,138,222"/>
 <area shape="rect" href="task1_8c.html#a6915df24ae1e8618808b5baf74e81831" title="Checks if a character is a supported operator." alt="" coords="199,256,280,282"/>
 <area shape="poly" title=" " alt="" coords="119,230,185,250,184,255,117,236"/>
-<area shape="rect" href="task1_8c.html#aa29204da7130cf1b6f916fa4660912d8" title="Reverses a string in place. This is needed for the operands read backwards." alt="" coords="200,305,280,331"/>
+<area shape="rect" href="task1_8c.html#aa29204da7130cf1b6f916fa4660912d8" title="Reverses a string in place." alt="" coords="200,305,280,331"/>
 <area shape="poly" title=" " alt="" coords="93,231,135,260,187,292,195,296,192,301,184,296,132,264,90,235"/>
-<area shape="rect" href="task1_8c.html#a60d67638b713875c72a088ccb7bd0edf" title="Determines the precedence of an operator. Higher number corresponds to a higher precedence." alt="" coords="196,355,284,380"/>
+<area shape="rect" href="task1_8c.html#a60d67638b713875c72a088ccb7bd0edf" title="Determines the precedence of an operator." alt="" coords="196,355,284,380"/>
 <area shape="poly" title=" " alt="" coords="84,231,126,283,155,314,187,341,192,345,189,349,184,346,151,318,121,287,80,234"/>
 <area shape="rect" href="task1_8c.html#af9d75461c12377af99958163d3e5d018" title="Pushes a string item onto the stack." alt="" coords="215,404,264,430"/>
 <area shape="poly" title=" " alt="" coords="81,231,119,305,150,351,187,391,203,401,200,405,184,395,145,354,114,308,76,234"/>
@@ -585,7 +585,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="_task1_8h_af2160a30128fd75f80d206fb5d0bbb66_icgraph.png" border="0" usemap="#a_task1_8h_af2160a30128fd75f80d206fb5d0bbb66_icgraph" loading="lazy" alt=""/></div>
 <map name="a_task1_8h_af2160a30128fd75f80d206fb5d0bbb66_icgraph" id="a_task1_8h_af2160a30128fd75f80d206fb5d0bbb66_icgraph">
 <area shape="rect" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,5,235,31"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,5,55,31"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>

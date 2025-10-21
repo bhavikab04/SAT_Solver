@@ -1,6 +1,6 @@
 <map id="getExpLength" name="getExpLength">
 <area shape="rect" id="Node000001" title="Calculates the required string length for the infix expression." alt="" coords="103,29,204,55"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="174,16,167,10,153,8,141,10,134,14,133,20,136,28,132,30,128,21,130,11,139,5,153,3,169,5,177,12"/>
-<area shape="rect" id="Node000002" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,29,55,55"/>
+<area shape="rect" id="Node000002" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,29,55,55"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
 </map>

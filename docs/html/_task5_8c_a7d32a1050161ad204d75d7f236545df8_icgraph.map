@@ -6,7 +6,7 @@
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="272,70,240,70,240,65,272,65"/>
 <area shape="rect" id="Node000005" href="$_task5_8c.html#a2597eda358ca1446a3e05ddb1af31ae4" title="Prints a truth table, limiting output for large variable counts." alt="" coords="117,104,224,130"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="280,88,219,106,217,101,279,83"/>
-<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,55,55,80"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,55,55,80"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,39,56,62,54,56,117,34"/>
 <area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="87,70,55,70,55,65,87,65"/>
 <area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="117,101,54,79,56,73,118,96"/>

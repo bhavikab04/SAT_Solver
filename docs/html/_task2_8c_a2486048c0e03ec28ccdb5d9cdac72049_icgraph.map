@@ -1,6 +1,6 @@
 <map id="isBinary" name="isBinary">
 <area shape="rect" id="Node000001" title="Checks if a token is a binary operator." alt="" coords="942,316,1011,342"/>
-<area shape="rect" id="Node000002" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand). An atom is any token that is not a known operator." alt="" coords="832,265,894,291"/>
+<area shape="rect" id="Node000002" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand)." alt="" coords="832,265,894,291"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="931,312,893,294,895,289,933,307"/>
 <area shape="rect" id="Node000017" href="$_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="662,391,755,416"/>
 <area shape="poly" id="edge39_Node000001_Node000017" title=" " alt="" coords="929,345,756,393,754,388,927,340"/>
@@ -20,7 +20,7 @@
 <area shape="poly" id="edge9_Node000003_Node000003" title=" " alt="" coords="550,84,540,78,520,76,502,78,493,83,491,88,496,96,491,98,486,89,489,79,501,73,521,71,541,73,553,80"/>
 <area shape="rect" id="Node000004" href="$_task5_8c.html#af20250e404a5b30cabe9a4c624a768c4" title="Recursively generates and prints rows for the truth table." alt="" coords="298,148,397,174"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="460,130,395,150,393,145,459,125"/>
-<area shape="rect" id="Node000006" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,229,55,255"/>
+<area shape="rect" id="Node000006" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,229,55,255"/>
 <area shape="poly" id="edge10_Node000003_Node000006" title=" " alt="" coords="464,132,458,136,444,149,435,163,426,176,410,188,379,200,338,210,236,227,55,243,55,238,235,221,337,205,377,195,407,184,422,172,431,160,440,146,455,132,461,128"/>
 <area shape="rect" id="Node000007" href="$_task5_8c.html#acaed9188cbcf7a8f97c285743d8e96b4" title="Evaluates a formula using variable values from a file." alt="" coords="110,87,232,112"/>
 <area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="457,111,232,104,232,99,457,106"/>

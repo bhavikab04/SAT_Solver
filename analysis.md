@@ -5,9 +5,17 @@
 This document provides a detailed analysis of the project's multi-stage logic processing pipeline.
 
 \par Introduction
+
+**A Project By:**
+S Dharshana (2023B5A71208H),
+Bhavika Baburaj (2023B5A71210H),
+Vedika Nirmal Kumar Singh (2023B4A71359H),
+Sri Pujitha Konjeti (2023B1A71384H)
+
 This project implements a complex, multi-stage logic processing pipeline. The code is well-structured,  modular, and shows a strong command of C and core computer science concepts, including data structures (stacks, trees, hash tables) and algorithms (parsing, tree traversals, logical transformations).
 
 The architectural design is clean: `main.c` acts as a central "driver," passing a central data object (first a string, then a `TreeNode`) from one task module to the next. The Doxygen documentation makes the code maintainable and easy to understand.
+
 
 The analysis reveals a project of two halves:
 1.  **Tasks 1-4 (Parsing and Analysis):** These have no bottlenecks as such
