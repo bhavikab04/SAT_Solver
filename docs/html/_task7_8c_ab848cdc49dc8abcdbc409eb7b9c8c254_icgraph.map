@@ -1,0 +1,10 @@
+<map id="isClauseTautology" name="isClauseTautology">
+<area shape="rect" id="Node000001" title="Checks if an individual clause is a tautology." alt="" coords="510,29,639,55"/>
+<area shape="rect" id="Node000002" href="$_task7_8c.html#a4f83f423b745f2024ed0a378bef3c197" title="Recursively navigates the CNF structure to check each clause." alt="" coords="277,29,462,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="495,45,463,45,463,40,495,40"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="405,17,393,10,370,8,348,10,337,15,334,20,340,27,336,31,329,21,333,11,347,5,370,3,395,5,407,12"/>
+<area shape="rect" id="Node000003" href="$_task7_8c.html#a20129f9af610ac016eb7f2e16bbc17f4" title="Checks if a CNF formula is a tautology." alt="" coords="103,29,229,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="262,45,229,45,229,40,262,40"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,29,55,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
+</map>

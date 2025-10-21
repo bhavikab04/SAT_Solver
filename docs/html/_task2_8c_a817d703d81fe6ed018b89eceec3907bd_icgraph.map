@@ -1,0 +1,7 @@
+<map id="isNodeStackEmpty" name="isNodeStackEmpty">
+<area shape="rect" id="Node000001" title="Checks if the NodeStack is empty." alt="" coords="244,5,378,31"/>
+<area shape="rect" id="Node000002" href="$_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="103,5,196,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,21,196,21,196,16,229,16"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,5,55,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

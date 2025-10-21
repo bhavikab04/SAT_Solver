@@ -1,0 +1,8 @@
+<map id="generateAssignmentsAndPrint" name="generateAssignmentsAndPrint">
+<area shape="rect" id="Node000001" title="Recursively generates and prints each row of the truth table." alt="" coords="258,29,455,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="391,17,380,10,357,8,336,10,324,15,322,20,327,27,323,30,317,21,321,11,334,5,357,3,381,5,394,12"/>
+<area shape="rect" id="Node000002" href="$_task5_8c.html#a2597eda358ca1446a3e05ddb1af31ae4" title="Creates and prints a complete truth table for the formula." alt="" coords="103,29,210,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="242,45,210,45,210,40,242,40"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,29,55,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
+</map>

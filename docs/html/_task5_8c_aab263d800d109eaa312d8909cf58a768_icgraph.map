@@ -1,0 +1,18 @@
+<map id="assignmentHT_Get" name="assignmentHT_Get">
+<area shape="rect" id="Node000001" title="Looks up a variable&#39;s value in the hash table." alt="" coords="662,93,796,119"/>
+<area shape="rect" id="Node000002" href="$_task5_8c.html#ad2414fa3dad8119f1c5423f2661f5651" title="Evaluates the logical formula in the tree." alt="" coords="517,63,614,88"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="646,93,614,87,615,82,647,88"/>
+<area shape="rect" id="Node000005" href="$_task5_8c.html#aee0e5b55519d10a35218663de60de3ac" title="Recursively generates and prints each row of the truth table." alt="" coords="272,131,469,156"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="646,117,470,136,469,131,646,112"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="593,50,584,44,565,41,549,43,540,48,538,53,542,61,538,64,532,54,536,44,547,38,566,36,585,39,596,45"/>
+<area shape="rect" id="Node000003" href="$_task5_8c.html#acaed9188cbcf7a8f97c285743d8e96b4" title="Evaluates a formula using variable values from a file." alt="" coords="103,5,224,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="505,61,469,53,338,34,224,24,225,19,339,29,470,48,506,56"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,56,55,82"/>
+<area shape="poly" id="edge9_Node000002_Node000004" title=" " alt="" coords="502,77,55,72,55,66,502,72"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="513,96,411,133,409,128,511,91"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="114,40,56,62,54,57,112,35"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="404,118,393,112,371,109,350,111,339,116,337,121,342,129,338,132,332,122,335,112,349,106,371,104,395,107,407,114"/>
+<area shape="rect" id="Node000006" href="$_task5_8c.html#a2597eda358ca1446a3e05ddb1af31ae4" title="Creates and prints a complete truth table for the formula." alt="" coords="110,119,217,144"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="257,140,217,137,218,132,257,134"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="120,114,54,83,56,78,122,109"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="printTreeRecursiveHelper" name="printTreeRecursiveHelper">
+<area shape="rect" id="Node000001" title="Recursive helper function for printing the tree vertically." alt="" coords="5,29,175,55"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="62,30,56,21,60,11,71,5,90,3,110,5,121,12,118,16,108,10,90,8,73,10,64,15,62,20,66,28"/>
+<area shape="rect" id="Node000002" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="223,29,289,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,40,207,40,207,45,175,45"/>
+</map>

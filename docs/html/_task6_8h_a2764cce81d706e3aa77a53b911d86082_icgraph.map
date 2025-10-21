@@ -1,0 +1,11 @@
+<map id="DISTR" name="DISTR">
+<area shape="rect" id="Node000001" title="Distributes disjunction (&#39;+&#39;) over conjunction (&#39;*&#39;)." alt="" coords="369,29,432,55"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="417,16,411,10,400,8,390,10,385,14,384,20,387,28,382,30,378,21,380,11,388,5,401,3,414,5,421,12"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#a93732f4385a09ea1ce41af2e27bf1dc1" title="Converts an NNF formula to Conjunctive Normal Form (CNF)." alt="" coords="272,29,321,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="354,45,322,45,322,40,354,40"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="313,16,307,10,297,8,287,10,281,14,280,20,283,28,278,30,275,21,277,11,284,5,297,3,310,5,317,12"/>
+<area shape="rect" id="Node000003" href="$_task6_8c.html#a85ccaa203611107094401f69fead7bdf" title="Driver function for converting an arbitrary formula to Conjunctive Normal Form (CNF)." alt="" coords="103,29,224,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="256,45,224,45,224,40,256,40"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,29,55,55"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
+</map>

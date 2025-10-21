@@ -1,0 +1,7 @@
+<map id="isAtom" name="isAtom">
+<area shape="rect" id="Node000001" title="Checks if a string token represents an atom (a variable/operand). Checks the FIRST character for simp..." alt="" coords="5,31,68,56"/>
+<area shape="rect" id="Node000002" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="116,5,184,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,34,100,27,101,32,69,39"/>
+<area shape="rect" id="Node000003" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="117,55,183,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="69,47,102,55,101,60,68,53"/>
+</map>

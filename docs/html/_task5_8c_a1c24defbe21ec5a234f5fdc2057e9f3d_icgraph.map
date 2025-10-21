@@ -1,0 +1,20 @@
+<map id="assignmentHT_Insert" name="assignmentHT_Insert">
+<area shape="rect" id="Node000001" title="Inserts a new variable or updates an existing one in the hash table." alt="" coords="538,117,685,143"/>
+<area shape="rect" id="Node000002" href="$_task5_8c.html#a0113889471665bba55572ca1191e3743" title="Helper function to recursively find all unique literals in the tree." alt="" coords="312,29,472,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="569,113,489,77,437,58,438,53,491,72,572,108"/>
+<area shape="rect" id="Node000005" href="$_task5_8c.html#acaed9188cbcf7a8f97c285743d8e96b4" title="Evaluates a formula using variable values from a file." alt="" coords="113,80,234,106"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="522,124,490,121,235,100,235,95,491,116,523,119"/>
+<area shape="rect" id="Node000006" href="$_task5_8c.html#aee0e5b55519d10a35218663de60de3ac" title="Recursively generates and prints each row of the truth table." alt="" coords="293,155,490,180"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="524,148,472,157,471,151,523,143"/>
+<area shape="rect" id="Node000007" href="$_task5_8c.html#a2597eda358ca1446a3e05ddb1af31ae4" title="Creates and prints a complete truth table for the formula." alt="" coords="120,155,228,180"/>
+<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="581,154,539,177,491,195,419,205,346,204,279,195,223,184,225,178,279,190,346,198,418,200,490,190,537,172,578,149"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="430,17,417,10,392,8,369,10,356,15,354,20,360,27,355,31,348,21,353,11,367,5,392,3,418,5,432,12"/>
+<area shape="rect" id="Node000003" href="$_task5_8c.html#af9f1056614fbcb26ab5a9d329137b63c" title="Gathers all unique variable names from the formula tree." alt="" coords="103,31,245,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="297,45,246,46,246,40,297,40"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,80,55,106"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="120,64,104,70,56,87,54,82,102,65,118,59"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="97,96,55,96,55,90,97,90"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="430,142,417,136,392,133,369,135,356,140,354,145,360,153,355,156,348,146,353,136,367,130,392,128,418,131,432,138"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="278,170,228,170,228,165,278,165"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="132,149,54,108,56,103,135,145"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="negate_tree" name="negate_tree">
+<area shape="rect" id="Node000001" title="Creates a new negation node (&quot;~&quot;) for a given formula $\phi$." alt="" coords="5,55,95,80"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#a4d80f09cd9e9741c1fc166c987f0e8f3" title="Creates a deep copy of a propositional logic formula tree." alt="" coords="143,29,218,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,56,127,50,128,55,96,61"/>
+<area shape="rect" id="Node000003" href="$_task6_8c.html#af039c54f229051991073b472179c5ba3" title="Creates and allocates memory for a new TreeNode." alt="" coords="266,55,387,80"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="95,65,251,65,251,70,95,70"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="158,30,153,21,156,11,165,5,180,3,197,5,205,12,202,16,194,10,180,8,167,10,160,14,159,20,162,28"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="219,46,251,52,250,57,218,51"/>
+</map>

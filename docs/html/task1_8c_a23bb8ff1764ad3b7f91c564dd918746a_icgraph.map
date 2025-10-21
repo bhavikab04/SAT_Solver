@@ -1,0 +1,14 @@
+<map id="pop" name="pop">
+<area shape="rect" id="Node000001" title="Pops a string item from the stack." alt="" coords="408,56,451,82"/>
+<area shape="rect" id="Node000002" href="$task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all memory associated with the stack." alt="" coords="283,5,360,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,55,350,34,352,29,395,50"/>
+<area shape="rect" id="Node000004" href="$task1_8c.html#af2160a30128fd75f80d206fb5d0bbb66" title="Converts an infix expression string to a prefix expression stack." alt="" coords="103,56,235,82"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="393,72,235,72,235,66,393,66"/>
+<area shape="rect" id="Node000005" href="$_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="122,105,216,131"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="394,78,216,112,215,107,393,73"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,56,55,82"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="268,24,190,31,103,46,56,62,54,56,102,41,189,26,267,18"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="269,38,211,58,209,53,268,33"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="87,72,55,72,55,66,87,66"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="115,102,54,80,56,75,117,97"/>
+</map>

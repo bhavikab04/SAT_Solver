@@ -1,5 +1,5 @@
 /**
- * @file task_logic_conversion.c
+ * @file Task6.c
  * @brief Implementation of functions for converting propositional logic formulas to Conjunctive Normal Form (CNF).
  *
  * This file contains the implementation of functions for creating, copying, and manipulating

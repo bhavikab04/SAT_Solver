@@ -1,0 +1,24 @@
+<map id="task1_infixToPrefix" name="task1_infixToPrefix">
+<area shape="rect" id="Node000001" title="Converts an infix expression string to a prefix expression stack." alt="" coords="5,207,138,232"/>
+<area shape="rect" id="Node000002" href="$task1_8c.html#a4d864c6b72f0668478189fdeb616c701" title="Creates and initializes a new stack." alt="" coords="194,5,286,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,205,114,129,145,82,184,40,187,37,191,42,187,44,149,85,118,132,81,207"/>
+<area shape="rect" id="Node000003" href="$task1_8c.html#afc0d1f371e3750b1c5d184672e816013" title="Frees all memory associated with the stack." alt="" coords="201,55,278,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="81,204,124,155,184,97,199,87,202,91,187,102,128,159,85,208"/>
+<area shape="rect" id="Node000004" href="$task1_8c.html#ad698665e5524cf4a5e0492eed5f80211" title="Checks if the stack is empty." alt="" coords="432,105,502,131"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="132,203,384,141,417,131,418,136,385,146,133,209"/>
+<area shape="rect" id="Node000005" href="$task1_8c.html#a23bb8ff1764ad3b7f91c564dd918746a" title="Pops a string item from the stack." alt="" coords="342,105,384,131"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="89,204,131,175,185,148,260,127,326,118,327,123,261,133,187,153,134,180,92,208"/>
+<area shape="rect" id="Node000006" href="$task1_8c.html#a7b0c75b2308eae025b071d02f4bf423c" title="Checks if a character can be the start of an operand (a letter)." alt="" coords="186,207,294,232"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="138,217,170,217,170,222,138,222"/>
+<area shape="rect" id="Node000007" href="$task1_8c.html#a6915df24ae1e8618808b5baf74e81831" title="Checks if a character is a supported operator." alt="" coords="199,256,280,282"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="119,230,185,250,184,255,117,236"/>
+<area shape="rect" id="Node000008" href="$task1_8c.html#a2b16b14fb6f6462974698bf0f00f545d" title="Reverses a string in place." alt="" coords="200,305,280,331"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="93,231,135,260,187,292,195,296,192,301,184,296,132,264,90,235"/>
+<area shape="rect" id="Node000009" href="$task1_8c.html#a60d67638b713875c72a088ccb7bd0edf" title="Determines the precedence of an operator. Higher number means higher precedence." alt="" coords="196,355,284,380"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="84,231,126,283,155,314,187,341,192,345,189,349,184,346,151,318,121,287,80,234"/>
+<area shape="rect" id="Node000010" href="$task1_8c.html#af9d75461c12377af99958163d3e5d018" title="Pushes a string item onto the stack." alt="" coords="215,404,264,430"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="81,231,119,305,150,351,187,391,203,401,200,405,184,395,145,354,114,308,76,234"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="280,70,385,90,418,100,417,105,384,95,279,75"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="274,78,329,101,327,106,272,83"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="385,116,417,116,417,121,385,121"/>
+</map>

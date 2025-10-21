@@ -11,7 +11,17 @@ typedef struct TreeNode {
     struct TreeNode *left;
     struct TreeNode *right;
 } TreeNode; */
-
+/**
+ * @file Task3.c
+ * @brief Implementation file for Task 3: Parse Tree to Infix Conversion.
+ * @author [Your Name/Handle]
+ * @date October 2025
+ *
+ * Implements functions that perform an in-order traversal of the
+ * parse tree (like `inOrderTraversal`) to reconstruct the fully
+ * parenthesized infix string. Also includes `getExpLength` to
+ * calculate the required string buffer size.
+ */
 // Operators:
 
 /**
