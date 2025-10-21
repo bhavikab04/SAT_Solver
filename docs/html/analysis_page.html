@@ -101,7 +101,9 @@ $(function(){initNavTree('analysis_page.html','',''); });
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="overview_sec"></a>
 Overall Review and Summary</h1>
 <p>This document provides a detailed analysis of the project's multi-stage logic processing pipeline.</p>
-<dl class="section user"><dt>Introduction</dt><dd>This project implements a complex, multi-stage logic processing pipeline. The code is well-structured, modular, and shows a strong command of C and core computer science concepts, including data structures (stacks, trees, hash tables) and algorithms (parsing, tree traversals, logical transformations).</dd></dl>
+<dl class="section user"><dt>Introduction</dt><dd></dd></dl>
+<p><b>A Project By:</b> S Dharshana (2023B5A71208H), Bhavika Baburaj (2023B5A71210H), Vedika Nirmal Kumar Singh (2023B4A71359H), Sri Pujitha Konjeti (2023B1A71384H)</p>
+<p>This project implements a complex, multi-stage logic processing pipeline. The code is well-structured, modular, and shows a strong command of C and core computer science concepts, including data structures (stacks, trees, hash tables) and algorithms (parsing, tree traversals, logical transformations).</p>
 <p>The architectural design is clean: <span class="tt"><a class="el" href="_main_8c.html" title="Main driver for the logic formula processing pipeline.">main.c</a></span> acts as a central "driver," passing a central data object (first a string, then a <span class="tt"><a class="el" href="struct_tree_node.html" title="Represents a node in the abstract syntax tree (AST) of a propositional logic formula.">TreeNode</a></span>) from one task module to the next. The Doxygen documentation makes the code maintainable and easy to understand.</p>
 <p>The analysis reveals a project of two halves:</p><ol type="1">
 <li><b>Tasks 1-4 (Parsing and Analysis):</b> These have no bottlenecks as such</li>
@@ -214,7 +216,7 @@ Task 0: CNF to Infix (convertingCNFtoInput.c)</h2>
 <li><b>Space:</b> \(O(1)\) (aside from a fixed-size <span class="tt">line_buffer</span>).</li>
 </ul>
 </li>
-<li><p class="startli"><b><span class="tt"><a class="el" href="converting_c_n_fto_input_8c.html#a2f44fa1c81b2f60b6f59fcbee6f316f1" title="Builds a fully parenthesized string for a single clause. (static = private to this file)">build_clause_string(char* line)</a></span></b></p><ul>
+<li><p class="startli"><b><span class="tt"><a class="el" href="converting_c_n_fto_input_8c.html#a2f44fa1c81b2f60b6f59fcbee6f316f1" title="Builds a fully parenthesized string for a single clause.">build_clause_string(char* line)</a></span></b></p><ul>
 <li><b>Output:</b> A dynamically allocated <span class="tt">char*</span> for a single clause.</li>
 <li><b>Time:</b> \(O(L^2 \cdot k)\).</li>
 <li><b>Space:</b> \(O(L \cdot k)\).</li>
@@ -277,7 +279,7 @@ Task 2: Prefix to Tree (Task2.c)</h2>
 Task 3: Tree to Infix (Task3.c)</h2>
 <p>Reconstructs the fully-parenthesized infix string from the parse tree.</p>
 <ul>
-<li><b><span class="tt"><a class="el" href="_task3_8c.html#a08875542fa7d7370c09a41d4d6337497" title="Calculates the total length of infix expression represented by the parse tree. (Includes parantheses ...">getExpLength(TreeNode *root)</a></span></b><ul>
+<li><b><span class="tt"><a class="el" href="_task3_8c.html#a08875542fa7d7370c09a41d4d6337497" title="Calculates the total length of infix expression represented by the parse tree.">getExpLength(TreeNode *root)</a></span></b><ul>
 <li><b>Output:</b> An <span class="tt">int</span> for the total required string length.</li>
 <li><b>Time:</b> \(O(M \cdot k)\). Visits every node once. Work per node is \(O(k)\) (for <span class="tt">strlen</span> on atoms) or \(O(1)\) for operators.</li>
 <li><b>Space:</b> \(O(H)\) (for the recursive call stack).</li>

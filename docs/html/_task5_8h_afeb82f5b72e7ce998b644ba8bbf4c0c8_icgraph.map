@@ -3,7 +3,7 @@
 <area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="492,67,483,61,467,59,453,61,445,65,443,71,447,78,442,81,438,71,440,62,451,56,468,53,485,56,495,63"/>
 <area shape="rect" id="Node000002" href="$_task5_8c.html#af20250e404a5b30cabe9a4c624a768c4" title="Recursively generates and prints rows for the truth table." alt="" coords="272,29,371,55"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="413,77,360,58,362,53,415,72"/>
-<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,80,55,106"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,80,55,106"/>
 <area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="404,96,55,96,55,90,404,90"/>
 <area shape="rect" id="Node000005" href="$_task5_8c.html#acaed9188cbcf7a8f97c285743d8e96b4" title="Evaluates a formula using variable values from a file." alt="" coords="103,131,224,156"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="404,108,372,114,225,138,224,132,371,109,403,103"/>

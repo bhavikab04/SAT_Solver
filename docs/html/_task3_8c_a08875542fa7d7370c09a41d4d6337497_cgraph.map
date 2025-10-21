@@ -1,5 +1,5 @@
 <map id="getExpLength" name="getExpLength">
-<area shape="rect" id="Node000001" title="Calculates the total length of infix expression represented by the parse tree. (Includes parantheses ..." alt="" coords="5,31,107,56"/>
+<area shape="rect" id="Node000001" title="Calculates the total length of infix expression represented by the parse tree." alt="" coords="5,31,107,56"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="31,31,27,22,30,13,40,6,56,4,73,7,83,13,80,18,71,12,56,9,42,11,34,16,32,22,36,29"/>
 <area shape="rect" id="Node000002" href="$_task3_8c.html#a63be34c281e131dc6f428988694905ee" title="Checks if a string token is a binary operator." alt="" coords="155,5,240,31"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="107,32,139,26,140,31,107,37"/>
