@@ -24,7 +24,7 @@
 int find_height(TreeNode *root) {
     // An empty tree (NULL) is defined to have a height of -1.
     if (root == NULL) {
-        return -1;
+        return 0;
     }
 
     // Find the height of the left and right branches from this node.
