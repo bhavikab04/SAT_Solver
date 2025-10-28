@@ -1,6 +1,6 @@
 <map id="inOrderTraversal" name="inOrderTraversal">
-<area shape="rect" id="Node000001" title="Performs an in&#45;order traversal (infix) of the parse tree and writes it to a buffer." alt="" coords="103,29,220,55"/>
+<area shape="rect" id="Node000001" title="Performs an in&#45;order traversal of the parse tree and writes it to a buffer." alt="" coords="103,29,220,55"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="183,16,176,10,161,8,148,10,141,14,139,20,143,28,138,30,134,21,137,11,146,5,161,3,178,5,186,12"/>
-<area shape="rect" id="Node000002" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,29,55,55"/>
+<area shape="rect" id="Node000002" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,29,55,55"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
 </map>

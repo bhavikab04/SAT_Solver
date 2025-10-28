@@ -7,7 +7,7 @@
 /**
  * @file Task2.c
  * @brief Implementation file for Task 2: Prefix to Parse Tree Conversion.
- * @author [Your Name/Handle]
+ * @author [Team]
  * @date October 2025
  *
  * Implements the `prefixToTree` function, which recursively (or
@@ -15,7 +15,7 @@
  * for tree traversal, printing, and deallocation functions.
  */
 
-// --- Private Helper Prototypes ---
+//  Private Helper Prototypes 
 
 /**
  * @brief Allocates and initializes a new TreeNode.
@@ -46,7 +46,7 @@ static bool isUnary(const char *token);
  */
 static void printTreeRecursiveHelper(TreeNode *root, const char *prefix, bool isLastChild);
 
-// === Stack for TreeNodes (used by iterative builder) ===
+// Stack for TreeNodes (used by iterative builder) 
 
 /**
  * @brief A simple stack structure for holding TreeNode pointers.
@@ -109,10 +109,10 @@ static TreeNode* node_pop(NodeStack* ns) { return (ns->top >= 0) ? ns->data[ns->
  * @param ns The NodeStack to free.
  */
 static void freeNodeStack(NodeStack* ns) { free(ns->data); free(ns); }
-// === END: NodeStack ===
+//  END: NodeStack 
 
 
-// --- Public Function Definitions ---
+//  Public Function Definitions 
 
 /**
  * @brief Helper to check if a token is an atom (operand).
@@ -215,9 +215,8 @@ TreeNode* prefixToTree(Stack *prefix_stack) {
              freeTree(new_node); break; // Error state
         }
 
-        // 5. If the new node we just attached is *also* an operator,
-        // push it onto the node_stack. It will now be the next node
-        // waiting for *its* children.
+        // If the new node is also an operator, push it onto the node_stack. 
+        //It becomes the parent awaiting its children.
         if (attached && !isAtom(new_node->data)) {
             node_push(node_stack, new_node);
         } else if (!attached) {
@@ -246,7 +245,7 @@ TreeNode* prefixToTree(Stack *prefix_stack) {
 }
 
 
-// --- Functions below remain the same ---
+//  Functions below remain the same 
 
 /**
  * @brief Public function to print the tree in a vertical, human-readable format.
@@ -289,7 +288,7 @@ void freeTree(TreeNode *root) {
     free(root);       
 }
 
-// --- Private Helper Implementations ---
+// Private Helper Implementations 
 
 /**
  * @brief Allocates and initializes a new TreeNode.

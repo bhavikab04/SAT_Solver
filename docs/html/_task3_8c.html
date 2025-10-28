@@ -17,7 +17,14 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -92,7 +99,7 @@ $(function(){initNavTree('_task3_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation file for Task 3: Parse Tree to Infix Conversion.  
+<p>This is the implementation file for Task 3: Conversion of a parse tree to an infix.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -106,7 +113,7 @@ $(function(){initNavTree('_task3_8c.html','',''); });
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_task3_8c__incl.png" border="0" usemap="#a_task3_8c" loading="lazy" alt=""/></div>
 <map name="a_task3_8c" id="a_task3_8c">
-<area shape="rect" title="Implementation file for Task 3: Parse Tree to Infix Conversion." alt="" coords="148,5,216,31"/>
+<area shape="rect" title="This is the implementation file for Task 3: Conversion of a parse tree to an infix." alt="" coords="148,5,216,31"/>
 <area shape="rect" title=" " alt="" coords="120,226,180,252"/>
 <area shape="poly" title=" " alt="" coords="148,23,115,28,79,38,45,55,18,81,9,100,10,119,18,138,32,156,72,190,114,216,111,221,68,194,28,160,13,140,5,120,4,99,13,77,42,50,77,33,114,23,147,18"/>
 <area shape="rect" title=" " alt="" coords="28,79,91,105"/>
@@ -120,7 +127,7 @@ $(function(){initNavTree('_task3_8c.html','',''); });
 <area shape="rect" href="_task2_8h.html" title="Header file for Task 2: Prefix to Parse Tree Conversion." alt="" coords="342,79,409,105"/>
 <area shape="poly" title=" " alt="" coords="216,29,329,71,327,76,214,34"/>
 <area shape="poly" title=" " alt="" coords="352,108,272,148,269,143,350,103"/>
-<area shape="rect" href="_task1_8h.html" title="Header file for Task 1: Infix to Prefix Conversion." alt="" coords="326,153,393,178"/>
+<area shape="rect" href="_task1_8h.html" title="This is the header file for Task 1: Infix to Prefix Conversion." alt="" coords="326,153,393,178"/>
 <area shape="poly" title=" " alt="" coords="375,105,368,138,363,137,370,104"/>
 <area shape="poly" title=" " alt="" coords="326,181,196,225,194,220,324,176"/>
 </map>
@@ -133,15 +140,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a2be234d2a12b262e4bf244a2695c94e8" id="r_a2be234d2a12b262e4bf244a2695c94e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2be234d2a12b262e4bf244a2695c94e8">isUnaryOp</a> (const char *c)</td></tr>
 <tr class="memdesc:a2be234d2a12b262e4bf244a2695c94e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a string token is a unary operator.  <br /></td></tr>
 <tr class="memitem:a7050a0e6939750496aa28ae7f1eea007" id="r_a7050a0e6939750496aa28ae7f1eea007"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7050a0e6939750496aa28ae7f1eea007">inOrderTraversal</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root, char *bufferStr, int *position)</td></tr>
-<tr class="memdesc:a7050a0e6939750496aa28ae7f1eea007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs an in-order traversal (infix) of the parse tree and writes it to a buffer.  <br /></td></tr>
+<tr class="memdesc:a7050a0e6939750496aa28ae7f1eea007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs an in-order traversal of the parse tree and writes it to a buffer.  <br /></td></tr>
 <tr class="memitem:a08875542fa7d7370c09a41d4d6337497" id="r_a08875542fa7d7370c09a41d4d6337497"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08875542fa7d7370c09a41d4d6337497">getExpLength</a> (<a class="el" href="struct_tree_node.html">TreeNode</a> *root)</td></tr>
-<tr class="memdesc:a08875542fa7d7370c09a41d4d6337497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the total length of infix expression represented by the parse tree. (Includes parantheses and spaces)  <br /></td></tr>
+<tr class="memdesc:a08875542fa7d7370c09a41d4d6337497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the total length of infix expression represented by the parse tree.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation file for Task 3: Parse Tree to Infix Conversion. </p>
-<dl class="section author"><dt>Author</dt><dd>[Your Name/Handle] </dd></dl>
+<div class="textblock"><p>This is the implementation file for Task 3: Conversion of a parse tree to an infix. </p>
+<dl class="section author"><dt>Author</dt><dd>[Team] </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>October 2025</dd></dl>
-<p>Implements functions that perform an in-order traversal of the parse tree (like <span class="tt">inOrderTraversal</span>) to reconstruct the fully parenthesized infix string. Also includes <span class="tt">getExpLength</span> to calculate the required string buffer size. </p>
+<p>Implements functions that perform an in-order traversal of the parse tree to reconstruct the infix string. Also includes <span class="tt">getExpLength</span> to calculate the required string buffer size. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a08875542fa7d7370c09a41d4d6337497" name="a08875542fa7d7370c09a41d4d6337497"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08875542fa7d7370c09a41d4d6337497">&#9670;&#160;</a></span>getExpLength()</h2>
@@ -158,9 +165,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculates the total length of infix expression represented by the parse tree. (Includes parantheses and spaces) </p>
+<p>Calculates the total length of infix expression represented by the parse tree. </p>
 <p>Calculates the required string length for the infix expression.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>(Includes parantheses and spaces) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>Pointer to the root node of the subtree </td></tr>
   </table>
@@ -173,7 +180,7 @@ Functions</h2></td></tr>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_task3_8c_a08875542fa7d7370c09a41d4d6337497_cgraph.png" border="0" usemap="#a_task3_8c_a08875542fa7d7370c09a41d4d6337497_cgraph" loading="lazy" alt=""/></div>
 <map name="a_task3_8c_a08875542fa7d7370c09a41d4d6337497_cgraph" id="a_task3_8c_a08875542fa7d7370c09a41d4d6337497_cgraph">
-<area shape="rect" title="Calculates the total length of infix expression represented by the parse tree. (Includes parantheses ..." alt="" coords="5,31,107,56"/>
+<area shape="rect" title="Calculates the total length of infix expression represented by the parse tree." alt="" coords="5,31,107,56"/>
 <area shape="poly" title=" " alt="" coords="31,31,27,22,30,13,40,6,56,4,73,7,83,13,80,18,71,12,56,9,42,11,34,16,32,22,36,29"/>
 <area shape="rect" href="_task3_8c.html#a63be34c281e131dc6f428988694905ee" title="Checks if a string token is a binary operator." alt="" coords="155,5,240,31"/>
 <area shape="poly" title=" " alt="" coords="107,32,139,26,140,31,107,37"/>
@@ -187,9 +194,9 @@ Functions</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_task3_8c_a08875542fa7d7370c09a41d4d6337497_icgraph.png" border="0" usemap="#a_task3_8c_a08875542fa7d7370c09a41d4d6337497_icgraph" loading="lazy" alt=""/></div>
 <map name="a_task3_8c_a08875542fa7d7370c09a41d4d6337497_icgraph" id="a_task3_8c_a08875542fa7d7370c09a41d4d6337497_icgraph">
-<area shape="rect" title="Calculates the total length of infix expression represented by the parse tree. (Includes parantheses ..." alt="" coords="103,29,204,55"/>
+<area shape="rect" title="Calculates the total length of infix expression represented by the parse tree." alt="" coords="103,29,204,55"/>
 <area shape="poly" title=" " alt="" coords="174,16,167,10,153,8,141,10,134,14,133,20,136,28,132,30,128,21,130,11,139,5,153,3,169,5,177,12"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,29,55,55"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,29,55,55"/>
 <area shape="poly" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
 </map>
 </div>
@@ -220,9 +227,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Performs an in-order traversal (infix) of the parse tree and writes it to a buffer. </p>
+<p>Performs an in-order traversal of the parse tree and writes it to a buffer. </p>
 <p>Reconstructs the infix expression string using in-order traversal.</p>
-<p>Structure of code: -&gt; recursively visit(left) -&gt; print(node) -&gt; recursively visit(right)</p>
+<p>Structure of the code: a. recursively visit(left) b. print(node) c.recursively visit(right)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>Pointer to the root of the subtree </td></tr>
@@ -237,7 +244,7 @@ Functions</h2></td></tr>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_task3_8c_a7050a0e6939750496aa28ae7f1eea007_cgraph.png" border="0" usemap="#a_task3_8c_a7050a0e6939750496aa28ae7f1eea007_cgraph" loading="lazy" alt=""/></div>
 <map name="a_task3_8c_a7050a0e6939750496aa28ae7f1eea007_cgraph" id="a_task3_8c_a7050a0e6939750496aa28ae7f1eea007_cgraph">
-<area shape="rect" title="Performs an in&#45;order traversal (infix) of the parse tree and writes it to a buffer." alt="" coords="5,31,123,56"/>
+<area shape="rect" title="Performs an in&#45;order traversal of the parse tree and writes it to a buffer." alt="" coords="5,31,123,56"/>
 <area shape="poly" title=" " alt="" coords="38,32,33,22,36,13,47,6,64,4,82,7,92,13,89,18,80,12,64,9,49,11,41,16,39,22,43,29"/>
 <area shape="rect" href="_task3_8c.html#a63be34c281e131dc6f428988694905ee" title="Checks if a string token is a binary operator." alt="" coords="171,5,256,31"/>
 <area shape="poly" title=" " alt="" coords="123,31,155,25,156,31,124,36"/>
@@ -251,9 +258,9 @@ Functions</h2></td></tr>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_task3_8c_a7050a0e6939750496aa28ae7f1eea007_icgraph.png" border="0" usemap="#a_task3_8c_a7050a0e6939750496aa28ae7f1eea007_icgraph" loading="lazy" alt=""/></div>
 <map name="a_task3_8c_a7050a0e6939750496aa28ae7f1eea007_icgraph" id="a_task3_8c_a7050a0e6939750496aa28ae7f1eea007_icgraph">
-<area shape="rect" title="Performs an in&#45;order traversal (infix) of the parse tree and writes it to a buffer." alt="" coords="103,29,220,55"/>
+<area shape="rect" title="Performs an in&#45;order traversal of the parse tree and writes it to a buffer." alt="" coords="103,29,220,55"/>
 <area shape="poly" title=" " alt="" coords="183,16,176,10,161,8,148,10,141,14,139,20,143,28,138,30,134,21,137,11,146,5,161,3,178,5,186,12"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,29,55,55"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,29,55,55"/>
 <area shape="poly" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
 </map>
 </div>
@@ -290,12 +297,12 @@ Functions</h2></td></tr>
 <div class="center"><img src="_task3_8c_a63be34c281e131dc6f428988694905ee_icgraph.png" border="0" usemap="#a_task3_8c_a63be34c281e131dc6f428988694905ee_icgraph" loading="lazy" alt=""/></div>
 <map name="a_task3_8c_a63be34c281e131dc6f428988694905ee_icgraph" id="a_task3_8c_a63be34c281e131dc6f428988694905ee_icgraph">
 <area shape="rect" title="Checks if a string token is a binary operator." alt="" coords="268,67,353,92"/>
-<area shape="rect" href="_task3_8c.html#a08875542fa7d7370c09a41d4d6337497" title="Calculates the total length of infix expression represented by the parse tree. (Includes parantheses ..." alt="" coords="111,29,212,55"/>
+<area shape="rect" href="_task3_8c.html#a08875542fa7d7370c09a41d4d6337497" title="Calculates the total length of infix expression represented by the parse tree." alt="" coords="111,29,212,55"/>
 <area shape="poly" title=" " alt="" coords="252,68,212,57,213,52,254,63"/>
-<area shape="rect" href="_task3_8c.html#a7050a0e6939750496aa28ae7f1eea007" title="Performs an in&#45;order traversal (infix) of the parse tree and writes it to a buffer." alt="" coords="103,103,220,128"/>
+<area shape="rect" href="_task3_8c.html#a7050a0e6939750496aa28ae7f1eea007" title="Performs an in&#45;order traversal of the parse tree and writes it to a buffer." alt="" coords="103,103,220,128"/>
 <area shape="poly" title=" " alt="" coords="254,96,218,105,217,99,252,91"/>
 <area shape="poly" title=" " alt="" coords="183,16,176,10,161,8,148,10,141,14,139,20,143,28,138,30,134,21,137,11,146,5,161,3,178,5,186,12"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,67,55,92"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,67,55,92"/>
 <area shape="poly" title=" " alt="" coords="100,62,56,75,55,70,98,57"/>
 <area shape="poly" title=" " alt="" coords="97,101,54,89,56,84,98,96"/>
 <area shape="poly" title=" " alt="" coords="183,90,176,84,161,81,148,83,141,88,139,94,143,101,138,103,134,94,137,85,146,78,161,76,178,79,186,85"/>
@@ -334,12 +341,12 @@ Functions</h2></td></tr>
 <div class="center"><img src="_task3_8c_a2be234d2a12b262e4bf244a2695c94e8_icgraph.png" border="0" usemap="#a_task3_8c_a2be234d2a12b262e4bf244a2695c94e8_icgraph" loading="lazy" alt=""/></div>
 <map name="a_task3_8c_a2be234d2a12b262e4bf244a2695c94e8_icgraph" id="a_task3_8c_a2be234d2a12b262e4bf244a2695c94e8_icgraph">
 <area shape="rect" title="Checks if a string token is a unary operator." alt="" coords="268,67,351,92"/>
-<area shape="rect" href="_task3_8c.html#a08875542fa7d7370c09a41d4d6337497" title="Calculates the total length of infix expression represented by the parse tree. (Includes parantheses ..." alt="" coords="111,29,212,55"/>
+<area shape="rect" href="_task3_8c.html#a08875542fa7d7370c09a41d4d6337497" title="Calculates the total length of infix expression represented by the parse tree." alt="" coords="111,29,212,55"/>
 <area shape="poly" title=" " alt="" coords="252,68,212,58,213,52,254,63"/>
-<area shape="rect" href="_task3_8c.html#a7050a0e6939750496aa28ae7f1eea007" title="Performs an in&#45;order traversal (infix) of the parse tree and writes it to a buffer." alt="" coords="103,103,220,128"/>
+<area shape="rect" href="_task3_8c.html#a7050a0e6939750496aa28ae7f1eea007" title="Performs an in&#45;order traversal of the parse tree and writes it to a buffer." alt="" coords="103,103,220,128"/>
 <area shape="poly" title=" " alt="" coords="253,96,218,105,216,100,252,91"/>
 <area shape="poly" title=" " alt="" coords="183,16,176,10,161,8,148,10,141,14,139,20,143,28,138,30,134,21,137,11,146,5,161,3,178,5,186,12"/>
-<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,67,55,92"/>
+<area shape="rect" href="_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,67,55,92"/>
 <area shape="poly" title=" " alt="" coords="100,62,56,75,55,70,98,57"/>
 <area shape="poly" title=" " alt="" coords="97,101,54,89,56,84,98,96"/>
 <area shape="poly" title=" " alt="" coords="183,90,176,84,161,81,148,83,141,88,139,94,143,101,138,103,134,94,137,85,146,78,161,76,178,79,186,85"/>

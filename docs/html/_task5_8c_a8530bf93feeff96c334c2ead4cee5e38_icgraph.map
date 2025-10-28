@@ -1,0 +1,8 @@
+<map id="Track_Unique_Literals" name="Track_Unique_Literals">
+<area shape="rect" id="Node000001" title="Helper function to recursively find all unique literals." alt="" coords="287,29,438,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="396,17,385,10,363,8,343,10,332,15,329,20,335,27,330,30,324,21,328,11,341,5,363,3,386,5,398,12"/>
+<area shape="rect" id="Node000002" href="$_task5_8c.html#ac2042b25d32acaada52485aaef2759d5" title="Gathers all unique variable names from the formula tree." alt="" coords="103,29,239,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,45,240,45,240,40,272,40"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,29,55,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
+</map>

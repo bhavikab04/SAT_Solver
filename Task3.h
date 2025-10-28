@@ -3,13 +3,13 @@
 
 /**
  * @file Task3.h
- * @brief Header file for Task 3: Parse Tree to Infix Conversion.
+ * @brief Header file for Task 3: Conversion of prase tree to infix.
  *
  * Declares functions to convert the parse tree back into an
  * infix expression string.
  *
  * @note This header requires the `TreeNode` structure definition,
- * which is assumed to be defined (e.g., in "Task2.h").
+ * which is defined in task2.h itself.
  */
 
 
@@ -18,10 +18,10 @@
  *
  * Traverses the tree to determine the exact buffer size needed to store
  * the infix representation, including all operands, operators,
- * and necessary parentheses.
+ * and required parentheses.
  *
  * @param root The root of the parse tree.
- * @return The total length (number of characters) of the infix string.
+ * @return The total length /no. of characters of the infix string.
  */
 int getExpLength(TreeNode* root);
 
@@ -51,4 +51,4 @@ void inOrderTraversal(TreeNode* root, char* bufferStr, int* pos);
  */
 void freeTree(TreeNode* root);
 
-#endif // TASK3_H
+#endif 

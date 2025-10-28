@@ -1,7 +1,7 @@
 /**
  * \file main.c
  * \brief Main driver for the logic formula processing pipeline.
- * \author [Your Name/Handle]
+ * \author [Team]
  * \date October 2025
  *
  * \details This program serves as the central controller for a multi-task
@@ -54,7 +54,7 @@
  */
 int main(int argc, char *argv[])
 {
-    // --- Argument Check ---
+    //    Argument Check 
     /**
      * \brief Validates the command-line arguments.
      * \details Ensures exactly one argument (the filename) is provided.
@@ -71,9 +71,9 @@ int main(int argc, char *argv[])
     printf("--- Main Test Function ---\n");
     printf("Processing CNF file: %s\n", cnf_filename);
 
-    // ==========================================================
+    
     // STEP 1: CNF to Infix Conversion
-    // ==========================================================
+    
     long num_clauses = get_clause_count(cnf_filename);
     if (num_clauses <= 0)
     {
@@ -114,9 +114,9 @@ int main(int argc, char *argv[])
 
     printf("Generated Infix: %s\n", buffer);
 
-    // ==========================================================
+    
     // STEP 2 & 3: Infix to Prefix (Task 1) & Prefix to Tree (Task 2)
-    // ==========================================================
+    
     Stack *prefix_stack = task1_infixToPrefix(buffer);
 
     TreeNode *root = NULL; ///< Declare the parse tree root in the outer scope
@@ -153,9 +153,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // ==========================================================
+    
     // STEP 4: Infix Reconstruction (Task 3)
-    // ==========================================================
+    
     printf("\n\n--- Task 3: Infix Expression Reconstruction ---\n");
     int bufferLength = getExpLength(root);          ///< Calculate needed buffer size
     char *infix = (char *)malloc(bufferLength + 1); ///< Allocate buffer
@@ -172,16 +172,16 @@ int main(int argc, char *argv[])
         printf("Memory allocation failed for infix buffer string\n");
     }
 
-    // ==========================================================
+    // 
     // STEP 5: Tree Height (Task 4)
-    // ==========================================================
+    //
     printf("\n\n--- Task 4: Tree Height Calculation ---\n");
     int height = find_height(root); ///< Calculate the tree's height
     printf("The calculated height of the tree is: %d\n", height);
 
-    // ==========================================================
+    // 
     // STEP 6: Evaluation & Truth Table (Task 5)
-    // ==========================================================
+    // 
     printf("\n\n--- Task 5: Evaluation & Truth Table ---\n");
 
     /// \brief Collect all unique variables (literals) from the tree.
@@ -189,7 +189,7 @@ int main(int argc, char *argv[])
     char **literals_list = NULL;
     int literal_count = get_Unique_Literals(root, &literals_list);
 
-    // --- Part 1: Single Evaluation from a user-provided file ---
+    //     Part 1: Single Evaluation from a user-provided file 
     if (literal_count > 0)
     {
         printf("--- Single Evaluation From File ---\n");
@@ -223,7 +223,8 @@ int main(int argc, char *argv[])
         printf("No literals found. The expression is a constant.\n");
     }
 
-    // --- Part 2: Generate Full Truth Table ---
+    
+    //    Part 2: Generate Full Truth Table 
     printf("\n--- Full Truth Table ---\n");
 
     if (literal_count > 0)
@@ -251,9 +252,9 @@ int main(int argc, char *argv[])
         free(literals_list); ///< Free the array of pointers
     }
 
-    // ==========================================================
+    
     // STEP 7: Convert to CNF (Task 6)
-    // ==========================================================
+    
     printf("\n\n--- Task 6: CNF Conversion ---\n");
     TreeNode *cnf_root = CNF_FORMULA(root); ///< Convert the original tree to CNF
     if (cnf_root)
@@ -268,9 +269,9 @@ int main(int argc, char *argv[])
         printf("CNF conversion failed.\n");
     }
 
-    // ==========================================================
+    
     // STEP 8: CNF Validity Check (Task 7)
-    // ==========================================================
+    
 
     if (cnf_root)
     {
@@ -289,9 +290,9 @@ int main(int argc, char *argv[])
         freeTree(cnf_root); ///< Now we can free the CNF tree
     }
 
-    // ==========================================================
+    
     // FINAL CLEANUP
-    // ==========================================================
+    
     printf("\n--- All tasks complete. Cleaning up. ---\n");
 
     free(buffer);   ///< Free the initial infix string read from the CNF

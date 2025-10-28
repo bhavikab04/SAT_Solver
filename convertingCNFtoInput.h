@@ -1,11 +1,11 @@
 #ifndef CNF_CONVERTER_H
 #define CNF_CONVERTER_H
 
-#include <stdio.h> // Needed for FILE*
+#include <stdio.h>
 /**
  * @file convertingCNFtoInput.h
- * @brief Header file for CNF to Infix Conversion.
- * @author [Your Name/Handle]
+ * @brief Header file for the CNF to Infix Conversion.
+ * @author [Team]
  * @date October 2025
  *
  * Declares functions for reading a DIMACS CNF file and converting
@@ -31,4 +31,4 @@ long get_clause_count(const char* filename);
 void convertCnfToInfix(const char* filename, long num_clauses, FILE* out_stream);
 long get_variable_count(void);
 
-#endif // CNF_CONVERTER_H
+#endif 

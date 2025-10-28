@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['assignmenthashtable_0',['AssignmentHashTable',['../struct_assignment_hash_table.html',1,'']]],
-  ['assignmentnode_1',['AssignmentNode',['../struct_assignment_node.html',1,'']]]
+  ['assign_0',['Assign',['../struct_assign.html',1,'']]],
+  ['assign_5fht_1',['Assign_HT',['../struct_assign___h_t.html',1,'']]]
 ];

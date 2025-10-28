@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['main_20c_0',['Full Pipeline Analysis (main.c)',['../analysis_page.html#pipeline_sec',1,'']]],
-  ['memory_20analysis_1',['Critical Performance &amp;amp; Memory Analysis',['../analysis_page.html#review_bottlenecks',1,'']]],
-  ['module_20analysis_2',['Detailed Module Analysis',['../analysis_page.html#modules_sec',1,'']]]
+  ['logic_20in_20computer_20science_20assignment_20algorithm_20analysis_0',['Logic in Computer Science Assignment Algorithm Analysis',['../analysis_page.html',1,'']]]
 ];

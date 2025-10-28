@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['left_0',['left',['../struct_tree_node.html#af4ab5453a9305f5620c0eb9ac360fb90',1,'TreeNode']]],
-  ['literal_1',['literal',['../struct_assignment_node.html#a18ee8923d876c6e163768ac45a448b6b',1,'AssignmentNode']]]
+  ['has_5fnegative_0',['has_negative',['../struct_literal__present.html#a19fb8c32681f6aa1e09d27dc048b908b',1,'Literal_present']]],
+  ['has_5fpositive_1',['has_positive',['../struct_literal__present.html#a2e34d37d20af2ae3f66685f75ecd9cd4',1,'Literal_present']]]
 ];
