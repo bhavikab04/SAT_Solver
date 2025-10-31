@@ -254,9 +254,82 @@ int main(int argc, char *argv[])
 
     
     // STEP 7: Convert to CNF (Task 6)
-    
+
+    // --- START OF MODIFICATION ---
+
+//
+printf("\n\n--- Task 6 : Manual Infix to CNF ---\n");
+printf("Enter a new infix formula to convert to CNF (or type 'skip'):\n");
+
+// Clear stdin buffer (to consume the newline left by Task 5's scanf)
+int c;
+while ((c = getchar()) != '\n' && c != EOF) {
+    // consume characters until newline
+}
+
+printf("> ");
+char *user_infix_buffer = read_line(stdin); // Use read_line from Task 1
+
+if (user_infix_buffer == NULL || strlen(user_infix_buffer) == 0 || strcmp(user_infix_buffer, "skip") == 0)
+{
+    printf("Skipping manual CNF conversion.\n");
+}
+else
+{
+    printf("Your Infix: %s\n", user_infix_buffer);
+
+    // 1. Task 1: Infix to Prefix
+    Stack *user_prefix_stack = task1_infixToPrefix(user_infix_buffer);
+
+    // 2. Task 2: Prefix to Tree
+    TreeNode *user_tree_root = NULL;
+    if (user_prefix_stack)
+    {
+        user_tree_root = prefixToTree(user_prefix_stack);
+        freeStack(user_prefix_stack); // Clean up stack
+    }
+    else
+    {
+        printf("Failed to convert your infix string to prefix.\n");
+    }
+
+    // 3. Task 6: Tree to CNF
+    if (user_tree_root)
+    {
+        printf("\n--- Converting your input tree to CNF ---\n");
+        
+        // Print the user's tree for verification
+        printf("Your Parse Tree:\n");
+        printTreeVertical(user_tree_root);
+        
+        // Run Task 6
+        TreeNode *user_cnf_root = CNF_FORMULA(user_tree_root);
+
+        if (user_cnf_root)
+        {
+            printf("\nFinal CNF for your formula: ");
+            print_formula(user_cnf_root);
+            printf("\n");
+            
+            freeTree(user_cnf_root); // Clean up CNF tree
+        }
+        else
+        {
+            printf("CNF conversion failed for your input.\n");
+        }
+        
+        freeTree(user_tree_root); // Clean up user's parse tree
+    }
+    else
+    {
+        printf("Failed to build parse tree from your infix string.\n");
+    }
+}
+free(user_infix_buffer); // Clean up the input buffer
+// --- END OF MODIFICATION ---
+/*
     printf("\n\n--- Task 6: CNF Conversion ---\n");
-    TreeNode *cnf_root = CNF_FORMULA(root); ///< Convert the original tree to CNF
+   ///< Convert the original tree to CNF
     if (cnf_root)
     {
         printf("Final CNF formula: ");
@@ -268,26 +341,26 @@ int main(int argc, char *argv[])
     {
         printf("CNF conversion failed.\n");
     }
-
+*/
     
     // STEP 8: CNF Validity Check (Task 7)
-    
+     //TreeNode *cnf_root = CNF_FORMULA(root); 
 
-    if (cnf_root)
+    if (root)
     {
         printf("\n--- Testing CNF Validity (Task 7) ---\n");
         int valid_count = 0;   ///< Counter for tautological clauses
         int invalid_count = 0; ///< Counter for non-tautological clauses
 
         ///< Check if the entire CNF formula is a tautology (all clauses are valid).
-        bool is_tautology = checkCNFValidity(cnf_root, &valid_count, &invalid_count);
+        bool is_tautology = checkCNFValidity(root, &valid_count, &invalid_count);
 
         printf("Analysis of the CNF formula:\n");
         printf("- Valid (Tautological) Clauses: %d\n", valid_count);
         printf("- Invalid Clauses: %d\n", invalid_count);
         printf("- Is the entire formula a tautology? %s\n", is_tautology ? "Yes" : "No");
 
-        freeTree(cnf_root); ///< Now we can free the CNF tree
+        freeTree(root); ///< Now we can free the CNF tree
     }
 
     
