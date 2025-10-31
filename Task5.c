@@ -25,6 +25,7 @@ static unsigned long hash(const char *str);
 
 /**
  * @struct Assign
+ * a
  * @brief Represents a single variable assignment in a hash table bucket.
  */
 typedef struct Assign {
@@ -172,7 +173,8 @@ bool evaluateFromFile(TreeNode* root, const char* filename) {
     }
     fclose(fp);
 
-    evaluateTree(root, assignments_ht);
+    bool result = evaluateTree(root, assignments_ht);
+    printf("Evaluation from file '%s': %s\n", filename, result ? "True" : "False");
     freeAssign_HT(assignments_ht);
     return true;
 }
