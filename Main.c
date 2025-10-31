@@ -255,7 +255,7 @@ int main(int argc, char *argv[])
     
     // STEP 7: Convert to CNF (Task 6)
 
-    // --- START OF MODIFICATION ---
+  
 
 //
 printf("\n\n--- Task 6 : Manual Infix to CNF ---\n");
@@ -326,7 +326,7 @@ else
     }
 }
 free(user_infix_buffer); // Clean up the input buffer
-// --- END OF MODIFICATION ---
+
 /*
     printf("\n\n--- Task 6: CNF Conversion ---\n");
    ///< Convert the original tree to CNF
