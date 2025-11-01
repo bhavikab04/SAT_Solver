@@ -1,0 +1,4 @@
+c This is a simple 1-variable CNF file.
+c It represents the formula (x1 > x1), which is (-x1 + x1).
+p cnf 1 1
+-1 1 0

@@ -1,0 +1,8 @@
+c This is a 16-variable CNF file.
+c It represents ((x1x2x3x4) > (x5+x6+x7+x8)) * ((x9x10x11x12) > (x13+x14+x15+x16))
+c which simplifies to 2 long clauses:
+c (-x1 + -x2 + -x3 + -x4 + x5 + x6 + x7 + x8)
+c (-x9 + -x10 + -x11 + -x12 + x13 + x14 + x15 + x16)
+p cnf 16 2
+-1 -2 -3 -4 5 6 7 8 0
+-9 -10 -11 -12 13 14 15 16 0

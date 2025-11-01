@@ -32,7 +32,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <time.h>
 // Include all task headers
 #include "convertingCNFtoInput.h" ///< For get_clause_count, convertCnfToInfix
 #include "Task1.h"                ///< For Stack, read_line, task1_infixToPrefix
@@ -42,6 +42,75 @@
 #include "Task5.h"                ///< For evaluateFromFile, get_Unique_Literals, printTruthTable, evaluateTree
 #include "Task6.h"                ///< For CNF_FORMULA, print_formula
 #include "Task7.h"                ///< For checkCNFValidity
+
+
+// --- Platform-Specific Memory Usage (Linux) ---
+/**
+ * \brief Gets current resident memory usage (RSS) in Kilobytes.
+ * \note This function is platform-specific and **only works on Linux**.
+ * \details It reads the /proc/self/status file to find the "VmRSS:" line.
+ * \return long The current memory usage in KB, or -1 if unsupported/error.
+ */
+long get_current_memory_kb() {
+    FILE* f = fopen("/proc/self/status", "r");
+    if (f == NULL) {
+        // This will happen on non-Linux systems (Windows, macOS)
+        return -1;
+    }
+    char line[128];
+    long vm_rss_kb = -1;
+    while (fgets(line, 128, f) != NULL) {
+        // VmRSS is the Resident Set Size: physical memory being used.
+        if (strncmp(line, "VmRSS:", 6) == 0) {
+            char* num_str = line + 6; // Skip "VmRSS:"
+            while (*num_str == ' ' || *num_str == '\t') num_str++; // Skip whitespace
+            vm_rss_kb = atol(num_str);
+            break;
+        }
+    }
+    fclose(f);
+    return vm_rss_kb;
+}
+// --- End Memory Usage ---
+
+
+// --- CSV Logging ---
+/**
+ * \brief Appends performance (time and memory) data to a CSV file.
+ * \details If the file doesn't exist or is empty, it writes a header row first.
+ * \param[in] filename The name of the CSV file to write to.
+ * \param[in] m_start The initial memory usage (KB).
+ * \param[in] m_end The final memory usage (KB).
+ * \param[in] times Array of 8 double values for task times.
+ * \param[in] total_time The total execution time.
+ * \param[in] n The number of elements in the times array (should be 8).
+ */
+void log_to_csv(const char* filename, long m_start, long m_end, double times[], double total_time, int n) {
+    FILE* f = fopen(filename, "a+"); // "a+" (append, create if not exists, read/write)
+    if (f == NULL) {
+        perror("Error opening CSV log file");
+        return;
+    }
+
+    // Check if file is empty to write header
+    fseek(f, 0, SEEK_END);
+    long size = ftell(f);
+    if (size == 0) {
+        fprintf(f, "Initial Mem (KB),Final Mem (KB),Task 1 Time (s),Task 2 Time (s),Task 3 Time (s),Task 4 Time (s),Task 5 Time (s),Task 6 Time (s),Task 7 Time (s),Task 8 Time (s),Total Time (s)\n");
+    }
+    
+    // Append the new data row
+    fprintf(f, "%ld,%ld,", m_start, m_end);
+    for (int i = 0; i < n; i++) {
+        fprintf(f, "%lf,", times[i]);
+    }
+    fprintf(f, "%lf\n", total_time);
+
+    fclose(f);
+    printf("\nSuccessfully appended performance data to %s\n", filename);
+}
+// --- End CSV Logging ---
+
 
 /**
  * \brief Main entry point for the logic formula processing pipeline.
@@ -54,11 +123,23 @@
  */
 int main(int argc, char *argv[])
 {
+    // --- Performance Tracking Initialization ---
+    // Time tracking
+    clock_t t_start, t_step1, t_step2, t_step3, t_step4, t_step5, t_step6, t_step7, t_end;
+    // Memory tracking (Linux-specific)
+    long m_start, m_step1, m_step2, m_step3, m_step4, m_step5, m_step6, m_step7, m_end;
+    bool memory_tracking_enabled = true;
+
+    t_start = clock();
+    m_start = get_current_memory_kb();
+    if (m_start == -1) {
+        memory_tracking_enabled = false;
+        printf("[Warning] Memory tracking is unsupported on this OS. Memory usage will be 0.\n");
+    }
+    // --- End Initialization ---
+
+
     //    Argument Check 
-    /**
-     * \brief Validates the command-line arguments.
-     * \details Ensures exactly one argument (the filename) is provided.
-     */
     if (argc != 2)
     {
         fprintf(stderr, "Usage: %s <filename.cnf>\n", argv[0]);
@@ -81,29 +162,16 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    /**
-     * \brief Use a temporary in-memory file stream.
-     * \details This is an efficient way to pass the output of
-     * convertCnfToInfix (which expects a FILE*) as input to
-     * read_line (which also reads from a FILE*).
-     * The file is automatically deleted on fclose().
-     */
     FILE *temp_stream = tmpfile();
     if (temp_stream == NULL)
     {
         perror("Error creating temporary file");
         return 1;
     }
-
-    // 1. Run CNF converter, writing its infix string to the temp file
     convertCnfToInfix(cnf_filename, num_clauses, temp_stream);
-
-    // 2. Rewind the temp file to read from the beginning
     rewind(temp_stream);
-
-    // 3. Use task1's read_line to read the infix string into 'buffer'
     buffer = read_line(temp_stream);
-    fclose(temp_stream); ///< Temp file is auto-deleted
+    fclose(temp_stream); 
 
     if (buffer == NULL || strlen(buffer) == 0)
     {
@@ -113,30 +181,27 @@ int main(int argc, char *argv[])
     }
 
     printf("Generated Infix: %s\n", buffer);
+    t_step1 = clock();
+    m_step1 = get_current_memory_kb();
 
     
     // STEP 2 & 3: Infix to Prefix (Task 1) & Prefix to Tree (Task 2)
     
     Stack *prefix_stack = task1_infixToPrefix(buffer);
-
-    TreeNode *root = NULL; ///< Declare the parse tree root in the outer scope
+    TreeNode *root = NULL; 
 
     if (prefix_stack)
     {
         printf("\n--- Task 1 Result (Prefix Stack) & Task 2 (Tree Build) ---\n");
-
-        root = prefixToTree(prefix_stack); ///< Build the tree from the stack
-
+        root = prefixToTree(prefix_stack); 
         if (root)
         {
-            printTreeVertical(root); ///< Print the resulting tree
+            printTreeVertical(root); 
         }
         else
         {
             printf("Failed to build the parse tree from the stack.\n");
         }
-
-        ///< Always free the prefix stack after attempting to build the tree.
         freeStack(prefix_stack);
     }
     else
@@ -144,52 +209,53 @@ int main(int argc, char *argv[])
         printf("Failed to convert the infix expression to a stack.\n");
     }
 
-    // Abort if tree building failed, as all subsequent tasks depend on it.
     if (root == NULL)
     {
         printf("\nAborting further tasks because the parse tree could not be built.\n");
-        free(buffer); ///< Free the infix buffer before exiting
-        free(root);   ///< Free root (it's NULL, but safe)
+        free(buffer); 
+        free(root);   
         return 1;
     }
-
+    t_step2 = clock();
+    m_step2 = get_current_memory_kb();
     
     // STEP 4: Infix Reconstruction (Task 3)
     
     printf("\n\n--- Task 3: Infix Expression Reconstruction ---\n");
-    int bufferLength = getExpLength(root);          ///< Calculate needed buffer size
-    char *infix = (char *)malloc(bufferLength + 1); ///< Allocate buffer
+    int bufferLength = getExpLength(root);          
+    char *infix = (char *)malloc(bufferLength + 1); 
     if (infix)
     {
-        int pos = 0;                         ///< Position index for the infix string
-        inOrderTraversal(root, infix, &pos); ///< Rebuild string via in-order traversal
-        infix[pos] = '\0';                   ///< Null-terminate the string
+        int pos = 0;                         
+        inOrderTraversal(root, infix, &pos); 
+        infix[pos] = '\0';                   
         printf("Reconstructed Infix: %s\n", infix);
-        free(infix); ///< Free the reconstructed string
+        free(infix); 
     }
     else
     {
         printf("Memory allocation failed for infix buffer string\n");
     }
+    t_step3 = clock();
+    m_step3 = get_current_memory_kb();
 
     // 
     // STEP 5: Tree Height (Task 4)
     //
     printf("\n\n--- Task 4: Tree Height Calculation ---\n");
-    int height = find_height(root); ///< Calculate the tree's height
+    int height = find_height(root); 
     printf("The calculated height of the tree is: %d\n", height);
+    t_step4 = clock();
+    m_step4 = get_current_memory_kb();
 
     // 
     // STEP 6: Evaluation & Truth Table (Task 5)
     // 
     printf("\n\n--- Task 5: Evaluation & Truth Table ---\n");
 
-    /// \brief Collect all unique variables (literals) from the tree.
-    /// \details This is needed for both single evaluation and the full truth table.
     char **literals_list = NULL;
     int literal_count = get_Unique_Literals(root, &literals_list);
-
-    //     Part 1: Single Evaluation from a user-provided file 
+ 
     if (literal_count > 0)
     {
         printf("--- Single Evaluation From File ---\n");
@@ -203,7 +269,6 @@ int main(int argc, char *argv[])
         {
             if (strcmp(filename_buffer, "skip") != 0)
             {
-                ///< Evaluate the tree using truth values from the specified file.
                 evaluateFromFile(root, filename_buffer);
             }
             else
@@ -214,7 +279,6 @@ int main(int argc, char *argv[])
         else
         {
             fprintf(stderr, "Failed to read filename. Skipping evaluation.\n");
-            ///< Clear stdin in case of malformed input (e.g., "file name")
             while (getchar() != '\n');
         }
     }
@@ -224,135 +288,97 @@ int main(int argc, char *argv[])
     }
 
     
-    //    Part 2: Generate Full Truth Table 
     printf("\n--- Full Truth Table ---\n");
-
     if (literal_count > 0)
     {
-        /**
-         * \brief Print the full truth table for the formula.
-         * \note The 'buffer' (original infix string) is used for the table header.
-         */
         printTruthTable(root, literals_list, literal_count, buffer);
     }
     else
     {
-        ///< If no literals, just evaluate the constant expression.
         bool result = evaluateTree(root, NULL);
         printf("The constant expression evaluates to: %s\n", result ? "True" : "False");
     }
 
-    /// \brief Clean up the dynamically allocated list of literals.
     if (literals_list)
     {
         for (int i = 0; i < literal_count; i++)
         {
-            free(literals_list[i]); ///< Free each literal string
+            free(literals_list[i]); 
         }
-        free(literals_list); ///< Free the array of pointers
+        free(literals_list); 
     }
-
+    t_step5 = clock();
+    m_step5 = get_current_memory_kb();
     
     // STEP 7: Convert to CNF (Task 6)
-
   
+    printf("\n\n--- Task 6 : Manual Infix to CNF ---\n");
+    printf("Enter a new infix formula to convert to CNF (or type 'skip'):\n");
 
-//
-printf("\n\n--- Task 6 : Manual Infix to CNF ---\n");
-printf("Enter a new infix formula to convert to CNF (or type 'skip'):\n");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF); // Clear stdin buffer
 
-// Clear stdin buffer (to consume the newline left by Task 5's scanf)
-int c;
-while ((c = getchar()) != '\n' && c != EOF) {
-    // consume characters until newline
-}
+    printf("> ");
+    char *user_infix_buffer = read_line(stdin); 
 
-printf("> ");
-char *user_infix_buffer = read_line(stdin); // Use read_line from Task 1
-
-if (user_infix_buffer == NULL || strlen(user_infix_buffer) == 0 || strcmp(user_infix_buffer, "skip") == 0)
-{
-    printf("Skipping manual CNF conversion.\n");
-}
-else
-{
-    printf("Your Infix: %s\n", user_infix_buffer);
-
-    // 1. Task 1: Infix to Prefix
-    Stack *user_prefix_stack = task1_infixToPrefix(user_infix_buffer);
-
-    // 2. Task 2: Prefix to Tree
-    TreeNode *user_tree_root = NULL;
-    if (user_prefix_stack)
+    if (user_infix_buffer == NULL || strlen(user_infix_buffer) == 0 || strcmp(user_infix_buffer, "skip") == 0)
     {
-        user_tree_root = prefixToTree(user_prefix_stack);
-        freeStack(user_prefix_stack); // Clean up stack
+        printf("Skipping manual CNF conversion.\n");
     }
     else
     {
-        printf("Failed to convert your infix string to prefix.\n");
-    }
+        printf("Your Infix: %s\n", user_infix_buffer);
 
-    // 3. Task 6: Tree to CNF
-    if (user_tree_root)
-    {
-        printf("\n--- Converting your input tree to CNF ---\n");
-        
-        // Print the user's tree for verification
-        printf("Your Parse Tree:\n");
-        printTreeVertical(user_tree_root);
-        
-        // Run Task 6
-        TreeNode *user_cnf_root = CNF_FORMULA(user_tree_root);
-
-        if (user_cnf_root)
+        Stack *user_prefix_stack = task1_infixToPrefix(user_infix_buffer);
+        TreeNode *user_tree_root = NULL;
+        if (user_prefix_stack)
         {
-            printf("\nFinal CNF for your formula: ");
-            print_formula(user_cnf_root);
-            printf("\n");
-            
-            freeTree(user_cnf_root); // Clean up CNF tree
+            user_tree_root = prefixToTree(user_prefix_stack);
+            freeStack(user_prefix_stack); 
         }
         else
         {
-            printf("CNF conversion failed for your input.\n");
+            printf("Failed to convert your infix string to prefix.\n");
         }
-        
-        freeTree(user_tree_root); // Clean up user's parse tree
-    }
-    else
-    {
-        printf("Failed to build parse tree from your infix string.\n");
-    }
-}
-free(user_infix_buffer); // Clean up the input buffer
 
-/*
-    printf("\n\n--- Task 6: CNF Conversion ---\n");
-   ///< Convert the original tree to CNF
-    if (cnf_root)
-    {
-        printf("Final CNF formula: ");
-        print_formula(cnf_root); ///< Print the resulting CNF formula
-        printf("\n");
-        ///< \note cnf_root is NOT freed here; it's needed for Task 7.
+        if (user_tree_root)
+        {
+            printf("\n--- Converting your input tree to CNF ---\n");
+            printf("Your Parse Tree:\n");
+            printTreeVertical(user_tree_root);
+            
+            TreeNode *user_cnf_root = CNF_FORMULA(user_tree_root);
+            if (user_cnf_root)
+            {
+                printf("\nFinal CNF for your formula: ");
+                print_formula(user_cnf_root);
+                printf("\n");
+                freeTree(user_cnf_root); 
+            }
+            else
+            {
+                printf("CNF conversion failed for your input.\n");
+            }
+            freeTree(user_tree_root);
+        }
+        else
+        {
+            printf("Failed to build parse tree from your infix string.\n");
+        }
     }
-    else
-    {
-        printf("CNF conversion failed.\n");
-    }
-*/
-    
+    free(user_infix_buffer); 
+
+
+    t_step6 = clock();
+    m_step6 = get_current_memory_kb();
+
     // STEP 8: CNF Validity Check (Task 7)
-     //TreeNode *cnf_root = CNF_FORMULA(root); 
-
     if (root)
     {
         printf("\n--- Testing CNF Validity (Task 7) ---\n");
-        int valid_count = 0;   ///< Counter for tautological clauses
-        int invalid_count = 0; ///< Counter for non-tautological clauses
+        int valid_count = 0;   
+        int invalid_count = 0; 
 
-        ///< Check if the entire CNF formula is a tautology (all clauses are valid).
         bool is_tautology = checkCNFValidity(root, &valid_count, &invalid_count);
 
         printf("Analysis of the CNF formula:\n");
@@ -360,16 +386,61 @@ free(user_infix_buffer); // Clean up the input buffer
         printf("- Invalid Clauses: %d\n", invalid_count);
         printf("- Is the entire formula a tautology? %s\n", is_tautology ? "Yes" : "No");
 
-        freeTree(root); ///< Now we can free the CNF tree
+        freeTree(root); 
     }
 
+    t_step7 = clock();
+    m_step7 = get_current_memory_kb();
     
     // FINAL CLEANUP
     
     printf("\n--- All tasks complete. Cleaning up. ---\n");
 
-    free(buffer);   ///< Free the initial infix string read from the CNF
-    freeTree(root); ///< Free the main parse tree from Task 2
+    free(buffer);   
+    // freeTree(root); // Already freed in Task 7
+    t_end = clock();
+    m_end = get_current_memory_kb();
+
+    // --- Performance Calculation and Output ---
+    
+    // Store clock and memory snapshots
+    clock_t store_time[] = {t_start, t_step1, t_step2, t_step3, t_step4, t_step5, t_step6, t_step7, t_end};
+    // long store_mem[] = {m_start, m_step1, m_step2, m_step3, m_step4, m_step5, m_step6, m_step7, m_end}; // Not needed for CSV
+    
+    // Arrays to hold the *delta* (difference) for each step
+    double times[8];
+    // long mem[8]; // Not needed for CSV
+    
+    for(int i = 0; i < 8; i++){
+        times[i] = ((double)(store_time[i+1] - store_time[i])) / CLOCKS_PER_SEC;
+        
+        // mem[i] = store_mem[i+1]; // Not needed for CSV
+    }
+
+    printf("\n--- Task Runtimes ---\n");
+    printf("Step 1 (CNF to Infix):   %lf s\n", times[0]);
+    printf("Step 2/3 (Infix->Tree):  %lf s\n", times[1]);
+    printf("Step 4 (Tree to Infix):  %lf s\n", times[2]);
+    printf("Step 5 (Tree Height):    %lf s\n", times[3]);
+    printf("Step 6 (Evaluation):     %lf s\n", times[4]);
+    printf("Step 7 (Manual CNF):     %lf s\n", times[5]);
+    printf("Step 8 (CNF Validity):   %lf s\n", times[6]);
+    printf("Cleanup:                 %lf s\n", times[7]);
+    printf("----------------------------------\n");
+    double total_time = ((double)(t_end - t_start) / CLOCKS_PER_SEC);
+    printf("Total Time:              %lf s\n", total_time);
+
+    if (memory_tracking_enabled) {
+        // printf("\n--- Task Memory Usage (Peak KB at step end) ---\n"); // Not needed
+        // ... (removed per-task memory print)
+        printf("\n--- Memory Usage ---\n");
+        printf("Initial Memory:          %ld KB\n", m_start);
+        printf("Final Memory:            %ld KB\n", m_end);
+    }
+
+    // Log to CSV file
+    log_to_csv("performance_log.csv", m_start, m_end, times, total_time, 8);
 
     return 0; ///< Success
 }
+

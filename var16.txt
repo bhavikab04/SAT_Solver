@@ -1,0 +1,16 @@
+x1 = T
+x2 = F
+x3 = F
+x4 = T
+x5 = T
+x6 = T
+x7 = F
+x8 = T
+x9 = T
+x10 = T
+x11 = T
+x12 = F
+x13 = T
+x14 = T
+x15 = T
+x16 = T
