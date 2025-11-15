@@ -1,0 +1,22 @@
+<map id="Assign_value" name="Assign_value">
+<area shape="rect" id="Node000001" title="Recursively generates and prints rows for the truth table." alt="" coords="5,60,105,86"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="30,61,25,51,28,42,38,36,55,33,73,36,82,43,79,47,71,41,55,39,40,41,32,45,30,51,35,58"/>
+<area shape="rect" id="Node000002" href="$_task5_8c.html#afeb82f5b72e7ce998b644ba8bbf4c0c8" title="Evaluates the logical formula in the tree." alt="" coords="153,135,249,160"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="83,84,161,125,159,129,81,89"/>
+<area shape="rect" id="Node000003" href="$_task5_8c.html#ab5b7688c6792c3ca61820ac6a88254dc" title="Retrieves a variable&#39;s value from the hash table." alt="" coords="297,60,364,86"/>
+<area shape="poly" id="edge10_Node000001_Node000003" title=" " alt="" coords="105,70,281,70,281,76,105,76"/>
+<area shape="rect" id="Node000008" href="$_task5_8c.html#a6d34b85b431850bd71ef1dd8c73e1a6f" title="Inserts or updates a variable&#39;s value in the hash table." alt="" coords="161,9,240,35"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="93,57,147,38,148,43,95,62"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="178,135,174,126,176,117,186,110,201,108,217,111,226,117,222,122,215,116,201,113,188,115,181,120,179,126,183,133"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="224,132,292,92,295,96,226,136"/>
+<area shape="rect" id="Node000005" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand)." alt="" coords="300,135,362,160"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="250,145,284,145,284,150,250,150"/>
+<area shape="rect" id="Node000004" href="$_task5_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash index from a string (djb2 algorithm)." alt="" coords="422,29,471,55"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="364,61,406,50,408,55,365,67"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="426,30,422,21,424,11,433,5,447,3,461,5,469,12,465,16,459,10,446,8,435,10,429,14,428,20,431,28"/>
+<area shape="rect" id="Node000006" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="412,97,481,123"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="361,135,397,123,399,128,363,140"/>
+<area shape="rect" id="Node000007" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="413,147,480,172"/>
+<area shape="poly" id="edge9_Node000005_Node000007" title=" " alt="" coords="363,148,398,152,397,157,362,153"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="241,23,407,36,406,42,240,28"/>
+</map>

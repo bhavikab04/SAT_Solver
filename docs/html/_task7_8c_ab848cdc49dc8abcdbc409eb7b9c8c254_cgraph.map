@@ -1,0 +1,17 @@
+<map id="isClauseTautology" name="isClauseTautology">
+<area shape="rect" id="Node000001" title="Checks if an individual clause is a tautology." alt="" coords="5,55,134,80"/>
+<area shape="rect" id="Node000002" href="$_task7_8c.html#a923d8f0797166fb7bf6839f8d9191bf8" title="Traverses a clause to find literals and check for a tautology." alt="" coords="182,55,273,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,65,166,65,166,70,134,70"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="205,55,201,46,204,37,213,30,227,28,243,31,251,37,248,42,241,36,227,33,215,35,208,40,207,46,210,53"/>
+<area shape="rect" id="Node000003" href="$_task7_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash value from a string." alt="" coords="328,29,377,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="273,56,312,48,313,53,274,61"/>
+<area shape="rect" id="Node000005" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand)." alt="" coords="321,79,383,104"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="274,74,306,80,305,85,273,79"/>
+<area shape="rect" id="Node000004" href="$_task5_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash index from a string (djb2 algorithm)." alt="" coords="441,29,490,55"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="377,40,425,40,425,45,377,45"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="445,30,442,21,444,11,452,5,466,3,480,5,487,12,484,16,478,10,465,8,454,10,448,14,447,20,450,28"/>
+<area shape="rect" id="Node000006" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="431,79,500,104"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="384,89,416,89,416,94,384,94"/>
+<area shape="rect" id="Node000007" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="432,128,499,154"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="385,103,421,119,419,124,383,107"/>
+</map>

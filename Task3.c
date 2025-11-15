@@ -1,35 +1,20 @@
-/**
- * @file parse_tree_to_infix.c
- *
- * @brief Implentation of functions to construct infix expression from parse tree by in-order traversal.
- *
- * Structure of code:
- * Core functions:
- * 1) In-order traversal function to build the infix expression from the parse tree.
- *
- * Helper functions:
- * 1) Total expression length calculator function.
- * 2) Function to check if the operator is binary.
- * 3) Function to check if the operator is unary.
- *
- *
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
-#include "Task2.h" //for TreeNode definition, isAtom and freeTree functions
-#include "Task3.h" //for getExpLength and inOrderTraversal function prototypes
-/*
-from task2.h:
-typedef struct TreeNode {
-    char data;
-    struct TreeNode *left;
-    struct TreeNode *right;
-} TreeNode; */
+#include "Task2.h"
 
+/**
+ * @file Task3.c
+ * @brief This is the implementation file for Task 3: Conversion of a parse tree to an infix.
+ * @author [Team]
+ * @date October 2025
+ *
+ * Implements functions that perform an in-order traversal of the
+ * parse tree to reconstruct the  infix string. Also includes `getExpLength` to
+ * calculate the required string buffer size.
+ */
 // Operators:
 
 /**
@@ -52,15 +37,15 @@ bool isUnaryOp(const char *c)
     return (strcmp(c, "~") == 0);
 }
 
-// -------Inorder traversal---------
+// Inorder Traversal
 
 /**
- * @brief Performs an in-order traversal (infix) of the parse tree and writes it to a buffer.
+ * @brief Performs an in-order traversal of the parse tree and writes it to a buffer.
  *
- * Structure of code:
- * -> recursively visit(left)
- * -> print(node)
- * -> recursively visit(right)
+ * Structure of the code:
+ * a. recursively visit(left)
+ * b. print(node)
+ * c.recursively visit(right)
  *
  * @param root Pointer to the root of the subtree
  * @param bufferStr String buffer that updates the expression recursively to store the infix expression
@@ -79,11 +64,11 @@ void inOrderTraversal(TreeNode *root, char *bufferStr, int *position)
     // if there's a binary operator, then there's a left and right node
     if (isBinaryOp(root->data))
     {
-        // 1. recursively visit(left)
+        // a. recursively visit(left)
         bufferStr[(*position)++] = '(';
         inOrderTraversal(root->left, bufferStr, position);
 
-        // 2. print(node) or save the node
+        // b. print(node) or save the node
         bufferStr[(*position)++] = ' ';
 
         int op_length = (int)strlen(root->data);
@@ -92,7 +77,7 @@ void inOrderTraversal(TreeNode *root, char *bufferStr, int *position)
 
         bufferStr[(*position)++] = ' ';
 
-        // 3. recursively visit(right)
+        // c. recursively visit(right)
         inOrderTraversal(root->right, bufferStr, position);
         bufferStr[(*position)++] = ')';
     }
@@ -119,7 +104,7 @@ void inOrderTraversal(TreeNode *root, char *bufferStr, int *position)
     }
 }
 
-//-------Calculation of Expression length---------
+//Calculating the length of the expression
 /**
  * @brief Calculates the total length of infix expression represented by the parse tree.
  * (Includes parantheses and spaces)
@@ -159,3 +144,9 @@ int getExpLength(TreeNode *root)
 
     return 0;
 }
+
+/**
+ * @brief Frees all the allocated memoory to the parse tree nodes and their data.
+ * Uses post-order traversal to free child nodes before parent.
+ * @param root Pointer to the root node of the tree to be freed.
+ */

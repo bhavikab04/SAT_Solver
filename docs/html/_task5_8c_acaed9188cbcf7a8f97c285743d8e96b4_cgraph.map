@@ -1,0 +1,24 @@
+<map id="evaluateFromFile" name="evaluateFromFile">
+<area shape="rect" id="Node000001" title="Evaluates a formula using variable values from a file." alt="" coords="5,104,127,130"/>
+<area shape="rect" id="Node000002" href="$_task5_8c.html#aa01ed3d98f58a7337b38688f241f8b6a" title="Allocates memory for a new, empty hash table." alt="" coords="175,5,297,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,101,123,71,173,40,182,35,184,40,176,44,126,76,86,106"/>
+<area shape="rect" id="Node000003" href="$_task5_8c.html#afeb82f5b72e7ce998b644ba8bbf4c0c8" title="Evaluates the logical formula in the tree." alt="" coords="188,79,284,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="127,105,172,98,173,104,128,110"/>
+<area shape="rect" id="Node000009" href="$_task5_8c.html#a7d32a1050161ad204d75d7f236545df8" title="Frees all memory used by the hash table and its nodes." alt="" coords="182,128,290,154"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="128,123,167,128,166,134,127,128"/>
+<area shape="rect" id="Node000010" href="$_task5_8c.html#a6d34b85b431850bd71ef1dd8c73e1a6f" title="Inserts or updates a variable&#39;s value in the hash table." alt="" coords="345,177,424,203"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="92,128,130,147,175,164,256,179,330,186,329,191,255,185,174,169,128,152,90,133"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="210,80,205,70,208,61,219,54,236,52,254,55,264,61,261,66,252,60,236,57,221,59,212,64,211,70,215,77"/>
+<area shape="rect" id="Node000004" href="$_task5_8c.html#ab5b7688c6792c3ca61820ac6a88254dc" title="Retrieves a variable&#39;s value from the hash table." alt="" coords="351,128,418,154"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="278,102,337,122,335,127,276,108"/>
+<area shape="rect" id="Node000006" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand)." alt="" coords="354,79,416,104"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="285,89,338,89,338,94,285,94"/>
+<area shape="rect" id="Node000005" href="$_task5_8c.html#a403b4c6368a2e98940a7da0226045667" title="Generates a hash index from a string (djb2 algorithm)." alt="" coords="482,165,531,191"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="419,148,468,164,466,169,418,154"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="485,166,481,157,483,147,492,141,507,139,522,141,530,148,526,152,520,146,506,144,494,146,488,150,486,156,490,164"/>
+<area shape="rect" id="Node000007" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="472,85,541,111"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="416,91,457,93,457,98,416,96"/>
+<area shape="rect" id="Node000008" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="473,36,540,62"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="415,78,458,63,460,68,417,83"/>
+<area shape="poly" id="edge12_Node000010_Node000005" title=" " alt="" coords="424,184,466,179,467,185,425,189"/>
+</map>

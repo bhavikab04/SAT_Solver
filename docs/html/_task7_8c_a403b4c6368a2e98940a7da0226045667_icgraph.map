@@ -1,0 +1,15 @@
+<map id="hash" name="hash">
+<area shape="rect" id="Node000001" title="Generates a hash value from a string." alt="" coords="725,29,774,55"/>
+<area shape="rect" id="Node000002" href="$_task7_8c.html#a923d8f0797166fb7bf6839f8d9191bf8" title="Traverses a clause to find literals and check for a tautology." alt="" coords="586,29,677,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="709,45,678,45,678,40,709,40"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="651,16,644,10,631,8,620,10,613,14,612,20,615,28,610,30,607,21,609,11,617,5,631,3,646,5,654,12"/>
+<area shape="rect" id="Node000003" href="$_task7_8c.html#ab848cdc49dc8abcdbc409eb7b9c8c254" title="Checks if an individual clause is a tautology." alt="" coords="409,29,538,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="570,45,538,45,538,40,570,40"/>
+<area shape="rect" id="Node000004" href="$_task7_8c.html#a1ab845d6781875c278b2fdd748e2b4f5" title="Recursively navigates the CNF structure to check each clause." alt="" coords="277,29,361,55"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="394,45,362,45,362,40,394,40"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="345,16,336,10,319,8,303,10,295,15,293,20,298,28,293,30,288,21,291,11,302,5,319,3,338,5,348,12"/>
+<area shape="rect" id="Node000005" href="$_task7_8c.html#a20129f9af610ac016eb7f2e16bbc17f4" title="Checks if a CNF formula is a tautology." alt="" coords="103,29,229,55"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="262,45,229,45,229,40,262,40"/>
+<area shape="rect" id="Node000006" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,29,55,55"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
+</map>

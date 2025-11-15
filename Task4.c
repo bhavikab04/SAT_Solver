@@ -3,39 +3,38 @@
 #include "Task2.h"
 
 /**
- * @brief Provides the function to calculate the height of an expression tree.
+ * @file Task4.c
+ * @brief Implements height of Tree calculation
  *
- * This file contains the implementation for determining the height of a binary
- * tree, which is defined as the number of edges on the longest path from the
- * root node to a leaf node.
+ * This file provides the actual code that performs the height calculation
+ * using a recursive method.
  */
 
 /**
- * @brief Calculates the height of a binary tree using recursion.
- * @param root A pointer to the root node of the tree (or sub-tree).
- * @return The height of the tree. The height of an empty tree (NULL) is -1,
- * and the height of a tree with a single node is 0.
+ * @brief Determines the height of a tree by checking its subtrees.
  *
- * This function determines the tree's height by breaking the problem down.
- * It recursively finds the height of the left and right sub-trees. The height
- * of the current node's tree is then calculated as 1 plus the height of whichever
- * sub-tree is taller. This process continues until it reaches the leaves.
+ * This function works by recursively finding the height of the left and right
+ * branches from the current node. It then takes the larger of those two heights
+ * and adds one to it to account for the current level. This process repeats
+ * until the bottom of the tree is reached.
+ *
+ * @param root A pointer to the root node of the tree.
+ * @return The integer height of the tree. It returns -1 if the tree is empty.
  */
-int calculateHeight(TreeNode *root) {
-    // empty tree with no nodes, height is considered -1
+int find_height(TreeNode *root) {
+    // An empty tree (NULL) is defined to have a height of -1.
     if (root == NULL) {
-        return -1;
+        return 0;
     }
-    
-    // Recursively find the height of the left and right branches.
-    int leftSubtreeHeight = calculateHeight(root->left);
-    int rightSubtreeHeight = calculateHeight(root->right);
 
-    // The height of the tree rooted at this node  for the current level is 1
-    // plus the height of the deepest sub-tree
-    if (leftSubtreeHeight > rightSubtreeHeight) {
-        return 1 + leftSubtreeHeight;
+    // Find the height of the left and right branches from this node.
+    int height_left = find_height(root->left);
+    int height_right = find_height(root->right);
+
+    // The height at this point is 1 plus the height of the taller branch.
+    if (height_left > height_right) {
+        return 1 + height_left;
     } else {
-        return 1 + rightSubtreeHeight;
+        return 1 + height_right;
     }
 }

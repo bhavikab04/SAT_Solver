@@ -1,0 +1,8 @@
+<map id="Track_Unique_Literals" name="Track_Unique_Literals">
+<area shape="rect" id="Node000001" title="Helper function to recursively find all unique literals in the tree." alt="" coords="293,29,453,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="408,17,396,10,373,8,352,10,341,15,339,20,344,27,340,30,333,21,337,11,351,5,373,3,398,5,410,12"/>
+<area shape="rect" id="Node000002" href="$_task5_8c.html#af9f1056614fbcb26ab5a9d329137b63c" title="Gathers all unique variable names from the formula tree." alt="" coords="103,29,245,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="277,45,245,45,245,40,277,40"/>
+<area shape="rect" id="Node000003" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for the logic formula processing pipeline." alt="" coords="5,29,55,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="87,45,55,45,55,40,87,40"/>
+</map>

@@ -1,15 +1,15 @@
 /**
- * @file task_logic_conversion.c
+ * @file Task6.c
  * @brief Implementation of functions for converting propositional logic formulas to Conjunctive Normal Form (CNF).
  *
  * This file contains the implementation of functions for creating, copying, and manipulating
  * a propositional logic formula represented as a binary tree (TreeNode structure).
  * It includes the core algorithms for converting a formula to CNF:
- * 1. Implication Elimination (IMPL_FREE)
- * 2. Negation Normal Form (NNF)
- * 3. Distribution and CNF generation (CNF, DISTR)
+ * a. Implication Elimination (IMPL_FREE)
+ * b. Negation Normal Form (NNF)
+ * c. Distribution and CNF generation (CNF, DISTR)
  *
- * It is assumed that 'Task6.h' and 'Task2.h' define the TreeNode structure,
+ * 'Task6.h', 'Task2.h', and 'Task3.h' define the TreeNode structure,
  * the 'isAtom' function, the 'freeTree' function, and the 'bool' type.
  * Operators used: '>' (Implication), '~' (Negation), '*' (AND), '+' (OR).
  */
@@ -18,13 +18,14 @@
 #include <string.h>
 #include "Task6.h"
 #include "Task2.h"
+#include "Task3.h"
 
-// Assume TreeNode is defined in one of the included headers, e.g., Task6.h
+
 /**
  * @struct TreeNode
  * @brief Represents a node in the abstract syntax tree (AST) of a propositional logic formula.
  *
- * It is assumed to have the following members:
+ * It is to have the following members:
  * @var TreeNode::data
  * The operator or atom character ('A'-'Z', 'a'-'z', '~', '>', '+', '*').
  * @var TreeNode::left
@@ -32,7 +33,7 @@
  * @var TreeNode::right
  * Pointer to the right child node. Used for both unary ('~') and binary operators.
  */
-// The definition is not here, but the documentation is provided for context.
+// The definition is not here, however we put the documentation for reference.
 
 /**
  * @brief Creates and allocates memory for a new TreeNode.
@@ -109,7 +110,7 @@ bool isLiteral(const TreeNode *phi)
     // Case 1: Atom
     if (isAtom(phi->data))
         return true;
-    // Case 2: Negated Atom (Check if NOT is applied directly to an ATOM)
+    // Case 2: Negated Atom (Checks if not is applied directly to an atom)
     if (strcmp(phi->data, "~") == 0 && phi->right && isAtom(phi->right->data))
         return true;
 
@@ -160,7 +161,7 @@ void print_formula(const TreeNode *f)
  * @param phi The root of the formula tree.
  * @return TreeNode* The root of the new formula tree without implications.
  */
-//--------------1. IMPL_FREE()--------------------
+//         1. IMPL_FREE()
 
 TreeNode *IMPL_FREE(TreeNode *phi)
 {
@@ -215,7 +216,9 @@ TreeNode *IMPL_FREE(TreeNode *phi)
  * @param phi The root of the formula tree.
  * @return TreeNode* The root of the new formula tree in NNF.
  */
-//------------------2. NNF()-------------------------
+
+
+//         2. NNF()
 // Convert to Negation Normal form:
 
 TreeNode *NNF(TreeNode *phi)
@@ -280,7 +283,7 @@ TreeNode *NNF(TreeNode *phi)
  * @param eta2 The right sub-formula of the disjunction.
  * @return TreeNode* The root of the new formula tree after distribution.
  */
-//-------------------3. DISTR()----------------------
+//               3. DISTR()
 // Distribute Or over AND
 // Like: eta1 + (eta21 * eta22) -> (eta1 + eta21) * (eta1 + eta22))
 TreeNode *DISTR(TreeNode *eta1, TreeNode *eta2)

@@ -1,0 +1,58 @@
+<map id="isAtom" name="isAtom">
+<area shape="rect" id="Node000001" title="Helper to check if a token is an atom (operand)." alt="" coords="832,275,894,300"/>
+<area shape="rect" id="Node000002" href="$_task5_8c.html#afeb82f5b72e7ce998b644ba8bbf4c0c8" title="Evaluates the logical formula in the tree." alt="" coords="472,29,569,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="858,260,852,219,839,169,817,120,801,99,782,80,758,64,732,52,675,39,618,35,569,38,569,33,618,30,675,33,733,47,761,60,786,76,805,95,821,118,844,168,857,218,863,259"/>
+<area shape="rect" id="Node000007" href="$_task7_8c.html#a923d8f0797166fb7bf6839f8d9191bf8" title="Traverses a clause to find literals and check for a tautology." alt="" coords="663,115,754,140"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="848,262,822,213,803,188,782,166,746,143,749,139,786,161,807,185,826,210,853,259"/>
+<area shape="rect" id="Node000011" href="$_task6_8c.html#ad308644f7e1e684c100810694ac02d41" title="Eliminates all implication operators (&#39;&gt;&#39;) from the formula." alt="" coords="661,200,756,226"/>
+<area shape="poly" id="edge17_Node000001_Node000011" title=" " alt="" coords="820,270,736,229,738,224,822,265"/>
+<area shape="rect" id="Node000013" href="$_task6_8c.html#a8cd86283d519ba10b130243acd2829a6" title="Checks if a formula is a literal." alt="" coords="675,275,742,300"/>
+<area shape="poly" id="edge21_Node000001_Node000013" title=" " alt="" coords="816,290,742,290,742,285,816,285"/>
+<area shape="rect" id="Node000016" href="$_task2_8c.html#adb647e26e1bc88dce3db67a500dec70b" title="Iteratively builds a parse tree from a prefix expression stack." alt="" coords="124,380,218,406"/>
+<area shape="poly" id="edge28_Node000001_Node000016" title=" " alt="" coords="840,313,815,334,785,353,709,381,629,401,548,412,468,417,392,417,323,414,218,403,218,398,324,409,392,412,468,412,547,407,628,396,707,376,783,348,812,330,837,309"/>
+<area shape="rect" id="Node000017" href="$_task6_8c.html#a09c8eb01a39fa8de3225a3e5d5015bf7" title="Prints the propositional logic formula represented by the tree." alt="" coords="472,351,569,376"/>
+<area shape="poly" id="edge30_Node000001_Node000017" title=" " alt="" coords="818,306,785,315,669,341,570,359,569,354,668,336,783,310,816,301"/>
+<area shape="rect" id="Node000018" href="$_task5_8c.html#a8530bf93feeff96c334c2ead4cee5e38" title="Helper function to recursively find all unique literals." alt="" coords="633,476,784,502"/>
+<area shape="poly" id="edge34_Node000001_Node000018" title=" " alt="" coords="854,316,827,373,808,405,786,435,760,459,734,478,731,473,757,455,782,431,804,402,822,371,849,314"/>
+<area shape="poly" id="edge8_Node000002_Node000002" title=" " alt="" coords="550,16,540,10,520,8,502,10,493,15,491,20,496,28,491,30,486,21,489,11,501,5,521,3,541,5,553,12"/>
+<area shape="rect" id="Node000003" href="$_task5_8c.html#af20250e404a5b30cabe9a4c624a768c4" title="Recursively generates and prints rows for the truth table." alt="" coords="298,29,397,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="457,45,398,45,398,40,457,40"/>
+<area shape="rect" id="Node000005" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,231,55,256"/>
+<area shape="poly" id="edge9_Node000002_Node000005" title=" " alt="" coords="464,64,458,68,444,81,435,94,425,107,410,119,367,140,328,153,258,162,188,169,148,178,104,195,73,213,48,233,45,228,70,209,102,190,147,173,187,164,258,157,327,148,365,135,407,115,422,103,431,91,440,77,455,64,462,60"/>
+<area shape="rect" id="Node000006" href="$_task5_8c.html#acaed9188cbcf7a8f97c285743d8e96b4" title="Evaluates a formula using variable values from a file." alt="" coords="287,79,408,104"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="459,62,396,81,395,75,457,57"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="377,16,367,10,348,8,330,10,320,15,318,20,323,28,318,30,313,21,316,11,328,5,348,3,369,5,380,12"/>
+<area shape="rect" id="Node000004" href="$_task5_8c.html#a2597eda358ca1446a3e05ddb1af31ae4" title="Prints a truth table, limiting output for large variable counts." alt="" coords="117,29,224,55"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="282,45,225,45,225,40,282,40"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="118,65,105,76,76,115,56,159,43,200,36,231,31,230,38,199,51,157,72,113,101,72,115,61"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="272,88,231,90,187,95,144,107,104,127,79,150,60,179,38,231,33,229,55,176,75,147,101,123,142,102,186,90,231,84,272,83"/>
+<area shape="poly" id="edge11_Node000007_Node000007" title=" " alt="" coords="734,102,725,96,708,93,692,95,684,100,682,105,686,113,682,116,677,106,680,96,691,90,708,88,727,91,737,97"/>
+<area shape="rect" id="Node000008" href="$_task7_8c.html#ab848cdc49dc8abcdbc409eb7b9c8c254" title="Checks if an individual clause is a tautology." alt="" coords="456,79,585,104"/>
+<area shape="poly" id="edge12_Node000007_Node000008" title=" " alt="" coords="647,119,585,106,586,101,648,113"/>
+<area shape="rect" id="Node000009" href="$_task7_8c.html#a1ab845d6781875c278b2fdd748e2b4f5" title="Recursively navigates the CNF structure to check each clause." alt="" coords="306,205,390,231"/>
+<area shape="poly" id="edge13_Node000008_Node000009" title=" " alt="" coords="477,114,458,126,413,163,365,207,361,203,410,159,455,121,475,109"/>
+<area shape="poly" id="edge16_Node000009_Node000009" title=" " alt="" coords="377,192,367,186,348,184,330,186,320,191,318,196,323,204,318,206,313,197,316,187,328,181,348,179,369,181,380,188"/>
+<area shape="rect" id="Node000010" href="$_task7_8c.html#a20129f9af610ac016eb7f2e16bbc17f4" title="Checks if a CNF formula is a tautology." alt="" coords="108,205,234,231"/>
+<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="290,221,235,221,235,216,290,216"/>
+<area shape="poly" id="edge15_Node000010_Node000005" title=" " alt="" coords="93,235,55,242,54,237,92,230"/>
+<area shape="poly" id="edge20_Node000011_Node000011" title=" " alt="" coords="734,187,725,181,708,179,692,181,684,185,682,191,686,198,682,201,677,191,680,182,691,176,708,173,727,176,737,183"/>
+<area shape="rect" id="Node000012" href="$_task6_8c.html#a85ccaa203611107094401f69fead7bdf" title="Driver function for converting an arbitrary formula to Conjunctive Normal Form (CNF)." alt="" coords="287,256,408,282"/>
+<area shape="poly" id="edge18_Node000011_Node000012" title=" " alt="" coords="670,195,625,175,570,159,541,154,512,154,484,159,458,170,441,185,433,204,426,225,410,245,391,258,388,253,407,242,421,222,428,202,436,182,455,165,483,154,512,149,541,149,571,153,627,170,672,190"/>
+<area shape="poly" id="edge19_Node000012_Node000005" title=" " alt="" coords="271,265,55,248,55,243,272,260"/>
+<area shape="rect" id="Node000014" href="$_task6_8c.html#a93732f4385a09ea1ce41af2e27bf1dc1" title="Converts an NNF formula to Conjunctive Normal Form (CNF)." alt="" coords="496,204,545,230"/>
+<area shape="poly" id="edge22_Node000013_Node000014" title=" " alt="" coords="659,272,545,228,546,223,661,267"/>
+<area shape="rect" id="Node000015" href="$_task6_8c.html#a686962f85e00c08f6040312732974e4b" title="Converts a formula to Negation Normal Form (NNF)." alt="" coords="496,277,545,303"/>
+<area shape="poly" id="edge25_Node000013_Node000015" title=" " alt="" coords="659,291,546,292,545,287,659,286"/>
+<area shape="poly" id="edge24_Node000014_Node000012" title=" " alt="" coords="482,231,394,258,392,253,480,226"/>
+<area shape="poly" id="edge23_Node000014_Node000014" title=" " alt="" coords="551,193,542,186,520,183,502,185,492,190,491,196,497,204,493,207,486,197,488,186,500,180,521,177,544,181,554,189"/>
+<area shape="poly" id="edge26_Node000015_Node000012" title=" " alt="" coords="480,288,408,279,409,274,481,283"/>
+<area shape="poly" id="edge27_Node000015_Node000015" title=" " alt="" coords="551,267,542,259,520,256,502,258,492,263,491,269,497,277,493,280,486,270,488,260,500,253,521,251,544,254,554,263"/>
+<area shape="poly" id="edge29_Node000016_Node000005" title=" " alt="" coords="129,374,101,352,61,302,36,258,40,256,66,299,105,348,132,370"/>
+<area shape="poly" id="edge32_Node000017_Node000005" title=" " alt="" coords="457,353,296,316,102,267,54,254,56,248,103,262,297,311,458,347"/>
+<area shape="poly" id="edge31_Node000017_Node000012" title=" " alt="" coords="481,345,372,284,374,280,483,340"/>
+<area shape="poly" id="edge33_Node000017_Node000017" title=" " alt="" coords="550,338,540,332,520,329,502,331,493,336,491,341,496,349,491,352,486,342,489,332,501,326,521,324,541,327,553,333"/>
+<area shape="poly" id="edge37_Node000018_Node000018" title=" " alt="" coords="734,463,725,457,708,455,692,457,684,461,682,467,686,474,682,477,677,467,680,458,691,452,708,449,727,452,737,459"/>
+<area shape="rect" id="Node000019" href="$_task5_8c.html#ac2042b25d32acaada52485aaef2759d5" title="Gathers all unique variable names from the formula tree." alt="" coords="103,452,239,478"/>
+<area shape="poly" id="edge35_Node000018_Node000019" title=" " alt="" coords="617,487,239,471,240,465,617,482"/>
+<area shape="poly" id="edge36_Node000019_Node000005" title=" " alt="" coords="129,445,101,420,73,377,53,331,31,257,37,256,58,329,78,374,105,416,132,441"/>
+</map>

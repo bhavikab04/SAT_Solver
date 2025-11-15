@@ -1,0 +1,52 @@
+<map id="CNF_FORMULA" name="CNF_FORMULA">
+<area shape="rect" id="Node000001" title="Driver function for converting an arbitrary formula to Conjunctive Normal Form (CNF)." alt="" coords="5,336,127,362"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#a93732f4385a09ea1ce41af2e27bf1dc1" title="Converts an NNF formula to Conjunctive Normal Form (CNF)." alt="" coords="198,200,248,226"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,334,116,287,173,235,183,228,186,233,176,239,120,291,80,337"/>
+<area shape="rect" id="Node000006" href="$_task2_8c.html#af9c8e6687905b200d52e36c5d55abbf2" title="Recursively frees all nodes in the tree." alt="" coords="329,336,398,362"/>
+<area shape="poly" id="edge17_Node000001_Node000006" title=" " alt="" coords="127,347,314,347,314,352,127,352"/>
+<area shape="rect" id="Node000011" href="$_task6_8c.html#ad308644f7e1e684c100810694ac02d41" title="Eliminates all implication operators (&#39;&gt;&#39;) from the formula." alt="" coords="175,424,270,450"/>
+<area shape="poly" id="edge18_Node000001_Node000011" title=" " alt="" coords="92,360,186,414,184,419,89,365"/>
+<area shape="rect" id="Node000013" href="$_task6_8c.html#a686962f85e00c08f6040312732974e4b" title="Converts a formula to Negation Normal Form (NNF)." alt="" coords="198,274,248,299"/>
+<area shape="poly" id="edge27_Node000001_Node000013" title=" " alt="" coords="99,333,183,299,185,304,101,338"/>
+<area shape="rect" id="Node000014" href="$_task6_8c.html#a09c8eb01a39fa8de3225a3e5d5015bf7" title="Prints the propositional logic formula represented by the tree." alt="" coords="175,550,271,575"/>
+<area shape="poly" id="edge34_Node000001_Node000014" title=" " alt="" coords="79,361,205,536,201,539,75,364"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="198,201,194,192,197,182,207,176,223,174,240,176,249,183,246,187,238,181,223,179,208,181,201,185,199,191,203,199"/>
+<area shape="rect" id="Node000003" href="$_task6_8c.html#a4d80f09cd9e9741c1fc166c987f0e8f3" title="Creates a deep copy of a propositional logic formula tree." alt="" coords="456,248,532,274"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="247,203,280,195,321,189,365,188,409,196,443,213,471,236,468,240,441,218,407,201,365,193,321,194,281,200,249,208"/>
+<area shape="rect" id="Node000004" href="$_task6_8c.html#af039c54f229051991073b472179c5ba3" title="Creates and allocates memory for a new TreeNode." alt="" coords="580,198,701,223"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="223,199,231,162,248,112,276,61,295,38,318,20,340,10,362,4,385,3,408,6,453,23,496,50,536,84,571,120,623,183,619,187,567,124,532,88,493,55,450,28,407,12,385,8,363,9,341,15,320,25,298,42,280,64,253,114,236,163,229,200"/>
+<area shape="rect" id="Node000005" href="$_task6_8c.html#a2764cce81d706e3aa77a53b911d86082" title="Distributes disjunction (&#39;+&#39;) over conjunction (&#39;*&#39;)." alt="" coords="332,59,395,85"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="232,198,268,154,317,102,328,92,332,96,321,106,272,157,236,202"/>
+<area shape="poly" id="edge11_Node000002_Node000006" title=" " alt="" coords="249,221,273,235,316,279,348,322,344,325,312,282,269,239,246,225"/>
+<area shape="rect" id="Node000007" href="$_task6_8c.html#a8cd86283d519ba10b130243acd2829a6" title="Checks if a formula is a literal." alt="" coords="330,211,397,237"/>
+<area shape="poly" id="edge13_Node000002_Node000007" title=" " alt="" coords="248,212,315,218,315,223,247,218"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="471,249,467,240,470,230,479,224,494,222,510,224,519,231,515,235,508,229,494,227,481,229,474,233,472,239,476,247"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="531,246,586,226,588,231,533,251"/>
+<area shape="poly" id="edge8_Node000005_Node000003" title=" " alt="" coords="389,83,410,102,435,135,456,170,485,233,480,235,451,173,430,138,406,106,385,87"/>
+<area shape="poly" id="edge9_Node000005_Node000004" title=" " alt="" coords="393,83,533,152,602,188,599,192,530,157,391,88"/>
+<area shape="poly" id="edge10_Node000005_Node000005" title=" " alt="" coords="341,60,337,50,339,41,349,35,364,32,380,35,388,42,385,46,378,40,364,38,350,40,344,44,342,50,346,58"/>
+<area shape="poly" id="edge12_Node000006_Node000006" title=" " alt="" coords="341,337,337,328,339,318,349,312,364,310,380,312,388,319,385,323,378,317,364,315,350,317,344,321,342,327,346,335"/>
+<area shape="rect" id="Node000008" href="$_task2_8c.html#a8a588ab0c859dc08d7c29232df8aeefd" title="Helper to check if a token is an atom (operand)." alt="" coords="463,539,525,565"/>
+<area shape="poly" id="edge14_Node000007_Node000008" title=" " alt="" coords="376,236,411,299,458,423,488,523,483,525,453,425,406,301,371,238"/>
+<area shape="rect" id="Node000009" href="$_task2_8c.html#a2486048c0e03ec28ccdb5d9cdac72049" title="Checks if a token is a binary operator." alt="" coords="606,514,674,539"/>
+<area shape="poly" id="edge15_Node000008_Node000009" title=" " alt="" coords="525,544,590,532,591,538,526,549"/>
+<area shape="rect" id="Node000010" href="$_task2_8c.html#ae6545cb5d098012240c6b4e55c3bafca" title="Checks if a token is a unary operator." alt="" coords="607,563,674,589"/>
+<area shape="poly" id="edge16_Node000008_Node000010" title=" " alt="" coords="526,554,592,565,591,571,525,560"/>
+<area shape="poly" id="edge19_Node000011_Node000003" title=" " alt="" coords="270,427,338,408,374,392,407,372,429,353,448,331,477,286,481,289,452,334,433,357,410,377,376,397,340,413,272,432"/>
+<area shape="poly" id="edge20_Node000011_Node000004" title=" " alt="" coords="250,448,282,462,322,474,365,480,408,473,449,455,486,428,519,397,549,363,596,293,625,236,630,239,600,296,553,366,523,401,489,433,451,459,409,478,365,485,321,479,280,467,248,453"/>
+<area shape="poly" id="edge21_Node000011_Node000006" title=" " alt="" coords="244,422,327,369,330,373,247,426"/>
+<area shape="poly" id="edge23_Node000011_Node000008" title=" " alt="" coords="237,448,272,484,295,502,320,517,352,530,385,539,448,547,447,553,384,544,350,535,318,522,292,507,268,488,233,452"/>
+<area shape="poly" id="edge22_Node000011_Node000011" title=" " alt="" coords="198,425,194,416,197,406,207,400,223,398,240,400,249,407,246,411,238,405,223,403,208,405,201,409,199,415,203,423"/>
+<area shape="rect" id="Node000012" href="$_task6_8c.html#a3bcd71b8ae16f6bc5122925d90337a97" title="Creates a new negation node (&quot;~&quot;) for a given formula $\phi$." alt="" coords="319,438,408,463"/>
+<area shape="poly" id="edge24_Node000011_Node000012" title=" " alt="" coords="271,439,304,442,303,448,271,444"/>
+<area shape="poly" id="edge25_Node000012_Node000003" title=" " alt="" coords="385,435,406,417,430,385,451,350,480,287,485,290,456,352,435,387,410,420,389,439"/>
+<area shape="poly" id="edge26_Node000012_Node000004" title=" " alt="" coords="385,435,407,419,525,317,614,232,617,236,528,321,410,423,388,439"/>
+<area shape="poly" id="edge28_Node000013_Node000003" title=" " alt="" coords="248,282,440,263,441,269,248,287"/>
+<area shape="poly" id="edge29_Node000013_Node000004" title=" " alt="" coords="236,271,282,226,318,196,351,186,385,179,454,176,520,181,577,191,576,196,519,186,454,181,386,184,352,191,320,201,285,230,239,275"/>
+<area shape="poly" id="edge30_Node000013_Node000006" title=" " alt="" coords="249,295,320,327,318,332,247,300"/>
+<area shape="poly" id="edge31_Node000013_Node000007" title=" " alt="" coords="247,273,318,241,320,246,249,278"/>
+<area shape="poly" id="edge32_Node000013_Node000012" title=" " alt="" coords="238,298,344,424,339,428,233,302"/>
+<area shape="poly" id="edge33_Node000013_Node000013" title=" " alt="" coords="198,275,194,265,197,256,207,249,223,247,240,250,249,256,246,261,238,255,223,252,208,254,201,259,199,265,203,272"/>
+<area shape="poly" id="edge35_Node000014_Node000008" title=" " alt="" coords="272,566,337,570,408,568,447,561,448,566,409,573,337,576,271,571"/>
+<area shape="poly" id="edge36_Node000014_Node000014" title=" " alt="" coords="198,551,194,541,197,532,207,525,223,523,240,526,249,532,246,537,238,531,223,528,208,530,201,535,199,541,203,548"/>
+</map>

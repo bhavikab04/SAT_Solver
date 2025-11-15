@@ -3,52 +3,71 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "Task7.h"
-#include "Task2.h" // For TreeNode and isAtom definitions
-
-#define HASH_TABLE_SIZE 256 // A reasonable size for literals within a single clause
-
-// --- Data Structures for Efficient Literal Tracking ---
+#include "Task2.h"
 
 /**
- * @brief Stores which forms of a literal (positive, negative) have been seen.
+ * @file Task7.c
+ * @brief Implements the checker for CNF tautologies.
+ *
+ * This file contains the logic for determining if a formula in Conjunctive
+ * Normal Form is always true. It works by checking each clause for the
+ * presence of a literal and its opposite (e.g., `p` and `~p`).
  */
-typedef struct LiteralPresence {
+
+#define HASH_TABLE_SIZE 256 ///< Defines the hash table size for checking a single clause.
+
+/**
+ * @struct Literal_present
+ * @brief A simple structure to track if a literal's positive and negative forms appear.
+ *
+ * This is used in a temporary hash table to quickly determine if a clause
+ * contains a variable and its negation.
+ */
+typedef struct Literal_present {
     char* name;
     bool has_positive;
     bool has_negative;
-    struct LiteralPresence* next;
-} LiteralPresence;
+    struct Literal_present* next;
+} Literal_present;
 
-// --- Private Helper Function Prototypes ---
+// --- Internal Helper Function Prototypes ---
 static bool isClauseTautology(TreeNode* clause_root);
-static void checkCNFValidityRecursive(TreeNode* node, int* valid_clauses, int* invalid_clauses);
-static void findLiteralsAndCheckTautology(TreeNode* node, LiteralPresence** hash_table, bool* is_tautology);
+static void find_Literals(TreeNode* node, Literal_present** hash_table, bool* is_tautology);
+static void Valid_CNF(TreeNode* node, int* valid_clauses, int* invalid_clauses);
+static unsigned long hash(const char* str);
 
-// --- Hash Table Helper Functions ---
+/**
+ * @brief Generates a hash value from a string.
+ * @param str The string to be hashed.
+ * @return A numerical hash index.
+ */
 static unsigned long hash(const char* str) {
     unsigned long hash = 5381;
     int c;
     while ((c = *str++))
-        hash = ((hash << 5) + hash) + c; // djb2 algorithm
+        hash = ((hash << 5) + hash) + c;
     return hash % HASH_TABLE_SIZE;
 }
 
-// --- Core Implementation (Optimized) ---
-
 /**
- * @brief Recursively traverses a clause to find literals and check for tautology in a single pass.
+ * @brief Traverses a clause to find literals and check for a tautology.
+ *
+ * This function navigates the subtree of a clause. It uses a temporary hash
+ * table to log every literal it sees. If it finds that both the positive (p) and
+ * negative (~p) forms of a literal are present, it marks the clause as a
+ * tautology and stops checking.
+ *
+ * @param node The current node in the clause subtree.
+ * @param hash_table A temporary hash table for tracking literals in this clause.
+ * @param[in,out] is_tautology A pointer to a flag that is set to true if a tautology is found.
  */
-static void findLiteralsAndCheckTautology(TreeNode* node, LiteralPresence** hash_table, bool* is_tautology) {
-    if (node == NULL || *is_tautology) {
-        // Stop early if we've already found it's a tautology
-        return;
-    }
+static void find_Literals(TreeNode* node, Literal_present** hash_table, bool* is_tautology) {
+    if (node == NULL || *is_tautology) return;
 
     if (strcmp(node->data, "+") == 0) {
-        findLiteralsAndCheckTautology(node->left, hash_table, is_tautology);
-        findLiteralsAndCheckTautology(node->right, hash_table, is_tautology);
+        find_Literals(node->left, hash_table, is_tautology);
+        find_Literals(node->right, hash_table, is_tautology);
     } else {
-        // This node is a literal (or a negated literal)
         char* literal_name;
         bool is_negative = false;
 
@@ -58,31 +77,27 @@ static void findLiteralsAndCheckTautology(TreeNode* node, LiteralPresence** hash
         } else if (isAtom(node->data)) {
             literal_name = node->data;
         } else {
-            return; // Should not happen in a valid clause
+            return;
         }
 
-        // Check the hash table
         unsigned long index = hash(literal_name);
-        LiteralPresence* entry = hash_table[index];
+        Literal_present* entry = hash_table[index];
         while (entry != NULL && strcmp(entry->name, literal_name) != 0) {
             entry = entry->next;
         }
 
         if (entry == NULL) {
-            // First time seeing this literal, add it to the table
-            entry = (LiteralPresence*)malloc(sizeof(LiteralPresence));
+            entry = (Literal_present*)malloc(sizeof(Literal_present));
             entry->name = strdup(literal_name);
             entry->has_positive = !is_negative;
             entry->has_negative = is_negative;
             entry->next = hash_table[index];
             hash_table[index] = entry;
         } else {
-            // Literal already seen, update its presence
             if (is_negative) entry->has_negative = true;
             else entry->has_positive = true;
         }
 
-        // The magic: check if both forms are now present
         if (entry->has_positive && entry->has_negative) {
             *is_tautology = true;
         }
@@ -90,23 +105,27 @@ static void findLiteralsAndCheckTautology(TreeNode* node, LiteralPresence** hash
 }
 
 /**
- * @brief (OPTIMIZED) Checks if a single clause is a tautology using a hash table.
- * Runtime is O(L) where L is the number of literals in the clause.
+ * @brief Checks if an individual clause is a tautology.
+ *
+ * A clause is a tautology if it contains a literal and its negation (L and ~L).
+ * This function sets up a hash table and calls a recursive helper to efficiently
+ * check for this condition.
+ *
+ * @param clause_root The root node of the clause's subtree.
+ * @return Returns true if the clause is a tautology, and false otherwise.
  */
 static bool isClauseTautology(TreeNode* clause_root) {
     if (clause_root == NULL) return false;
 
     bool is_tautology = false;
-    // Allocate and initialize the hash table
-    LiteralPresence** hash_table = (LiteralPresence**)calloc(HASH_TABLE_SIZE, sizeof(LiteralPresence*));
+    Literal_present** hash_table = (Literal_present**)calloc(HASH_TABLE_SIZE, sizeof(Literal_present*));
 
-    findLiteralsAndCheckTautology(clause_root, hash_table, &is_tautology);
+    find_Literals(clause_root, hash_table, &is_tautology);
 
-    // Cleanup: Free the hash table and its contents
     for (int i = 0; i < HASH_TABLE_SIZE; i++) {
-        LiteralPresence* entry = hash_table[i];
+        Literal_present* entry = hash_table[i];
         while (entry != NULL) {
-            LiteralPresence* temp = entry;
+            Literal_present* temp = entry;
             entry = entry->next;
             free(temp->name);
             free(temp);
@@ -117,20 +136,24 @@ static bool isClauseTautology(TreeNode* clause_root) {
     return is_tautology;
 }
 
-
 /**
- * @brief Recursively traverses the main CNF structure (ANDs of clauses).
+ * @brief Recursively navigates the CNF structure to check each clause.
+ *
+ * This function moves down the tree of conjunctions ('*'). When it finds a
+ * node that is not a conjunction, it assumes that node is the root of a clause
+ * and sends it to be validated.
+ *
+ * @param node The current node in the CNF tree.
+ * @param[out] valid_clauses A counter for valid clauses.
+ * @param[out] invalid_clauses A counter for invalid clauses.
  */
-static void checkCNFValidityRecursive(TreeNode* node, int* valid_clauses, int* invalid_clauses) {
-    if (node == NULL) {
-        return;
-    }
+static void Valid_CNF(TreeNode* node, int* valid_clauses, int* invalid_clauses) {
+    if (node == NULL) return;
 
     if (strcmp(node->data, "*") == 0) {
-        checkCNFValidityRecursive(node->left, valid_clauses, invalid_clauses);
-        checkCNFValidityRecursive(node->right, valid_clauses, invalid_clauses);
+        Valid_CNF(node->left, valid_clauses, invalid_clauses);
+        Valid_CNF(node->right, valid_clauses, invalid_clauses);
     } else {
-        // Assumed to be the root of a clause
         if (isClauseTautology(node)) {
             (*valid_clauses)++;
         } else {
@@ -139,20 +162,15 @@ static void checkCNFValidityRecursive(TreeNode* node, int* valid_clauses, int* i
     }
 }
 
-/**
- * @brief Public entry point to check CNF validity.
- */
 bool checkCNFValidity(TreeNode* cnf_root, int* valid_clauses, int* invalid_clauses) {
     *valid_clauses = 0;
     *invalid_clauses = 0;
 
     if (cnf_root == NULL) {
-        return true; // An empty formula is trivially valid.
+        return true;
     }
 
-    checkCNFValidityRecursive(cnf_root, valid_clauses, invalid_clauses);
+    Valid_CNF(cnf_root, valid_clauses, invalid_clauses);
 
-    // A CNF formula is a tautology if and only if ALL of its clauses are.
-    // Therefore, if there are any invalid clauses, the whole formula is not a tautology.
     return (*invalid_clauses == 0);
 }

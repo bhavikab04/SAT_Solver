@@ -1,0 +1,27 @@
+<map id="copyTree" name="copyTree">
+<area shape="rect" id="Node000001" title="Creates a deep copy of a propositional logic formula tree." alt="" coords="553,102,628,128"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="612,89,604,83,590,81,577,83,570,87,569,93,572,101,568,103,563,94,566,84,575,78,590,76,607,78,615,85"/>
+<area shape="rect" id="Node000002" href="$_task6_8c.html#a93732f4385a09ea1ce41af2e27bf1dc1" title="Converts an NNF formula to Conjunctive Normal Form (CNF)." alt="" coords="295,41,344,67"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="573,90,545,50,526,32,504,18,483,11,462,8,418,14,377,27,345,43,342,38,375,22,417,8,462,3,484,6,506,13,529,27,549,47,578,87"/>
+<area shape="rect" id="Node000005" href="$_task6_8c.html#a2764cce81d706e3aa77a53b911d86082" title="Distributes disjunction (&#39;+&#39;) over conjunction (&#39;*&#39;)." alt="" coords="429,52,491,77"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="540,99,490,79,492,74,542,94"/>
+<area shape="rect" id="Node000006" href="$_task6_8c.html#ad308644f7e1e684c100810694ac02d41" title="Eliminates all implication operators (&#39;&gt;&#39;) from the formula." alt="" coords="272,114,367,140"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="537,120,368,128,367,122,537,115"/>
+<area shape="rect" id="Node000007" href="$_task6_8c.html#a3bcd71b8ae16f6bc5122925d90337a97" title="Creates a new negation node (&quot;~&quot;) for a given formula $\phi$." alt="" coords="415,153,505,179"/>
+<area shape="poly" id="edge12_Node000001_Node000007" title=" " alt="" coords="542,137,496,155,494,150,540,132"/>
+<area shape="rect" id="Node000008" href="$_task6_8c.html#a686962f85e00c08f6040312732974e4b" title="Converts a formula to Negation Normal Form (NNF)." alt="" coords="295,188,344,213"/>
+<area shape="poly" id="edge17_Node000001_Node000008" title=" " alt="" coords="572,141,543,170,506,194,463,206,418,210,345,207,345,201,418,205,462,201,504,189,540,166,568,138"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="343,28,335,22,320,20,305,22,298,26,296,32,300,39,295,42,291,32,294,23,304,17,320,14,337,17,346,24"/>
+<area shape="rect" id="Node000003" href="$_task6_8c.html#a85ccaa203611107094401f69fead7bdf" title="Driver function for converting an arbitrary formula to Conjunctive Normal Form (CNF)." alt="" coords="103,114,224,140"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="283,74,194,116,192,111,280,69"/>
+<area shape="rect" id="Node000004" href="$_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="&lt; For get_clause_count, convertCnfToInfix" alt="" coords="5,114,55,140"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="87,130,55,130,55,124,87,124"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="413,64,345,58,345,53,414,58"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="481,39,474,33,460,30,447,32,440,37,438,42,442,50,437,52,433,43,436,34,445,27,460,25,476,28,485,34"/>
+<area shape="poly" id="edge10_Node000006_Node000003" title=" " alt="" coords="256,130,224,130,224,124,256,124"/>
+<area shape="poly" id="edge11_Node000006_Node000006" title=" " alt="" coords="343,101,335,95,320,93,305,95,298,99,296,105,300,113,295,115,291,106,294,96,304,90,320,88,337,90,346,97"/>
+<area shape="poly" id="edge13_Node000007_Node000006" title=" " alt="" coords="400,152,367,143,369,138,401,147"/>
+<area shape="poly" id="edge14_Node000007_Node000008" title=" " alt="" coords="401,183,346,197,344,192,400,178"/>
+<area shape="poly" id="edge15_Node000008_Node000003" title=" " alt="" coords="280,185,192,143,194,138,283,180"/>
+<area shape="poly" id="edge16_Node000008_Node000008" title=" " alt="" coords="343,175,335,169,320,166,305,168,298,173,296,178,300,186,295,188,291,179,294,170,304,163,320,161,337,164,346,170"/>
+</map>

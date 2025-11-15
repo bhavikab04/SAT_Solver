@@ -1,0 +1,13 @@
+c This is a 12-variable CNF file.
+c It represents (x1 > x2) * (x3 > x4) * (x5 > x6) * (x7 > x8) * (x9 > x10) * (x11 > x12)
+c which is equivalent to 6 separate clauses:
+c (-x1 + x2)
+c (-x3 + x4)
+c ...etc
+p cnf 12 6
+-1 2 0
+-3 4 0
+-5 6 0
+-7 8 0
+-9 10 0
+-11 12 0
